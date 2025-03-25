@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "PretendardVariable";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/PretendardVariable.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "chnam";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/chnam.ttf") format("ttf");
+}
+
+@mixin font($size, $weight, $height) {
+  font-family: "PretendardVariable";
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin chnamFont($size, $weight, $height) {
+  font-family: "chnam";
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+}
