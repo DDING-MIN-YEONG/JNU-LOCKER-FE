@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/_reset.scss";
+import Providers from "@/components/common/Providers/Providers";
 
 export const metadata: Metadata = {
   title: "전남대학교 사물함 신청 서비스",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
