@@ -13,7 +13,6 @@
 }
 
 @mixin font($size, $weight, $height) {
-  font-family: "PretendardVariable";
   font-size: $size;
   font-style: normal;
   font-weight: $weight;
