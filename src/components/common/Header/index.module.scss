@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  height: 6rem;
+  background-color: $primary;
+  @include flexSort(row, null, center, null);
+  @include chnamFont(2.6rem, 400, normal);
+}
+
+.logo {
+  color: white;
+  margin-left: 7.4rem;
+}
