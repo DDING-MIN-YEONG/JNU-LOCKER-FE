@@ -11,7 +11,7 @@ import useRegisterInfo from "@/hooks/sign-up/useRegisterInfo";
 const cn = classNames.bind(styles);
 
 export default function RegisterInfoForm() {
-  const { formAction, formData, onChange, error, onPrevBtnClick, onNextBtnClick } = useRegisterInfo();
+  const { formAction, formData, onChange, error, onPrevBtnClick } = useRegisterInfo();
 
   return (
     <form onSubmit={formAction} className={cn("form")}>
@@ -61,7 +61,7 @@ export default function RegisterInfoForm() {
         <Button color="white" onClick={onPrevBtnClick} type="button" className={cn("nextBtn")}>
           이전
         </Button>
-        <Button onClick={onNextBtnClick} type="submit" className={cn("nextBtn")}>
+        <Button type="submit" className={cn("nextBtn")}>
           완료
         </Button>
       </div>

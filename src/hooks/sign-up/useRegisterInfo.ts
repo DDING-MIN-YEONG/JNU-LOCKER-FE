@@ -54,17 +54,12 @@ const useRegisterInfo = () => {
     router.push(ROUTE.SIGN_UP);
   };
 
-  const onNextBtnClick = () => {
-    router.push(ROUTE.MAIN);
-  };
-
   return {
     formAction,
     formData,
     onChange,
     error,
     onPrevBtnClick,
-    onNextBtnClick,
   };
 };
 
