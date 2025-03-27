@@ -1,0 +1,40 @@
+.form {
+  @include flexSort(column, null, center, null);
+}
+
+.imgContainer {
+  border-radius: 3rem;
+  border: 0.3rem solid hsl(0, 0%, 0%);
+  @include flexSort(row, center, center, null);
+  width: 22rem;
+  height: 12rem;
+  margin: 4rem 0;
+}
+
+.inputContainer {
+  width: 100%;
+  @include flexSort(column, center, center, 2rem);
+}
+
+.certificationBtn {
+  width: 7rem;
+  height: 5rem;
+  @include font(1.3rem, 700, normal);
+}
+
+.errorMessage {
+  margin-top: 2rem;
+  @include font(1.3rem, 400, normal);
+  color: red;
+}
+
+.btnContainer {
+  margin-top: 5rem;
+  @include flexSort(row, center, null, 2rem);
+}
+
+.nextBtn {
+  width: 12rem;
+  height: 5rem;
+  @include font(1.5rem, 500, normal);
+}
