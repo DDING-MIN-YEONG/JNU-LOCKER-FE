@@ -1,0 +1,15 @@
+.white {
+  color: black;
+  background-color: white;
+}
+
+.primary {
+  color: white;
+  background-color: $primary;
+}
+
+.button {
+  @include flexSort(row, center, center, null);
+  border-radius: 1rem;
+  border: 0.1rem solid $primary;
+}
