@@ -65,7 +65,11 @@ export default function SignUpForm() {
           onChange={onChangePasswordConfirm}
         />
       </div>
-      {isError && <p className={cn("errorMessage")}>{errorMessage}</p>}
+      {isError && (
+        <p role="alert" className={cn("errorMessage")}>
+          {errorMessage}
+        </p>
+      )}
       <div className={cn("btnContainer")}>
         <Button type="submit" className={cn("nextBtn")}>
           다음
