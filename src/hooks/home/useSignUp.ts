@@ -1,7 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constants/routes";
 
 const useSignUp = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -59,11 +62,16 @@ const useSignUp = () => {
     }));
   };
 
+  const onNextBtnClick = () => {
+    router.push(ROUTE.REGISTER_INFO);
+  };
+
   return {
     formAction,
     formData,
     onChange,
     error,
+    onNextBtnClick,
   };
 };
 
