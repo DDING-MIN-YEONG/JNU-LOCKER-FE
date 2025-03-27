@@ -55,7 +55,7 @@ const useRegisterInfo = () => {
   };
 
   const onNextBtnClick = () => {
-    router.push(ROUTE.REGISTER_INFO);
+    router.push(ROUTE.MAIN);
   };
 
   return {
