@@ -12,7 +12,7 @@ export default function SignUpForm() {
   const { formAction, formData, onChange, error, onNextBtnClick } = useSignUp();
 
   return (
-    <form onSubmit={formAction}>
+    <form onSubmit={formAction} className={cn("form")}>
       <div className={cn("inputContainer")}>
         <TextInput
           containerClassName={cn("emailInputContainer")}
