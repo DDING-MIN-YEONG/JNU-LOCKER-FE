@@ -28,7 +28,7 @@ export default function SignUpForm() {
       <div className={cn("inputContainer")}>
         <TextInput
           containerClassName={cn("emailInputContainer")}
-          id="이메일"
+          id="email"
           type="email"
           label="전남대학교 이메일"
           placeholder="이메일을 입력해주세요."
@@ -39,7 +39,7 @@ export default function SignUpForm() {
         </TextInput>
         <TextInput
           containerClassName={cn("emailInputContainer")}
-          id="인증번호"
+          id="certificationNumber"
           type="text"
           label="인증번호 입력"
           placeholder="인증번호를 입력해주세요."
@@ -49,7 +49,7 @@ export default function SignUpForm() {
           <Button className={cn("certificationBtn")}>인증하기</Button>
         </TextInput>
         <TextInput
-          id="비밀번호"
+          id="password"
           type="password"
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요."
@@ -57,7 +57,7 @@ export default function SignUpForm() {
           onChange={onChangePassword}
         />
         <TextInput
-          id="비밀번호 확인"
+          id="passwordConfirm"
           type="password"
           label="비밀번호 확인"
           placeholder="비밀번호를 다시 입력해주세요."
