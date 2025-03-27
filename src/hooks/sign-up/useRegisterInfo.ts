@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { phoneNumberReplace } from "@/utils/replacer";
+import { REGISTER_INFO } from "@/constants/error";
 
 const useRegisterInfo = () => {
   const router = useRouter();
@@ -17,23 +18,19 @@ const useRegisterInfo = () => {
   });
 
   const validateForm = () => {
-    if (!formData.name) {
-      return "이름을 입력해 주세요.";
+    for (const [key, errorMessage] of Object.entries(REGISTER_INFO)) {
+      if (!formData[key as keyof typeof formData]) {
+        return errorMessage;
+      }
     }
-    if (!formData.affiliation) {
-      return "소속 대학을 입력해 주세요.";
-    }
-    if (!formData.department) {
-      return "소속 학과를 입력해 주세요.";
-    }
-    if (!formData.phoneNumber) {
-      return "전화번호를 입력해 주세요.";
-    }
+
     return null;
   };
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError({ isError: false, errorMessage: "" });
+
     const errorMessage = validateForm();
     if (errorMessage) {
       setError({ isError: true, errorMessage: errorMessage });
@@ -41,25 +38,16 @@ const useRegisterInfo = () => {
       return;
     }
     // TODO : useMutation을 사용하여 회원가입 API 호출
-    setError({ isError: false, errorMessage: "" });
     alert("회원가입이 완료되었습니다!");
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
 
-    if (id === "phoneNumber") {
-      const replacedValue = phoneNumberReplace(value);
-      setFormData((prev) => ({
-        ...prev,
-        [id]: replacedValue,
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [id]: value,
-      }));
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [id]: id === "phoneNumber" ? phoneNumberReplace(value) : value,
+    }));
   };
 
   const onPrevBtnClick = () => {
