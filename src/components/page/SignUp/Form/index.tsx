@@ -35,7 +35,9 @@ export default function SignUpForm() {
           value={email}
           onChange={onChangeEmail}
         >
-          <Button className={cn("certificationBtn")}>메일전송</Button>
+          <Button type="button" className={cn("certificationBtn")}>
+            메일전송
+          </Button>
         </TextInput>
         <TextInput
           containerClassName={cn("emailInputContainer")}
@@ -46,7 +48,9 @@ export default function SignUpForm() {
           value={certificationNumber}
           onChange={onChangeCertificationNumber}
         >
-          <Button className={cn("certificationBtn")}>인증하기</Button>
+          <Button type="button" className={cn("certificationBtn")}>
+            인증하기
+          </Button>
         </TextInput>
         <TextInput
           id="password"
