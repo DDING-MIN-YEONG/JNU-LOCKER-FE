@@ -9,19 +9,7 @@ import useSignUp from "@/hooks/home/useSignUp";
 const cn = classNames.bind(styles);
 
 export default function SignUpForm() {
-  const {
-    email,
-    errorMessage,
-    formAction,
-    isError,
-    onChangeEmail,
-    onChangePassword,
-    onChangePasswordConfirm,
-    password,
-    passwordConfirm,
-    certificationNumber,
-    onChangeCertificationNumber,
-  } = useSignUp();
+  const { formAction, formData, onChange, error } = useSignUp();
 
   return (
     <form onSubmit={formAction}>
@@ -32,8 +20,8 @@ export default function SignUpForm() {
           type="email"
           label="전남대학교 이메일"
           placeholder="이메일을 입력해주세요."
-          value={email}
-          onChange={onChangeEmail}
+          value={formData.email}
+          onChange={onChange}
         >
           <Button type="button" className={cn("certificationBtn")}>
             메일전송
@@ -45,8 +33,8 @@ export default function SignUpForm() {
           type="text"
           label="인증번호 입력"
           placeholder="인증번호를 입력해주세요."
-          value={certificationNumber}
-          onChange={onChangeCertificationNumber}
+          value={formData.certificationNumber}
+          onChange={onChange}
         >
           <Button type="button" className={cn("certificationBtn")}>
             인증하기
@@ -57,21 +45,21 @@ export default function SignUpForm() {
           type="password"
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요."
-          value={password}
-          onChange={onChangePassword}
+          value={formData.password}
+          onChange={onChange}
         />
         <TextInput
           id="passwordConfirm"
           type="password"
           label="비밀번호 확인"
           placeholder="비밀번호를 다시 입력해주세요."
-          value={passwordConfirm}
-          onChange={onChangePasswordConfirm}
+          value={formData.passwordConfirm}
+          onChange={onChange}
         />
       </div>
-      {isError && (
+      {error.isError && (
         <p role="alert" className={cn("errorMessage")}>
-          {errorMessage}
+          {error.errorMessage}
         </p>
       )}
       <div className={cn("btnContainer")}>
