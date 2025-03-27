@@ -4,15 +4,15 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/SignUp/Form/index.module.scss";
-import useSignUp from "@/hooks/home/useSignUp";
+import useSignUp from "@/hooks/sign-up/useSignUp";
 
 const cn = classNames.bind(styles);
 
 export default function SignUpForm() {
-  const { formAction, formData, onChange, error } = useSignUp();
+  const { formAction, formData, onChange, error, onNextBtnClick } = useSignUp();
 
   return (
-    <form onSubmit={formAction}>
+    <form onSubmit={formAction} className={cn("form")}>
       <div className={cn("inputContainer")}>
         <TextInput
           containerClassName={cn("emailInputContainer")}
@@ -63,7 +63,7 @@ export default function SignUpForm() {
         </p>
       )}
       <div className={cn("btnContainer")}>
-        <Button type="submit" className={cn("nextBtn")}>
+        <Button onClick={onNextBtnClick} type="submit" className={cn("nextBtn")}>
           다음
         </Button>
       </div>

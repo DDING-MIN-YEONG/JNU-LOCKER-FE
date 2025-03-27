@@ -2,13 +2,18 @@
   @include flexSort(column, null, center, null);
 }
 
-.inputContainer {
-  @include flexSort(column, center, center, 2rem);
+.imgContainer {
+  border-radius: 3rem;
+  border: 0.3rem solid hsl(0, 0%, 0%);
+  @include flexSort(row, center, center, null);
+  width: 22rem;
+  height: 12rem;
+  margin: 4rem 0;
 }
 
-.emailInputContainer {
-  @include flexSort(row, null, flex-end, 1rem);
+.inputContainer {
   width: 100%;
+  @include flexSort(column, center, center, 2rem);
 }
 
 .certificationBtn {
@@ -25,6 +30,7 @@
 
 .btnContainer {
   margin-top: 5rem;
+  @include flexSort(row, center, null, 2rem);
 }
 
 .nextBtn {
