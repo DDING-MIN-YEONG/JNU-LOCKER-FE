@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
+import { SIGN_UP } from "@/constants/error";
 
 const useSignUp = () => {
   const router = useRouter();
@@ -17,18 +18,12 @@ const useSignUp = () => {
   });
 
   const validateForm = () => {
-    if (!formData.email) {
-      return "이메일을 입력해 주세요.";
+    for (const [key, errorMessage] of Object.entries(SIGN_UP)) {
+      if (!formData[key as keyof typeof formData]) {
+        return errorMessage;
+      }
     }
-    if (!formData.certificationNumber) {
-      return "인증번호를 입력해 주세요.";
-    }
-    if (!formData.password) {
-      return "비밀번호를 입력해 주세요.";
-    }
-    if (!formData.passwordConfirm) {
-      return "비밀번호 확인을 입력해 주세요.";
-    }
+
     if (!isEmail(formData.email)) {
       return "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.";
     }
@@ -43,6 +38,8 @@ const useSignUp = () => {
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError({ isError: false, errorMessage: "" });
+
     const errorMessage = validateForm();
     if (errorMessage) {
       setError({ isError: true, errorMessage: errorMessage });
@@ -50,7 +47,6 @@ const useSignUp = () => {
       return;
     }
     // TODO : useMutation을 사용하여 회원가입 API 호출
-    setError({ isError: false, errorMessage: "" });
     alert("회원가입이 완료되었습니다!");
   };
 
