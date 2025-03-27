@@ -4,7 +4,7 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/SignUp/Form/index.module.scss";
-import useSignUp from "@/hooks/home/useSignUp";
+import useSignUp from "@/hooks/sign-up/useSignUp";
 
 const cn = classNames.bind(styles);
 
