@@ -1,0 +1,13 @@
+.label {
+  width: 100%;
+  @include font(1.5rem, 500, normal);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  height: 5rem;
+  padding: 1rem;
+  @include font(1.7rem, 500, normal);
+}
