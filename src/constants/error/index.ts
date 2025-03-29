@@ -11,3 +11,8 @@ export const SIGN_UP = {
   password: "비밀번호를 입력해 주세요.",
   passwordConfirm: "비밀번호 확인을 입력해 주세요.",
 };
+
+export const SIGN_IN = {
+  email: "이메일을 입력해 주세요.",
+  password: "비밀번호를 입력해 주세요.",
+};
