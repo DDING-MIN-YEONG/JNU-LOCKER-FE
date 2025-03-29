@@ -1,13 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
-import { SIGN_UP } from "@/constants/error";
+import { SIGN_IN } from "@/constants/error";
 
-const useSignUp = () => {
+const useSignIn = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    passwordConfirm: "",
-    certificationNumber: "",
   });
   const [error, setError] = useState({
     isError: false,
@@ -15,7 +13,7 @@ const useSignUp = () => {
   });
 
   const validateForm = () => {
-    for (const [key, errorMessage] of Object.entries(SIGN_UP)) {
+    for (const [key, errorMessage] of Object.entries(SIGN_IN)) {
       if (!formData[key as keyof typeof formData]) {
         return errorMessage;
       }
@@ -27,9 +25,7 @@ const useSignUp = () => {
     if (!isPassword(formData.password)) {
       return "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.";
     }
-    if (formData.password !== formData.passwordConfirm) {
-      return "비밀번호와 비밀번호 확인은 일치해야 합니다.";
-    }
+
     return null;
   };
 
@@ -43,8 +39,10 @@ const useSignUp = () => {
       alert(errorMessage);
       return;
     }
+    // TODO : useMutation을 사용하여 로그인 API 호출
+    // TODO : 로그인 API 호출 성공 시 페이지 이동
 
-    alert("기본 정보 등록을 위한 페이지로 이동합니다.");
+    alert("로그인에 성공했습니다.");
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,4 +61,4 @@ const useSignUp = () => {
   };
 };
 
-export default useSignUp;
+export default useSignIn;
