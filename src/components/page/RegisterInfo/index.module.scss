@@ -1,0 +1,5 @@
+.imgContainer {
+  margin-top: 7rem;
+  @include flexSort(row, center, center, null);
+  margin-bottom: 5.8rem;
+}

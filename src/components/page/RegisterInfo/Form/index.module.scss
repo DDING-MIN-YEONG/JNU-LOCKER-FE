@@ -2,15 +2,6 @@
   @include flexSort(column, null, center, null);
 }
 
-.imgContainer {
-  border-radius: 3rem;
-  border: 0.3rem solid hsl(0, 0%, 0%);
-  @include flexSort(row, center, center, null);
-  width: 22rem;
-  height: 12rem;
-  margin: 4rem 0;
-}
-
 .inputContainer {
   width: 100%;
   @include flexSort(column, center, center, 2rem);
