@@ -4,8 +4,7 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/RegisterInfo/Form/index.module.scss";
-import Image from "next/image";
-import Picture from "@/icons/picture.svg";
+
 import useRegisterInfo from "@/hooks/sign-up/useRegisterInfo";
 
 const cn = classNames.bind(styles);
@@ -15,9 +14,6 @@ export default function RegisterInfoForm() {
 
   return (
     <form onSubmit={formAction} className={cn("form")}>
-      <div className={cn("imgContainer")}>
-        <Image src={Picture} alt="학생증 인식" width={60} height={60} />
-      </div>
       <div className={cn("inputContainer")}>
         <TextInput
           id="name"
