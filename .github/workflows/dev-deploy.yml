@@ -13,41 +13,36 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: apk add --no-cache jq ruby && gem install mustache
+      - name: Install mustache (to update the date)
+
+        run: apk add ruby && gem install mustache
 
       - name: creates output
+
         run: sh ./build.sh
 
-      - name: Generate original commit message
-        id: generate_commit_message
-        run: |
-          # 커밋 메시지가 하나만 있을 경우 그대로 사용
-          COMMIT_COUNT=$(jq -r '.commits | length' <<< "${{ toJson(github.event.commits) }}")
-          if [ "$COMMIT_COUNT" -eq 1 ]; then
-            COMMIT_MSG=$(jq -r '.commits[0].message' <<< "${{ toJson(github.event.commits) }}")
-          else
-            # 여러 커밋이 있을 경우, 개행으로 구분하여 결합
-            COMMIT_MSG=$(jq -r '.commits[].message' <<< "${{ toJson(github.event.commits) }}" | tr '\n' ' ' | sed 's/ /\\n/g')
-          fi
-
-          echo "combined_message<<EOF" >> $GITHUB_OUTPUT
-          echo "$COMMIT_MSG" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-        shell: bash
-
       - name: Pushes to another repository
+
         id: push_directory
+
         uses: cpina/github-action-push-to-another-repository@main
+
         env:
           API_TOKEN_GITHUB: ${{ secrets.AUTO_ACTIONS }}
+
         with:
           source-directory: "output"
+
           destination-github-username: "smb0123"
+
           destination-repository-name: "JNU-LOCKER-FE"
+
           user-email: ${{ secrets.EMAIL }}
-          commit-message: ${{ steps.generate_commit_message.outputs.combined_message }}
+
+          commit-message: ${{ github.event.commits[0].message }}
+
           target-branch: dev
 
       - name: Test get variable exported by push-to-another-repository
+
         run: echo $DESTINATION_CLONED_DIRECTORY
