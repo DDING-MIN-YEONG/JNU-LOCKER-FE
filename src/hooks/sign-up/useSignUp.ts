@@ -1,11 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
-import { useRouter } from "next/navigation";
-import { ROUTE } from "@/constants/routes";
 import { SIGN_UP } from "@/constants/error";
 
 const useSignUp = () => {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -46,8 +43,8 @@ const useSignUp = () => {
       alert(errorMessage);
       return;
     }
-    // TODO : useMutation을 사용하여 회원가입 API 호출
-    alert("회원가입이 완료되었습니다!");
+
+    alert("기본 정보 등록을 위한 페이지로 이동합니다.");
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,16 +55,11 @@ const useSignUp = () => {
     }));
   };
 
-  const onNextBtnClick = () => {
-    router.push(ROUTE.REGISTER_INFO);
-  };
-
   return {
     formAction,
     formData,
     onChange,
     error,
-    onNextBtnClick,
   };
 };
 

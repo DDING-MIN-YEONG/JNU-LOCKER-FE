@@ -9,7 +9,7 @@ import useSignUp from "@/hooks/sign-up/useSignUp";
 const cn = classNames.bind(styles);
 
 export default function SignUpForm() {
-  const { formAction, formData, onChange, error, onNextBtnClick } = useSignUp();
+  const { formAction, formData, onChange, error } = useSignUp();
 
   return (
     <form onSubmit={formAction} className={cn("form")}>
@@ -63,7 +63,7 @@ export default function SignUpForm() {
         </p>
       )}
       <div className={cn("btnContainer")}>
-        <Button onClick={onNextBtnClick} type="submit" className={cn("nextBtn")}>
+        <Button type="submit" className={cn("nextBtn")}>
           다음
         </Button>
       </div>
