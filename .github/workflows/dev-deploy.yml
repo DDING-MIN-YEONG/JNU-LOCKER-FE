@@ -13,20 +13,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install mustache (to update the date)
-        run: apk add ruby && gem install mustache
+      - name: Install dependencies
+        run: apk add --no-cache jq ruby && gem install mustache
 
       - name: creates output
         run: sh ./build.sh
 
-      - name: Generate combined commit message
+      - name: Generate original commit message
         id: generate_commit_message
         run: |
-          echo "Combined commit message:" > combined_message.txt
-          for commit in $(jq -r '.commits[].message' <<< "${{ toJson(github.event.commits) }}"); do
-            echo "- $commit" >> combined_message.txt
-          done
-          cat combined_message.txt
+          # 커밋 메시지가 하나만 있을 경우 그대로 사용
+          COMMIT_COUNT=$(jq -r '.commits | length' <<< "${{ toJson(github.event.commits) }}")
+          if [ "$COMMIT_COUNT" -eq 1 ]; then
+            COMMIT_MSG=$(jq -r '.commits[0].message' <<< "${{ toJson(github.event.commits) }}")
+          else
+            # 여러 커밋이 있을 경우, 개행으로 구분하여 결합
+            COMMIT_MSG=$(jq -r '.commits[].message' <<< "${{ toJson(github.event.commits) }}" | tr '\n' ' ' | sed 's/ /\\n/g')
+          fi
+
+          echo "combined_message<<EOF" >> $GITHUB_OUTPUT
+          echo "$COMMIT_MSG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
         shell: bash
 
       - name: Pushes to another repository
