@@ -14,35 +14,33 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install mustache (to update the date)
-
         run: apk add ruby && gem install mustache
 
       - name: creates output
-
         run: sh ./build.sh
 
+      - name: Generate combined commit message
+        id: generate_commit_message
+        run: |
+          echo "Combined commit message:" > combined_message.txt
+          for commit in $(jq -r '.commits[].message' <<< "${{ toJson(github.event.commits) }}"); do
+            echo "- $commit" >> combined_message.txt
+          done
+          cat combined_message.txt
+        shell: bash
+
       - name: Pushes to another repository
-
         id: push_directory
-
         uses: cpina/github-action-push-to-another-repository@main
-
         env:
           API_TOKEN_GITHUB: ${{ secrets.AUTO_ACTIONS }}
-
         with:
           source-directory: "output"
-
           destination-github-username: "smb0123"
-
           destination-repository-name: "JNU-LOCKER-FE"
-
           user-email: ${{ secrets.EMAIL }}
-
-          commit-message: ${{ github.event.commits[0].message }}
-
+          commit-message: ${{ steps.generate_commit_message.outputs.combined_message }}
           target-branch: dev
 
       - name: Test get variable exported by push-to-another-repository
-
         run: echo $DESTINATION_CLONED_DIRECTORY
