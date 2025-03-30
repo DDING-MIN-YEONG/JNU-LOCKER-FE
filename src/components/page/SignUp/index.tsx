@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "@/components/page/SignUp/index.module.scss";
 
 import SignUpForm from "@/components/page/SignUp/Form/index";
-import SignUpLayout from "@/components/page/SignUp/Layout/index";
+import SignUpLayout from "@/components/Layout/SignUpLayout/index";
 import ChnamLogo from "@/components/common/ChnamLogo";
 
 const cn = classNames.bind(styles);

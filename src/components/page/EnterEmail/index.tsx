@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "@/components/page/EnterEmail/index.module.scss";
-import SignUpLayout from "@/components/page/SignUp/Layout/index";
+import SignUpLayout from "@/components/Layout/SignUpLayout/index";
 import ChnamLogo from "@/components/common/ChnamLogo";
 import EnterEmailForm from "@/components/page/EnterEmail/Form/index";
 
