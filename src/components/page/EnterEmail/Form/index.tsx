@@ -4,7 +4,7 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/EnterEmail/Form/index.module.scss";
-import useEnterEmail from "@/hooks/enter-email";
+import useEnterEmail from "@/hooks/enter-email/useEnterEmail";
 
 const cn = classNames.bind(styles);
 

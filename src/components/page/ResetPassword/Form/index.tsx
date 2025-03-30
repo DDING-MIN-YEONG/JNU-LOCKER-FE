@@ -4,7 +4,7 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/common/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/ResetPassword/Form/index.module.scss";
-import useResetPassword from "@/hooks/reset-password";
+import useResetPassword from "@/hooks/reset-password/useResetPassword";
 
 const cn = classNames.bind(styles);
 
