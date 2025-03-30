@@ -3,5 +3,5 @@ export const ROUTE = {
   SIGN_UP: "/sign-up",
   REGISTER_INFO: "/sign-up/register-info",
   DEPARTMENT_INFO: "/department-info",
-  ENTER_EMAIL: "/reset-password/enter-email",
+  ENTER_EMAIL: "/enter-email",
 };
