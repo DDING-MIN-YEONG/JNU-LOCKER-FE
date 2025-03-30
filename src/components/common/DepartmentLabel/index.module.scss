@@ -1,0 +1,8 @@
+.container {
+  @include font(2rem, 500, normal);
+  padding: 0.8rem 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  width: fit-content;
+}
