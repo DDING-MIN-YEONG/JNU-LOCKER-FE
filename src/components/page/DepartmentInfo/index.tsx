@@ -6,7 +6,7 @@ import styles from "@/components/page/DepartmentInfo/index.module.scss";
 
 const cn = classNames.bind(styles);
 
-export default function DepartMentInfo() {
+export default function DepartmentInfo() {
   return (
     <DepartmentLayout affiliation="공과대학" department="컴퓨터정보통신공학과">
       <div className={cn("container")}>

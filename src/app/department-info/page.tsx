@@ -1,5 +1,5 @@
-import DepartMentInfo from "@/components/page/DepartmentInfo";
+import DepartmentInfo from "@/components/page/DepartmentInfo";
 
-export default function DepartMentInfoPage() {
-  return <DepartMentInfo />;
+export default function DepartmentInfoPage() {
+  return <DepartmentInfo />;
 }
