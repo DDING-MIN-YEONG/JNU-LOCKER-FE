@@ -16,7 +16,7 @@ export default function Main() {
       <SignInForm />
       <div className={cn("linkContainer")}>
         <Link href={ROUTE.SIGN_UP}>회원가입</Link>
-        <Link href={ROUTE.SIGN_UP}>비밀번호 재설정</Link>
+        <Link href={ROUTE.ENTER_EMAIL}>비밀번호 재설정</Link>
       </div>
     </div>
   );
