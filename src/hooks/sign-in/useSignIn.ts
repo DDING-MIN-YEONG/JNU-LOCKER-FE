@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
-import { SIGN_IN } from "@/constants/error";
+import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
 
 const useSignIn = () => {
   const [formData, setFormData] = useState({
@@ -13,17 +13,19 @@ const useSignIn = () => {
   });
 
   const validateForm = () => {
-    for (const [key, errorMessage] of Object.entries(SIGN_IN)) {
-      if (!formData[key as keyof typeof formData]) {
-        return errorMessage;
+    const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
+    for (const field of fields) {
+      if (!formData[field]) {
+        return SIGN_IN[field][VALIDATION_TYPES.REQUIRED];
       }
     }
 
     if (!isEmail(formData.email)) {
-      return "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.";
+      return SIGN_IN.email[VALIDATION_TYPES.FORMAT];
     }
+
     if (!isPassword(formData.password)) {
-      return "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.";
+      return SIGN_IN.password[VALIDATION_TYPES.FORMAT];
     }
 
     return null;

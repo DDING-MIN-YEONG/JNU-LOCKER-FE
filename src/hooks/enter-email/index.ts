@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail } from "@/utils/validator";
-import { ENTER_EMAIL } from "@/constants/error";
+import { ENTER_EMAIL, VALIDATION_TYPES } from "@/constants/error";
 
 const useEnterEmail = () => {
   const [formData, setFormData] = useState({
@@ -12,14 +12,15 @@ const useEnterEmail = () => {
   });
 
   const validateForm = () => {
-    for (const [key, errorMessage] of Object.entries(ENTER_EMAIL)) {
-      if (!formData[key as keyof typeof formData]) {
-        return errorMessage;
+    const fields = Object.keys(ENTER_EMAIL) as Array<keyof typeof ENTER_EMAIL>;
+    for (const field of fields) {
+      if (!formData[field]) {
+        return ENTER_EMAIL[field][VALIDATION_TYPES.REQUIRED];
       }
     }
 
     if (!isEmail(formData.email)) {
-      return "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.";
+      return ENTER_EMAIL.email[VALIDATION_TYPES.FORMAT];
     }
 
     return null;

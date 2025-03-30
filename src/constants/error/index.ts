@@ -1,22 +1,56 @@
+export const VALIDATION_TYPES = {
+  REQUIRED: "required",
+  FORMAT: "format",
+  MATCH: "match",
+};
+
 export const REGISTER_INFO = {
-  name: "이름을 입력해 주세요.",
-  affiliation: "소속 대학을 입력해 주세요.",
-  department: "소속 학과를 입력해 주세요.",
-  phoneNumber: "전화번호를 입력해 주세요.",
+  name: {
+    [VALIDATION_TYPES.REQUIRED]: "이름을 입력해 주세요.",
+  },
+  affiliation: {
+    [VALIDATION_TYPES.REQUIRED]: "소속 대학을 입력해 주세요.",
+  },
+  department: {
+    [VALIDATION_TYPES.REQUIRED]: "소속 학과를 입력해 주세요.",
+  },
+  phoneNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "전화번호를 입력해 주세요.",
+  },
 };
 
 export const SIGN_UP = {
-  email: "이메일을 입력해 주세요.",
-  certificationNumber: "인증번호를 입력해 주세요.",
-  password: "비밀번호를 입력해 주세요.",
-  passwordConfirm: "비밀번호 확인을 입력해 주세요.",
+  email: {
+    [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
+  },
+  certificationNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "인증번호를 입력해 주세요.",
+  },
+  password: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호를 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.",
+  },
+  passwordConfirm: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호 확인을 입력해 주세요.",
+    [VALIDATION_TYPES.MATCH]: "비밀번호와 비밀번호 확인은 일치해야 합니다.",
+  },
 };
 
 export const SIGN_IN = {
-  email: "이메일을 입력해 주세요.",
-  password: "비밀번호를 입력해 주세요.",
+  email: {
+    [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
+  },
+  password: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호를 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.",
+  },
 };
 
 export const ENTER_EMAIL = {
-  email: "이메일을 입력해 주세요.",
+  email: {
+    [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
+  },
 };
