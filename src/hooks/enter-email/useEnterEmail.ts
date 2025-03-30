@@ -37,7 +37,7 @@ const useEnterEmail = () => {
       return;
     }
 
-    alert("메일 전송에 전송하였습니다.");
+    alert("메일이 전송되었습니다. 입력하신 메일을 확인해주세요.");
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
