@@ -54,3 +54,14 @@ export const ENTER_EMAIL = {
     [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
   },
 };
+
+export const RESET_PASSWORD = {
+  password: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호를 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.",
+  },
+  passwordConfirm: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호 확인을 입력해 주세요.",
+    [VALIDATION_TYPES.MATCH]: "비밀번호와 비밀번호 확인은 일치해야 합니다.",
+  },
+};
