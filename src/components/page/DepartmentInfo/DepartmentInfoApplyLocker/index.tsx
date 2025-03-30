@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
-import styles from "@/components/page/DepartmentInfo/ApplyLocker/index.module.scss";
+import styles from "@/components/page/DepartmentInfo/DepartmentInfoApplyLocker/index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 
 const cn = classNames.bind(styles);
 
-export default function ApplyLocker() {
+export default function DepartmentInfoApplyLocker() {
   return (
     <div className={cn("container")}>
       <p className={cn("title")}>사물함 신청</p>
