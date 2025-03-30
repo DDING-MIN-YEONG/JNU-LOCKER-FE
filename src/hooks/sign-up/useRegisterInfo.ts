@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { phoneNumberReplace } from "@/utils/replacer";
-import { REGISTER_INFO } from "@/constants/error";
+import { REGISTER_INFO, VALIDATION_TYPES } from "@/constants/error";
 
 const useRegisterInfo = () => {
   const router = useRouter();
@@ -18,9 +18,10 @@ const useRegisterInfo = () => {
   });
 
   const validateForm = () => {
-    for (const [key, errorMessage] of Object.entries(REGISTER_INFO)) {
-      if (!formData[key as keyof typeof formData]) {
-        return errorMessage;
+    const fields = Object.keys(REGISTER_INFO) as Array<keyof typeof REGISTER_INFO>;
+    for (const field of fields) {
+      if (!formData[field]) {
+        return REGISTER_INFO[field][VALIDATION_TYPES.REQUIRED];
       }
     }
 

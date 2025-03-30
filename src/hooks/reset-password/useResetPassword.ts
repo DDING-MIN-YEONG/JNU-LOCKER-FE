@@ -1,11 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { isEmail, isPassword } from "@/utils/validator";
-import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
+import { isPassword } from "@/utils/validator";
+import { RESET_PASSWORD, VALIDATION_TYPES } from "@/constants/error";
+// import useGetCodeParameter from "@/hooks/reset-password/useGetCodeParameter";
 
-const useSignIn = () => {
+const useResetPassword = () => {
+  // const code = useGetCodeParameter();
   const [formData, setFormData] = useState({
-    email: "",
     password: "",
+    passwordConfirm: "",
   });
   const [error, setError] = useState({
     isError: false,
@@ -13,21 +15,19 @@ const useSignIn = () => {
   });
 
   const validateForm = () => {
-    const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
+    const fields = Object.keys(RESET_PASSWORD) as Array<keyof typeof RESET_PASSWORD>;
     for (const field of fields) {
       if (!formData[field]) {
-        return SIGN_IN[field][VALIDATION_TYPES.REQUIRED];
+        return RESET_PASSWORD[field][VALIDATION_TYPES.REQUIRED];
       }
     }
 
-    if (!isEmail(formData.email)) {
-      return SIGN_IN.email[VALIDATION_TYPES.FORMAT];
-    }
-
     if (!isPassword(formData.password)) {
-      return SIGN_IN.password[VALIDATION_TYPES.FORMAT];
+      return RESET_PASSWORD.password[VALIDATION_TYPES.FORMAT];
     }
-
+    if (formData.password !== formData.passwordConfirm) {
+      return RESET_PASSWORD.passwordConfirm[VALIDATION_TYPES.MATCH];
+    }
     return null;
   };
 
@@ -41,10 +41,8 @@ const useSignIn = () => {
       alert(errorMessage);
       return;
     }
-    // TODO : useMutation을 사용하여 로그인 API 호출
-    // TODO : 로그인 API 호출 성공 시 페이지 이동
 
-    alert("로그인에 성공했습니다.");
+    alert("비밀번호가 재설정되었습니다.");
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,4 +61,4 @@ const useSignIn = () => {
   };
 };
 
-export default useSignIn;
+export default useResetPassword;

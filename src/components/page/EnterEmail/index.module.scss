@@ -1,0 +1,10 @@
+.imgContainer {
+  margin-top: 7rem;
+  @include flexSort(row, center, center, null);
+  margin-bottom: 5.8rem;
+}
+
+.title {
+  @include font(2rem, 700, normal);
+  margin-bottom: 3rem;
+}
