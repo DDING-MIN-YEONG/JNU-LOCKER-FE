@@ -1,0 +1,29 @@
+.container {
+  @include flexSort(column, null, null, 1.5rem);
+}
+
+.title {
+  color: #398148;
+  @include font(2.3rem, 700, normal);
+}
+
+.announcementContainer {
+  border-radius: 1rem;
+  border: 0.1rem solid #ddd;
+  padding: 2rem;
+}
+
+.announcement {
+  @include font(2rem, 400, normal);
+  @include line-clamp(2);
+}
+
+.moreLinkContainer {
+  @include flexSort(row, flex-end, null, null);
+}
+
+.moreLink {
+  @include font(1.4rem, 400, normal);
+  text-decoration-line: underline;
+  text-underline-position: from-font;
+}
