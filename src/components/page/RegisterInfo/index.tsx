@@ -1,4 +1,4 @@
-import SignUpLayout from "@/components/page/SignUp/Layout/index";
+import SignUpLayout from "@/components/Layout/SignUpLayout/index";
 import RegisterInfoForm from "@/components/page/RegisterInfo/Form/index";
 import ChnamLogo from "@/components/common/ChnamLogo";
 import classNames from "classnames/bind";
