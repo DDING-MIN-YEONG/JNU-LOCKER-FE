@@ -1,6 +1,5 @@
 .container {
   border: 0.1rem solid #e3e3e3;
-  border-radius: 1rem;
 }
 
 .header {
@@ -11,6 +10,7 @@
   padding: 0.5rem;
   border-right: 0.1rem solid #e3e3e3;
   border-bottom: 0.1rem solid #e3e3e3;
+  background-color: #f9f9f9;
 }
 
 .td {
@@ -24,6 +24,7 @@
 .deleteBtnContainer {
   @include flexSort(row, center, center, null);
   padding: 0.5rem;
+  border-bottom: 0.1rem solid #e3e3e3;
 }
 
 .deleteBtn {
