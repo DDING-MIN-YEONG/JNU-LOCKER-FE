@@ -6,3 +6,9 @@
   @include flexSort(row, center, null, null);
   margin-bottom: 3rem;
 }
+
+.label {
+  @include tablet {
+    font-size: 2.5rem !important;
+  }
+}

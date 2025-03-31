@@ -5,6 +5,10 @@
 .legendContainer {
   @include flexSort(row, null, center, 0.5rem);
   @include font(1.4rem, 500, normal);
+
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .completeColor {
@@ -12,6 +16,11 @@
   width: 1.48rem;
   height: 1.48rem;
   border-radius: 0.2rem;
+
+  @include tablet {
+    width: 2.64rem;
+    height: 2.64rem;
+  }
 }
 
 .applyAbleColor {
@@ -19,4 +28,9 @@
   width: 1.48rem;
   height: 1.48rem;
   border-radius: 0.2rem;
+
+  @include tablet {
+    width: 2.64rem;
+    height: 2.64rem;
+  }
 }

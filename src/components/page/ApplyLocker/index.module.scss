@@ -1,3 +1,9 @@
+.layout {
+  @include tablet {
+    padding: 4rem 6rem;
+  }
+}
+
 .container {
   @include flexSort(column, null, null, 3rem);
 }

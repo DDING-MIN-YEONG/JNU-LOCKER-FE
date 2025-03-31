@@ -20,6 +20,8 @@ export default function ApplyLockerForm() {
         placeholder="1순위 사물함을 입력해주세요."
         value={formData.firstPriority}
         onChange={onChange}
+        labelClassName={cn("label")}
+        className={cn("input")}
       />
       <TextInput
         id="secondPriority"
@@ -28,6 +30,8 @@ export default function ApplyLockerForm() {
         placeholder="2순위 사물함을 입력해주세요."
         value={formData.secondPriority}
         onChange={onChange}
+        labelClassName={cn("label")}
+        className={cn("input")}
       />
       <TextInput
         id="thirdPriority"
@@ -36,6 +40,8 @@ export default function ApplyLockerForm() {
         placeholder="3순위 사물함을 입력해주세요."
         value={formData.thirdPriority}
         onChange={onChange}
+        labelClassName={cn("label")}
+        className={cn("input")}
       />
       {error.isError && (
         <p role="alert" className={cn("errorMessage")}>

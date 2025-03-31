@@ -4,6 +4,10 @@
 
 .header {
   @include font(1.4rem, 400, normal);
+
+  @include tablet {
+    font-size: 1.7rem;
+  }
 }
 
 .th {
@@ -19,6 +23,10 @@
   border-right: 0.1rem solid #e3e3e3;
   border-bottom: 0.1rem solid #e3e3e3;
   padding: 0.5rem;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
 }
 
 .deleteBtnContainer {
@@ -34,4 +42,9 @@
   color: white;
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
+
+  @include tablet {
+    padding: 0.4rem 0.7rem;
+    font-size: 1.5rem;
+  }
 }

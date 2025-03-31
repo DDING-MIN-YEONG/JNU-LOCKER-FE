@@ -2,9 +2,25 @@
   @include flexSort(column, null, null, 2rem);
 }
 
+.label {
+  @include tablet {
+    font-size: 1.7rem !important;
+  }
+}
+
+.input {
+  @include tablet {
+    font-size: 1.9rem !important;
+  }
+}
+
 .errorMessage {
   @include font(1.3rem, 400, normal);
   color: red;
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
 }
 
 .btnContainer {
@@ -15,4 +31,8 @@
 .applyBtn {
   height: 5rem;
   @include font(1.7rem, 600, normal);
+
+  @include tablet {
+    font-size: 1.9rem;
+  }
 }

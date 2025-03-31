@@ -10,7 +10,7 @@ const cn = classNames.bind(styles);
 
 export default function ApplyLocker() {
   return (
-    <DepartmentLayout affiliation="공과대학" department="컴퓨터정보통신공학과">
+    <DepartmentLayout affiliation="공과대학" department="컴퓨터정보통신공학과" containerClassName={cn("layout")}>
       <div className={cn("container")}>
         <LockerApplicationStatus />
         <ApplyLockerForm />

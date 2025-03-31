@@ -9,6 +9,10 @@
   @include font(2rem, 500, normal);
   border-radius: 0.6rem 0.6rem 0 0;
   border: 0.1rem solid #e1c1c1;
+
+  @include tablet {
+    font-size: 2.3rem;
+  }
 }
 
 .selected {
