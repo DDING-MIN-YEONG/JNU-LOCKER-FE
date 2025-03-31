@@ -1,0 +1,36 @@
+.container {
+  border: 0.1rem solid #e3e3e3;
+  border-radius: 1rem;
+}
+
+.header {
+  @include font(1.4rem, 400, normal);
+}
+
+.th {
+  padding: 0.5rem;
+  border-right: 0.1rem solid #e3e3e3;
+  border-bottom: 0.1rem solid #e3e3e3;
+}
+
+.td {
+  text-align: center;
+  @include font(1.3rem, 400, normal);
+  border-right: 0.1rem solid #e3e3e3;
+  border-bottom: 0.1rem solid #e3e3e3;
+  padding: 0.5rem;
+}
+
+.deleteBtnContainer {
+  @include flexSort(row, center, center, null);
+  padding: 0.5rem;
+}
+
+.deleteBtn {
+  background-color: #ff3543;
+  @include flexSort(row, center, center, null);
+  @include font(1.2rem, 600, normal);
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
