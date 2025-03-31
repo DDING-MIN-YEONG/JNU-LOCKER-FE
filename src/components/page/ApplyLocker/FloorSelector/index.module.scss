@@ -1,0 +1,17 @@
+.container {
+  @include flexSort(row, null, null, 1rem);
+  border-bottom: 0.1rem solid #e0e0e0;
+}
+
+.floor {
+  padding: 1rem 1.5rem;
+  background-color: #f3e4e4;
+  @include font(2rem, 500, normal);
+  border-radius: 0.6rem 0.6rem 0 0;
+  border: 0.1rem solid #e1c1c1;
+}
+
+.selected {
+  background-color: white;
+  border-bottom: 0.1rem solid white;
+}
