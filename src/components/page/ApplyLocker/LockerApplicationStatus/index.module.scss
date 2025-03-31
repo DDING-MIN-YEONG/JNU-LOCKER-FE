@@ -1,0 +1,21 @@
+.container {
+  @include flexSort(column, null, null, 2rem);
+}
+
+.title {
+  color: #398148;
+  @include font(2.3rem, 700, normal);
+}
+
+.contentContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.lockerStatusContainer {
+  @include flexSort(row, flex-end, null, null);
+}
+
+.gridContainer {
+  height: 33rem;
+  overflow: scroll;
+}
