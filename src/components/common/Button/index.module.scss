@@ -1,3 +1,9 @@
+.button {
+  @include flexSort(row, center, center, null);
+  border-radius: 1rem;
+  border: 0.1rem solid $primary;
+}
+
 .white {
   color: black;
   background-color: white;
@@ -8,8 +14,8 @@
   background-color: $primary;
 }
 
-.button {
-  @include flexSort(row, center, center, null);
-  border-radius: 1rem;
-  border: 0.1rem solid $primary;
+.gray {
+  color: black;
+  background-color: #f1f1f1;
+  border: 0.1rem solid #e8e8e8;
 }
