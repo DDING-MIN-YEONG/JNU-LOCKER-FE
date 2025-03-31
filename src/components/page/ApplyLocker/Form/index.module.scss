@@ -1,0 +1,18 @@
+.container {
+  @include flexSort(column, null, null, 2rem);
+}
+
+.errorMessage {
+  @include font(1.3rem, 400, normal);
+  color: red;
+}
+
+.btnContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.saveBtn,
+.applyBtn {
+  height: 5rem;
+  @include font(1.7rem, 600, normal);
+}
