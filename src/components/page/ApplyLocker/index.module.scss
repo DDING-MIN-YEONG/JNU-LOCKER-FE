@@ -6,4 +6,17 @@
 
 .container {
   @include flexSort(column, null, null, 3rem);
+
+  @include smallDesktop {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+.formApplicationStatusContainer {
+  @include flexSort(column, null, null, 3rem);
+
+  @include smallDesktop {
+    flex: 1;
+  }
 }

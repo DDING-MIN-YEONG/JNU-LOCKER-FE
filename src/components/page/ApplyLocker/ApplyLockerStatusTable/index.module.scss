@@ -8,6 +8,10 @@
   @include tablet {
     font-size: 1.7rem;
   }
+
+  @include smallDesktop {
+    font-size: 2rem;
+  }
 }
 
 .th {
@@ -26,6 +30,10 @@
 
   @include tablet {
     font-size: 1.6rem;
+  }
+
+  @include smallDesktop {
+    font-size: 1.8rem;
   }
 }
 
@@ -46,5 +54,9 @@
   @include tablet {
     padding: 0.4rem 0.7rem;
     font-size: 1.5rem;
+  }
+
+  @include smallDesktop {
+    font-size: 1.6rem;
   }
 }

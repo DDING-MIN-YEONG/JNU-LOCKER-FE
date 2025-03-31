@@ -9,6 +9,10 @@
   @include tablet {
     font-size: 2rem;
   }
+
+  @include smallDesktop {
+    font-size: 2.3rem;
+  }
 }
 
 .completeColor {
@@ -21,6 +25,11 @@
     width: 2.64rem;
     height: 2.64rem;
   }
+
+  @include smallDesktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
 }
 
 .applyAbleColor {
@@ -32,5 +41,10 @@
   @include tablet {
     width: 2.64rem;
     height: 2.64rem;
+  }
+
+  @include smallDesktop {
+    width: 3.04rem;
+    height: 3.04rem;
   }
 }

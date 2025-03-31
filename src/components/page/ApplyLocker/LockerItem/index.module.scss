@@ -8,6 +8,10 @@
   @include tablet {
     font-size: 2.5rem;
   }
+
+  @include smallDesktop {
+    font-size: 2.8rem;
+  }
 }
 
 .complete {

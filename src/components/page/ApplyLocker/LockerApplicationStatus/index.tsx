@@ -39,6 +39,13 @@ export default function LockerApplicationStatus() {
     { status: "applyAble", lockerName: "1-7", lockerId: 21 },
     { status: "applyAble", lockerName: "1-7", lockerId: 22 },
     { status: "applyAble", lockerName: "1-7", lockerId: 23 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 24 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 25 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 26 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 27 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 28 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 29 },
+    { status: "applyAble", lockerName: "1-7", lockerId: 30 },
   ];
 
   return (
