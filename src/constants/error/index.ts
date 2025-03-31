@@ -65,3 +65,9 @@ export const RESET_PASSWORD = {
     [VALIDATION_TYPES.MATCH]: "비밀번호와 비밀번호 확인은 일치해야 합니다.",
   },
 };
+
+export const APPLY_LOCKER = {
+  firstPriority: {
+    [VALIDATION_TYPES.REQUIRED]: "신청할 사물함을 입력해 주세요.",
+  },
+};
