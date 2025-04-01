@@ -3,9 +3,6 @@
 }
 
 .title {
-  color: #398148;
-  @include font(2.3rem, 700, normal);
-
   @include tablet {
     font-size: 2.7rem;
   }

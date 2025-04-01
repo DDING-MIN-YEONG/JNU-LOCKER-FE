@@ -7,17 +7,15 @@
   margin-bottom: 11rem;
 }
 
-.title {
-  @include chnamFont(2.6rem, 400, normal);
-}
-
 .subTitle {
-  @include font(3.5rem, 500, normal);
+  font-size: 3.5rem;
 }
 
 .linkContainer {
   margin-top: 1.3rem;
-  @include font(1.5em, 400, normal);
-  opacity: 0.6;
   @include flexSort(row, space-between, null, null);
+}
+
+.link {
+  opacity: 0.6;
 }

@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "@/components/page/ApplyLocker/LockerItem/index.module.scss";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -9,5 +10,11 @@ interface LockerItemProps {
 }
 
 export default function LockerItem({ status, lockerName }: LockerItemProps) {
-  return <div className={cn("container", status)}>{lockerName}</div>;
+  return (
+    <div className={cn("container", status)}>
+      <Txt size="h4" weight="medium" color={status === "applyAble" ? "white" : "black"} className={cn("locker")}>
+        {lockerName}
+      </Txt>
+    </div>
+  );
 }

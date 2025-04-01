@@ -4,12 +4,19 @@ import styles from "@/components/page/SignUp/index.module.scss";
 import SignUpForm from "@/components/page/SignUp/Form/index";
 import SignUpLayout from "@/components/Layout/SignUpLayout/index";
 import ChnamLogo from "@/components/common/ChnamLogo";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
 export default function SignUp() {
   return (
-    <SignUpLayout title="회원가입">
+    <SignUpLayout
+      title={
+        <Txt size="h1" weight="semiBold">
+          회원가입
+        </Txt>
+      }
+    >
       <div className={cn("imgContainer")}>
         <ChnamLogo width={103} height={98} />
       </div>

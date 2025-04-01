@@ -7,16 +7,8 @@
   @include flexSort(column, center, center, 2rem);
 }
 
-.certificationBtn {
-  width: 7rem;
-  height: 5rem;
-  @include font(1.3rem, 700, normal);
-}
-
 .errorMessage {
   margin-top: 2rem;
-  @include font(1.3rem, 400, normal);
-  color: red;
 }
 
 .btnContainer {
@@ -24,8 +16,8 @@
   @include flexSort(row, center, null, 2rem);
 }
 
+.prevBtn,
 .nextBtn {
   width: 12rem;
   height: 5rem;
-  @include font(1.5rem, 500, normal);
 }

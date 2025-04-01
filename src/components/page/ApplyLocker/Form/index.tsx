@@ -4,7 +4,8 @@ import classNames from "classnames/bind";
 import styles from "@/components/page/ApplyLocker/Form/index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import useApplyLocker from "@/hooks/apply-locker/useApplyLocker";
-import Button from "@/components/common/Button";
+import Button from "@/components/design-system/Button";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -44,16 +45,20 @@ export default function ApplyLockerForm() {
         className={cn("input")}
       />
       {error.isError && (
-        <p role="alert" className={cn("errorMessage")}>
+        <Txt size="tiny" color="error" className={cn("errorMessage")}>
           {error.errorMessage}
-        </p>
+        </Txt>
       )}
       <div className={cn("btnContainer")}>
         <Button onClick={onSaveBtnClick} color="gray" className={cn("saveBtn")}>
-          임시저장
+          <Txt size="h6" weight="semiBold" className={cn("save")}>
+            임시 저장
+          </Txt>
         </Button>
         <Button onClick={onApplyBtnClick} className={cn("applyBtn")}>
-          신청하기
+          <Txt size="h6" weight="semiBold" color="white" className={cn("apply")}>
+            신청하기
+          </Txt>
         </Button>
       </div>
     </div>

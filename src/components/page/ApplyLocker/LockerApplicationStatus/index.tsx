@@ -6,6 +6,7 @@ import FloorSelector from "@/components/page/ApplyLocker/FloorSelector/index";
 import { useState } from "react";
 import LockerStatusLegend from "@/components/page/ApplyLocker/LockerStatusLegend/index";
 import LockerGrid from "@/components/page/ApplyLocker/LockerGrid/index";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -50,7 +51,9 @@ export default function LockerApplicationStatus() {
 
   return (
     <div className={cn("container")}>
-      <p className={cn("title")}>사물함 신청 현황</p>
+      <Txt color="secondary" weight="bold" size="h3" className={cn("title")}>
+        사물함 신청 현황
+      </Txt>
       <div className={cn("contentContainer")}>
         <FloorSelector floors={[1, 2, 3]} selectedFloor={selectedFloor} onSelectFloor={onSelectFloor} />
         <div className={cn("lockerStatusContainer")}>

@@ -1,10 +1,11 @@
 "use client";
 
 import TextInput from "@/components/common/TextInput";
-import Button from "@/components/common/Button";
+import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/SignUp/Form/index.module.scss";
 import useSignUp from "@/hooks/sign-up/useSignUp";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -24,7 +25,9 @@ export default function SignUpForm() {
           onChange={onChange}
         >
           <Button type="button" className={cn("certificationBtn")}>
-            메일전송
+            <Txt size="tiny" weight="bold" color="white">
+              메일전송
+            </Txt>
           </Button>
         </TextInput>
         <TextInput
@@ -37,7 +40,9 @@ export default function SignUpForm() {
           onChange={onChange}
         >
           <Button type="button" className={cn("certificationBtn")}>
-            인증하기
+            <Txt size="tiny" weight="bold" color="white">
+              인증하기
+            </Txt>
           </Button>
         </TextInput>
         <TextInput
@@ -58,13 +63,15 @@ export default function SignUpForm() {
         />
       </div>
       {error.isError && (
-        <p role="alert" className={cn("errorMessage")}>
+        <Txt size="tiny" color="error" className={cn("errorMessage")}>
           {error.errorMessage}
-        </p>
+        </Txt>
       )}
       <div className={cn("btnContainer")}>
         <Button type="submit" className={cn("nextBtn")}>
-          다음
+          <Txt size="small" color="white" weight="medium">
+            다음
+          </Txt>
         </Button>
       </div>
     </form>

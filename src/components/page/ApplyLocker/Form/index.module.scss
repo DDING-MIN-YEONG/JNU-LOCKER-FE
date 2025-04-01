@@ -31,9 +31,6 @@
 }
 
 .errorMessage {
-  @include font(1.3rem, 400, normal);
-  color: red;
-
   @include tablet {
     font-size: 1.5rem;
   }
@@ -54,8 +51,10 @@
 .saveBtn,
 .applyBtn {
   height: 5rem;
-  @include font(1.7rem, 600, normal);
+}
 
+.save,
+.apply {
   @include tablet {
     font-size: 1.9rem;
   }

@@ -14,13 +14,10 @@
 .certificationBtn {
   width: 7rem;
   height: 5rem;
-  @include font(1.3rem, 700, normal);
 }
 
 .errorMessage {
   margin-top: 2rem;
-  @include font(1.3rem, 400, normal);
-  color: red;
 }
 
 .btnContainer {
@@ -30,5 +27,4 @@
 .nextBtn {
   width: 12rem;
   height: 5rem;
-  @include font(1.5rem, 500, normal);
 }
