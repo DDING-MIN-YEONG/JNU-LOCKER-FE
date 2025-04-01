@@ -2,9 +2,19 @@
   @include flexSort(row, center, center, null);
   width: 100%;
   aspect-ratio: 2 / 1;
-  @include font(2rem, 500, normal);
   border-radius: 0.5rem;
+}
 
+.complete {
+  background-color: #cccccc;
+}
+
+.applyAble {
+  background-color: #00c571;
+  color: white;
+}
+
+.locker {
   @include tablet {
     font-size: 2.5rem;
   }
@@ -16,13 +26,4 @@
   @include desktop {
     font-size: 2.8rem;
   }
-}
-
-.complete {
-  background-color: #cccccc;
-}
-
-.applyAble {
-  background-color: #00c571;
-  color: white;
 }

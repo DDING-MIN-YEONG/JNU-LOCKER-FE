@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "@/components/page/ApplyLocker/FloorSelector/index.module.scss";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -18,7 +19,9 @@ export default function FloorSelector({ floors, onSelectFloor, selectedFloor }: 
           onClick={() => onSelectFloor(floor)}
           className={cn("floor", { selected: selectedFloor === floor })}
         >
-          {floor}층
+          <Txt size="h2" weight="medium">
+            {floor}층
+          </Txt>
         </button>
       ))}
     </div>
