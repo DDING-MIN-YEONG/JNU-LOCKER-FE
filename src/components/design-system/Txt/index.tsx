@@ -7,7 +7,7 @@ const cn = classNames.bind(styles);
 interface TxtProps {
   children: ReactNode;
   className?: string;
-  size: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "small" | "tiny";
+  size?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "small" | "tiny";
   color?: "primary" | "error" | "white" | "black";
   weight?: "normal" | "medium" | "semiBold" | "bold";
   fontType?: "basic" | "chnam";
