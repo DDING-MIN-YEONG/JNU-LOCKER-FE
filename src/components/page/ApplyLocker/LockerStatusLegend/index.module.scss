@@ -1,0 +1,64 @@
+.container {
+  @include flexSort(row, null, null, 1rem);
+}
+
+.legendContainer {
+  @include flexSort(row, null, center, 0.5rem);
+  @include font(1.4rem, 500, normal);
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include smallDesktop {
+    font-size: 2.3rem;
+  }
+
+  @include desktop {
+    font-size: 2.3rem;
+  }
+}
+
+.completeColor {
+  background-color: #cccccc;
+  width: 1.48rem;
+  height: 1.48rem;
+  border-radius: 0.2rem;
+
+  @include tablet {
+    width: 2.64rem;
+    height: 2.64rem;
+  }
+
+  @include smallDesktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
+
+  @include desktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
+}
+
+.applyAbleColor {
+  background-color: #00c571;
+  width: 1.48rem;
+  height: 1.48rem;
+  border-radius: 0.2rem;
+
+  @include tablet {
+    width: 2.64rem;
+    height: 2.64rem;
+  }
+
+  @include smallDesktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
+
+  @include desktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
+}

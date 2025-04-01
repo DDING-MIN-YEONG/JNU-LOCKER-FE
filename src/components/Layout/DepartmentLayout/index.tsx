@@ -9,13 +9,20 @@ interface DepartmentLayoutProps {
   department: string;
   affiliation: string;
   children: ReactNode;
+  containerClassName?: string;
+  labelClassName?: string;
 }
 
-export default function DepartmentLayout({ affiliation, department, children }: DepartmentLayoutProps) {
+export default function DepartmentLayout({
+  affiliation,
+  department,
+  children,
+  containerClassName,
+}: DepartmentLayoutProps) {
   return (
-    <div className={cn("container")}>
+    <div className={cn("container", containerClassName)}>
       <div className={cn("labelContainer")}>
-        <DepartmentLabel affiliation={affiliation} department={department} />
+        <DepartmentLabel affiliation={affiliation} department={department} labelClassName={cn("label")} />
       </div>
       {children}
     </div>
