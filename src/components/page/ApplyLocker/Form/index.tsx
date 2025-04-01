@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "@/components/page/ApplyLocker/Form/index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import useApplyLocker from "@/hooks/apply-locker/useApplyLocker";
-import Button from "@/components/common/Button";
+import Button from "@/components/design-system/Button";
 
 const cn = classNames.bind(styles);
 
