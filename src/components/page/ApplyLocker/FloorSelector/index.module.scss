@@ -17,6 +17,10 @@
   @include smallDesktop {
     font-size: 2.6rem;
   }
+
+  @include desktop {
+    font-size: 2.6rem;
+  }
 }
 
 .selected {

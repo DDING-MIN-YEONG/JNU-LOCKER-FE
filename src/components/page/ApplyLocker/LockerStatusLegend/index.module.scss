@@ -13,6 +13,10 @@
   @include smallDesktop {
     font-size: 2.3rem;
   }
+
+  @include desktop {
+    font-size: 2.3rem;
+  }
 }
 
 .completeColor {
@@ -30,6 +34,11 @@
     width: 3.04rem;
     height: 3.04rem;
   }
+
+  @include desktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
 }
 
 .applyAbleColor {
@@ -44,6 +53,11 @@
   }
 
   @include smallDesktop {
+    width: 3.04rem;
+    height: 3.04rem;
+  }
+
+  @include desktop {
     width: 3.04rem;
     height: 3.04rem;
   }

@@ -12,6 +12,10 @@
   @include smallDesktop {
     font-size: 2rem;
   }
+
+  @include desktop {
+    font-size: 2.2rem;
+  }
 }
 
 .th {
@@ -34,6 +38,10 @@
 
   @include smallDesktop {
     font-size: 1.8rem;
+  }
+
+  @include desktop {
+    font-size: 2rem;
   }
 }
 
@@ -58,5 +66,9 @@
 
   @include smallDesktop {
     font-size: 1.6rem;
+  }
+
+  @include desktop {
+    font-size: 1.8rem;
   }
 }

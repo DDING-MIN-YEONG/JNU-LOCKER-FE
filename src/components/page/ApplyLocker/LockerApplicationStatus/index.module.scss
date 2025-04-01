@@ -4,6 +4,10 @@
   @include smallDesktop {
     width: 60%;
   }
+
+  @include desktop {
+    width: 80rem;
+  }
 }
 
 .title {
@@ -15,6 +19,10 @@
   }
 
   @include smallDesktop {
+    font-size: 3rem;
+  }
+
+  @include desktop {
     font-size: 3rem;
   }
 }
@@ -29,6 +37,10 @@
   @include smallDesktop {
     gap: 3rem;
   }
+
+  @include desktop {
+    gap: 3rem;
+  }
 }
 
 .lockerStatusContainer {
@@ -41,6 +53,10 @@
   overflow-y: scroll;
 
   @include smallDesktop {
+    max-height: 60rem;
+  }
+
+  @include desktop {
     max-height: 60rem;
   }
 }

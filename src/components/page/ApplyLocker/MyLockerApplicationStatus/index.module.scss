@@ -13,4 +13,8 @@
   @include smallDesktop {
     font-size: 3rem;
   }
+
+  @include desktop {
+    font-size: 3rem;
+  }
 }

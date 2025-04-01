@@ -10,6 +10,10 @@
   @include smallDesktop {
     font-size: 2rem !important;
   }
+
+  @include desktop {
+    font-size: 2rem !important;
+  }
 }
 
 .input {
@@ -18,6 +22,10 @@
   }
 
   @include smallDesktop {
+    font-size: 2.1rem !important;
+  }
+
+  @include desktop {
     font-size: 2.1rem !important;
   }
 }
@@ -31,6 +39,10 @@
   }
 
   @include smallDesktop {
+    font-size: 1.7rem;
+  }
+
+  @include desktop {
     font-size: 1.7rem;
   }
 }
@@ -49,6 +61,10 @@
   }
 
   @include smallDesktop {
+    font-size: 2.1rem;
+  }
+
+  @include desktop {
     font-size: 2.1rem;
   }
 }
