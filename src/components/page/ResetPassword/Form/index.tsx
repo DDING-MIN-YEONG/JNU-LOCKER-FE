@@ -5,6 +5,7 @@ import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/ResetPassword/Form/index.module.scss";
 import useResetPassword from "@/hooks/reset-password/useResetPassword";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -32,12 +33,14 @@ export default function ResetPasswordForm() {
         />
       </div>
       {error.isError && (
-        <p role="alert" className={cn("errorMessage")}>
+        <Txt size="tiny" color="error">
           {error.errorMessage}
-        </p>
+        </Txt>
       )}
       <Button type="submit" className={cn("resetPasswordBtn")}>
-        비밀번호 재설정
+        <Txt size="h4" weight="medium" color="white">
+          비밀번호 재설정
+        </Txt>
       </Button>
     </form>
   );
