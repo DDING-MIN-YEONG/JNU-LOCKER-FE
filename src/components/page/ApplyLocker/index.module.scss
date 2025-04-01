@@ -2,6 +2,10 @@
   @include tablet {
     padding: 4rem 6rem;
   }
+
+  @include smallDesktop {
+    padding: 4rem 6rem;
+  }
 }
 
 .container {
