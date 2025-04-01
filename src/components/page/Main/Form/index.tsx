@@ -5,6 +5,7 @@ import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "@/components/page/Main/Form/index.module.scss";
 import useSignIn from "@/hooks/sign-in/useSignIn";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -32,12 +33,14 @@ export default function SignInForm() {
         />
       </div>
       {error.isError && (
-        <p role="alert" className={cn("errorMessage")}>
+        <Txt size="tiny" color="error">
           {error.errorMessage}
-        </p>
+        </Txt>
       )}
       <Button type="submit" className={cn("signInBtn")}>
-        로그인
+        <Txt size="h4" weight="medium" color="white">
+          로그인
+        </Txt>
       </Button>
     </form>
   );
