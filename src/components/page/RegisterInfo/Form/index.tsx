@@ -6,6 +6,7 @@ import classNames from "classnames/bind";
 import styles from "@/components/page/RegisterInfo/Form/index.module.scss";
 
 import useRegisterInfo from "@/hooks/sign-up/useRegisterInfo";
+import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
@@ -49,16 +50,20 @@ export default function RegisterInfoForm() {
         />
       </div>
       {error.isError && (
-        <p role="alert" className={cn("errorMessage")}>
+        <Txt size="tiny" color="error" className={cn("errorMessage")}>
           {error.errorMessage}
-        </p>
+        </Txt>
       )}
       <div className={cn("btnContainer")}>
-        <Button color="white" onClick={onPrevBtnClick} type="button" className={cn("nextBtn")}>
-          이전
+        <Button color="white" onClick={onPrevBtnClick} type="button" className={cn("prevBtn")}>
+          <Txt size="small" weight="medium">
+            이전
+          </Txt>
         </Button>
         <Button type="submit" className={cn("nextBtn")}>
-          완료
+          <Txt size="small" color="white" weight="medium">
+            완료
+          </Txt>
         </Button>
       </div>
     </form>
