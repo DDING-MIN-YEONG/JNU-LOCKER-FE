@@ -3,7 +3,6 @@
   height: 6rem;
   background-color: $primary;
   @include flexSort(row, null, center, null);
-  @include chnamFont(2.6rem, 400, normal);
 }
 
 .logo {
