@@ -5,7 +5,7 @@ import styles from "@/components/page/ApplyLocker/LockerApplicationStatus/index.
 import FloorSelector from "@/components/page/ApplyLocker/FloorSelector/index";
 import { useState } from "react";
 import LockerStatusLegend from "@/components/page/ApplyLocker/LockerStatusLegend/index";
-import LockerGird from "@/components/page/ApplyLocker/LockerGrid/index";
+import LockerGrid from "@/components/page/ApplyLocker/LockerGrid/index";
 
 const cn = classNames.bind(styles);
 
@@ -56,7 +56,7 @@ export default function LockerApplicationStatus() {
         <div className={cn("lockerStatusContainer")}>
           <LockerStatusLegend />
         </div>
-        <LockerGird LockerList={lockerList} className={cn("gridContainer")} />
+        <LockerGrid LockerList={lockerList} className={cn("gridContainer")} />
       </div>
     </div>
   );

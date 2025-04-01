@@ -9,7 +9,7 @@ interface LockerGirdProps {
   className?: string;
 }
 
-export default function LockerGird({ LockerList, className }: LockerGirdProps) {
+export default function LockerGrid({ LockerList, className }: LockerGirdProps) {
   return (
     <div className={cn("container", className)}>
       {LockerList.map(({ lockerName, status, lockerId }) => (
