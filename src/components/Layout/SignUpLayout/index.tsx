@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 const cn = classNames.bind(styles);
 
 interface SignUpLayoutProps {
-  title: string;
+  title: ReactNode;
   children?: ReactNode;
 }
 
