@@ -20,12 +20,12 @@ export default function Main() {
       </div>
       <SignInForm />
       <div className={cn("linkContainer")}>
-        <Link href={ROUTE.SIGN_UP}>
+        <Link href={ROUTE.STUDENT.SIGN_UP}>
           <Txt size="small" className={cn("link")}>
             회원가입
           </Txt>
         </Link>
-        <Link href={ROUTE.ENTER_EMAIL}>
+        <Link href={ROUTE.STUDENT.ENTER_EMAIL}>
           <Txt size="small" className={cn("link")}>
             비밀번호 재설정
           </Txt>

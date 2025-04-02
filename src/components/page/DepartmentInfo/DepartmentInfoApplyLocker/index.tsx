@@ -19,14 +19,14 @@ export default function DepartmentInfoApplyLocker() {
           <Txt size="small">신청 종료 시간 : 2025.03.10 (월) 18:00</Txt>
           <Txt size="small">사물함 여석 개수 : 20개</Txt>
         </div>
-        <Link href={ROUTE.APPLY_LOCKER} className={cn("applyLink")}>
+        <Link href={ROUTE.STUDENT.APPLY_LOCKER} className={cn("applyLink")}>
           <Txt color="white" weight="medium" size="h6">
             신청하러 가기
           </Txt>
         </Link>
       </div>
       <div className={cn("moreLinkContainer")}>
-        <Link href={ROUTE.DEPARTMENT_INFO_ANNOUNCEMENT_LIST}>
+        <Link href={ROUTE.STUDENT.DEPARTMENT_INFO_ANNOUNCEMENT_LIST}>
           <Txt className={cn("moreLink")} size="tiny">
             더보기
           </Txt>

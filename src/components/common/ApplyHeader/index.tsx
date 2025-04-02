@@ -9,7 +9,7 @@ const cn = classNames.bind(styles);
 export default function ApplyHeader() {
   return (
     <header className={cn("header")}>
-      <Link href={ROUTE.MAIN} className={cn("logo")}>
+      <Link href={ROUTE.STUDENT.MAIN} className={cn("logo")}>
         <Txt size="h2" fontType="chnam" color="white">
           JNU-Locker
         </Txt>
