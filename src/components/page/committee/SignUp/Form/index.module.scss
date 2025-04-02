@@ -1,0 +1,43 @@
+.form {
+  @include flexSort(column, null, center, 2rem);
+  width: 40rem;
+}
+
+.title {
+  font-size: 5rem;
+  border-bottom: 0.2rem solid black;
+  padding-bottom: 2rem;
+  width: 100%;
+  @include flexSort(row, center, null, null);
+}
+
+.inputContainer {
+  @include flexSort(column, center, center, 2rem);
+  width: 100%;
+}
+
+.emailInputContainer,
+.certificationContainer,
+.phoneNumberInputContainer {
+  @include flexSort(row, null, flex-end, 1rem);
+  width: 100%;
+}
+
+.certificationBtn,
+.emailBtn {
+  width: 7rem;
+  height: 5rem;
+}
+
+.errorMessage {
+  margin-top: 2rem;
+}
+
+.btnContainer {
+  margin-top: 5rem;
+}
+
+.nextBtn {
+  width: 12rem;
+  height: 5rem;
+}
