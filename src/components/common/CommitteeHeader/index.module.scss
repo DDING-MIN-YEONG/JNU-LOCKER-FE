@@ -1,0 +1,15 @@
+.header {
+  width: 100%;
+  @include flexSort(row, null, center, 15rem);
+  border-bottom: 0.1rem solid black;
+  padding: 4rem 5rem;
+}
+
+.logo {
+  color: white;
+  @include flexSort(row, null, center, 2rem);
+}
+
+.headerTitle {
+  font-size: 3.3rem !important;
+}
