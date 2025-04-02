@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "@/components/common/ApplyHeader/index.module.scss";
+import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";

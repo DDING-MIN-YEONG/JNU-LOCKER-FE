@@ -1,4 +1,4 @@
-import EnterEmail from "@/components/page/EnterEmail";
+import EnterEmail from "@/components/page/student/EnterEmail";
 
 export default function EnterEmailPage() {
   return <EnterEmail />;

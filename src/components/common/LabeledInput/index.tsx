@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "@/components/common/LabeledInput/index.module.scss";
+import styles from "./index.module.scss";
 import { InputHTMLAttributes } from "react";
 
 const cn = classNames.bind(styles);

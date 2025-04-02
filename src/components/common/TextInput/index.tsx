@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "@/components/common/TextInput/index.module.scss";
+import styles from "./index.module.scss";
 import { LabeledInput, LabeledInputProps } from "@/components/common/LabeledInput";
 import { ReactNode } from "react";
 
