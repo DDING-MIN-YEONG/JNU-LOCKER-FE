@@ -9,4 +9,11 @@ export const ROUTE = {
     DEPARTMENT_INFO_ANNOUNCEMENT_LIST: "/student/department-info/announcement/list",
     APPLY_LOCKER: "/student/apply-locker",
   },
+  COMMITTEE: {
+    MAIN: "/committee/",
+    SIGN_UP: "/committee/sign-up",
+    APPLY_LIST: "/committee/apply-list",
+    ANNOUNCEMENT: "/committee/announcement",
+    EVENT: "/committee/event",
+  },
 };
