@@ -1,0 +1,22 @@
+.container {
+  @include flexSort(row, null, null, null);
+  height: 100%;
+}
+
+.logoContainer {
+  width: 55%;
+  @include flexSort(column, center, center, 10rem);
+  background-color: $primary;
+}
+
+.logoTextContainer {
+  @include flexSort(column, null, center, 2.5rem);
+}
+
+.title {
+  font-size: 7rem;
+}
+
+.subTitle {
+  font-size: 5rem;
+}
