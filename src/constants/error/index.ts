@@ -73,6 +73,15 @@ export const APPLY_LOCKER = {
 };
 
 export const COMMITTEE_SIGN_UP = {
+  category: {
+    [VALIDATION_TYPES.REQUIRED]: "유형을 입력해 주세요.",
+  },
+  affiliation: {
+    [VALIDATION_TYPES.REQUIRED]: "소속을 입력해 주세요.",
+  },
+};
+
+export const COMMITTEE_SIGN_UP_PERSONAL_INFO = {
   email: {
     [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
     [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",

@@ -1,22 +1,55 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { isEmail, isPassword } from "@/utils/validator";
 import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
-import { phoneNumberReplace } from "@/utils/replacer";
+import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/committee/sign-up";
+
+interface FormData {
+  category: {
+    id: number;
+    value: "학생회" | "위원회" | "값을 선택해주세요.";
+  };
+  affiliation: {
+    id: number;
+    value: string;
+  };
+  department: {
+    id: number;
+    value: string;
+  };
+}
 
 const useSignUp = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    emailCertificationNumber: "",
-    phoneNumber: "",
-    phoneNumberCertificationNumber: "",
-    password: "",
-    passwordConfirm: "",
+  const [formData, setFormData] = useState<FormData>({
+    category: {
+      id: 0,
+      value: "값을 선택해주세요.",
+    },
+    affiliation: {
+      id: 0,
+      value: "선택 안함",
+    },
+    department: {
+      id: 0,
+      value: "선택 안함",
+    },
   });
 
   const [error, setError] = useState({
     isError: false,
     errorMessage: "",
   });
+
+  let organizations = useOrganizationsQuery(formData.category.value);
+  let departments = useDepartmentsQuery(formData.affiliation.id);
+
+  if (!organizations) {
+    organizations = [{ id: 0, value: "값을 선택해주세요." }];
+  } else {
+    organizations = [{ id: 0, value: "값을 선택해주세요." }, ...organizations];
+  }
+
+  if (!departments) {
+    departments = [{ id: 0, value: "값을 선택해주세요." }];
+  }
 
   const validateForm = () => {
     const fields = Object.keys(COMMITTEE_SIGN_UP) as Array<keyof typeof COMMITTEE_SIGN_UP>;
@@ -26,15 +59,6 @@ const useSignUp = () => {
       }
     }
 
-    if (!isEmail(formData.email)) {
-      return COMMITTEE_SIGN_UP.email[VALIDATION_TYPES.FORMAT];
-    }
-    if (!isPassword(formData.password)) {
-      return COMMITTEE_SIGN_UP.password[VALIDATION_TYPES.FORMAT];
-    }
-    if (formData.password !== formData.passwordConfirm) {
-      return COMMITTEE_SIGN_UP.passwordConfirm[VALIDATION_TYPES.MATCH];
-    }
     return null;
   };
 
@@ -49,15 +73,16 @@ const useSignUp = () => {
       return;
     }
 
-    alert("소속 등록을 위한 페이지로 이동합니다.");
+    alert("개인 정보 입력을 위한 페이지로 이동합니다.");
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { id, value } = e.target;
+    const selectedId = Number(e.target.options[e.target.selectedIndex].getAttribute("data-id"));
 
     setFormData((prev) => ({
       ...prev,
-      [id]: id === "phoneNumber" ? phoneNumberReplace(value) : value,
+      [id]: { id: selectedId, value },
     }));
   };
 
@@ -66,6 +91,8 @@ const useSignUp = () => {
     formData,
     onChange,
     error,
+    organizations,
+    departments,
   };
 };
 
