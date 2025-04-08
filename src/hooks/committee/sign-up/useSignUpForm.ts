@@ -19,7 +19,7 @@ interface FormData {
   };
 }
 
-const useSignUp = () => {
+const useSignUpForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     category: {
@@ -99,4 +99,4 @@ const useSignUp = () => {
   };
 };
 
-export default useSignUp;
+export default useSignUpForm;
