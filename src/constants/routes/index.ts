@@ -12,6 +12,7 @@ export const ROUTE = {
   COMMITTEE: {
     MAIN: "/committee/",
     SIGN_UP: "/committee/sign-up",
+    SIGN_UP_PERSONAL_INFO: "/committee/sign-up/personal-info",
     APPLY_LIST: "/committee/apply-list",
     ANNOUNCEMENT: "/committee/announcement",
     EVENT: "/committee/event",

@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/committee/sign-up";
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constants/routes";
 
 interface FormData {
   category: {
@@ -18,6 +20,7 @@ interface FormData {
 }
 
 const useSignUp = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     category: {
       id: 0,
@@ -54,7 +57,7 @@ const useSignUp = () => {
   const validateForm = () => {
     const fields = Object.keys(COMMITTEE_SIGN_UP) as Array<keyof typeof COMMITTEE_SIGN_UP>;
     for (const field of fields) {
-      if (!formData[field]) {
+      if (formData[field].value === "값을 선택해주세요." || formData[field].value === "선택 안함") {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
     }
@@ -73,7 +76,7 @@ const useSignUp = () => {
       return;
     }
 
-    alert("개인 정보 입력을 위한 페이지로 이동합니다.");
+    router.push(ROUTE.COMMITTEE.SIGN_UP_PERSONAL_INFO);
   };
 
   const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
