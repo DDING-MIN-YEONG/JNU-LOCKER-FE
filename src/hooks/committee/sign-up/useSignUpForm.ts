@@ -1,12 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
-import {
-  useCommitteeSignUp,
-  useDepartmentsQuery,
-  useOrganizationsQuery,
-} from "@/hooks/tanstack-query/committee/sign-up";
+import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
 import { phoneNumberReplace } from "@/utils/replacer";
 import { isEmail, isPassword } from "@/utils/validator";
+import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 
 interface FormData {
   category: {
