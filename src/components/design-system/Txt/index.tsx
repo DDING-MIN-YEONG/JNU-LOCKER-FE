@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "@/components/design-system/Txt/index.module.scss";
+import styles from "./index.module.scss";
 import { ReactNode } from "react";
 
 const cn = classNames.bind(styles);

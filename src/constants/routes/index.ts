@@ -1,10 +1,20 @@
 export const ROUTE = {
-  MAIN: "/",
-  SIGN_UP: "/sign-up",
-  REGISTER_INFO: "/sign-up/register-info",
-  DEPARTMENT_INFO: "/department-info",
-  ENTER_EMAIL: "/enter-email",
-  DEPARTMENT_INFO_ANNOUNCEMENT: "/department-info/announcement",
-  DEPARTMENT_INFO_ANNOUNCEMENT_LIST: "/department-info/announcement/list",
-  APPLY_LOCKER: "/apply-locker",
+  STUDENT: {
+    MAIN: "/",
+    SIGN_UP: "/student/sign-up",
+    REGISTER_INFO: "/student/sign-up/register-info",
+    DEPARTMENT_INFO: "/student/department-info",
+    ENTER_EMAIL: "/student/enter-email",
+    DEPARTMENT_INFO_ANNOUNCEMENT: "/student/department-info/announcement",
+    DEPARTMENT_INFO_ANNOUNCEMENT_LIST: "/student/department-info/announcement/list",
+    APPLY_LOCKER: "/student/apply-locker",
+  },
+  COMMITTEE: {
+    MAIN: "/committee/",
+    SIGN_UP: "/committee/sign-up",
+    SIGN_UP_PERSONAL_INFO: "/committee/sign-up/personal-info",
+    APPLY_LIST: "/committee/apply-list",
+    ANNOUNCEMENT: "/committee/announcement",
+    EVENT: "/committee/event",
+  },
 };

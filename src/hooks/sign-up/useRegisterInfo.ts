@@ -52,7 +52,7 @@ const useRegisterInfo = () => {
   };
 
   const onPrevBtnClick = () => {
-    router.push(ROUTE.SIGN_UP);
+    router.push(ROUTE.STUDENT.SIGN_UP);
   };
 
   return {
