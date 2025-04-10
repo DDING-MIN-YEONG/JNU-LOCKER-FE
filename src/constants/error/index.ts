@@ -19,13 +19,25 @@ export const REGISTER_INFO = {
   },
 };
 
-export const SIGN_UP = {
+export const STUDENT_SIGN_UP = {
+  affiliation: {
+    [VALIDATION_TYPES.REQUIRED]: "소속을 입력해 주세요.",
+  },
   email: {
     [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
     [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
   },
-  certificationNumber: {
-    [VALIDATION_TYPES.REQUIRED]: "인증번호를 입력해 주세요.",
+  emailCertificationNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "이메일 인증코드를 입력해 주세요.",
+  },
+  phoneNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "연락처를 입력해 주세요.",
+  },
+  phoneNumberCertificationNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "연락처 인증코드를 입력해 주세요.",
+  },
+  name: {
+    [VALIDATION_TYPES.REQUIRED]: "이름을 입력해 주세요.",
   },
   password: {
     [VALIDATION_TYPES.REQUIRED]: "비밀번호를 입력해 주세요.",
