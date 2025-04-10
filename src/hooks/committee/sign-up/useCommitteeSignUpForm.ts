@@ -1,61 +1,17 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
-import { phoneNumberReplace } from "@/utils/replacer";
 import { isEmail, isPassword } from "@/utils/validator";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
-
-interface FormData {
-  category: {
-    id: number;
-    value: "학생회" | "위원회" | "값을 선택해주세요.";
-  };
-  affiliation: {
-    id: number;
-    value: string;
-  };
-  department: {
-    id: number;
-    value: string;
-  };
-  name: string;
-  email: string;
-  emailCertificationNumber: string;
-  phoneNumber: string;
-  phoneNumberCertificationNumber: string;
-  password: string;
-  passwordConfirm: string;
-}
+import { useCommitteeFormData } from "@/hooks/committee/sign-up/useCommitteeFormData";
+import { useFormError } from "@/hooks/common/useFormError";
 
 const useCommitteeSignUpForm = () => {
   const { onCommitteeSignUp } = useCommitteeSignUp();
 
-  const [formData, setFormData] = useState<FormData>({
-    category: {
-      id: 0,
-      value: "값을 선택해주세요.",
-    },
-    affiliation: {
-      id: 0,
-      value: "값을 선택해주세요.",
-    },
-    department: {
-      id: 0,
-      value: "선택 안함",
-    },
-    name: "",
-    email: "",
-    emailCertificationNumber: "",
-    phoneNumber: "",
-    phoneNumberCertificationNumber: "",
-    password: "",
-    passwordConfirm: "",
-  });
+  const { formData, onSelectChange, onInputChange } = useCommitteeFormData();
 
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+  const { error, setFormError, clearError } = useFormError();
 
   let organizations = useOrganizationsQuery(formData.category.value);
   let departments = useDepartmentsQuery(formData.affiliation.id);
@@ -115,11 +71,11 @@ const useCommitteeSignUpForm = () => {
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError({ isError: false, errorMessage: "" });
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
@@ -131,25 +87,6 @@ const useCommitteeSignUpForm = () => {
       departmentId: formData.department.id,
       phoneNumber: formData.phoneNumber,
     });
-  };
-
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { id, value } = e.target;
-    const selectedId = Number(e.target.options[e.target.selectedIndex].getAttribute("data-id"));
-
-    setFormData((prev) => ({
-      ...prev,
-      [id]: { id: selectedId, value },
-    }));
-  };
-
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [id]: id === "phoneNumber" ? phoneNumberReplace(value) : value,
-    }));
   };
 
   return {
