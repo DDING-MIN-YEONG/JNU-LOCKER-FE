@@ -27,7 +27,7 @@ interface FormData {
   passwordConfirm: string;
 }
 
-const useSignUpForm = () => {
+const useCommitteeSignUpForm = () => {
   const { onCommitteeSignUp } = useCommitteeSignUp();
 
   const [formData, setFormData] = useState<FormData>({
@@ -81,7 +81,7 @@ const useSignUpForm = () => {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
 
-      if (field === "email" && formData.category.value === "학생회" && isEmail(formData.email)) {
+      if (field === "email" && formData.category.value === "학생회" && !isEmail(formData.email)) {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
       }
       if (field === "email" && !formData.email) {
@@ -163,4 +163,4 @@ const useSignUpForm = () => {
   };
 };
 
-export default useSignUpForm;
+export default useCommitteeSignUpForm;
