@@ -1,5 +1,5 @@
+import { getDepartments, getOrganizations } from "@/apis/common/sign-up";
 import { useQuery } from "@tanstack/react-query";
-import { getDepartments, getOrganizations } from "@/apis/committee/sign-up";
 
 export const useOrganizationsQuery = (type: "학생회" | "위원회" | "값을 선택해주세요.") => {
   let category: "COUNCIL" | "COMMITTEE";
