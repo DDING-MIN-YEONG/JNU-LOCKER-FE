@@ -1,53 +1,17 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
-import { phoneNumberReplace } from "@/utils/replacer";
 import { useStudentSignUp } from "../tanstack-query/student/sign-up";
-
-interface FormData {
-  affiliation: {
-    id: number;
-    value: string;
-  };
-  department: {
-    id: number;
-    value: string;
-  };
-  name: string;
-  email: string;
-  emailCertificationNumber: string;
-  phoneNumber: string;
-  phoneNumberCertificationNumber: string;
-  password: string;
-  passwordConfirm: string;
-}
+import { useStudentFormData } from "./useStudentFormData";
+import { useFormError } from "../common/useFormError";
 
 const useStudentSignUpForm = () => {
   const { onStudentSignUp } = useStudentSignUp();
 
-  const [formData, setFormData] = useState<FormData>({
-    affiliation: {
-      id: 0,
-      value: "값을 선택해주세요.",
-    },
-    department: {
-      id: 0,
-      value: "선택 안함",
-    },
-    name: "",
-    email: "",
-    emailCertificationNumber: "",
-    phoneNumber: "",
-    phoneNumberCertificationNumber: "",
-    password: "",
-    passwordConfirm: "",
-  });
+  const { formData, onSelectChange, onInputChange } = useStudentFormData();
 
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+  const { error, setFormError, clearError } = useFormError();
 
   let organizations = useOrganizationsQuery("학생회");
 
@@ -105,11 +69,11 @@ const useStudentSignUpForm = () => {
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError({ isError: false, errorMessage: "" });
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
@@ -121,25 +85,6 @@ const useStudentSignUpForm = () => {
       departmentId: formData.department.id,
       phoneNumber: formData.phoneNumber,
     });
-  };
-
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { id, value } = e.target;
-    const selectedId = Number(e.target.options[e.target.selectedIndex].getAttribute("data-id"));
-
-    setFormData((prev) => ({
-      ...prev,
-      [id]: { id: selectedId, value },
-    }));
-  };
-
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [id]: id === "phoneNumber" ? phoneNumberReplace(value) : value,
-    }));
   };
 
   return {
