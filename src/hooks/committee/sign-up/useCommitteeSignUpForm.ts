@@ -106,7 +106,7 @@ const useCommitteeSignUpForm = () => {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
       if (field === "passwordConfirm" && formData.password !== formData.passwordConfirm) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.MATCH];
       }
     }
 

@@ -96,7 +96,7 @@ const useStudentSignUpForm = () => {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
       if (field === "passwordConfirm" && formData.password !== formData.passwordConfirm) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.MATCH];
       }
     }
 
