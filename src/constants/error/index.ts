@@ -84,6 +84,16 @@ export const APPLY_LOCKER = {
   },
 };
 
+export const COMMITTEE_SIGN_IN = {
+  email: {
+    [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
+  },
+  password: {
+    [VALIDATION_TYPES.REQUIRED]: "비밀번호를 입력해 주세요.",
+    [VALIDATION_TYPES.FORMAT]: "비밀번호는 최소 9자 이상이며 최소 하나의 영문자, 숫자, 특수문자가 포함되어야 합니다.",
+  },
+};
+
 export const COMMITTEE_SIGN_UP = {
   category: {
     [VALIDATION_TYPES.REQUIRED]: "유형을 입력해 주세요.",
