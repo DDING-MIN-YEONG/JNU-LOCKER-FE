@@ -3,7 +3,7 @@ import { isEmail, isPassword } from "@/utils/validator";
 import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
-import { useStudentFormData } from "@/hooks/sign-up/useStudentFormData";
+import { useStudentFormData } from "@/hooks/student/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
 
 const useStudentSignUpForm = () => {

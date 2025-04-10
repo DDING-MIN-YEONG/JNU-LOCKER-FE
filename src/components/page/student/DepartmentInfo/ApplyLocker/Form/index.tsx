@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
-import useApplyLocker from "@/hooks/apply-locker/useApplyLocker";
+import useApplyLocker from "@/hooks/student/apply-locker/useApplyLocker";
 import Button from "@/components/design-system/Button";
 import Txt from "@/components/design-system/Txt";
 

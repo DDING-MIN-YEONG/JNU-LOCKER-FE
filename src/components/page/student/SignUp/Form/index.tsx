@@ -4,7 +4,7 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import useStudentSignUpForm from "@/hooks/sign-up/useStudentSignUp";
+import useStudentSignUpForm from "@/hooks/student/sign-up/useStudentSignUp";
 import Txt from "@/components/design-system/Txt";
 import { Selector } from "@/components/common/Selector";
 
