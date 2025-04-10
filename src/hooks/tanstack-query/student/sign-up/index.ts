@@ -1,38 +1,38 @@
 import { MutateOptions, useMutation } from "@tanstack/react-query";
-import { postCommitteeSignUp } from "@/apis/committee/sign-up";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { SignUpFormData } from "@/types/common/sign-up";
+import { postStudentSignUp } from "@/apis/student/sign-up";
 import { AxiosError } from "axios";
 
-export const useCommitteeSignUp = () => {
+export const useStudentSignUp = () => {
   const router = useRouter();
-  const { postCommitteeSignUp } = useSignUpMutate();
+  const { postStudentSignUp } = useSignUpMutate();
 
-  const onCommitteeSignUp = (formData: SignUpFormData) => {
-    postCommitteeSignUp(formData, {
+  const onStudentSignUp = (formData: SignUpFormData) => {
+    postStudentSignUp(formData, {
       onError: (error: AxiosError<{ message: string }>) => {
         alert(error.response?.data.message);
       },
       onSuccess: () => {
-        router.push(ROUTE.COMMITTEE.MAIN);
+        router.push(ROUTE.STUDENT.MAIN);
         alert("회원가입에 성공했습니다.");
       },
     });
   };
   return {
-    onCommitteeSignUp,
+    onStudentSignUp,
   };
 };
 
 export const useSignUpMutate = () => {
   const { mutate } = useMutation<void, AxiosError<{ message: string }>, SignUpFormData>({
-    mutationKey: ["committeeSignUp"],
-    mutationFn: postCommitteeSignUp,
+    mutationKey: ["studentSignUp"],
+    mutationFn: postStudentSignUp,
   });
 
   return {
-    postCommitteeSignUp: (
+    postStudentSignUp: (
       formData: SignUpFormData,
       mutateOption?: MutateOptions<void, AxiosError<{ message: string }>, SignUpFormData, unknown>,
     ) => {

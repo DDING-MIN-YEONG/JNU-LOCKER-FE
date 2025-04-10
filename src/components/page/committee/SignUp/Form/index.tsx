@@ -4,7 +4,7 @@ import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
-import useSignUpForm from "@/hooks/committee/sign-up/useSignUpForm";
+import useCommitteeSignUpForm from "@/hooks/committee/sign-up/useCommitteeSignUpForm";
 import { Selector } from "@/components/common/Selector";
 import { COMMITTEE_SIGN_UP_CATEGORY } from "@/constants/committee/sign-up";
 import TextInput from "@/components/common/TextInput";
@@ -12,7 +12,8 @@ import TextInput from "@/components/common/TextInput";
 const cn = classNames.bind(styles);
 
 export default function SignUpForm() {
-  const { formAction, formData, onSelectChange, error, organizations, departments, onInputChange } = useSignUpForm();
+  const { formAction, formData, onSelectChange, error, organizations, departments, onInputChange } =
+    useCommitteeSignUpForm();
 
   return (
     <form onSubmit={formAction} className={cn("form")}>

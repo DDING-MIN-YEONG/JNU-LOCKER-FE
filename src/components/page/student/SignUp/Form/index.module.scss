@@ -6,11 +6,14 @@
   @include flexSort(column, center, center, 2rem);
 }
 
-.emailInputContainer {
+.emailInputContainer,
+.certificationContainer,
+.phoneNumberInputContainer {
   @include flexSort(row, null, flex-end, 1rem);
   width: 100%;
 }
 
+.emailBtn,
 .certificationBtn {
   width: 7rem;
   height: 5rem;
