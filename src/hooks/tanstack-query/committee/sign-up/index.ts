@@ -1,4 +1,4 @@
-import { MutateOptions, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { postCommitteeSignUp } from "@/apis/committee/sign-up";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
@@ -7,10 +7,10 @@ import { AxiosError } from "axios";
 
 export const useCommitteeSignUp = () => {
   const router = useRouter();
-  const { postCommitteeSignUp } = useSignUpMutate();
+  const { mutate } = useSignUpMutate();
 
   const onCommitteeSignUp = (formData: SignUpFormData) => {
-    postCommitteeSignUp(formData, {
+    mutate(formData, {
       onError: (error: AxiosError<{ message: string }>) => {
         alert(error.response?.data.message);
       },
@@ -26,19 +26,8 @@ export const useCommitteeSignUp = () => {
 };
 
 export const useSignUpMutate = () => {
-  const { mutate } = useMutation<void, AxiosError<{ message: string }>, SignUpFormData>({
+  return useMutation<void, AxiosError<{ message: string }>, SignUpFormData>({
     mutationKey: ["committeeSignUp"],
     mutationFn: postCommitteeSignUp,
   });
-
-  return {
-    postCommitteeSignUp: (
-      formData: SignUpFormData,
-      mutateOption?: MutateOptions<void, AxiosError<{ message: string }>, SignUpFormData, unknown>,
-    ) => {
-      mutate(formData, {
-        ...mutateOption,
-      });
-    },
-  };
 };
