@@ -4,21 +4,6 @@ export const VALIDATION_TYPES = {
   MATCH: "match",
 };
 
-export const REGISTER_INFO = {
-  name: {
-    [VALIDATION_TYPES.REQUIRED]: "이름을 입력해 주세요.",
-  },
-  affiliation: {
-    [VALIDATION_TYPES.REQUIRED]: "소속 대학을 입력해 주세요.",
-  },
-  department: {
-    [VALIDATION_TYPES.REQUIRED]: "소속 학과를 입력해 주세요.",
-  },
-  phoneNumber: {
-    [VALIDATION_TYPES.REQUIRED]: "전화번호를 입력해 주세요.",
-  },
-};
-
 export const STUDENT_SIGN_UP = {
   affiliation: {
     [VALIDATION_TYPES.REQUIRED]: "소속을 입력해 주세요.",
