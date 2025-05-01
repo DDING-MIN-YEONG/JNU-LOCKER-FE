@@ -62,16 +62,9 @@ export default function CreateEventInfoForm({
             <DateTimePicker data={formData} type="endAt" setData={setFormData} />
           </div>
         </div>
-        <div className={cn("participationDepartmentContainer")}>
-          <Txt size="h5" weight="medium">
-            사물함 신청 참여 학과
-          </Txt>
-          <Button className={cn("addParticipationDepartmentBtn")} color="primary">
-            <Txt size="h6" color="white">
-              학과 추가
-            </Txt>
-          </Button>
-        </div>
+        <Txt size="h5" weight="medium">
+          사물함 신청 참여 학과
+        </Txt>
         <div className={cn("participationDepartmentSelectorContainer")}>
           <Selector
             label="소속"
