@@ -33,7 +33,7 @@ export const useCreateEvent = () => {
       },
       onSuccess: () => {
         router.push(ROUTE.COMMITTEE.EVENT);
-        alert("회원가입에 성공했습니다.");
+        alert("이벤트 생성에 성공하셨습니다.");
       },
     });
   };
