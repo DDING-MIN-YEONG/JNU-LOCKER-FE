@@ -22,16 +22,6 @@
   @include flexSort(column, null, null, 1rem);
 }
 
-.participationDepartmentContainer {
-  @include flexSort(row, space-between, center, null);
-}
-
-.addParticipationDepartmentBtn {
-  width: fit-content;
-  padding: 1rem 1.5rem;
-  margin-left: auto;
-}
-
 .participationDepartmentSelectorContainer {
   @include flexSort(row, space-between, center, 2rem);
 }
