@@ -18,7 +18,7 @@ export default function Txt({
   className,
   color = "black",
   fontType = "basic",
-  size,
+  size = "h4",
   weight = "normal",
 }: TxtProps) {
   return <span className={cn(size, color, fontType, weight, className)}>{children}</span>;
