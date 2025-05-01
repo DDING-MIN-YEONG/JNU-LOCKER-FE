@@ -7,7 +7,7 @@ const cn = classNames.bind(styles);
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children: ReactNode;
-  color?: "white" | "primary" | "gray";
+  color?: "white" | "primary" | "gray" | "blue" | "red";
 }
 
 export default function Button({ color = "primary", className, children, ...props }: ButtonProps) {
