@@ -11,7 +11,7 @@ const cn = classNames.bind(styles);
 interface CreateEventRangeInfoFormProps {
   floorId: number;
   prefixId: number;
-  rageData: CreateEventForm["floors"][number]["prefixes"][number]["ranges"][number];
+  rangeData: CreateEventForm["floors"][number]["prefixes"][number]["ranges"][number];
   onChangeRange: (
     floorId: number,
     prefixId: number,
@@ -25,7 +25,7 @@ interface CreateEventRangeInfoFormProps {
 export default function CreateEventRangeInfoForm({
   floorId,
   prefixId,
-  rageData,
+  rangeData,
   onChangeRange,
   onDeleteRange,
 }: CreateEventRangeInfoFormProps) {
@@ -33,34 +33,34 @@ export default function CreateEventRangeInfoForm({
     <div className={cn("container")}>
       <TextInput
         label="시작 번호"
-        value={rageData.lockerStartNumber ?? 0}
+        value={rangeData.lockerStartNumber ?? 0}
         id="startLockerNumber"
         type="text"
         onChange={(e) => {
           const value = e.target.value;
           const numberValue = Number(value);
           if (!isNaN(numberValue)) {
-            onChangeRange(floorId, prefixId, rageData.rangeId, "start", numberValue);
+            onChangeRange(floorId, prefixId, rangeData.rangeId, "start", numberValue);
           }
         }}
       />
       <TextInput
         label="종료 번호"
-        value={rageData.lockerEndNumber ?? 0}
+        value={rangeData.lockerEndNumber ?? 0}
         id="endLockerNumber"
         type="text"
         onChange={(e) => {
           const value = e.target.value;
           const numberValue = Number(value);
           if (!isNaN(numberValue)) {
-            onChangeRange(floorId, prefixId, rageData.rangeId, "end", numberValue);
+            onChangeRange(floorId, prefixId, rangeData.rangeId, "end", numberValue);
           }
         }}
       />
       <Button
         className={cn("deleteRangeBtn")}
         color="red"
-        onClick={() => onDeleteRange(floorId, prefixId, rageData.rangeId)}
+        onClick={() => onDeleteRange(floorId, prefixId, rangeData.rangeId)}
       >
         <Txt size="h6" color="white">
           삭제

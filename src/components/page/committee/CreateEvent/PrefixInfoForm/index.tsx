@@ -71,7 +71,7 @@ export default function CreateEventPrefixInfoForm({
           <CreateEventRangeInfoForm
             floorId={floorId}
             prefixId={prefixData.prefixId}
-            rageData={range}
+            rangeData={range}
             key={range.rangeId}
             onChangeRange={onChangeRange}
             onDeleteRange={onDeleteRange}
