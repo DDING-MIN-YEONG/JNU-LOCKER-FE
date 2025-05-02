@@ -2,16 +2,15 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
 import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
+import { useFormError } from "@/hooks/common/useFormError";
 
 const useSignIn = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+
+  const { error, setFormError, clearError } = useFormError();
 
   const { onStudentSignIn } = useStudentSignIn();
 
@@ -36,11 +35,11 @@ const useSignIn = () => {
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError({ isError: false, errorMessage: "" });
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
