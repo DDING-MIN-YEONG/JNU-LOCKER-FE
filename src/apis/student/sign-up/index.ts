@@ -1,6 +1,6 @@
 import { https } from "@/apis/https";
-import { SignUpFormData } from "@/types/common/sign-up";
+import { StudentSignUpFormData } from "@/types/student/sign-up";
 
-export const postStudentSignUp = async (formData: SignUpFormData) => {
+export const postStudentSignUp = async (formData: StudentSignUpFormData) => {
   await https.post("auth/users/signup", formData);
 };
