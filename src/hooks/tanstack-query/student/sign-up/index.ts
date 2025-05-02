@@ -1,15 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
-import { SignUpFormData } from "@/types/common/sign-up";
 import { postStudentSignUp } from "@/apis/student/sign-up";
 import { AxiosError } from "axios";
+import { StudentSignUpFormData } from "@/types/student/sign-up";
 
 export const useStudentSignUp = () => {
   const router = useRouter();
   const { mutate } = useSignUpMutate();
 
-  const onStudentSignUp = (formData: SignUpFormData) => {
+  const onStudentSignUp = (formData: StudentSignUpFormData) => {
     mutate(formData, {
       onError: (error: AxiosError<{ message: string }>) => {
         alert(error.response?.data.message);
@@ -26,7 +26,7 @@ export const useStudentSignUp = () => {
 };
 
 export const useSignUpMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, SignUpFormData>({
+  return useMutation<void, AxiosError<{ message: string }>, StudentSignUpFormData>({
     mutationKey: ["studentSignUp"],
     mutationFn: postStudentSignUp,
   });
