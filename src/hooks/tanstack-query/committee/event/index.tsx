@@ -4,6 +4,7 @@ import { ROUTE } from "@/constants/routes";
 import { AxiosError } from "axios";
 import { postCreateEvent } from "@/apis/committee/event";
 import { CreateEventForm, CreateEventRequest } from "@/types/committee/event";
+import { convertToKST } from "@/functions/date";
 
 export const useCreateEvent = () => {
   const router = useRouter();
@@ -38,12 +39,8 @@ export const useCreateEvent = () => {
       return;
     }
 
-    const startAtKST = new Date(new Date(formData.startAt).getTime() + 9 * 60 * 60 * 1000)
-      .toISOString()
-      .replace(".000Z", "");
-    const endAtKST = new Date(new Date(formData.endAt).getTime() + 9 * 60 * 60 * 1000)
-      .toISOString()
-      .replace(".000Z", "");
+    const startAtKST = convertToKST(formData.startAt);
+    const endAtKST = convertToKST(formData.endAt);
 
     const requestData: CreateEventRequest = {
       title: formData.title,
