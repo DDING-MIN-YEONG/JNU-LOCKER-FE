@@ -1,4 +1,4 @@
-import { getDepartments, getOrganizations, postSubmitEmail } from "@/apis/common/sign-up";
+import { getDepartments, getOrganizations, postSubmitEmail, postVerifyCertificationCode } from "@/apis/common/sign-up";
 import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
 import { useQuery } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
@@ -89,6 +89,6 @@ export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction
 export const useVerifyCertificationCodeMutate = () => {
   return useMutation<void, AxiosError<{ message: string }>, SubmitCertificationCodeData>({
     mutationKey: ["verifyCertificationCode"],
-    mutationFn: postSubmitEmail,
+    mutationFn: postVerifyCertificationCode,
   });
 };
