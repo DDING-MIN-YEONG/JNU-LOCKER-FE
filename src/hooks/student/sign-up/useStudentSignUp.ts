@@ -59,9 +59,6 @@ const useStudentSignUpForm = () => {
       if (field === "phoneNumber" && !formData.phoneNumber) {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
-      if (field === "phoneNumberCertificationNumber" && !formData.phoneNumberCertificationNumber) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
-      }
       if (field === "name" && !formData.name) {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }

@@ -14,7 +14,6 @@ export interface StudentFormData {
   email: string;
   emailCertificationNumber: string;
   phoneNumber: string;
-  phoneNumberCertificationNumber: string;
   password: string;
   passwordConfirm: string;
 }
@@ -33,7 +32,6 @@ export const useStudentFormData = () => {
     email: "",
     emailCertificationNumber: "",
     phoneNumber: "",
-    phoneNumberCertificationNumber: "",
     password: "",
     passwordConfirm: "",
   });

@@ -106,21 +106,6 @@ export default function SignUpForm() {
           </Button>
         </TextInput>
         <TextInput
-          containerClassName={cn("certificationContainer")}
-          id="phoneNumberCertificationNumber"
-          type="text"
-          label="연락처 인증코드"
-          placeholder="연락처 인증코드를 입력해주세요."
-          value={formData.phoneNumberCertificationNumber}
-          onChange={onInputChange}
-        >
-          <Button type="button" className={cn("certificationBtn")}>
-            <Txt size="tiny" weight="bold" color="white">
-              인증하기
-            </Txt>
-          </Button>
-        </TextInput>
-        <TextInput
           id="name"
           type="text"
           label="이름"

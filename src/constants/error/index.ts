@@ -18,9 +18,6 @@ export const STUDENT_SIGN_UP = {
   phoneNumber: {
     [VALIDATION_TYPES.REQUIRED]: "연락처를 입력해 주세요.",
   },
-  phoneNumberCertificationNumber: {
-    [VALIDATION_TYPES.REQUIRED]: "연락처 인증코드를 입력해 주세요.",
-  },
   name: {
     [VALIDATION_TYPES.REQUIRED]: "이름을 입력해 주세요.",
   },
