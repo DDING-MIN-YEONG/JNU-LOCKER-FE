@@ -1,15 +1,23 @@
 import { FormEvent } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
-import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
+import { useDepartmentsQuery, useOrganizationsQuery, useSubmitEmail } from "@/hooks/tanstack-query/common/sign-up";
 import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
 import { useStudentFormData } from "@/hooks/student/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
+import { useEmailCertification } from "@/hooks/student/sign-up/useEmailCertification";
+import { useTimer } from "@/hooks/common/useTimer";
 
 const useStudentSignUpForm = () => {
   const { onStudentSignUp } = useStudentSignUp();
 
   const { formData, onSelectChange, onInputChange } = useStudentFormData();
+
+  const { isEmailCertification, setIsEmailCertification } = useEmailCertification();
+
+  const { countdown, setCountdown } = useTimer();
+
+  const { onSubmitEmail } = useSubmitEmail(setIsEmailCertification, setCountdown);
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -95,6 +103,9 @@ const useStudentSignUpForm = () => {
     error,
     organizations,
     departments,
+    isEmailCertification,
+    onSubmitEmail,
+    countdown,
   };
 };
 

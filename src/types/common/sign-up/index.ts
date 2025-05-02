@@ -5,3 +5,7 @@ export interface SignUpFormData {
   departmentId: number;
   phoneNumber: string;
 }
+
+export interface SubmitEmailData {
+  email: string;
+}
