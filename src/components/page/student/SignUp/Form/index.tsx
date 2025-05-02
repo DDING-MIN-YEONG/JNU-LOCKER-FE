@@ -22,6 +22,7 @@ export default function SignUpForm() {
     isEmailCertification,
     onSubmitEmail,
     countdown,
+    onVerifyCertificationCode,
   } = useStudentSignUpForm();
 
   return (
@@ -73,7 +74,16 @@ export default function SignUpForm() {
             value={formData.emailCertificationNumber}
             onChange={onInputChange}
           >
-            <Button type="button" className={cn("certificationBtn")}>
+            <Button
+              type="button"
+              className={cn("certificationBtn")}
+              onClick={() =>
+                onVerifyCertificationCode({
+                  email: formData.email,
+                  code: formData.emailCertificationNumber,
+                })
+              }
+            >
               <Txt size="tiny" weight="bold" color="white">
                 인증하기
               </Txt>

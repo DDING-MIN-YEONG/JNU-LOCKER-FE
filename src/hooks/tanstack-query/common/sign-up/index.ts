@@ -1,5 +1,5 @@
 import { getDepartments, getOrganizations, postSubmitEmail } from "@/apis/common/sign-up";
-import { SubmitEmailData } from "@/types/common/sign-up";
+import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
 import { useQuery } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
@@ -62,6 +62,33 @@ export const useSubmitEmail = (
 export const useSubmitEmailMutate = () => {
   return useMutation<void, AxiosError<{ message: string }>, SubmitEmailData>({
     mutationKey: ["submitEmail"],
+    mutationFn: postSubmitEmail,
+  });
+};
+
+export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction<number | null>>) => {
+  const { mutate } = useVerifyCertificationCodeMutate();
+
+  const onVerifyCertificationCode = (data: SubmitCertificationCodeData) => {
+    mutate(data, {
+      onError: (error: AxiosError<{ message: string }>) => {
+        alert(error.response?.data.message || "인증에 실패하였습니다.");
+      },
+      onSuccess: () => {
+        setCountdown(null);
+        alert("인증에 성공하였습니다.");
+      },
+    });
+  };
+
+  return {
+    onVerifyCertificationCode,
+  };
+};
+
+export const useVerifyCertificationCodeMutate = () => {
+  return useMutation<void, AxiosError<{ message: string }>, SubmitCertificationCodeData>({
+    mutationKey: ["verifyCertificationCode"],
     mutationFn: postSubmitEmail,
   });
 };
