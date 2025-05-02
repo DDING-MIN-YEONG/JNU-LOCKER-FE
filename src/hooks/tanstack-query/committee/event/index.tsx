@@ -38,10 +38,17 @@ export const useCreateEvent = () => {
       return;
     }
 
+    const startAtKST = new Date(new Date(formData.startAt).getTime() + 9 * 60 * 60 * 1000)
+      .toISOString()
+      .replace(".000Z", "");
+    const endAtKST = new Date(new Date(formData.endAt).getTime() + 9 * 60 * 60 * 1000)
+      .toISOString()
+      .replace(".000Z", "");
+
     const requestData: CreateEventRequest = {
       title: formData.title,
-      startAt: formData.startAt as Date,
-      endAt: formData.endAt as Date,
+      startAt: startAtKST,
+      endAt: endAtKST,
       participationDepartmentIds: formData.participationDepartmentIds.map((department) => department.id),
       floors: formData.floors.map((floor) => ({
         floorNumber: floor.floorNumber as number,

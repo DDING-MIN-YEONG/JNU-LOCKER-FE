@@ -27,8 +27,8 @@ export interface CreateEventForm {
 
 export interface CreateEventRequest {
   title: string;
-  startAt: Date;
-  endAt: Date;
+  startAt: string;
+  endAt: string;
   participationDepartmentIds: number[];
   floors: {
     floorNumber: number;
