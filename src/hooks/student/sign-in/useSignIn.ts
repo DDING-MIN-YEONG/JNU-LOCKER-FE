@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
+import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
 
 const useSignIn = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const useSignIn = () => {
     isError: false,
     errorMessage: "",
   });
+
+  const { onStudentSignIn } = useStudentSignIn();
 
   const validateForm = () => {
     const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
@@ -41,10 +44,7 @@ const useSignIn = () => {
       alert(errorMessage);
       return;
     }
-    // TODO : useMutation을 사용하여 로그인 API 호출
-    // TODO : 로그인 API 호출 성공 시 페이지 이동
-
-    alert("로그인에 성공했습니다.");
+    onStudentSignIn(formData);
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
