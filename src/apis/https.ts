@@ -9,10 +9,7 @@ export const https = axios.create({
 
 https.interceptors.request.use((config) => {
   if (typeof window !== "undefined") {
-    const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
+    config.withCredentials = true;
   }
 
   return config;
