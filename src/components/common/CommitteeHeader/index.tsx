@@ -27,7 +27,7 @@ export default function CommitteeHeader() {
             공지사항
           </Txt>
         </Link>
-        <Link href={ROUTE.COMMITTEE.EVENT}>
+        <Link href={ROUTE.COMMITTEE.EVENT_LIST}>
           <Txt className={cn("headerTitle")} weight="medium">
             이벤트
           </Txt>
