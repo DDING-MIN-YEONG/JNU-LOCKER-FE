@@ -11,8 +11,19 @@ import { Selector } from "@/components/common/Selector";
 const cn = classNames.bind(styles);
 
 export default function SignUpForm() {
-  const { formAction, formData, error, departments, onInputChange, onSelectChange, organizations } =
-    useStudentSignUpForm();
+  const {
+    formAction,
+    formData,
+    error,
+    departments,
+    onInputChange,
+    onSelectChange,
+    organizations,
+    isEmailCertification,
+    onSubmitEmail,
+    countdown,
+    onVerifyCertificationCode,
+  } = useStudentSignUpForm();
 
   return (
     <form onSubmit={formAction} className={cn("form")}>
@@ -32,6 +43,14 @@ export default function SignUpForm() {
           id="department"
         />
         <TextInput
+          id="studentNumber"
+          type="text"
+          label="학번"
+          placeholder="학번을 입력해주세요."
+          value={formData.studentNumber}
+          onChange={onInputChange}
+        />
+        <TextInput
           containerClassName={cn("emailInputContainer")}
           id="email"
           type="email"
@@ -39,28 +58,46 @@ export default function SignUpForm() {
           placeholder="이메일을 입력해주세요."
           value={formData.email}
           onChange={onInputChange}
+          disabled={countdown ? countdown > 0 : false}
         >
-          <Button type="button" className={cn("emailBtn")}>
+          <Button
+            disabled={countdown ? countdown > 0 : false}
+            type="button"
+            className={cn("emailBtn")}
+            onClick={() => onSubmitEmail({ email: formData.email })}
+          >
             <Txt size="tiny" weight="bold" color="white">
               메일전송
             </Txt>
           </Button>
         </TextInput>
-        <TextInput
-          containerClassName={cn("certificationContainer")}
-          id="emailCertificationNumber"
-          type="text"
-          label="이메일 인증코드"
-          placeholder="이메일 인증코드를 입력해주세요."
-          value={formData.emailCertificationNumber}
-          onChange={onInputChange}
-        >
-          <Button type="button" className={cn("certificationBtn")}>
-            <Txt size="tiny" weight="bold" color="white">
-              인증하기
-            </Txt>
-          </Button>
-        </TextInput>
+        {countdown && <Txt size="tiny">인증 코드 유효 시간 : {countdown}초</Txt>}
+        {isEmailCertification && (
+          <TextInput
+            containerClassName={cn("certificationContainer")}
+            id="emailCertificationNumber"
+            type="text"
+            label="이메일 인증코드"
+            placeholder="이메일 인증코드를 입력해주세요."
+            value={formData.emailCertificationNumber}
+            onChange={onInputChange}
+          >
+            <Button
+              type="button"
+              className={cn("certificationBtn")}
+              onClick={() =>
+                onVerifyCertificationCode({
+                  email: formData.email,
+                  code: formData.emailCertificationNumber,
+                })
+              }
+            >
+              <Txt size="tiny" weight="bold" color="white">
+                인증하기
+              </Txt>
+            </Button>
+          </TextInput>
+        )}
         <TextInput
           containerClassName={cn("phoneNumberInputContainer")}
           id="phoneNumber"
@@ -69,28 +106,7 @@ export default function SignUpForm() {
           placeholder="연락처를 입력해주세요."
           value={formData.phoneNumber}
           onChange={onInputChange}
-        >
-          <Button type="button" className={cn("certificationBtn")}>
-            <Txt size="tiny" weight="bold" color="white">
-              전송
-            </Txt>
-          </Button>
-        </TextInput>
-        <TextInput
-          containerClassName={cn("certificationContainer")}
-          id="phoneNumberCertificationNumber"
-          type="text"
-          label="연락처 인증코드"
-          placeholder="연락처 인증코드를 입력해주세요."
-          value={formData.phoneNumberCertificationNumber}
-          onChange={onInputChange}
-        >
-          <Button type="button" className={cn("certificationBtn")}>
-            <Txt size="tiny" weight="bold" color="white">
-              인증하기
-            </Txt>
-          </Button>
-        </TextInput>
+        />
         <TextInput
           id="name"
           type="text"

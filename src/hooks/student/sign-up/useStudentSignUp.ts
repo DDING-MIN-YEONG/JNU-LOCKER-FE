@@ -1,17 +1,32 @@
 import { FormEvent } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
-import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
+import {
+  useDepartmentsQuery,
+  useOrganizationsQuery,
+  useSubmitEmail,
+  useVerifyCertificationCode,
+} from "@/hooks/tanstack-query/common/sign-up";
 import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
 import { useStudentFormData } from "@/hooks/student/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
+import { useEmailCertification } from "@/hooks/student/sign-up/useEmailCertification";
+import { useTimer } from "@/hooks/common/useTimer";
 
 const useStudentSignUpForm = () => {
   const { onStudentSignUp } = useStudentSignUp();
 
   const { formData, onSelectChange, onInputChange } = useStudentFormData();
 
+  const { isEmailCertification, setIsEmailCertification } = useEmailCertification();
+
+  const { countdown, setCountdown } = useTimer();
+
+  const { onSubmitEmail } = useSubmitEmail(setIsEmailCertification, setCountdown);
+
   const { error, setFormError, clearError } = useFormError();
+
+  const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
 
   let organizations = useOrganizationsQuery("학생회");
 
@@ -42,9 +57,6 @@ const useStudentSignUpForm = () => {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
       if (field === "phoneNumber" && !formData.phoneNumber) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
-      }
-      if (field === "phoneNumberCertificationNumber" && !formData.phoneNumberCertificationNumber) {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
       if (field === "name" && !formData.name) {
@@ -84,6 +96,7 @@ const useStudentSignUpForm = () => {
       password: formData.password,
       departmentId: formData.department.id,
       phoneNumber: formData.phoneNumber,
+      studentNumber: formData.studentNumber,
     });
   };
 
@@ -95,6 +108,10 @@ const useStudentSignUpForm = () => {
     error,
     organizations,
     departments,
+    isEmailCertification,
+    onSubmitEmail,
+    countdown,
+    onVerifyCertificationCode,
   };
 };
 

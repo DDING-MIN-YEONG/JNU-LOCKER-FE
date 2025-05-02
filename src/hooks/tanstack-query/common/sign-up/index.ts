@@ -1,5 +1,9 @@
-import { getDepartments, getOrganizations } from "@/apis/common/sign-up";
+import { getDepartments, getOrganizations, postSubmitEmail, postVerifyCertificationCode } from "@/apis/common/sign-up";
+import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
 import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
+import { Dispatch, SetStateAction } from "react";
 
 export const useOrganizationsQuery = (type: "학생회" | "위원회" | "값을 선택해주세요.") => {
   let category: "COUNCIL" | "COMMITTEE";
@@ -29,4 +33,62 @@ export const useDepartmentsQuery = (id: number) => {
   });
 
   return departments;
+};
+
+export const useSubmitEmail = (
+  setIsEmailCertification: Dispatch<SetStateAction<boolean>>,
+  setCountdown: Dispatch<SetStateAction<number | null>>,
+) => {
+  const { mutate } = useSubmitEmailMutate();
+
+  const onSubmitEmail = (data: SubmitEmailData) => {
+    mutate(data, {
+      onError: (error: AxiosError<{ message: string }>) => {
+        alert(error.response?.data.message || "이메일 전송에 실패했습니다.");
+      },
+      onSuccess: () => {
+        setIsEmailCertification(true);
+        setCountdown(300);
+        alert("해당 이메일로 인증코드가 전송되었습니다. 이메일을 확인해주세요.");
+      },
+    });
+  };
+
+  return {
+    onSubmitEmail,
+  };
+};
+
+export const useSubmitEmailMutate = () => {
+  return useMutation<void, AxiosError<{ message: string }>, SubmitEmailData>({
+    mutationKey: ["submitEmail"],
+    mutationFn: postSubmitEmail,
+  });
+};
+
+export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction<number | null>>) => {
+  const { mutate } = useVerifyCertificationCodeMutate();
+
+  const onVerifyCertificationCode = (data: SubmitCertificationCodeData) => {
+    mutate(data, {
+      onError: (error: AxiosError<{ message: string }>) => {
+        alert(error.response?.data.message || "인증에 실패하였습니다.");
+      },
+      onSuccess: () => {
+        setCountdown(null);
+        alert("인증에 성공하였습니다.");
+      },
+    });
+  };
+
+  return {
+    onVerifyCertificationCode,
+  };
+};
+
+export const useVerifyCertificationCodeMutate = () => {
+  return useMutation<void, AxiosError<{ message: string }>, SubmitCertificationCodeData>({
+    mutationKey: ["verifyCertificationCode"],
+    mutationFn: postVerifyCertificationCode,
+  });
 };
