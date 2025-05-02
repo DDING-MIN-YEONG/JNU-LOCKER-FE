@@ -4,13 +4,13 @@ import TextInput from "@/components/common/TextInput";
 import Button from "@/components/design-system/Button";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import useSignIn from "@/hooks/student/sign-in/useSignIn";
+import useStudentSignInForm from "@/hooks/student/sign-in/useStudentSignInForm";
 import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
 
 export default function SignInForm() {
-  const { formAction, formData, onChange, error } = useSignIn();
+  const { formAction, formData, error, onInputChange } = useStudentSignInForm();
 
   return (
     <form onSubmit={formAction} className={cn("form")}>
@@ -21,7 +21,7 @@ export default function SignInForm() {
           label="이메일"
           placeholder="이메일을 입력해주세요."
           value={formData.email}
-          onChange={onChange}
+          onChange={onInputChange}
         />
         <TextInput
           id="password"
@@ -29,7 +29,7 @@ export default function SignInForm() {
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요."
           value={formData.password}
-          onChange={onChange}
+          onChange={onInputChange}
         />
       </div>
       {error.isError && (

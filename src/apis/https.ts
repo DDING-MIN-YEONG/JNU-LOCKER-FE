@@ -1,4 +1,5 @@
 import axios from "axios";
+import { postReissue } from "@/apis/common/token";
 
 export const https = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}v1/`,
@@ -9,10 +10,7 @@ export const https = axios.create({
 
 https.interceptors.request.use((config) => {
   if (typeof window !== "undefined") {
-    const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
+    config.withCredentials = true;
   }
 
   return config;
@@ -27,11 +25,9 @@ https.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
+      await postReissue();
 
-      // const newAccessToken = await getNewAccessToken();
-      // if (newAccessToken) {
-      //   return axiosInstance(originalRequest);
-      // }
+      return https(originalRequest);
     }
 
     return Promise.reject(error);

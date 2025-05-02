@@ -1,16 +1,16 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
+import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
+import { useFormError } from "@/hooks/common/useFormError";
+import { useStudentSignInFormData } from "./useStudentSignInFormData";
 
-const useSignIn = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+const useStudentSignInForm = () => {
+  const { formData, onInputChange } = useStudentSignInFormData();
+
+  const { error, setFormError, clearError } = useFormError();
+
+  const { onStudentSignIn } = useStudentSignIn();
 
   const validateForm = () => {
     const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
@@ -33,34 +33,23 @@ const useSignIn = () => {
 
   const formAction = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError({ isError: false, errorMessage: "" });
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
-    // TODO : useMutation을 사용하여 로그인 API 호출
-    // TODO : 로그인 API 호출 성공 시 페이지 이동
-
-    alert("로그인에 성공했습니다.");
-  };
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    onStudentSignIn(formData);
   };
 
   return {
     formAction,
     formData,
-    onChange,
+    onInputChange,
     error,
   };
 };
 
-export default useSignIn;
+export default useStudentSignInForm;

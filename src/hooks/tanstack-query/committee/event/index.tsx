@@ -60,7 +60,7 @@ export const useCreateEvent = () => {
         alert(error.response?.data.message);
       },
       onSuccess: () => {
-        router.push(ROUTE.COMMITTEE.EVENT);
+        router.push(ROUTE.COMMITTEE.EVENT_LIST);
         alert("이벤트 생성에 성공하셨습니다.");
       },
     });

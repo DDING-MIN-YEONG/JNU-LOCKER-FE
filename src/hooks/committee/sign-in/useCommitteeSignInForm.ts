@@ -3,9 +3,11 @@ import { COMMITTEE_SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
 import { isPassword } from "@/utils/validator";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useCommitteeSignInFormData } from "@/hooks/committee/sign-in/useCommitteeSignInFormData";
+import { useCommitteeSignIn } from "@/hooks/tanstack-query/committee/sign-in";
 
 const useCommitteeSignInForm = () => {
   const { formData, onInputChange } = useCommitteeSignInFormData();
+  const { onCommitteeSignIn: onSignIn } = useCommitteeSignIn();
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -35,6 +37,7 @@ const useCommitteeSignInForm = () => {
       alert(errorMessage);
       return;
     }
+    onSignIn(formData);
   };
 
   return {
