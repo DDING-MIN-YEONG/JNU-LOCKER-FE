@@ -43,6 +43,14 @@ export default function SignUpForm() {
           id="department"
         />
         <TextInput
+          id="studentNumber"
+          type="text"
+          label="학번"
+          placeholder="학번을 입력해주세요."
+          value={formData.studentNumber}
+          onChange={onInputChange}
+        />
+        <TextInput
           containerClassName={cn("emailInputContainer")}
           id="email"
           type="email"
@@ -98,13 +106,7 @@ export default function SignUpForm() {
           placeholder="연락처를 입력해주세요."
           value={formData.phoneNumber}
           onChange={onInputChange}
-        >
-          <Button type="button" className={cn("certificationBtn")}>
-            <Txt size="tiny" weight="bold" color="white">
-              전송
-            </Txt>
-          </Button>
-        </TextInput>
+        />
         <TextInput
           id="name"
           type="text"

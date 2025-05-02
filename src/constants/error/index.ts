@@ -12,6 +12,9 @@ export const STUDENT_SIGN_UP = {
     [VALIDATION_TYPES.REQUIRED]: "이메일을 입력해 주세요.",
     [VALIDATION_TYPES.FORMAT]: "올바른 형식(@jnu.ac.kr로 끝나는)의 이메일을 입력해 주세요.",
   },
+  studentNumber: {
+    [VALIDATION_TYPES.REQUIRED]: "학번을 입력해 주세요.",
+  },
   emailCertificationNumber: {
     [VALIDATION_TYPES.REQUIRED]: "이메일 인증코드를 입력해 주세요.",
   },

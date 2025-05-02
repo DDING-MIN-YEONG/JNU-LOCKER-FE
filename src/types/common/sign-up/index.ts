@@ -4,6 +4,7 @@ export interface SignUpFormData {
   password: string;
   departmentId: number;
   phoneNumber: string;
+  studentNumber: string;
 }
 
 export interface SubmitEmailData {

@@ -96,6 +96,7 @@ const useStudentSignUpForm = () => {
       password: formData.password,
       departmentId: formData.department.id,
       phoneNumber: formData.phoneNumber,
+      studentNumber: formData.studentNumber,
     });
   };
 

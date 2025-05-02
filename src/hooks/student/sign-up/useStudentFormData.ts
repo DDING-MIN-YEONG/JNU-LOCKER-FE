@@ -16,6 +16,7 @@ export interface StudentFormData {
   phoneNumber: string;
   password: string;
   passwordConfirm: string;
+  studentNumber: string;
 }
 
 export const useStudentFormData = () => {
@@ -34,6 +35,7 @@ export const useStudentFormData = () => {
     phoneNumber: "",
     password: "",
     passwordConfirm: "",
+    studentNumber: "",
   });
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
