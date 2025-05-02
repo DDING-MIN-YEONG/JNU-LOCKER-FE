@@ -1,14 +1,12 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { isEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
 import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
 import { useFormError } from "@/hooks/common/useFormError";
+import { useStudentSignInFormData } from "./useStudentSignInFormData";
 
-const useSignIn = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+const useStudentSignInForm = () => {
+  const { formData, onInputChange } = useStudentSignInFormData();
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -46,20 +44,12 @@ const useSignIn = () => {
     onStudentSignIn(formData);
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
-
   return {
     formAction,
     formData,
-    onChange,
+    onInputChange,
     error,
   };
 };
 
-export default useSignIn;
+export default useStudentSignInForm;
