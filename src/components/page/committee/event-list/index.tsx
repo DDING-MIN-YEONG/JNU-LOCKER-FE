@@ -10,7 +10,7 @@ import Pagination from "@/components/common/Pagination";
 const cn = classNames.bind(styles);
 
 export default function EventList() {
-  const { eventList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup } = useEventList();
+  const { eventList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, onDeleteEvent } = useEventList();
 
   return (
     <div className={cn("container")}>
@@ -70,7 +70,7 @@ export default function EventList() {
                 </Button>
               </td>
               <td className={cn("tableData", "manage")}>
-                <Button color="red" className={cn("btn")}>
+                <Button color="red" className={cn("btn")} onClick={() => onDeleteEvent(event.id)}>
                   <Txt color="white" size="h6">
                     삭제
                   </Txt>

@@ -11,3 +11,7 @@ export const getEventList = async (page: number, size: number, direction: "asc" 
 
   return new EventList(data);
 };
+
+export const deleteEvent = async (id: number) => {
+  await https.delete(`events/${id}`);
+};
