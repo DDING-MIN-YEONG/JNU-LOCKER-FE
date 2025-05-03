@@ -10,7 +10,16 @@ import Pagination from "@/components/common/Pagination";
 const cn = classNames.bind(styles);
 
 export default function EventList() {
-  const { eventList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, onDeleteEvent } = useEventList();
+  const {
+    eventList,
+    totalElements,
+    currentPage,
+    setPage,
+    itemsPerPage,
+    pagesPerGroup,
+    onDeleteEvent,
+    onChangeEventPublish,
+  } = useEventList();
 
   return (
     <div className={cn("container")}>
@@ -37,6 +46,11 @@ export default function EventList() {
             </th>
             <th className={cn("tableHeader")}>
               <Txt color="white" weight="medium">
+                게시 상태
+              </Txt>
+            </th>
+            <th className={cn("tableHeader")}>
+              <Txt color="white" weight="medium">
                 게시
               </Txt>
             </th>
@@ -59,13 +73,16 @@ export default function EventList() {
               <td className={cn("tableData")}>
                 <Txt size="h6">{event.status}</Txt>
               </td>
+              <td className={cn("tableData")}>
+                <Txt size="h6">{event.publish === true ? "공개" : "비공개"}</Txt>
+              </td>
               <td className={cn("tableData", "publish")}>
-                <Button color="primary" className={cn("btn")}>
+                <Button color="primary" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, true)}>
                   <Txt color="white" size="h6">
                     공개
                   </Txt>
                 </Button>
-                <Button color="gray" className={cn("btn")}>
+                <Button color="gray" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, false)}>
                   <Txt size="h6">비공개</Txt>
                 </Button>
               </td>

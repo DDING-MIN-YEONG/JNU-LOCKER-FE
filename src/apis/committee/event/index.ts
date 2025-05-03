@@ -15,3 +15,14 @@ export const getEventList = async (page: number, size: number, direction: "asc" 
 export const deleteEvent = async (id: number) => {
   await https.delete(`events/${id}`);
 };
+
+interface PutEventPublishParam {
+  id: number;
+  isPublish: boolean;
+}
+
+export const putEventPublish = async ({ id, isPublish }: PutEventPublishParam) => {
+  await https.put(`events/${id}/publish`, {
+    isPublish,
+  });
+};
