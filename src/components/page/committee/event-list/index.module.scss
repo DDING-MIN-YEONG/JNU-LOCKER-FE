@@ -1,0 +1,37 @@
+.container {
+  padding: 4rem;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.table {
+  border: 0.2rem solid $primary;
+}
+
+.tableHeaderContainer {
+  background-color: $primary;
+}
+
+.tableHeader {
+  padding: 2rem;
+}
+
+.tableData {
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 0.1rem solid $primary;
+}
+
+.publish {
+  @include flexSort(row, center, center, 1rem);
+}
+
+.manage {
+  button {
+    margin: 0 auto;
+  }
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+}
