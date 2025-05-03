@@ -1,4 +1,4 @@
-import { useCreateEvent } from "@/hooks/tanstack-query/committee/event";
+import { useCreateEvent } from "@/hooks/tanstack-query/committee/event/useCreateEvent";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { CreateEventForm } from "@/types/committee/event";
 import { ChangeEvent, useState } from "react";
