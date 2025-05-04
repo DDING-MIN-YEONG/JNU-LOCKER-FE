@@ -6,6 +6,7 @@ import Txt from "@/components/design-system/Txt";
 import Button from "@/components/design-system/Button";
 import { useEventList } from "@/hooks/committee/event/useEventList";
 import Pagination from "@/components/common/Pagination";
+import { formatToKoreanTime } from "@/utils/date";
 
 const cn = classNames.bind(styles);
 
@@ -68,7 +69,7 @@ export default function EventList() {
                 <Txt size="h6">{event.title}</Txt>
               </td>
               <td className={cn("tableData")}>
-                <Txt size="h6">{event.title}</Txt>
+                <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
               </td>
               <td className={cn("tableData")}>
                 <Txt size="h6">{event.status}</Txt>
