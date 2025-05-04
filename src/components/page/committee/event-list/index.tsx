@@ -88,7 +88,15 @@ export default function EventList() {
                 </Button>
               </td>
               <td className={cn("tableData", "manage")}>
-                <Button color="red" className={cn("btn")} onClick={() => onDeleteEvent(event.id)}>
+                <Button
+                  color="red"
+                  className={cn("btn")}
+                  onClick={() => {
+                    if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
+                      onDeleteEvent(event.id);
+                    }
+                  }}
+                >
                   <Txt color="white" size="h6">
                     삭제
                   </Txt>
