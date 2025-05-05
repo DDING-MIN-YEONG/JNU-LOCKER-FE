@@ -1,4 +1,4 @@
-import { Locker, LockerList } from "@/apis/dtos/student/locker";
+import { Locker, LockerList, MyRegistrationLocker } from "@/apis/dtos/student/locker";
 import { https } from "@/apis/https";
 
 export const getLockerList = async (eventId: number) => {
@@ -10,4 +10,10 @@ export const getLockerList = async (eventId: number) => {
   );
 
   return lockerList;
+};
+
+export const getMyRegistrationLocker = async (eventId: number) => {
+  const { data } = await https.get(`events/${eventId}/registrations/me`);
+
+  return new MyRegistrationLocker(data);
 };

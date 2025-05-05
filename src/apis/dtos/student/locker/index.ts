@@ -21,3 +21,15 @@ export class LockerList {
     this.lockerList = lockers;
   }
 }
+
+export class MyRegistrationLocker {
+  lockerId: number;
+  lockerName: string;
+  floorNumber: number;
+
+  constructor({ id, lockerCode, floorNumber }: { id: number; lockerCode: string; floorNumber: number }) {
+    this.lockerId = id;
+    this.lockerName = lockerCode;
+    this.floorNumber = floorNumber;
+  }
+}
