@@ -5,15 +5,15 @@ import LockerItem from "@/components/page/student/DepartmentInfo/ApplyLocker/Loc
 const cn = classNames.bind(styles);
 
 interface LockerGirdProps {
-  LockerList: { status: "complete" | "applyAble"; lockerName: string; lockerId: number }[];
+  lockerList: { available: boolean; code: string; lockerId: number }[];
   className?: string;
 }
 
-export default function LockerGrid({ LockerList, className }: LockerGirdProps) {
+export default function LockerGrid({ lockerList, className }: LockerGirdProps) {
   return (
     <div className={cn("container", className)}>
-      {LockerList.map(({ lockerName, status, lockerId }) => (
-        <LockerItem lockerName={lockerName} status={status} key={lockerId} />
+      {lockerList.map(({ code, available, lockerId }) => (
+        <LockerItem lockerName={code} available={available} key={lockerId} />
       ))}
     </div>
   );

@@ -1,16 +1,18 @@
-import { ChangeEvent, useState } from "react";
+import { FormEvent } from "react";
 import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
+import { useFormError } from "@/hooks/common/useFormError";
+import { useApplyLockerFormData } from "./useApplyLockerFormData";
+import { usePostApplyLocker } from "@/hooks/tanstack-query/student/apply-locker/usePostApplyLocker";
+import { useGetApplyLockerPageEventId } from "./useGetApplyLockerPageEventId";
 
 const useApplyLocker = () => {
-  const [formData, setFormData] = useState({
-    firstPriority: "",
-    secondPriority: "",
-    thirdPriority: "",
-  });
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+  const { formData, onChange } = useApplyLockerFormData();
+
+  const { error, setFormError, clearError } = useFormError();
+
+  const { onApplyLocker } = usePostApplyLocker();
+
+  const { eventId } = useGetApplyLockerPageEventId();
 
   const validateForm = () => {
     const fields = Object.keys(APPLY_LOCKER) as Array<keyof typeof APPLY_LOCKER>;
@@ -23,46 +25,25 @@ const useApplyLocker = () => {
     return null;
   };
 
-  const onSaveBtnClick = () => {
-    setError({ isError: false, errorMessage: "" });
+  const formAction = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
 
-    alert("임시저장이 완료되었습니다.");
-  };
-
-  const onApplyBtnClick = () => {
-    setError({ isError: false, errorMessage: "" });
-
-    const errorMessage = validateForm();
-    if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
-      alert(errorMessage);
-      return;
-    }
-
-    alert("사물함 신청이 완료되었습니다.");
-  };
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    onApplyLocker(eventId, formData.lockerNumber, Number(formData.floor));
   };
 
   return {
     formData,
     onChange,
     error,
-    onSaveBtnClick,
-    onApplyBtnClick,
+    formAction,
   };
 };
 

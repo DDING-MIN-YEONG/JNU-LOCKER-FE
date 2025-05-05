@@ -10,36 +10,26 @@ import Txt from "@/components/design-system/Txt";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerForm() {
-  const { onApplyBtnClick, onSaveBtnClick, formData, onChange, error } = useApplyLocker();
+  const { formAction, formData, onChange, error } = useApplyLocker();
 
   return (
-    <div className={cn("container")}>
+    <form className={cn("container")} onSubmit={formAction}>
       <TextInput
-        id="firstPriority"
+        id="floor"
         type="text"
-        label="1순위"
-        placeholder="1순위 사물함을 입력해주세요."
-        value={formData.firstPriority}
+        label="층수"
+        placeholder="층수를 입력해주세요. (숫자만 입력 가능)"
+        value={formData.floor}
         onChange={onChange}
         labelClassName={cn("label")}
         className={cn("input")}
       />
       <TextInput
-        id="secondPriority"
+        id="lockerNumber"
         type="text"
-        label="2순위"
-        placeholder="2순위 사물함을 입력해주세요."
-        value={formData.secondPriority}
-        onChange={onChange}
-        labelClassName={cn("label")}
-        className={cn("input")}
-      />
-      <TextInput
-        id="thirdPriority"
-        type="text"
-        label="3순위"
-        placeholder="3순위 사물함을 입력해주세요."
-        value={formData.thirdPriority}
+        label="사물함 번호"
+        placeholder="사물함 번호를 입력해주세요."
+        value={formData.lockerNumber}
         onChange={onChange}
         labelClassName={cn("label")}
         className={cn("input")}
@@ -50,17 +40,12 @@ export default function ApplyLockerForm() {
         </Txt>
       )}
       <div className={cn("btnContainer")}>
-        <Button onClick={onSaveBtnClick} color="gray" className={cn("saveBtn")}>
-          <Txt size="h6" weight="semiBold" className={cn("save")}>
-            임시 저장
-          </Txt>
-        </Button>
-        <Button onClick={onApplyBtnClick} className={cn("applyBtn")}>
+        <Button type="submit" className={cn("applyBtn")}>
           <Txt size="h6" weight="semiBold" color="white" className={cn("apply")}>
             신청하기
           </Txt>
         </Button>
       </div>
-    </div>
+    </form>
   );
 }

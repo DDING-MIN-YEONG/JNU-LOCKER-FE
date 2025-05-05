@@ -5,14 +5,14 @@ import Txt from "@/components/design-system/Txt";
 const cn = classNames.bind(styles);
 
 interface LockerItemProps {
-  status: "complete" | "applyAble";
+  available: boolean;
   lockerName: string;
 }
 
-export default function LockerItem({ status, lockerName }: LockerItemProps) {
+export default function LockerItem({ available, lockerName }: LockerItemProps) {
   return (
-    <div className={cn("container", status)}>
-      <Txt size="h4" weight="medium" color={status === "applyAble" ? "white" : "black"} className={cn("locker")}>
+    <div className={cn("container", available ? "applyAble" : "complete")}>
+      <Txt size="h4" weight="medium" color={available ? "white" : "black"} className={cn("locker")}>
         {lockerName}
       </Txt>
     </div>
