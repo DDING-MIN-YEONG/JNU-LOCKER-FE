@@ -28,3 +28,7 @@ export const postApplyLocker = async ({ eventId, lockerId }: ApplyLockerRequest)
     lockerId,
   });
 };
+
+export const deleteMyRegistrationLocker = async (eventId: number) => {
+  await https.delete(`events/${eventId}/registrations/me`);
+};

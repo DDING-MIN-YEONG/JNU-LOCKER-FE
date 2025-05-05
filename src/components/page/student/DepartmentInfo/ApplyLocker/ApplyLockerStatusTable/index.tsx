@@ -8,7 +8,7 @@ import Txt from "@/components/design-system/Txt";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerStatusTable() {
-  const { myRegistrationLocker } = useMyRegistrationLocker();
+  const { myRegistrationLocker, onDeleteMyRegistrationLocker } = useMyRegistrationLocker();
 
   return (
     <table className={cn("container")}>
@@ -31,7 +31,9 @@ export default function ApplyLockerStatusTable() {
             <td className={cn("td")}>{myRegistrationLocker.floorNumber}층</td>
             <td className={cn("td")}>{myRegistrationLocker.lockerName}</td>
             <td className={cn("deleteBtnContainer")}>
-              <button className={cn("deleteBtn")}>삭제</button>
+              <button className={cn("deleteBtn")} onClick={onDeleteMyRegistrationLocker}>
+                삭제
+              </button>
             </td>
           </tr>
         </tbody>

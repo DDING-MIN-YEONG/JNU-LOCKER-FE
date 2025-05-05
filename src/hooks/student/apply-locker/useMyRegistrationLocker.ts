@@ -1,4 +1,5 @@
 import { useGetApplyLockerPageEventId } from "@/hooks/student/apply-locker/useGetApplyLockerPageEventId";
+import { useDeleteMyRegistrationLocker } from "@/hooks/tanstack-query/student/apply-locker/useDeleteMyRegistrationLocker";
 import { useGetMyRegistrationLocker } from "@/hooks/tanstack-query/student/apply-locker/useGetMyRegistrationLocker";
 
 export const useMyRegistrationLocker = () => {
@@ -6,7 +7,10 @@ export const useMyRegistrationLocker = () => {
 
   const { data: myRegistrationLocker } = useGetMyRegistrationLocker(eventId);
 
+  const { onDeleteMyRegistrationLocker } = useDeleteMyRegistrationLocker(eventId);
+
   return {
     myRegistrationLocker,
+    onDeleteMyRegistrationLocker,
   };
 };
