@@ -4,11 +4,16 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import { useMyRegistrationLocker } from "@/hooks/student/apply-locker/useMyRegistrationLocker";
 import Txt from "@/components/design-system/Txt";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerStatusTable() {
-  const { myRegistrationLocker, onDeleteMyRegistrationLocker } = useMyRegistrationLocker();
+  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isLoading } = useMyRegistrationLocker();
+
+  if (isLoading) {
+    return <Skeleton className={cn("skeleton")} />;
+  }
 
   return (
     <table className={cn("container")}>
