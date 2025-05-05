@@ -65,7 +65,7 @@ export const RESET_PASSWORD = {
 
 export const APPLY_LOCKER = {
   lockerNumber: {
-    [VALIDATION_TYPES.REQUIRED]: "신청할 사물함을 입력해 주세요.",
+    [VALIDATION_TYPES.REQUIRED]: "신청할 사물함 번호를 입력해 주세요.",
   },
 };
 
