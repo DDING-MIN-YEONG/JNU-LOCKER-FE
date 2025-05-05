@@ -26,7 +26,9 @@ export const usePostApplyLocker = () => {
           alert(error.response?.data.message || "사물함 신청에 실패했습니다.");
         },
         onSuccess: () => {
-          alert("사물함 신청에 성공하셨습니다..");
+          queryClient.invalidateQueries({ queryKey: ["lockerList", eventId] });
+          queryClient.invalidateQueries({ queryKey: ["myRegistrationLocker", eventId] });
+          alert("사물함 신청에 성공하셨습니다.");
         },
       },
     );
