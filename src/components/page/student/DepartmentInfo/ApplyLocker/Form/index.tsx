@@ -10,12 +10,12 @@ import Txt from "@/components/design-system/Txt";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerForm() {
-  const { onApplyBtnClick, formData, onChange, error } = useApplyLocker();
+  const { formAction, formData, onChange, error } = useApplyLocker();
 
   return (
-    <div className={cn("container")}>
+    <form className={cn("container")} onSubmit={formAction}>
       <TextInput
-        id="firstPriority"
+        id="lockerNumber"
         type="text"
         label="사물함 번호"
         placeholder="사물함 번호를 입력해주세요."
@@ -30,12 +30,12 @@ export default function ApplyLockerForm() {
         </Txt>
       )}
       <div className={cn("btnContainer")}>
-        <Button onClick={onApplyBtnClick} className={cn("applyBtn")}>
+        <Button type="submit" className={cn("applyBtn")}>
           <Txt size="h6" weight="semiBold" color="white" className={cn("apply")}>
             신청하기
           </Txt>
         </Button>
       </div>
-    </div>
+    </form>
   );
 }

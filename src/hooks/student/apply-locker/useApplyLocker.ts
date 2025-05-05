@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
 import { useFormError } from "@/hooks/common/useFormError";
 
@@ -20,7 +20,8 @@ const useApplyLocker = () => {
     return null;
   };
 
-  const onApplyBtnClick = () => {
+  const formAction = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     clearError();
 
     const errorMessage = validateForm();
@@ -45,7 +46,7 @@ const useApplyLocker = () => {
     formData,
     onChange,
     error,
-    onApplyBtnClick,
+    formAction,
   };
 };
 
