@@ -1,11 +1,10 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
 import { useFormError } from "@/hooks/common/useFormError";
+import { useApplyLockerFormData } from "./useApplyLockerFormData";
 
 const useApplyLocker = () => {
-  const [formData, setFormData] = useState({
-    lockerNumber: "",
-  });
+  const { formData, onChange } = useApplyLockerFormData();
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -32,14 +31,6 @@ const useApplyLocker = () => {
     }
 
     alert("사물함 신청이 완료되었습니다.");
-  };
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
   };
 
   return {
