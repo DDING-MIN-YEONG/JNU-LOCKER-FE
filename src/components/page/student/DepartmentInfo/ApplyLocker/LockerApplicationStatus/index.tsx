@@ -23,7 +23,7 @@ export default function LockerApplicationStatus() {
         <div className={cn("lockerStatusContainer")}>
           <LockerStatusLegend />
         </div>
-        <LockerGrid LockerList={selectedLockerList} className={cn("gridContainer")} />
+        <LockerGrid lockerList={selectedLockerList} className={cn("gridContainer")} />
       </div>
     </div>
   );
