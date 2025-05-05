@@ -36,7 +36,7 @@ const useApplyLocker = () => {
       return;
     }
 
-    onApplyLocker(eventId, formData.lockerNumber);
+    onApplyLocker(eventId, formData.lockerNumber, Number(formData.floor));
   };
 
   return {

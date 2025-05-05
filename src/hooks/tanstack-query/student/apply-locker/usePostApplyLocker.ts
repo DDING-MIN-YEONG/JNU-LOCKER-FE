@@ -7,12 +7,12 @@ export const usePostApplyLocker = () => {
   const { mutate } = usePostApplyLockerMutate();
   const queryClient = useQueryClient();
 
-  const onApplyLocker = (eventId: number, lockerName: string) => {
+  const onApplyLocker = (eventId: number, lockerName: string, floor: number) => {
     const lockerListData: LockerList[] | undefined = queryClient.getQueryData(["lockerList", eventId]);
 
     const lockerId = lockerListData
-      ?.flatMap((lockerList) => lockerList.lockerList)
-      .find((locker) => locker.code === lockerName)?.lockerId;
+      ?.find((locker) => locker.floorNumber === floor)
+      ?.lockerList.find((locker) => locker.code === lockerName)?.lockerId;
 
     if (lockerId === undefined) {
       alert("유효하지 않은 사물함 이름입니다.");

@@ -15,6 +15,16 @@ export default function ApplyLockerForm() {
   return (
     <form className={cn("container")} onSubmit={formAction}>
       <TextInput
+        id="floor"
+        type="text"
+        label="층수"
+        placeholder="층수를 입력해주세요. (숫자만 입력 가능)"
+        value={formData.floor}
+        onChange={onChange}
+        labelClassName={cn("label")}
+        className={cn("input")}
+      />
+      <TextInput
         id="lockerNumber"
         type="text"
         label="사물함 번호"

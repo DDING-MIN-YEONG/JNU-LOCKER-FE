@@ -64,6 +64,9 @@ export const RESET_PASSWORD = {
 };
 
 export const APPLY_LOCKER = {
+  floor: {
+    [VALIDATION_TYPES.REQUIRED]: "층수를 입력해 주세요.",
+  },
   lockerNumber: {
     [VALIDATION_TYPES.REQUIRED]: "신청할 사물함 번호를 입력해 주세요.",
   },
