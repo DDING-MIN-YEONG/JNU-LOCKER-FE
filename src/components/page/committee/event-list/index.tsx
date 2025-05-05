@@ -7,6 +7,8 @@ import Button from "@/components/design-system/Button";
 import { useEventList } from "@/hooks/committee/event/useEventList";
 import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
+import Link from "next/link";
+import { ROUTE } from "@/constants/routes";
 
 const cn = classNames.bind(styles);
 
@@ -24,9 +26,16 @@ export default function EventList() {
 
   return (
     <div className={cn("container")}>
-      <Txt color="primary" size="h3" weight="medium">
-        이벤트 목록
-      </Txt>
+      <div className={cn("header")}>
+        <Txt color="primary" size="h3" weight="medium">
+          이벤트 목록
+        </Txt>
+        <Link href={ROUTE.COMMITTEE.CREATE_EVENT} className={cn("createEvent")}>
+          <Txt color="white" size="h6">
+            이벤트 생성
+          </Txt>
+        </Link>
+      </div>
       <table className={cn("table")}>
         <thead className={cn("tableHeaderContainer")}>
           <tr>

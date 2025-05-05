@@ -3,6 +3,16 @@
   @include flexSort(column, null, null, 3rem);
 }
 
+.header {
+  @include flexSort(row, space-between, center, null);
+}
+
+.createEvent {
+  background-color: $primary;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+}
+
 .table {
   border: 0.2rem solid $primary;
 }
