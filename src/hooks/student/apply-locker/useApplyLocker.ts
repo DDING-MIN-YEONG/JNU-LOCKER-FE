@@ -2,11 +2,17 @@ import { FormEvent } from "react";
 import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useApplyLockerFormData } from "./useApplyLockerFormData";
+import { usePostApplyLocker } from "@/hooks/tanstack-query/student/apply-locker/usePostApplyLocker";
+import { useGetApplyLockerPageEventId } from "./useGetApplyLockerPageEventId";
 
 const useApplyLocker = () => {
   const { formData, onChange } = useApplyLockerFormData();
 
   const { error, setFormError, clearError } = useFormError();
+
+  const { onApplyLocker } = usePostApplyLocker();
+
+  const { eventId } = useGetApplyLockerPageEventId();
 
   const validateForm = () => {
     const fields = Object.keys(APPLY_LOCKER) as Array<keyof typeof APPLY_LOCKER>;
@@ -30,7 +36,7 @@ const useApplyLocker = () => {
       return;
     }
 
-    alert("사물함 신청이 완료되었습니다.");
+    onApplyLocker(eventId, formData.lockerNumber);
   };
 
   return {

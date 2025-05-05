@@ -17,3 +17,14 @@ export const getMyRegistrationLocker = async (eventId: number) => {
 
   return new MyRegistrationLocker(data);
 };
+
+export interface ApplyLockerRequest {
+  eventId: number;
+  lockerId: number;
+}
+
+export const postApplyLocker = async ({ eventId, lockerId }: ApplyLockerRequest) => {
+  await https.post(`events/${eventId}/registrations`, {
+    lockerId,
+  });
+};
