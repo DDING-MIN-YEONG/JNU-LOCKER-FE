@@ -64,7 +64,7 @@ export const RESET_PASSWORD = {
 };
 
 export const APPLY_LOCKER = {
-  firstPriority: {
+  lockerNumber: {
     [VALIDATION_TYPES.REQUIRED]: "신청할 사물함을 입력해 주세요.",
   },
 };

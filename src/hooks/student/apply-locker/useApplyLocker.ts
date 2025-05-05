@@ -3,9 +3,7 @@ import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
 
 const useApplyLocker = () => {
   const [formData, setFormData] = useState({
-    firstPriority: "",
-    secondPriority: "",
-    thirdPriority: "",
+    lockerNumber: "",
   });
   const [error, setError] = useState({
     isError: false,
@@ -21,19 +19,6 @@ const useApplyLocker = () => {
     }
 
     return null;
-  };
-
-  const onSaveBtnClick = () => {
-    setError({ isError: false, errorMessage: "" });
-
-    const errorMessage = validateForm();
-    if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
-      alert(errorMessage);
-      return;
-    }
-
-    alert("임시저장이 완료되었습니다.");
   };
 
   const onApplyBtnClick = () => {
@@ -61,7 +46,6 @@ const useApplyLocker = () => {
     formData,
     onChange,
     error,
-    onSaveBtnClick,
     onApplyBtnClick,
   };
 };
