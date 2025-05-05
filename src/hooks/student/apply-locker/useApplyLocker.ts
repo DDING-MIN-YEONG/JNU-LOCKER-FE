@@ -1,14 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
+import { useFormError } from "@/hooks/common/useFormError";
 
 const useApplyLocker = () => {
   const [formData, setFormData] = useState({
     lockerNumber: "",
   });
-  const [error, setError] = useState({
-    isError: false,
-    errorMessage: "",
-  });
+
+  const { error, setFormError, clearError } = useFormError();
 
   const validateForm = () => {
     const fields = Object.keys(APPLY_LOCKER) as Array<keyof typeof APPLY_LOCKER>;
@@ -22,11 +21,11 @@ const useApplyLocker = () => {
   };
 
   const onApplyBtnClick = () => {
-    setError({ isError: false, errorMessage: "" });
+    clearError();
 
     const errorMessage = validateForm();
     if (errorMessage) {
-      setError({ isError: true, errorMessage: errorMessage });
+      setFormError(errorMessage);
       alert(errorMessage);
       return;
     }
