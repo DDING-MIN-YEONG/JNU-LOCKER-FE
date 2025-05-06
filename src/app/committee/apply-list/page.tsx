@@ -4,7 +4,7 @@ import CommitteeHeader from "@/components/common/CommitteeHeader";
 import ApplyList from "@/components/page/committee/apply-list";
 import { Suspense } from "react";
 
-export default function EventListPage() {
+export default function ApplyListPage() {
   return (
     <>
       <CommitteeHeader />
