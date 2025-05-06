@@ -73,7 +73,7 @@ export default function EventList() {
         </thead>
         <tbody>
           {eventList.map((event) => (
-            <tr key={event.id}>
+            <tr key={event.id} className={cn("tr")}>
               <td className={cn("tableData")}>
                 <Txt size="h6">{event.title}</Txt>
               </td>
