@@ -15,6 +15,7 @@
 
 .table {
   border: 0.2rem solid $primary;
+  border-bottom: 0;
 }
 
 .tableHeaderContainer {
@@ -23,6 +24,15 @@
 
 .tableHeader {
   padding: 2rem;
+}
+
+.tr {
+  border-bottom: 0.2rem solid $primary;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }
 
 .tableData {
