@@ -1,5 +1,9 @@
-import { https } from "@/apis/https";
+import { baseInstance } from "@/apis/instance/baseInstance";
 
 export const postReissue = async () => {
-  await https.post("auth/reissue", {});
+  try {
+    await baseInstance.post("auth/reissue", {});
+  } catch (error) {
+    console.log(error);
+  }
 };
