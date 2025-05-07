@@ -8,7 +8,7 @@ export const useEventList = () => {
   const { page: currentPage } = useGetPageParams();
   const { pagesPerGroup, queryParams, setPage } = useEventPagination(currentPage);
 
-  const { data } = useGetEventListQuery(queryParams);
+  const { data, isLoading } = useGetEventListQuery(queryParams);
 
   const { onDeleteEvent } = useDeleteEvent(queryParams);
 
@@ -26,5 +26,6 @@ export const useEventList = () => {
     pagesPerGroup,
     onDeleteEvent,
     onChangeEventPublish,
+    isLoading,
   };
 };
