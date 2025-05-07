@@ -18,9 +18,11 @@ https.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
-      await postReissue();
+      const result = await postReissue();
 
-      return https(originalRequest);
+      if (result) {
+        return https(originalRequest);
+      }
     }
 
     return Promise.reject(error);
