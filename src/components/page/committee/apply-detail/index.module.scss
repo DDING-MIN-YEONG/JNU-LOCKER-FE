@@ -1,0 +1,26 @@
+.container {
+  padding: 4rem;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.table {
+  border: 0.2rem solid $primary;
+  border-bottom: 0;
+}
+
+.tableHeaderContainer {
+  background-color: $primary;
+}
+
+.tableHeader {
+  padding: 2rem;
+}
+
+.tr {
+  border-bottom: 0.2rem solid $primary;
+}
+
+.tableData {
+  text-align: center;
+  padding: 2rem;
+}
