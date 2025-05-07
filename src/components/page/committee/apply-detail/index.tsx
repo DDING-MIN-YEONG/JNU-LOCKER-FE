@@ -5,11 +5,13 @@ import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
 import Pagination from "@/components/common/Pagination";
 import { useApplyDetail } from "@/hooks/committee/event/useApplyDetail";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyDetail() {
-  const { ApplyDetailList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup } = useApplyDetail();
+  const { ApplyDetailList, isLoading, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup } =
+    useApplyDetail();
 
   return (
     <div className={cn("container")}>
@@ -57,31 +59,39 @@ export default function ApplyDetail() {
           </tr>
         </thead>
         <tbody>
-          {ApplyDetailList.map(({ floorNumber, id, lockerCode, member }) => (
-            <tr className={cn("tr")} key={id}>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{floorNumber}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{lockerCode}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{member.studentNumber}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{member.organization}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{member.department}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{member.name}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{member.email}</Txt>
+          {isLoading ? (
+            <tr>
+              <td colSpan={7}>
+                <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ))}
+          ) : (
+            ApplyDetailList.map(({ floorNumber, id, lockerCode, member }) => (
+              <tr className={cn("tr")} key={id}>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{floorNumber}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{lockerCode}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{member.studentNumber}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{member.organization}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{member.department}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{member.name}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{member.email}</Txt>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
       <Pagination

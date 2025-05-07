@@ -8,7 +8,7 @@ export const useApplyDetail = () => {
   const { eventId } = useGetApplyDetailPageEventId();
 
   const { pagesPerGroup, queryParams, setPage } = useApplyDetailPagination(currentPage, eventId);
-  const { data } = useGetApplyDetailQuery(queryParams);
+  const { data, isLoading } = useGetApplyDetailQuery(queryParams);
 
   const ApplyDetailList = data?.content || [];
   const totalElements = data?.totalElements || 0;
@@ -20,5 +20,6 @@ export const useApplyDetail = () => {
     setPage,
     itemsPerPage: queryParams.size,
     pagesPerGroup,
+    isLoading,
   };
 };
