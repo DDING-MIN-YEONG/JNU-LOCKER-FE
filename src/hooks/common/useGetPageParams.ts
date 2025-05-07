@@ -1,6 +1,6 @@
 import { useSearchParams } from "next/navigation";
 
-export const useGetEventPageParams = () => {
+export const useGetPageParams = () => {
   const searchParams = useSearchParams();
 
   const page = Number(searchParams.get("page")) || 1;

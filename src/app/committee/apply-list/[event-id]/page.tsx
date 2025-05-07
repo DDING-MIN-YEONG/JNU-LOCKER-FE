@@ -1,15 +1,15 @@
 "use client";
 
 import CommitteeHeader from "@/components/common/CommitteeHeader";
-import ApplyList from "@/components/page/committee/apply-list";
+import ApplyDetail from "@/components/page/committee/apply-detail";
 import { Suspense } from "react";
 
-export default function ApplyListPage() {
+export default function ApplyDetailPage() {
   return (
     <>
       <CommitteeHeader />
       <Suspense>
-        <ApplyList />
+        <ApplyDetail />
       </Suspense>
     </>
   );

@@ -6,11 +6,13 @@ import Txt from "@/components/design-system/Txt";
 import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
 import { useApplyList } from "@/hooks/committee/event/useApplyList";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyList() {
-  const { eventList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, onApplyClick } = useApplyList();
+  const { applyList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, onApplyClick, isLoading } =
+    useApplyList();
 
   return (
     <div className={cn("container")}>
@@ -37,21 +39,31 @@ export default function ApplyList() {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {eventList.map((event) => (
-            <tr className={cn("tr")} key={event.id} onClick={() => onApplyClick(event.id)}>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{event.title}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{event.status}</Txt>
+        {isLoading ? (
+          <tbody>
+            <tr>
+              <td colSpan={3}>
+                <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        ) : (
+          <tbody>
+            {applyList.map((event) => (
+              <tr className={cn("tr")} key={event.id} onClick={() => onApplyClick(event.id)}>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{event.title}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{event.status}</Txt>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
       <Pagination
         pagesPerGroup={pagesPerGroup}

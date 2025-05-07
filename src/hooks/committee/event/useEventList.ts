@@ -1,14 +1,14 @@
 import { useGetEventListQuery } from "@/hooks/tanstack-query/committee/event/useGetEventList";
-import { useGetEventPageParams } from "@/hooks/committee/event/useGetEventPageParams";
+import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useEventPagination } from "@/hooks/committee/event/useEventPagination";
 import { useDeleteEvent } from "@/hooks/tanstack-query/committee/event/useDeleteEvent";
 import { usePutEventPublish } from "@/hooks/tanstack-query/committee/event/usePutEventPublish";
 
 export const useEventList = () => {
-  const { page: currentPage } = useGetEventPageParams();
+  const { page: currentPage } = useGetPageParams();
   const { pagesPerGroup, queryParams, setPage } = useEventPagination(currentPage);
 
-  const { data } = useGetEventListQuery(queryParams);
+  const { data, isLoading } = useGetEventListQuery(queryParams);
 
   const { onDeleteEvent } = useDeleteEvent(queryParams);
 
@@ -26,5 +26,6 @@ export const useEventList = () => {
     pagesPerGroup,
     onDeleteEvent,
     onChangeEventPublish,
+    isLoading,
   };
 };

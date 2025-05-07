@@ -9,6 +9,7 @@ import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
@@ -22,6 +23,7 @@ export default function EventList() {
     pagesPerGroup,
     onDeleteEvent,
     onChangeEventPublish,
+    isLoading,
   } = useEventList();
 
   return (
@@ -72,47 +74,55 @@ export default function EventList() {
           </tr>
         </thead>
         <tbody>
-          {eventList.map((event) => (
-            <tr key={event.id} className={cn("tr")}>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{event.title}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{event.status}</Txt>
-              </td>
-              <td className={cn("tableData")}>
-                <Txt size="h6">{event.publish === true ? "공개" : "비공개"}</Txt>
-              </td>
-              <td className={cn("tableData", "publish")}>
-                <Button color="primary" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, true)}>
-                  <Txt color="white" size="h6">
-                    공개
-                  </Txt>
-                </Button>
-                <Button color="gray" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, false)}>
-                  <Txt size="h6">비공개</Txt>
-                </Button>
-              </td>
-              <td className={cn("tableData", "manage")}>
-                <Button
-                  color="red"
-                  className={cn("btn")}
-                  onClick={() => {
-                    if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
-                      onDeleteEvent(event.id);
-                    }
-                  }}
-                >
-                  <Txt color="white" size="h6">
-                    삭제
-                  </Txt>
-                </Button>
+          {isLoading ? (
+            <tr>
+              <td colSpan={6}>
+                <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ))}
+          ) : (
+            eventList.map((event) => (
+              <tr key={event.id} className={cn("tr")}>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{event.title}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{event.status}</Txt>
+                </td>
+                <td className={cn("tableData")}>
+                  <Txt size="h6">{event.publish === true ? "공개" : "비공개"}</Txt>
+                </td>
+                <td className={cn("tableData", "publish")}>
+                  <Button color="primary" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, true)}>
+                    <Txt color="white" size="h6">
+                      공개
+                    </Txt>
+                  </Button>
+                  <Button color="gray" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, false)}>
+                    <Txt size="h6">비공개</Txt>
+                  </Button>
+                </td>
+                <td className={cn("tableData", "manage")}>
+                  <Button
+                    color="red"
+                    className={cn("btn")}
+                    onClick={() => {
+                      if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
+                        onDeleteEvent(event.id);
+                      }
+                    }}
+                  >
+                    <Txt color="white" size="h6">
+                      삭제
+                    </Txt>
+                  </Button>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
       <Pagination

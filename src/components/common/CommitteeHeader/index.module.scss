@@ -14,6 +14,10 @@
   @include flexSort(row, null, center, 10rem);
 }
 
+.active {
+  color: $primary;
+}
+
 .headerTitle {
   font-size: 2.5rem !important;
 }

@@ -1,5 +1,5 @@
 import { EventList } from "@/apis/dtos/committee/event";
-import { https } from "@/apis/https";
+import { https } from "@/apis/instance/https";
 import { CreateEventRequest } from "@/types/committee/event";
 
 export const postCreateEvent = async (formData: CreateEventRequest) => {
