@@ -9,9 +9,9 @@ export const useApplyList = () => {
   const { page: currentPage } = useGetPageParams();
   const { pagesPerGroup, queryParams, setPage } = useEventPagination(currentPage);
 
-  const { data } = useGetApplyListQuery(queryParams);
+  const { data, isLoading } = useGetApplyListQuery(queryParams);
 
-  const eventList = data?.content || [];
+  const applyList = data?.content || [];
   const totalElements = data?.totalElements || 0;
 
   const onApplyClick = (eventId: number) => {
@@ -19,12 +19,13 @@ export const useApplyList = () => {
   };
 
   return {
-    eventList,
+    applyList,
     totalElements,
     currentPage,
     setPage,
     itemsPerPage: queryParams.size,
     pagesPerGroup,
     onApplyClick,
+    isLoading,
   };
 };
