@@ -1,13 +1,18 @@
+"use client";
+
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
 import ChnamLogo from "@/components/common/ChnamLogo/index";
+import { usePathname } from "next/navigation";
 
 const cn = classNames.bind(styles);
 
 export default function CommitteeHeader() {
+  const router = usePathname();
+
   return (
     <header className={cn("header")}>
       <Link href={ROUTE.COMMITTEE.APPLY_LIST} className={cn("logo")}>
@@ -18,17 +23,29 @@ export default function CommitteeHeader() {
       </Link>
       <div className={cn("linkContainer")}>
         <Link href={ROUTE.COMMITTEE.APPLY_LIST}>
-          <Txt className={cn("headerTitle")} weight="medium">
+          <Txt
+            className={cn("headerTitle")}
+            weight="medium"
+            color={router.includes("apply-list") ? "primary" : "black"}
+          >
             신청 목록
           </Txt>
         </Link>
         <Link href={ROUTE.COMMITTEE.ANNOUNCEMENT}>
-          <Txt className={cn("headerTitle")} weight="medium">
+          <Txt
+            className={cn("headerTitle")}
+            weight="medium"
+            color={router.includes("announcement-list") ? "primary" : "black"}
+          >
             공지사항
           </Txt>
         </Link>
         <Link href={ROUTE.COMMITTEE.EVENT_LIST}>
-          <Txt className={cn("headerTitle")} weight="medium">
+          <Txt
+            className={cn("headerTitle")}
+            weight="medium"
+            color={router.includes("event-list") ? "primary" : "black"}
+          >
             이벤트
           </Txt>
         </Link>
