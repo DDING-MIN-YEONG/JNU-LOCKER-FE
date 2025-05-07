@@ -6,14 +6,7 @@ export const https = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-});
-
-https.interceptors.request.use((config) => {
-  if (typeof window !== "undefined") {
-    config.withCredentials = true;
-  }
-
-  return config;
+  withCredentials: true,
 });
 
 https.interceptors.response.use(

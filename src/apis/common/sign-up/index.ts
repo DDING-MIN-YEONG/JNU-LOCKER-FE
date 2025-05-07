@@ -1,5 +1,5 @@
 import { Department, Organization } from "@/apis/dtos/sign-up";
-import { https } from "@/apis/https";
+import { https } from "@/apis/instance/https";
 import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
 
 export const getOrganizations = async (type: "COUNCIL" | "COMMITTEE") => {

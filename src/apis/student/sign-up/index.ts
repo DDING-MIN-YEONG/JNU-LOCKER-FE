@@ -1,4 +1,4 @@
-import { https } from "@/apis/https";
+import { https } from "@/apis/instance/https";
 import { StudentSignUpFormData } from "@/types/student/sign-up";
 
 export const postStudentSignUp = async (formData: StudentSignUpFormData) => {
