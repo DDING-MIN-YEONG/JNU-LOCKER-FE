@@ -6,23 +6,17 @@ import DepartmentLabel from "@/components/common/DepartmentLabel";
 const cn = classNames.bind(styles);
 
 interface DepartmentLayoutProps {
-  department: string;
   affiliation: string;
   children: ReactNode;
   containerClassName?: string;
   labelClassName?: string;
 }
 
-export default function DepartmentLayout({
-  affiliation,
-  department,
-  children,
-  containerClassName,
-}: DepartmentLayoutProps) {
+export default function DepartmentLayout({ affiliation, children, containerClassName }: DepartmentLayoutProps) {
   return (
     <div className={cn("container", containerClassName)}>
       <div className={cn("labelContainer")}>
-        <DepartmentLabel affiliation={affiliation} department={department} labelClassName={cn("label")} />
+        <DepartmentLabel affiliation={affiliation} labelClassName={cn("label")} />
       </div>
       {children}
     </div>
