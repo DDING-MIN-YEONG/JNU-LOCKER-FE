@@ -2,9 +2,9 @@
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import FloorSelector from "@/components/page/student/DepartmentInfo/ApplyLocker/FloorSelector/index";
-import LockerStatusLegend from "@/components/page/student/DepartmentInfo/ApplyLocker/LockerStatusLegend/index";
-import LockerGrid from "@/components/page/student/DepartmentInfo/ApplyLocker/LockerGrid/index";
+import FloorSelector from "@/components/page/student/ApplyLocker/FloorSelector/index";
+import LockerStatusLegend from "@/components/page/student/ApplyLocker/LockerStatusLegend/index";
+import LockerGrid from "@/components/page/student/ApplyLocker/LockerGrid/index";
 import Txt from "@/components/design-system/Txt";
 import { useLockerList } from "@/hooks/student/apply-locker/useLockerList";
 

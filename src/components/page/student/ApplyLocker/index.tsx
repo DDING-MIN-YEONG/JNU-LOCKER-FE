@@ -2,9 +2,9 @@ import DepartmentLayout from "@/components/Layout/DepartmentLayout";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import LockerApplicationStatus from "@/components/page/student/DepartmentInfo/ApplyLocker/LockerApplicationStatus/index";
-import ApplyLockerForm from "@/components/page/student/DepartmentInfo/ApplyLocker/Form/index";
-import MyLockerApplicationStatus from "@/components/page/student/DepartmentInfo/ApplyLocker/MyLockerApplicationStatus/index";
+import LockerApplicationStatus from "@/components/page/student/ApplyLocker/LockerApplicationStatus/index";
+import ApplyLockerForm from "@/components/page/student/ApplyLocker/Form/index";
+import MyLockerApplicationStatus from "@/components/page/student/ApplyLocker/MyLockerApplicationStatus/index";
 
 const cn = classNames.bind(styles);
 

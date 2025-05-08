@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import ApplyLockerStatusTable from "@/components/page/student/DepartmentInfo/ApplyLocker/ApplyLockerStatusTable/index";
+import ApplyLockerStatusTable from "@/components/page/student/ApplyLocker/ApplyLockerStatusTable/index";
 import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
