@@ -1,38 +1,7 @@
+.skeleton {
+  height: 30rem;
+}
+
 .container {
   @include flexSort(column, null, null, 1.5rem);
-}
-
-.applyContainer {
-  border-radius: 1rem;
-  border: 0.1rem solid #ddd;
-  padding: 2rem;
-  @include flexSort(column, null, center, 2rem);
-}
-
-.applyTitle {
-  text-decoration-line: underline;
-  text-underline-position: from-font;
-}
-
-.applyContentContainer {
-  width: 100%;
-  @include flexSort(column, null, null, 2rem);
-}
-
-.applyLink {
-  background: #0bb964;
-  width: 100%;
-  @include flexSort(row, center, center, null);
-  height: 5.4rem;
-  border-radius: 0.6rem;
-}
-
-.moreLinkContainer {
-  @include flexSort(row, flex-end, null, null);
-}
-
-.moreLink {
-  @include font(1.4rem, 400, normal);
-  text-decoration-line: underline;
-  text-underline-position: from-font;
 }

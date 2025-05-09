@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import LockerItem from "@/components/page/student/DepartmentInfo/ApplyLocker/LockerItem/index";
+import LockerItem from "@/components/page/student/ApplyLocker/LockerItem/index";
 
 const cn = classNames.bind(styles);
 

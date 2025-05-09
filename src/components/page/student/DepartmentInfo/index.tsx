@@ -1,4 +1,4 @@
-import DepartmentLayout from "@/components/Layout/DepartmentLayout";
+import AffiliationContainer from "@/components/Layout/AffiliationContainer";
 import DepartmentInfoAnnouncement from "@/components/page/student/DepartmentInfo/DepartmentInfoAnnouncement/index";
 import DepartmentInfoApplyLocker from "@/components/page/student/DepartmentInfo/DepartmentInfoApplyLocker/index";
 import classNames from "classnames/bind";
@@ -8,11 +8,12 @@ const cn = classNames.bind(styles);
 
 export default function DepartmentInfo() {
   return (
-    <DepartmentLayout affiliation="공과대학" department="컴퓨터정보통신공학과">
-      <div className={cn("container")}>
+    <div className={cn("container")}>
+      <AffiliationContainer />
+      <div className={cn("contentContainer")}>
         <DepartmentInfoAnnouncement />
         <DepartmentInfoApplyLocker />
       </div>
-    </DepartmentLayout>
+    </div>
   );
 }
