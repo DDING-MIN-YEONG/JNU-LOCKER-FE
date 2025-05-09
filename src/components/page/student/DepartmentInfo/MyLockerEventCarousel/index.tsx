@@ -22,6 +22,7 @@ export default function MyLockerEventCarousel({ myEventList, options }: MyLocker
         <div className={cn("embla__container")}>
           {myEventList.map(({ availableLockerCount, endAt, id, startAt, title }) => (
             <MyLockerEvent
+              id={id}
               key={id}
               availableLockerCount={availableLockerCount}
               endAt={endAt}

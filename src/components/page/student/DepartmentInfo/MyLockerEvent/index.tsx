@@ -13,7 +13,8 @@ export default function MyLockerEvent({
   endAt,
   startAt,
   title,
-}: Omit<MyEventType, "id" | "departmentNickname">) {
+  id,
+}: Omit<MyEventType, "departmentNickname">) {
   return (
     <div className={cn("container")}>
       <Txt className={cn("applyTitle")} weight="bold" size="h3">
@@ -24,7 +25,7 @@ export default function MyLockerEvent({
         <Txt size="small">신청 종료 시간 : {formatToKoreanTime(endAt)}</Txt>
         <Txt size="small">사물함 여석 개수 : {availableLockerCount}개</Txt>
       </div>
-      <Link href={ROUTE.STUDENT.APPLY_LOCKER} className={cn("applyLink")}>
+      <Link href={`${ROUTE.STUDENT.APPLY_LOCKER}/${id}`} className={cn("applyLink")}>
         <Txt color="white" weight="medium" size="h6">
           신청하러 가기
         </Txt>
