@@ -7,11 +7,18 @@ import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
 import ChnamLogo from "@/components/common/ChnamLogo/index";
 import { usePathname } from "next/navigation";
+import { useGetMyInfo } from "@/hooks/tanstack-query/common/my-info/useGetMyInfo";
+import Skeleton from "../Skeleton";
 
 const cn = classNames.bind(styles);
 
 export default function CommitteeHeader() {
   const router = usePathname();
+  const { data, isPending, isError } = useGetMyInfo();
+
+  if (isError) {
+    return;
+  }
 
   return (
     <header className={cn("header")}>
@@ -50,9 +57,13 @@ export default function CommitteeHeader() {
           </Txt>
         </Link>
       </div>
-      <div className={cn("departmentContainer")}>
-        <Txt className={cn("headerTitle")}>수학과</Txt>
-      </div>
+      {isPending ? (
+        <Skeleton className={cn("skeleton")} />
+      ) : (
+        <div className={cn("departmentContainer")}>
+          <Txt className={cn("headerTitle")}>{data.affiliation}</Txt>
+        </div>
+      )}
     </header>
   );
 }

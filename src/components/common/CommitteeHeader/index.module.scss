@@ -1,3 +1,8 @@
+.skeleton {
+  width: 30rem;
+  height: 5rem;
+}
+
 .header {
   width: 100%;
   @include flexSort(row, space-between, center, null);
@@ -23,8 +28,10 @@
 }
 
 .departmentContainer {
+  max-width: 30rem;
   font-size: 2.5rem;
   border: 0.1rem solid black;
   padding: 1rem 3rem;
   border-radius: 1rem;
+  @include flexSort(row, center, center, null);
 }
