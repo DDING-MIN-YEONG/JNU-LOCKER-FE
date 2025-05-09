@@ -6,6 +6,8 @@ import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
 import TextInput from "@/components/common/TextInput";
 import useCommitteeSignInForm from "@/hooks/committee/sign-in/useCommitteeSignInForm";
+import Link from "next/link";
+import { ROUTE } from "@/constants/routes";
 
 const cn = classNames.bind(styles);
 
@@ -45,6 +47,13 @@ export default function CommitteeSignInForm() {
           로그인
         </Txt>
       </Button>
+      <div className={cn("linkContainer")}>
+        <Link href={ROUTE.COMMITTEE.SIGN_UP}>
+          <Txt size="small" className={cn("link")}>
+            회원가입
+          </Txt>
+        </Link>
+      </div>
     </form>
   );
 }
