@@ -6,24 +6,13 @@ import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
 import ChnamLogo from "@/components/common/ChnamLogo/index";
-import { usePathname, useRouter } from "next/navigation";
-import { useGetMyInfo } from "@/hooks/tanstack-query/common/my-info/useGetMyInfo";
 import Skeleton from "../Skeleton";
-import { useEffect } from "react";
+import { useCommitteeHeader } from "@/hooks/common/useCommitteeMyInfo";
 
 const cn = classNames.bind(styles);
 
 export default function CommitteeHeader() {
-  const path = usePathname();
-  const { data, isPending, isError, error } = useGetMyInfo();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isError && error.response.status === 401) {
-      alert("로그인 후 이용해주세요.");
-      router.push(ROUTE.COMMITTEE.MAIN);
-    }
-  }, [isError, error, router]);
+  const { data, isError, isPending, path } = useCommitteeHeader();
 
   if (isError) {
     return null;
@@ -62,7 +51,7 @@ export default function CommitteeHeader() {
         <Skeleton className={cn("skeleton")} />
       ) : (
         <div className={cn("departmentContainer")}>
-          <Txt className={cn("headerTitle")}>{data.affiliation}</Txt>
+          <Txt className={cn("headerTitle")}>{data?.affiliation}</Txt>
         </div>
       )}
     </header>
