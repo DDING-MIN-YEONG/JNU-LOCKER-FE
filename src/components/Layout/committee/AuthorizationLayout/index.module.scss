@@ -1,6 +1,6 @@
 .container {
   @include flexSort(row, null, null, null);
-  min-height: 100%;
+  height: 100vh;
 }
 
 .logoContainer {
