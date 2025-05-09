@@ -9,7 +9,6 @@ interface DepartmentLayoutProps {
   affiliation: string;
   children: ReactNode;
   containerClassName?: string;
-  labelClassName?: string;
 }
 
 export default function AffiliationLayout({ affiliation, children, containerClassName }: DepartmentLayoutProps) {
