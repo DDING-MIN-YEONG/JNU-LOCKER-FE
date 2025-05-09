@@ -1,6 +1,6 @@
 "use client";
 
-import DepartmentLayout from "@/components/Layout/DepartmentLayout";
+import AffiliationLayout from "@/components/Layout/AffiliationLayout";
 
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
@@ -18,7 +18,7 @@ export default function ApplyLocker() {
     return;
   }
   return (
-    <DepartmentLayout affiliation={data?.affiliation} containerClassName={cn("layout")}>
+    <AffiliationLayout affiliation={data?.affiliation} containerClassName={cn("layout")}>
       <div className={cn("container")}>
         <LockerApplicationStatus />
         <div className={cn("formApplicationStatusContainer")}>
@@ -26,6 +26,6 @@ export default function ApplyLocker() {
           <MyLockerApplicationStatus />
         </div>
       </div>
-    </DepartmentLayout>
+    </AffiliationLayout>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import DepartmentLayout from "@/components/Layout/DepartmentLayout";
+import AffiliationLayout from "@/components/Layout/AffiliationLayout";
 import DepartmentInfoAnnouncement from "@/components/page/student/DepartmentInfo/DepartmentInfoAnnouncement/index";
 import DepartmentInfoApplyLocker from "@/components/page/student/DepartmentInfo/DepartmentInfoApplyLocker/index";
 import classNames from "classnames/bind";
@@ -17,11 +17,11 @@ export default function DepartmentInfo() {
   }
 
   return (
-    <DepartmentLayout affiliation={data?.affiliation}>
+    <AffiliationLayout affiliation={data?.affiliation}>
       <div className={cn("container")}>
         <DepartmentInfoAnnouncement />
         <DepartmentInfoApplyLocker />
       </div>
-    </DepartmentLayout>
+    </AffiliationLayout>
   );
 }

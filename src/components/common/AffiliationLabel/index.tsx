@@ -9,7 +9,7 @@ interface DepartmentLabelProps {
   labelClassName?: string;
 }
 
-export default function DepartmentLabel({ affiliation, labelClassName }: DepartmentLabelProps) {
+export default function AffiliationLabel({ affiliation, labelClassName }: DepartmentLabelProps) {
   return (
     <div className={cn("container", labelClassName)}>
       <Txt color="white" weight="medium" size="h4">
