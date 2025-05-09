@@ -1,5 +1,6 @@
 import axios from "axios";
 import { postReissue } from "@/apis/common/token";
+import { baseInstance } from "./baseInstance";
 
 export const https = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}v1/`,
@@ -16,12 +17,11 @@ https.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
+    if (error.response?.status === 401) {
       const result = await postReissue();
 
       if (result) {
-        return https(originalRequest);
+        return baseInstance(originalRequest);
       }
     }
 
