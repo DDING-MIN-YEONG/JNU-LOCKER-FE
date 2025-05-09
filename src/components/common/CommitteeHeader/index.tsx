@@ -7,7 +7,7 @@ import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
 import ChnamLogo from "@/components/common/ChnamLogo/index";
 import Skeleton from "../Skeleton";
-import { useCommitteeHeader } from "@/hooks/common/useCommitteeMyInfo";
+import { useCommitteeHeader } from "@/hooks/common/useCommitteeHeader";
 
 const cn = classNames.bind(styles);
 
