@@ -140,7 +140,7 @@ export default function SignUpForm() {
       <div className={cn("btnContainer")}>
         <Button type="submit" className={cn("nextBtn")}>
           <Txt size="small" color="white" weight="medium">
-            다음
+            회원가입
           </Txt>
         </Button>
       </div>
