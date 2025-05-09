@@ -1,4 +1,7 @@
-.layout {
+.container {
+  padding: 2rem 3rem;
+  @include flexSort(column, null, null, 3rem);
+
   @include tablet {
     padding: 4rem 6rem;
   }
@@ -12,7 +15,7 @@
   }
 }
 
-.container {
+.contentContainer {
   @include flexSort(column, null, null, 3rem);
 
   @include smallDesktop {

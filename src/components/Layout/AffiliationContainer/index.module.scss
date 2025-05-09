@@ -1,10 +1,9 @@
-.container {
-  padding: 2rem 3rem;
+.skeleton {
+  height: 5rem;
 }
 
-.labelContainer {
+.container {
   @include flexSort(row, center, null, null);
-  margin-bottom: 3rem;
 }
 
 .label {

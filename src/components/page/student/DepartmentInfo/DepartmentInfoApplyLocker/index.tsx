@@ -1,9 +1,12 @@
+"use client";
+
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
 import MyLockerEventCarousel from "../MyLockerEventCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 import { useGetMyEvent } from "@/hooks/tanstack-query/student/department-info/useGetMyEvent";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
@@ -11,7 +14,11 @@ export default function DepartmentInfoApplyLocker() {
   const { data, isError, isPending } = useGetMyEvent();
   const OPTIONS: EmblaOptionsType = { loop: true };
 
-  if (isError || isPending) {
+  if (isPending) {
+    return <Skeleton className={cn("skeleton")} />;
+  }
+
+  if (isError) {
     return;
   }
 
