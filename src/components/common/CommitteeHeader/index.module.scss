@@ -28,9 +28,10 @@
 }
 
 .departmentContainer {
-  width: 30rem;
+  max-width: 30rem;
   font-size: 2.5rem;
   border: 0.1rem solid black;
   padding: 1rem 3rem;
   border-radius: 1rem;
+  @include flexSort(row, center, center, null);
 }
