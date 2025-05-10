@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { isEmail } from "@/utils/validator";
+import { isJnuEmail } from "@/utils/validator";
 import { ENTER_EMAIL, VALIDATION_TYPES } from "@/constants/error";
 
 const useEnterEmail = () => {
@@ -19,7 +19,7 @@ const useEnterEmail = () => {
       }
     }
 
-    if (!isEmail(formData.email)) {
+    if (!isJnuEmail(formData.email)) {
       return ENTER_EMAIL.email[VALIDATION_TYPES.FORMAT];
     }
 
