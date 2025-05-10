@@ -34,17 +34,19 @@ export default function ApplyLockerStatusTable() {
           </th>
         </tr>
       </thead>
-      <tbody>
-        <tr key={myRegistrationLocker?.lockerId}>
-          <td className={cn("td")}>{myRegistrationLocker?.floorNumber}층</td>
-          <td className={cn("td")}>{myRegistrationLocker?.lockerName}</td>
-          <td className={cn("deleteBtnContainer")}>
-            <button className={cn("deleteBtn")} onClick={onDeleteMyRegistrationLocker}>
-              삭제
-            </button>
-          </td>
-        </tr>
-      </tbody>
+      {myRegistrationLocker && (
+        <tbody>
+          <tr key={myRegistrationLocker.lockerId}>
+            <td className={cn("td")}>{myRegistrationLocker.floorNumber}층</td>
+            <td className={cn("td")}>{myRegistrationLocker.lockerName}</td>
+            <td className={cn("deleteBtnContainer")}>
+              <button className={cn("deleteBtn")} onClick={onDeleteMyRegistrationLocker}>
+                삭제
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      )}
     </table>
   );
 }
