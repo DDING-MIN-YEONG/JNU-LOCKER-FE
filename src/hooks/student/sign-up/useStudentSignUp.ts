@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { isEmail, isPassword } from "@/utils/validator";
+import { isJnuEmail, isPassword } from "@/utils/validator";
 import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import {
   useDepartmentsQuery,
@@ -50,7 +50,7 @@ const useStudentSignUpForm = () => {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
 
-      if (field === "email" && !isEmail(formData.email)) {
+      if (field === "email" && !isJnuEmail(formData.email)) {
         return STUDENT_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
       }
       if (field === "email" && !formData.email) {

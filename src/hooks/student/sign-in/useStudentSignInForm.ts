@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { isEmail, isPassword } from "@/utils/validator";
+import { isJnuEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
 import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
 import { useFormError } from "@/hooks/common/useFormError";
@@ -20,7 +20,7 @@ const useStudentSignInForm = () => {
       }
     }
 
-    if (!isEmail(formData.email)) {
+    if (!isJnuEmail(formData.email)) {
       return SIGN_IN.email[VALIDATION_TYPES.FORMAT];
     }
 

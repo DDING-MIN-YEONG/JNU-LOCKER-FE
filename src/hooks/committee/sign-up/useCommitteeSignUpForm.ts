@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
 import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
-import { isEmail, isPassword } from "@/utils/validator";
+import { isJnuEmail, isPassword } from "@/utils/validator";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { useCommitteeFormData } from "@/hooks/committee/sign-up/useCommitteeFormData";
 import { useFormError } from "@/hooks/common/useFormError";
@@ -37,7 +37,7 @@ const useCommitteeSignUpForm = () => {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
       }
 
-      if (field === "email" && formData.category.value === "학생회" && !isEmail(formData.email)) {
+      if (field === "email" && formData.category.value === "학생회" && !isJnuEmail(formData.email)) {
         return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
       }
       if (field === "email" && !formData.email) {
