@@ -12,7 +12,7 @@ export const useDeleteEvent = ({ page, size, direction }: useDeleteEventParams) 
   const { mutate } = useDeleteEventMutate();
   const queryClient = useQueryClient();
 
-  const onDeleteEvent = (id: number) => {
+  const onDeleteEvent = (id: string) => {
     mutate(id, {
       onError: (error: AxiosError<{ message: string }>) => {
         alert(error.response?.data.message);
@@ -29,7 +29,7 @@ export const useDeleteEvent = ({ page, size, direction }: useDeleteEventParams) 
 };
 
 export const useDeleteEventMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, number>({
+  return useMutation<void, AxiosError<{ message: string }>, string>({
     mutationKey: ["deleteEvent"],
     mutationFn: deleteEvent,
   });

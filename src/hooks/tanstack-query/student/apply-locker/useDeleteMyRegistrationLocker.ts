@@ -2,7 +2,7 @@ import { deleteMyRegistrationLocker } from "@/apis/student/apply-locker";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export const useDeleteMyRegistrationLocker = (eventId: number) => {
+export const useDeleteMyRegistrationLocker = (eventId: string) => {
   const { mutate } = useDeleteMyRegistrationLockerMutate();
   const queryClient = useQueryClient();
 
@@ -24,7 +24,7 @@ export const useDeleteMyRegistrationLocker = (eventId: number) => {
 };
 
 export const useDeleteMyRegistrationLockerMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, number>({
+  return useMutation<void, AxiosError<{ message: string }>, string>({
     mutationKey: ["deleteMyRegistrationLocker"],
     mutationFn: deleteMyRegistrationLocker,
   });

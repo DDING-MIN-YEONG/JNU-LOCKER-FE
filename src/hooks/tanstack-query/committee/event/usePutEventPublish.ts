@@ -12,7 +12,7 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
   const { mutate } = usePutEventPublishMutate();
   const queryClient = useQueryClient();
 
-  const onChangeEventPublish = (id: number, isPublish: boolean) => {
+  const onChangeEventPublish = (id: string, isPublish: boolean) => {
     mutate(
       { id, isPublish },
       {
@@ -33,7 +33,7 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
 };
 
 export const usePutEventPublishMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, { id: number; isPublish: boolean }>({
+  return useMutation<void, AxiosError<{ message: string }>, { id: string; isPublish: boolean }>({
     mutationKey: ["putEventPublish"],
     mutationFn: putEventPublish,
   });

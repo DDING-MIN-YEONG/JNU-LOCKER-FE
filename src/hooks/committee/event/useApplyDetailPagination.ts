@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
-export const useApplyDetailPagination = (page: number, eventId: number) => {
+export const useApplyDetailPagination = (page: number, eventId: string) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -13,7 +13,7 @@ export const useApplyDetailPagination = (page: number, eventId: number) => {
     router.replace(`?${newParams.toString()}`);
   };
 
-  const queryParams: { page: number; size: number; direction: "asc" | "desc"; eventId: number } = {
+  const queryParams: { page: number; size: number; direction: "asc" | "desc"; eventId: string } = {
     page: page - 1,
     size: 10,
     direction: "asc",

@@ -1,7 +1,7 @@
 import { Locker, LockerList, MyRegistrationLocker } from "@/apis/dtos/student/locker";
 import { https } from "@/apis/instance/https";
 
-export const getLockerList = async (eventId: number) => {
+export const getLockerList = async (eventId: string) => {
   const { data } = await https.get(`events/${eventId}/lockers`);
 
   const lockerList: LockerList[] = data.map(
@@ -12,14 +12,14 @@ export const getLockerList = async (eventId: number) => {
   return lockerList;
 };
 
-export const getMyRegistrationLocker = async (eventId: number) => {
+export const getMyRegistrationLocker = async (eventId: string) => {
   const { data } = await https.get(`events/${eventId}/registrations/me`);
 
   return new MyRegistrationLocker(data);
 };
 
 export interface ApplyLockerRequest {
-  eventId: number;
+  eventId: string;
   lockerId: number;
 }
 
@@ -29,6 +29,6 @@ export const postApplyLocker = async ({ eventId, lockerId }: ApplyLockerRequest)
   });
 };
 
-export const deleteMyRegistrationLocker = async (eventId: number) => {
+export const deleteMyRegistrationLocker = async (eventId: string) => {
   await https.delete(`events/${eventId}/registrations/me`);
 };

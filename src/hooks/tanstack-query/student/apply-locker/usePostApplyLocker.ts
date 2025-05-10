@@ -7,7 +7,7 @@ export const usePostApplyLocker = () => {
   const { mutate } = usePostApplyLockerMutate();
   const queryClient = useQueryClient();
 
-  const onApplyLocker = (eventId: number, lockerName: string, floor: number) => {
+  const onApplyLocker = (eventId: string, lockerName: string, floor: number) => {
     const lockerListData: LockerList[] | undefined = queryClient.getQueryData(["lockerList", eventId]);
 
     const lockerId = lockerListData
