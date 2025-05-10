@@ -9,10 +9,14 @@ import Skeleton from "@/components/common/Skeleton";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerStatusTable() {
-  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isLoading } = useMyRegistrationLocker();
+  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isPending, isError } = useMyRegistrationLocker();
 
-  if (isLoading) {
+  if (isPending) {
     return <Skeleton className={cn("skeleton")} />;
+  }
+
+  if (isError) {
+    return null;
   }
 
   return (
@@ -30,19 +34,17 @@ export default function ApplyLockerStatusTable() {
           </th>
         </tr>
       </thead>
-      {myRegistrationLocker && (
-        <tbody>
-          <tr key={myRegistrationLocker.lockerId}>
-            <td className={cn("td")}>{myRegistrationLocker.floorNumber}층</td>
-            <td className={cn("td")}>{myRegistrationLocker.lockerName}</td>
-            <td className={cn("deleteBtnContainer")}>
-              <button className={cn("deleteBtn")} onClick={onDeleteMyRegistrationLocker}>
-                삭제
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      )}
+      <tbody>
+        <tr key={myRegistrationLocker?.lockerId}>
+          <td className={cn("td")}>{myRegistrationLocker?.floorNumber}층</td>
+          <td className={cn("td")}>{myRegistrationLocker?.lockerName}</td>
+          <td className={cn("deleteBtnContainer")}>
+            <button className={cn("deleteBtn")} onClick={onDeleteMyRegistrationLocker}>
+              삭제
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 }
