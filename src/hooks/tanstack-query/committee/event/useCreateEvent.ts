@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
-import { AxiosError } from "axios";
 import { postCreateEvent } from "@/apis/committee/event";
 import { CreateEventForm, CreateEventRequest } from "@/types/committee/event";
 import { convertToKST } from "@/functions/date";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useCreateEvent = () => {
   const router = useRouter();
@@ -60,8 +60,8 @@ export const useCreateEvent = () => {
     };
 
     mutate(requestData, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message);
+      onError: (error) => {
+        alert(error.response.data.message || "이벤트 생성에 실패하였습니다.");
       },
       onSuccess: () => {
         router.push(ROUTE.COMMITTEE.EVENT_LIST);
@@ -75,7 +75,7 @@ export const useCreateEvent = () => {
 };
 
 export const useCreateEventMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, CreateEventRequest>({
+  return useMutation<void, ApiResponseError, CreateEventRequest>({
     mutationKey: ["createEvent"],
     mutationFn: postCreateEvent,
   });

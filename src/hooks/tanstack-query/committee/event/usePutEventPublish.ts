@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AxiosError } from "axios";
 import { putEventPublish } from "@/apis/committee/event";
+import { ApiResponseError } from "@/types/common/api";
 
 interface usePutEventPublishParams {
   page: number;
@@ -16,8 +16,8 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
     mutate(
       { id, isPublish },
       {
-        onError: (error: AxiosError<{ message: string }>) => {
-          alert(error.response?.data.message);
+        onError: (error) => {
+          alert(error.response.data.message || "이벤트 게시 상태 변경에 실패하였습니다.");
         },
         onSuccess: () => {
           queryClient.invalidateQueries({ queryKey: ["eventList", page, size, direction] });
@@ -33,7 +33,7 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
 };
 
 export const usePutEventPublishMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, { id: string; isPublish: boolean }>({
+  return useMutation<void, ApiResponseError, { id: string; isPublish: boolean }>({
     mutationKey: ["putEventPublish"],
     mutationFn: putEventPublish,
   });

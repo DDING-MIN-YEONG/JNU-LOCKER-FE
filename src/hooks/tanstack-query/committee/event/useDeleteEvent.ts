@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AxiosError } from "axios";
 import { deleteEvent } from "@/apis/committee/event";
+import { ApiResponseError } from "@/types/common/api";
 
 interface useDeleteEventParams {
   page: number;
@@ -14,8 +14,8 @@ export const useDeleteEvent = ({ page, size, direction }: useDeleteEventParams) 
 
   const onDeleteEvent = (id: string) => {
     mutate(id, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message);
+      onError: (error) => {
+        alert(error.response.data.message || "이벤트 삭제에 실패하였습니다.");
       },
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["eventList", page, size, direction] });
@@ -29,7 +29,7 @@ export const useDeleteEvent = ({ page, size, direction }: useDeleteEventParams) 
 };
 
 export const useDeleteEventMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, string>({
+  return useMutation<void, ApiResponseError, string>({
     mutationKey: ["deleteEvent"],
     mutationFn: deleteEvent,
   });
