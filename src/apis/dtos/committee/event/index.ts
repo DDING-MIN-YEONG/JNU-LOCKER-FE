@@ -1,7 +1,7 @@
 export class Event {
   startAt: Date;
   endAt: Date;
-  id: number;
+  id: string;
   title: string;
   status: "READY" | "OPEN" | "CLOSED";
   publish: boolean;
@@ -15,7 +15,7 @@ export class Event {
     publish,
   }: {
     title: string;
-    id: number;
+    id: string;
     startAt: Date;
     endAt: Date;
     publish: boolean;

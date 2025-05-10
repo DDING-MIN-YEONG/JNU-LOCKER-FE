@@ -2,7 +2,7 @@ import { ApplyDetailList } from "@/apis/dtos/committee/apply";
 import { https } from "@/apis/instance/https";
 
 export const getApplyDetail = async (
-  eventId: number,
+  eventId: string,
   page: number,
   size: number,
   direction: "asc" | "desc" = "asc",

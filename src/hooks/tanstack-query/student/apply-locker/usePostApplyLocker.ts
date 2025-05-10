@@ -1,13 +1,13 @@
 import { LockerList } from "@/apis/dtos/student/locker";
 import { ApplyLockerRequest, postApplyLocker } from "@/apis/student/apply-locker";
+import { ApiResponseError } from "@/types/common/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AxiosError } from "axios";
 
 export const usePostApplyLocker = () => {
   const { mutate } = usePostApplyLockerMutate();
   const queryClient = useQueryClient();
 
-  const onApplyLocker = (eventId: number, lockerName: string, floor: number) => {
+  const onApplyLocker = (eventId: string, lockerName: string, floor: number) => {
     const lockerListData: LockerList[] | undefined = queryClient.getQueryData(["lockerList", eventId]);
 
     const lockerId = lockerListData
@@ -22,8 +22,8 @@ export const usePostApplyLocker = () => {
     mutate(
       { eventId, lockerId },
       {
-        onError: (error: AxiosError<{ message: string }>) => {
-          alert(error.response?.data.message || "사물함 신청에 실패했습니다.");
+        onError: (error) => {
+          alert(error.response.data.message || "사물함 신청에 실패했습니다.");
         },
         onSuccess: () => {
           queryClient.invalidateQueries({ queryKey: ["lockerList", eventId] });
@@ -40,7 +40,7 @@ export const usePostApplyLocker = () => {
 };
 
 export const usePostApplyLockerMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, ApplyLockerRequest>({
+  return useMutation<void, ApiResponseError, ApplyLockerRequest>({
     mutationKey: ["applyLocker"],
     mutationFn: postApplyLocker,
   });

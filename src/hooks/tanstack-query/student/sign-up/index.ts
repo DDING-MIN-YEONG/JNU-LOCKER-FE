@@ -2,8 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { postStudentSignUp } from "@/apis/student/sign-up";
-import { AxiosError } from "axios";
 import { StudentSignUpFormData } from "@/types/student/sign-up";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useStudentSignUp = () => {
   const router = useRouter();
@@ -11,8 +11,8 @@ export const useStudentSignUp = () => {
 
   const onStudentSignUp = (formData: StudentSignUpFormData) => {
     mutate(formData, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message);
+      onError: (error) => {
+        alert(error.response.data.message || "회원가입에 실패했습니다.");
       },
       onSuccess: () => {
         router.push(ROUTE.STUDENT.MAIN);
@@ -26,7 +26,7 @@ export const useStudentSignUp = () => {
 };
 
 export const useSignUpMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, StudentSignUpFormData>({
+  return useMutation<void, ApiResponseError, StudentSignUpFormData>({
     mutationKey: ["studentSignUp"],
     mutationFn: postStudentSignUp,
   });

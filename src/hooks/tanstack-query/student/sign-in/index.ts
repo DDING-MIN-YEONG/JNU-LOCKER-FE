@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
-import { AxiosError } from "axios";
 import { SignInFormData } from "@/types/common/sign-in";
 import { postSignIn } from "@/apis/common/sign-in";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useStudentSignIn = () => {
   const router = useRouter();
@@ -12,8 +12,8 @@ export const useStudentSignIn = () => {
 
   const onStudentSignIn = (formData: SignInFormData) => {
     mutate(formData, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message || "로그인에 실패했습니다.");
+      onError: (error) => {
+        alert(error.response.data.message || "로그인에 실패했습니다.");
       },
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["myInfo"] });
@@ -28,7 +28,7 @@ export const useStudentSignIn = () => {
 };
 
 export const useStudentSignInMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, SignInFormData>({
+  return useMutation<void, ApiResponseError, SignInFormData>({
     mutationKey: ["studentSignIn"],
     mutationFn: postSignIn,
   });

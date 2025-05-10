@@ -1,8 +1,8 @@
 import { getDepartments, getOrganizations, postSubmitEmail, postVerifyCertificationCode } from "@/apis/common/sign-up";
+import { ApiResponseError } from "@/types/common/api";
 import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
 import { useQuery } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
-import { AxiosError } from "axios";
 import { Dispatch, SetStateAction } from "react";
 
 export const useOrganizationsQuery = (type: "학생회" | "위원회" | "값을 선택해주세요.") => {
@@ -43,8 +43,8 @@ export const useSubmitEmail = (
 
   const onSubmitEmail = (data: SubmitEmailData) => {
     mutate(data, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message || "이메일 전송에 실패했습니다.");
+      onError: (error) => {
+        alert(error.response.data.message || "이메일 전송에 실패했습니다.");
       },
       onSuccess: () => {
         setIsEmailCertification(true);
@@ -60,7 +60,7 @@ export const useSubmitEmail = (
 };
 
 export const useSubmitEmailMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, SubmitEmailData>({
+  return useMutation<void, ApiResponseError, SubmitEmailData>({
     mutationKey: ["submitEmail"],
     mutationFn: postSubmitEmail,
   });
@@ -71,8 +71,8 @@ export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction
 
   const onVerifyCertificationCode = (data: SubmitCertificationCodeData) => {
     mutate(data, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message || "인증에 실패하였습니다.");
+      onError: (error) => {
+        alert(error.response.data.message || "인증에 실패하였습니다.");
       },
       onSuccess: () => {
         setCountdown(null);
@@ -87,7 +87,7 @@ export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction
 };
 
 export const useVerifyCertificationCodeMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, SubmitCertificationCodeData>({
+  return useMutation<void, ApiResponseError, SubmitCertificationCodeData>({
     mutationKey: ["verifyCertificationCode"],
     mutationFn: postVerifyCertificationCode,
   });

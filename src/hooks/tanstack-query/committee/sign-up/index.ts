@@ -2,8 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 import { postCommitteeSignUp } from "@/apis/committee/sign-up";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
-import { AxiosError } from "axios";
 import { CommitteeSignUpFormData } from "@/types/committee/sign-up";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useCommitteeSignUp = () => {
   const router = useRouter();
@@ -11,8 +11,8 @@ export const useCommitteeSignUp = () => {
 
   const onCommitteeSignUp = (formData: CommitteeSignUpFormData) => {
     mutate(formData, {
-      onError: (error: AxiosError<{ message: string }>) => {
-        alert(error.response?.data.message);
+      onError: (error) => {
+        alert(error.response.data.message || "회원가입에 실패했습니다.");
       },
       onSuccess: () => {
         router.push(ROUTE.COMMITTEE.MAIN);
@@ -26,7 +26,7 @@ export const useCommitteeSignUp = () => {
 };
 
 export const useSignUpMutate = () => {
-  return useMutation<void, AxiosError<{ message: string }>, CommitteeSignUpFormData>({
+  return useMutation<void, ApiResponseError, CommitteeSignUpFormData>({
     mutationKey: ["committeeSignUp"],
     mutationFn: postCommitteeSignUp,
   });

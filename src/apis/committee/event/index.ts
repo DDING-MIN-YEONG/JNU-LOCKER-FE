@@ -12,12 +12,12 @@ export const getEventList = async (page: number, size: number, direction: "asc" 
   return new EventList(data);
 };
 
-export const deleteEvent = async (id: number) => {
+export const deleteEvent = async (id: string) => {
   await https.delete(`events/${id}`);
 };
 
 interface PutEventPublishParam {
-  id: number;
+  id: string;
   isPublish: boolean;
 }
 

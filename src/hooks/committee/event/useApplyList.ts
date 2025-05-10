@@ -14,7 +14,7 @@ export const useApplyList = () => {
   const applyList = data?.content || [];
   const totalElements = data?.totalElements || 0;
 
-  const onApplyClick = (eventId: number) => {
+  const onApplyClick = (eventId: string) => {
     router.push(`${ROUTE.COMMITTEE.APPLY_LIST}/${eventId}`);
   };
 
