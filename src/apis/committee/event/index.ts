@@ -6,8 +6,8 @@ export const postCreateEvent = async (formData: CreateEventRequest) => {
   await https.post("events", formData);
 };
 
-export const getEventList = async (page: number, size: number, direction: "asc" | "desc" = "asc") => {
-  const { data } = await https.get(`events?page=${page}&size=${size}&direction=${direction}`);
+export const getEventList = async (page: number, size: number, direction: "asc" | "desc") => {
+  const { data } = await https.get(`events?page=${page}&size=${size}&direction=${direction}&sort=createdAt`);
 
   return new EventList(data);
 };
