@@ -4,10 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 interface ApplyListQueryParams {
   page: number;
   size: number;
-  direction?: "asc" | "desc";
+  direction: "asc" | "desc";
 }
 
-export const useGetApplyListQuery = ({ page, size, direction = "asc" }: ApplyListQueryParams) => {
+export const useGetApplyListQuery = ({ page, size, direction }: ApplyListQueryParams) => {
   return useQuery({
     queryKey: ["applyList", page, size, direction],
     queryFn: () => getEventList(page, size, direction),

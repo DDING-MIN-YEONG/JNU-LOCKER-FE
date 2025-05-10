@@ -16,7 +16,7 @@ export const useEventPagination = (page: number) => {
   const queryParams: { page: number; size: number; direction: "asc" | "desc" } = {
     page: page - 1,
     size: 4,
-    direction: "asc",
+    direction: "desc",
   };
 
   return {
