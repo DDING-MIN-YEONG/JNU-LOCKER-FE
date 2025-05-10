@@ -9,10 +9,14 @@ import Skeleton from "@/components/common/Skeleton";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerStatusTable() {
-  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isLoading } = useMyRegistrationLocker();
+  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isPending, isError } = useMyRegistrationLocker();
 
-  if (isLoading) {
+  if (isPending) {
     return <Skeleton className={cn("skeleton")} />;
+  }
+
+  if (isError) {
+    return null;
   }
 
   return (
