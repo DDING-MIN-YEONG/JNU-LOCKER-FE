@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { COMMITTEE_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
+import { COMMITTEE_SIGN_UP } from "@/constants/error";
 import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
 import { isJnuEmail, isPassword } from "@/utils/validator";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
@@ -31,38 +31,38 @@ const useCommitteeSignUpForm = () => {
 
     for (const field of fields) {
       if (field === "category" && formData.category.value === "값을 선택해주세요.") {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "affiliation" && formData.affiliation.value === "값을 선택해주세요.") {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
 
       if (field === "email" && formData.category.value === "학생회" && !isJnuEmail(formData.email)) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
+        return COMMITTEE_SIGN_UP[field].format;
       }
       if (field === "email" && !formData.email) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "phoneNumber" && !formData.phoneNumber) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "phoneNumberCertificationNumber" && !formData.phoneNumberCertificationNumber) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "name" && !formData.name) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "password" && !formData.password) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "password" && !isPassword(formData.password)) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
+        return COMMITTEE_SIGN_UP[field].format;
       }
       if (field === "passwordConfirm" && !formData.passwordConfirm) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "passwordConfirm" && formData.password !== formData.passwordConfirm) {
-        return COMMITTEE_SIGN_UP[field][VALIDATION_TYPES.MATCH];
+        return COMMITTEE_SIGN_UP[field].match;
       }
     }
 
