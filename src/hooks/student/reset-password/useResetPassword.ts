@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isPassword } from "@/utils/validator";
-import { RESET_PASSWORD, VALIDATION_TYPES } from "@/constants/error";
+import { RESET_PASSWORD } from "@/constants/error";
 // import useGetCodeParameter from "@/hooks/reset-password/useGetCodeParameter";
 
 const useResetPassword = () => {
@@ -18,15 +18,15 @@ const useResetPassword = () => {
     const fields = Object.keys(RESET_PASSWORD) as Array<keyof typeof RESET_PASSWORD>;
     for (const field of fields) {
       if (!formData[field]) {
-        return RESET_PASSWORD[field][VALIDATION_TYPES.REQUIRED];
+        return RESET_PASSWORD[field].required;
       }
     }
 
     if (!isPassword(formData.password)) {
-      return RESET_PASSWORD.password[VALIDATION_TYPES.FORMAT];
+      return RESET_PASSWORD.password.format;
     }
     if (formData.password !== formData.passwordConfirm) {
-      return RESET_PASSWORD.passwordConfirm[VALIDATION_TYPES.MATCH];
+      return RESET_PASSWORD.passwordConfirm.match;
     }
     return null;
   };

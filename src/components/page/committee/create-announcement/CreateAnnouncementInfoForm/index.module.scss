@@ -1,0 +1,51 @@
+.header {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 1rem 1rem 0 0;
+  border: 0.1rem solid #c1c1c1;
+}
+
+.contentContainer {
+  padding: 2rem;
+  border: 0.1rem solid #c1c1c1;
+  border-top: 0rem;
+  @include flexSort(column, null, null, 2rem);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.textarea {
+  height: 20rem;
+}
+
+.participationDepartmentSelectorContainer {
+  @include flexSort(row, space-between, center, 2rem);
+}
+
+.selectDepartmentContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.selectedDepartmentContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.selectedDepartment {
+  @include flexSort(row, center, center, 1rem);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background-color: #f9f9f9;
+  border: 0.1rem solid #c1c1c1;
+  width: fit-content;
+}
+
+.deleteDepartmentBtn {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+}
+
+.createAnnouncementBtn {
+  width: fit-content;
+  padding: 1.5rem;
+  margin-left: auto;
+}

@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { APPLY_LOCKER, VALIDATION_TYPES } from "@/constants/error";
+import { APPLY_LOCKER } from "@/constants/error";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useApplyLockerFormData } from "./useApplyLockerFormData";
 import { usePostApplyLocker } from "@/hooks/tanstack-query/student/apply-locker/usePostApplyLocker";
@@ -18,7 +18,7 @@ const useApplyLocker = () => {
     const fields = Object.keys(APPLY_LOCKER) as Array<keyof typeof APPLY_LOCKER>;
     for (const field of fields) {
       if (!formData[field]) {
-        return APPLY_LOCKER[field][VALIDATION_TYPES.REQUIRED];
+        return APPLY_LOCKER[field].required;
       }
     }
 
