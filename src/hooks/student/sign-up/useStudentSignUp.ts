@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { isJnuEmail, isPassword } from "@/utils/validator";
-import { STUDENT_SIGN_UP, VALIDATION_TYPES } from "@/constants/error";
+import { STUDENT_SIGN_UP } from "@/constants/error";
 import {
   useDepartmentsQuery,
   useOrganizationsQuery,
@@ -47,32 +47,32 @@ const useStudentSignUpForm = () => {
 
     for (const field of fields) {
       if (field === "affiliation" && formData.affiliation.value === "값을 선택해주세요.") {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
 
       if (field === "email" && !isJnuEmail(formData.email)) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
+        return STUDENT_SIGN_UP[field].format;
       }
       if (field === "email" && !formData.email) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
       if (field === "phoneNumber" && !formData.phoneNumber) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
       if (field === "name" && !formData.name) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
       if (field === "password" && !formData.password) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
       if (field === "password" && !isPassword(formData.password)) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.FORMAT];
+        return STUDENT_SIGN_UP[field].format;
       }
       if (field === "passwordConfirm" && !formData.passwordConfirm) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.REQUIRED];
+        return STUDENT_SIGN_UP[field].required;
       }
       if (field === "passwordConfirm" && formData.password !== formData.passwordConfirm) {
-        return STUDENT_SIGN_UP[field][VALIDATION_TYPES.MATCH];
+        return STUDENT_SIGN_UP[field].match;
       }
     }
 

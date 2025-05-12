@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { isJnuEmail } from "@/utils/validator";
-import { ENTER_EMAIL, VALIDATION_TYPES } from "@/constants/error";
+import { ENTER_EMAIL } from "@/constants/error";
 
 const useEnterEmail = () => {
   const [formData, setFormData] = useState({
@@ -15,12 +15,12 @@ const useEnterEmail = () => {
     const fields = Object.keys(ENTER_EMAIL) as Array<keyof typeof ENTER_EMAIL>;
     for (const field of fields) {
       if (!formData[field]) {
-        return ENTER_EMAIL[field][VALIDATION_TYPES.REQUIRED];
+        return ENTER_EMAIL[field].required;
       }
     }
 
     if (!isJnuEmail(formData.email)) {
-      return ENTER_EMAIL.email[VALIDATION_TYPES.FORMAT];
+      return ENTER_EMAIL.email.format;
     }
 
     return null;
