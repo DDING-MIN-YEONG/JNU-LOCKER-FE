@@ -1,0 +1,21 @@
+.container {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.label {
+  width: 100%;
+  @include font(1.5rem, 500, normal);
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  height: 5rem;
+  padding: 1rem;
+  @include font(1.7rem, 400, normal);
+  height: 100%;
+  resize: none;
+  overflow-y: auto;
+  font-family: inherit;
+}
