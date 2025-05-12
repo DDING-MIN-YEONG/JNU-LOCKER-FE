@@ -4,7 +4,7 @@ import { useCreateEvent } from "@/hooks/tanstack-query/committee/event/useCreate
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { CreateEventForm } from "@/types/committee/event";
 import { ChangeEvent, useState } from "react";
-import { convertCreateEventForm } from "@/functions/converCreateEventForm";
+import { convertCreateEventForm } from "@/functions/convertCreateEventForm";
 
 export const useCreateEventForm = () => {
   const [formData, setFormData] = useState<CreateEventForm>({
