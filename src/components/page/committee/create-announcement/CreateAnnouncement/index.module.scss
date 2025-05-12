@@ -1,0 +1,4 @@
+.container {
+  padding: 4rem;
+  @include flexSort(column, null, null, 3rem);
+}
