@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { isJnuEmail, isPassword } from "@/utils/validator";
-import { SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
+import { SIGN_IN } from "@/constants/error";
 import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useStudentSignInFormData } from "./useStudentSignInFormData";
@@ -16,16 +16,16 @@ const useStudentSignInForm = () => {
     const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
     for (const field of fields) {
       if (!formData[field]) {
-        return SIGN_IN[field][VALIDATION_TYPES.REQUIRED];
+        return SIGN_IN[field].required;
       }
     }
 
     if (!isJnuEmail(formData.email)) {
-      return SIGN_IN.email[VALIDATION_TYPES.FORMAT];
+      return SIGN_IN.email.format;
     }
 
     if (!isPassword(formData.password)) {
-      return SIGN_IN.password[VALIDATION_TYPES.FORMAT];
+      return SIGN_IN.password.format;
     }
 
     return null;

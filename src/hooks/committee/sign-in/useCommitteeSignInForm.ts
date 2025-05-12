@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { COMMITTEE_SIGN_IN, VALIDATION_TYPES } from "@/constants/error";
+import { COMMITTEE_SIGN_IN } from "@/constants/error";
 import { isPassword } from "@/utils/validator";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useCommitteeSignInFormData } from "@/hooks/committee/sign-in/useCommitteeSignInFormData";
@@ -16,12 +16,12 @@ const useCommitteeSignInForm = () => {
 
     for (const field of fields) {
       if (!formData[field]) {
-        return COMMITTEE_SIGN_IN[field][VALIDATION_TYPES.REQUIRED];
+        return COMMITTEE_SIGN_IN[field].required;
       }
     }
 
     if (!isPassword(formData.password)) {
-      return COMMITTEE_SIGN_IN.password[VALIDATION_TYPES.FORMAT];
+      return COMMITTEE_SIGN_IN.password.format;
     }
 
     return null;

@@ -1,7 +1,10 @@
+import { CREATE_EVENT_VALIDATION } from "@/constants/validation/createEvent";
+import { createEventValidator } from "@/functions/validator/createEventValidator";
 import { useCreateEvent } from "@/hooks/tanstack-query/committee/event/useCreateEvent";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { CreateEventForm } from "@/types/committee/event";
 import { ChangeEvent, useState } from "react";
+import { convertCreateEventForm } from "@/functions/convertCreateEventForm";
 
 export const useCreateEventForm = () => {
   const [formData, setFormData] = useState<CreateEventForm>({
@@ -69,7 +72,7 @@ export const useCreateEventForm = () => {
     const isDuplicate = formData.participationDepartmentIds.some((department) => department.id === selectedId);
 
     if (isDuplicate) {
-      alert("이미 선택된 학과입니다.");
+      alert(CREATE_EVENT_VALIDATION.department.duplicate);
       return;
     }
 
@@ -132,7 +135,7 @@ export const useCreateEventForm = () => {
 
   const onDeleteFloor = (floorId: number) => {
     if (formData.floors.length === 1) {
-      alert("최소 1개의 층은 존재해야 합니다.");
+      alert(CREATE_EVENT_VALIDATION.floor.required);
       return;
     }
 
@@ -192,7 +195,7 @@ export const useCreateEventForm = () => {
   const onDeletePrefix = (floorId: number, prefixId: number) => {
     const targetFloor = formData.floors.find((floor) => floor.floorId === floorId);
     if (targetFloor?.prefixes.length === 1) {
-      alert("최소 1개의 접두사는 존재해야 합니다.");
+      alert(CREATE_EVENT_VALIDATION.prefix.required);
       return;
     }
 
@@ -274,7 +277,7 @@ export const useCreateEventForm = () => {
     const targetPrefix = targetFloor?.prefixes.find((prefix) => prefix.prefixId === prefixId);
 
     if (targetPrefix && targetPrefix.ranges.length === 1) {
-      alert("최소 1개의 범위는 존재해야 합니다.");
+      alert(CREATE_EVENT_VALIDATION.range.required);
       return;
     }
 
@@ -299,7 +302,13 @@ export const useCreateEventForm = () => {
   };
 
   const onCreateEvent = () => {
-    createEvent(formData);
+    if (!createEventValidator(formData)) {
+      return;
+    }
+
+    const { eventData } = convertCreateEventForm(formData);
+
+    createEvent(eventData);
   };
 
   return {

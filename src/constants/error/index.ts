@@ -1,8 +1,4 @@
-export const VALIDATION_TYPES = {
-  REQUIRED: "required",
-  FORMAT: "format",
-  MATCH: "match",
-};
+import { VALIDATION_TYPES } from "@/constants/error/validationTypes";
 
 export const STUDENT_SIGN_UP = {
   affiliation: {
