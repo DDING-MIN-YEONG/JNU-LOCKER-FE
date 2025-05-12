@@ -3,8 +3,8 @@ import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-que
 import { ChangeEvent, useState } from "react";
 import { CreateAnnouncementForm } from "@/types/committee/announcement";
 import { useCreateAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useCreateAnnouncement";
-import { createAnnouncementValidator } from "@/functions/validator/createAnnoucementValidator";
-import { convertCreateAnnouncementForm } from "@/functions/convertCreateAnnoucementForm";
+import { createAnnouncementValidator } from "@/functions/validator/createAnnouncementValidator";
+import { convertCreateAnnouncementForm } from "@/functions/convertCreateAnnouncementForm";
 
 export const useCreateAnnouncementForm = () => {
   const [formData, setFormData] = useState<CreateAnnouncementForm>({
