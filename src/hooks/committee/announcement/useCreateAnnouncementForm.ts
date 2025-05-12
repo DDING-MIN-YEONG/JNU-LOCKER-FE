@@ -1,10 +1,10 @@
-import { CREATE_EVENT_VALIDATION } from "@/constants/validation/createEvent";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { ChangeEvent, useState } from "react";
 import { CreateAnnouncementForm } from "@/types/committee/announcement";
 import { useCreateAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useCreateAnnouncement";
 import { createAnnouncementValidator } from "@/functions/validator/createAnnouncementValidator";
 import { convertCreateAnnouncementForm } from "@/functions/convertCreateAnnouncementForm";
+import { CREATE_ANNOUNCEMENT_VALIDATION } from "@/constants/validation/createAnnouncement";
 
 export const useCreateAnnouncementForm = () => {
   const [formData, setFormData] = useState<CreateAnnouncementForm>({
@@ -52,7 +52,7 @@ export const useCreateAnnouncementForm = () => {
     const isDuplicate = formData.participationDepartmentIds.some((department) => department.id === selectedId);
 
     if (isDuplicate) {
-      alert(CREATE_EVENT_VALIDATION.department.duplicate);
+      alert(CREATE_ANNOUNCEMENT_VALIDATION.department.duplicate);
       return;
     }
 
