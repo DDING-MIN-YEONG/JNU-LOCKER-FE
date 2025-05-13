@@ -16,5 +16,6 @@ export const ROUTE = {
     EVENT_LIST: "/committee/event-list",
     CREATE_EVENT: "/committee/create-event",
     CREATE_ANNOUNCEMENT: "/committee/create-announcement",
+    APPROVE_WAIT: "/committee/approve-wait",
   },
 };
