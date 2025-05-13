@@ -15,5 +15,6 @@ export const ROUTE = {
     ANNOUNCEMENT_LIST: "/committee/announcement-list",
     EVENT_LIST: "/committee/event-list",
     CREATE_EVENT: "/committee/create-event",
+    CREATE_ANNOUNCEMENT: "/committee/create-announcement",
   },
 };

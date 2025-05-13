@@ -1,5 +1,5 @@
 import { useGetPageParams } from "@/hooks/common/useGetPageParams";
-import { useApplyDetailPagination } from "@/hooks/committee/event/useApplyDetailPagination";
+import { useApplyDetailPagination } from "@/hooks/committee/apply/useApplyDetailPagination";
 import { useGetApplyDetailQuery } from "@/hooks/tanstack-query/committee/event/useGetApplyDetail";
 import { useGetApplyDetailPageEventId } from "../apply/useGetApplyDetailPageEventId";
 

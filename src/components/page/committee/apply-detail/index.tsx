@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
 import Pagination from "@/components/common/Pagination";
-import { useApplyDetail } from "@/hooks/committee/event/useApplyDetail";
+import { useApplyDetail } from "@/hooks/committee/apply/useApplyDetail";
 import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
