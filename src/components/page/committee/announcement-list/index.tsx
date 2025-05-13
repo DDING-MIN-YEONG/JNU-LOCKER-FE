@@ -20,7 +20,7 @@ export default function AnnouncementList() {
     setPage,
     itemsPerPage,
     pagesPerGroup,
-    onCreateAnnouncementClick,
+    onAnnouncementClick,
     isLoading,
   } = useAnnouncementList();
 
@@ -62,7 +62,7 @@ export default function AnnouncementList() {
         ) : (
           <tbody>
             {announcementList.map((announcement) => (
-              <tr className={cn("tr")} key={announcement.id} onClick={() => onCreateAnnouncementClick(announcement.id)}>
+              <tr className={cn("tr")} key={announcement.id} onClick={() => onAnnouncementClick(announcement.id)}>
                 <td className={cn("tableData")}>
                   <Txt size="h6">{announcement.title}</Txt>
                 </td>

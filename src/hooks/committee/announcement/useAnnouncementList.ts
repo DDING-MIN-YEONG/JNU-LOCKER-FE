@@ -14,7 +14,7 @@ export const useAnnouncementList = () => {
   const announcementList = data?.content || [];
   const totalElements = data?.totalElements || 0;
 
-  const onCreateAnnouncementClick = (eventId: string) => {
+  const onAnnouncementClick = (eventId: string) => {
     router.push(`${ROUTE.COMMITTEE.ANNOUNCEMENT_LIST}/${eventId}`);
   };
 
@@ -25,7 +25,7 @@ export const useAnnouncementList = () => {
     setPage,
     itemsPerPage: queryParams.size,
     pagesPerGroup,
-    onCreateAnnouncementClick,
+    onAnnouncementClick,
     isLoading,
   };
 };
