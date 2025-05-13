@@ -15,7 +15,7 @@ export const useAnnouncementList = () => {
   const totalElements = data?.totalElements || 0;
 
   const onAnnouncementClick = (eventId: string) => {
-    router.push(`${ROUTE.COMMITTEE.ANNOUNCEMENT_LIST}/${eventId}`);
+    router.push(`${ROUTE.COMMITTEE.ANNOUNCEMENT}/${eventId}`);
   };
 
   return {
