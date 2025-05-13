@@ -36,7 +36,7 @@ export default function CommitteeHeader() {
           <Txt
             className={cn("headerTitle")}
             weight="medium"
-            color={path.includes("announcement-list") ? "primary" : "black"}
+            color={path.includes("announcement-list") || path.includes("announcement") ? "primary" : "black"}
           >
             공지사항
           </Txt>
