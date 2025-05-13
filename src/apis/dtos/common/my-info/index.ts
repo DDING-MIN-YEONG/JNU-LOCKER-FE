@@ -5,6 +5,7 @@ export class MyInfo {
   affiliation: string;
   phoneNumber: string;
   email: string;
+  role: "MANAGER" | "ADMIN" | "USER" | "GUEST";
 
   constructor({
     memberId,
@@ -13,6 +14,7 @@ export class MyInfo {
     affiliation,
     phoneNumber,
     email,
+    role,
   }: {
     memberId: number;
     name: string;
@@ -20,6 +22,7 @@ export class MyInfo {
     affiliation: string;
     phoneNumber: string;
     email: string;
+    role: "MANAGER" | "ADMIN" | "USER" | "GUEST";
   }) {
     this.memberId = memberId;
     this.name = name;
@@ -27,5 +30,6 @@ export class MyInfo {
     this.affiliation = affiliation;
     this.phoneNumber = phoneNumber;
     this.email = email;
+    this.role = role;
   }
 }

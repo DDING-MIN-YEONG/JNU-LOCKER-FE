@@ -46,6 +46,21 @@ export default function CommitteeHeader() {
             이벤트
           </Txt>
         </Link>
+        {isPending ? (
+          <Skeleton className={cn("linkSkeleton")} />
+        ) : (
+          data?.role === "MANAGER" && (
+            <Link href={ROUTE.COMMITTEE.APPROVE_WAIT}>
+              <Txt
+                className={cn("headerTitle")}
+                weight="medium"
+                color={path.includes("approve-wait") ? "primary" : "black"}
+              >
+                승인 대기
+              </Txt>
+            </Link>
+          )
+        )}
       </div>
       {isPending ? (
         <Skeleton className={cn("skeleton")} />
