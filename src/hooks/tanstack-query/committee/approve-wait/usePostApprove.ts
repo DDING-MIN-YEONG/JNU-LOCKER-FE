@@ -8,7 +8,7 @@ export const usePostApprove = () => {
   const { mutate } = usePostApproveMutate();
   const queryClient = useQueryClient();
 
-  const eventQueryKeys = useQueryKeys(["approveWait"]);
+  const approveWaitQueryKeys = useQueryKeys(["approveWait"]);
 
   const onApprove = (formData: ApproveWaitRequest) => {
     mutate(formData, {
@@ -16,7 +16,7 @@ export const usePostApprove = () => {
         alert(error.response.data.message || "가입 승인에 실패하였습니다.");
       },
       onSuccess: () => {
-        eventQueryKeys.forEach((queryKey) => {
+        approveWaitQueryKeys.forEach((queryKey) => {
           queryClient.invalidateQueries({ queryKey });
         });
 
