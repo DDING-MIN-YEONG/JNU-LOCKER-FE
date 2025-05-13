@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
 import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
-import { useApplyList } from "@/hooks/committee/event/useApplyList";
+import { useApplyList } from "@/hooks/committee/apply/useApplyList";
 import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
