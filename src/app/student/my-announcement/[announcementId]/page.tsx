@@ -5,10 +5,8 @@ import { Suspense } from "react";
 
 export default function MyAnnouncementDetailPage() {
   return (
-    <>
-      <Suspense>
-        <MyAnnouncementDetail />
-      </Suspense>
-    </>
+    <Suspense>
+      <MyAnnouncementDetail />
+    </Suspense>
   );
 }
