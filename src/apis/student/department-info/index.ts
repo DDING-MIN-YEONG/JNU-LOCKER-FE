@@ -1,11 +1,15 @@
-import { MyEvent } from "@/apis/dtos/student/event";
 import { https } from "@/apis/instance/https";
-import { MyEventType } from "@/types/student/department-info";
+import { MyAnnouncementList, MyEventList } from "@/types/student/department-info";
 
+// Todo : 매직 넘버 제거
 export const getMyEvent = async () => {
-  const { data } = await https.get("events/me");
+  const { data } = await https.get("events/me?page=0&size=100&direction=desc&sort=createdAt");
 
-  const myEventList = data.map((event: MyEventType) => new MyEvent(event));
+  return new MyEventList(data);
+};
 
-  return myEventList;
+export const getMyAnnouncement = async () => {
+  const { data } = await https.get("announces/me?page=0&size=1&direction=desc&sort=createdAt");
+
+  return new MyAnnouncementList(data);
 };

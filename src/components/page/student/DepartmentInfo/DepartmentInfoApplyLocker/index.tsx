@@ -12,7 +12,7 @@ const cn = classNames.bind(styles);
 
 export default function DepartmentInfoApplyLocker() {
   const { data, isError, isPending } = useGetMyEvent();
-  const OPTIONS: EmblaOptionsType = { loop: true };
+  const OPTIONS: EmblaOptionsType = { containScroll: false };
 
   if (isPending) {
     return <Skeleton className={cn("skeleton")} />;
@@ -27,7 +27,7 @@ export default function DepartmentInfoApplyLocker() {
       <Txt color="secondary" weight="bold" size="h3">
         사물함 신청
       </Txt>
-      <MyLockerEventCarousel myEventList={data} options={OPTIONS} />
+      <MyLockerEventCarousel myEventList={data.content} options={OPTIONS} />
     </div>
   );
 }
