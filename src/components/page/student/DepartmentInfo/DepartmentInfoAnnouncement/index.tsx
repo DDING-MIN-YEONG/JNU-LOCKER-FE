@@ -34,7 +34,7 @@ export default function DepartmentInfoAnnouncement() {
         </Link>
       </div>
       <div className={cn("moreLinkContainer")}>
-        <Link href={ROUTE.STUDENT.DEPARTMENT_INFO_ANNOUNCEMENT_LIST}>
+        <Link href={ROUTE.STUDENT.MY_ANNOUNCEMENT_LIST}>
           <Txt size="tiny" className={cn("moreLink")}>
             더보기
           </Txt>
