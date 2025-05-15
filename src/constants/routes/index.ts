@@ -4,7 +4,7 @@ export const ROUTE = {
     SIGN_UP: "/student/sign-up",
     DEPARTMENT_INFO: "/student/department-info",
     ENTER_EMAIL: "/student/enter-email",
-    DEPARTMENT_INFO_ANNOUNCEMENT: "/student/department-info/announcement",
+    MY_ANNOUNCEMENT: "/student/my-announcement",
     MY_ANNOUNCEMENT_LIST: "/student/my-announcement-list",
     APPLY_LOCKER: "/student/apply-locker",
   },
