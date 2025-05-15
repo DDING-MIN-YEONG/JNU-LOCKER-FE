@@ -1,13 +1,25 @@
+"use client";
+
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
+import { useGetMyAnnouncement } from "@/hooks/tanstack-query/student/department-info/useGetMyAnnouncement";
+import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 
 export default function DepartmentInfoAnnouncement() {
-  const announcementId = 1;
+  const { data, isPending, isError } = useGetMyAnnouncement();
+
+  if (isPending) {
+    return <Skeleton className={cn("skeleton")} />;
+  }
+
+  if (isError) {
+    return null;
+  }
 
   return (
     <div className={cn("container")}>
@@ -15,11 +27,10 @@ export default function DepartmentInfoAnnouncement() {
         공지사항
       </Txt>
       <div className={cn("announcementContainer")}>
-        <Link href={`${ROUTE.STUDENT.DEPARTMENT_INFO_ANNOUNCEMENT}/${announcementId}`}>
-          <Txt
-            className={cn("announcement")}
-            size="h4"
-          >{`제목아아아아ㅏ아앙아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅇㅇㅇㅇㅇㅇㅇㅇ`}</Txt>
+        <Link href={`${ROUTE.STUDENT.DEPARTMENT_INFO_ANNOUNCEMENT}/${data.content[0].id}`}>
+          <Txt className={cn("announcement")} size="h4">
+            {data.content[0].title}
+          </Txt>
         </Link>
       </div>
       <div className={cn("moreLinkContainer")}>
