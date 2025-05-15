@@ -22,7 +22,7 @@ export default function MyAnnouncementDetailInfoForm({ formData }: AnnouncementD
         <Txt weight="medium">공지사항</Txt>
       </header>
       <div className={cn("contentContainer")}>
-        <TextInput id="title" label="작성자" type="text" value={formData.writer} readOnly />
+        <TextInput id="writer" label="작성자" type="text" value={formData.writer} readOnly />
         <TextInput id="title" label="제목" type="text" value={formData.title} readOnly />
         <LabeledTextarea
           id="content"
