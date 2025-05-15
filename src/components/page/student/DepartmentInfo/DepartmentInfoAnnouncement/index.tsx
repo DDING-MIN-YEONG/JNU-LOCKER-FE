@@ -27,7 +27,7 @@ export default function DepartmentInfoAnnouncement() {
         공지사항
       </Txt>
       <div className={cn("announcementContainer")}>
-        <Link href={`${ROUTE.STUDENT.DEPARTMENT_INFO_ANNOUNCEMENT}/${data.content[0].id}`}>
+        <Link href={`${ROUTE.STUDENT.MY_ANNOUNCEMENT}/${data.content[0].id}`}>
           <Txt className={cn("announcement")} size="h4">
             {data.content[0].title}
           </Txt>
