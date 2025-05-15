@@ -4,18 +4,7 @@ export class MyAnnouncement {
   writer: string;
   createdAt: Date;
 
-  constructor({
-    id,
-    title,
-    writer,
-    createdAt,
-  }: {
-    id: number;
-    title: string;
-    content: string;
-    writer: string;
-    createdAt: Date;
-  }) {
+  constructor({ id, title, writer, createdAt }: { id: number; title: string; writer: string; createdAt: Date }) {
     this.id = id;
     this.title = title;
     this.writer = writer;
@@ -32,5 +21,37 @@ export class MyAnnouncementList {
     this.content = content;
     this.totalElements = totalElements;
     this.isLast = last;
+  }
+}
+
+export class MyAnnouncementDetail {
+  id: number;
+  title: string;
+  content: string;
+  writer: string;
+  createdAt: Date;
+  updatedAt: Date;
+
+  constructor({
+    id,
+    title,
+    writer,
+    createdAt,
+    content,
+    updatedAt,
+  }: {
+    id: number;
+    title: string;
+    content: string;
+    writer: string;
+    createdAt: Date;
+    updatedAt: Date;
+  }) {
+    this.id = id;
+    this.title = title;
+    this.content = content;
+    this.writer = writer;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 }
