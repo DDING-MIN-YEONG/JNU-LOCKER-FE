@@ -15,14 +15,12 @@ export const useOrganizationsQuery = (type: "학생회" | "위원회" | "값을 
     category = "COMMITTEE";
   }
 
-  const { data: organizations } = useQuery({
+  return useQuery({
     queryKey: ["organizations", type],
     queryFn: () => getOrganizations(category),
     staleTime: 1000 * 60 * 60,
     enabled: type === "학생회" || type === "위원회",
   });
-
-  return organizations;
 };
 
 export const useDepartmentsQuery = (id: number) => {

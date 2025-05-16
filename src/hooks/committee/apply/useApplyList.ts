@@ -3,13 +3,17 @@ import { useEventPagination } from "@/hooks/committee/event/useEventPagination";
 import { useGetApplyListQuery } from "@/hooks/tanstack-query/committee/event/useGetApplyList";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
+import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useApplyList = () => {
   const router = useRouter();
   const { page: currentPage } = useGetPageParams();
   const { pagesPerGroup, queryParams, setPage } = useEventPagination(currentPage);
 
-  const { data, isLoading } = useGetApplyListQuery(queryParams);
+  const { data, isLoading, isError, error } = useGetApplyListQuery(queryParams);
+
+  useCommitteeCertification(isError, error as ApiResponseError);
 
   const applyList = data?.content || [];
   const totalElements = data?.totalElements || 0;

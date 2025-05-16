@@ -13,7 +13,7 @@ const useCommitteeSignUpForm = () => {
 
   const { error, setFormError, clearError } = useFormError();
 
-  let organizations = useOrganizationsQuery(formData.category.value);
+  let { data: organizations } = useOrganizationsQuery(formData.category.value);
   let departments = useDepartmentsQuery(formData.affiliation.id);
 
   if (!organizations) {
