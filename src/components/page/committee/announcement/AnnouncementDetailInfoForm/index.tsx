@@ -30,6 +30,7 @@ interface AnnouncementDetailFormProps {
   onClickEditButton: () => void;
   date: Date;
   isUpdate: boolean;
+  onDeleteAnnouncement: () => void;
 }
 
 export default function AnnouncementDetailInfoForm({
@@ -45,6 +46,7 @@ export default function AnnouncementDetailInfoForm({
   onClickEditButton,
   date,
   isUpdate,
+  onDeleteAnnouncement,
 }: AnnouncementDetailFormProps) {
   return (
     <div>
@@ -121,19 +123,26 @@ export default function AnnouncementDetailInfoForm({
             ))}
           </div>
         </div>
-        {isPutMode ? (
-          <Button type="submit" className={cn("announcementBtn")} color="primary" onClick={onPutAnnouncement}>
+        <div className={cn("buttonContainer")}>
+          {isPutMode ? (
+            <Button className={cn("announcementBtn")} color="primary" onClick={onPutAnnouncement}>
+              <Txt size="h6" color="white">
+                수정 완료
+              </Txt>
+            </Button>
+          ) : (
+            <Button className={cn("announcementBtn")} color="primary" onClick={onClickEditButton}>
+              <Txt size="h6" color="white">
+                수정하기
+              </Txt>
+            </Button>
+          )}
+          <Button className={cn("announcementBtn")} color="red" onClick={onDeleteAnnouncement}>
             <Txt size="h6" color="white">
-              수정 완료
+              삭제 하기
             </Txt>
           </Button>
-        ) : (
-          <Button type="submit" className={cn("announcementBtn")} color="primary" onClick={onClickEditButton}>
-            <Txt size="h6" color="white">
-              수정하기
-            </Txt>
-          </Button>
-        )}
+        </div>
       </div>
     </div>
   );

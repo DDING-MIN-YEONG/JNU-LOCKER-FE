@@ -45,8 +45,12 @@
   margin-left: auto;
 }
 
+.buttonContainer {
+  @include flexSort(row, null, center, 1rem);
+  margin-left: auto;
+}
+
 .announcementBtn {
   width: fit-content;
   padding: 1.5rem;
-  margin-left: auto;
 }

@@ -9,6 +9,7 @@ import { usePutAnnouncement } from "@/hooks/tanstack-query/committee/announcemen
 import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
 import { getEffectiveDate } from "@/functions/getEffectiveDate";
+import { useDeleteAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useDeleteAnnouncement";
 
 export const useAnnouncementForm = () => {
   const { announcementId } = useGetAnnouncementId();
@@ -36,6 +37,8 @@ export const useAnnouncementForm = () => {
   const { date, isUpdate } = getEffectiveDate(formData.createdAt as Date, formData.updatedAt as Date);
 
   const { onPutAnnouncement: putAnnouncement } = usePutAnnouncement(announcementId);
+
+  const { onDeleteAnnouncement: deleteAnnouncement } = useDeleteAnnouncement();
 
   let { data: organizations } = useOrganizationsQuery("학생회");
 
@@ -128,6 +131,12 @@ export const useAnnouncementForm = () => {
     setIsPutMode(false);
   };
 
+  const onDeleteAnnouncement = () => {
+    if (confirm("정말로 공지사항을 삭제하시겠습니까?")) {
+      deleteAnnouncement(announcementId);
+    }
+  };
+
   const onClickEditButton = () => {
     setIsPutMode(true);
   };
@@ -145,5 +154,6 @@ export const useAnnouncementForm = () => {
     onClickEditButton,
     date,
     isUpdate,
+    onDeleteAnnouncement,
   };
 };
