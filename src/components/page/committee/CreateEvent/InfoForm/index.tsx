@@ -7,7 +7,7 @@ import { CreateEventForm } from "@/types/committee/event";
 import DateTimePicker from "@/components/common/DateTimePicker";
 import Button from "@/components/design-system/Button";
 import { Selector } from "@/components/common/Selector";
-import { MAX_TITLE_LENGTH } from "@/constants/committee/create-event";
+import { MAX_EVENT_TITLE_LENGTH } from "@/constants/committee/create-event";
 
 const cn = classNames.bind(styles);
 
@@ -48,12 +48,12 @@ export default function CreateEventInfoForm({
           label="제목"
           type="text"
           placeholder="이벤트 제목을 입력해주세요."
-          maxLength={MAX_TITLE_LENGTH}
+          maxLength={MAX_EVENT_TITLE_LENGTH}
           value={formData.title}
           containerClassName={cn("titleInputContainer")}
         >
           <Txt size="small" className={cn("textLength")}>
-            {formData.title.length} / {MAX_TITLE_LENGTH}
+            {formData.title.length} / {MAX_EVENT_TITLE_LENGTH}
           </Txt>
         </TextInput>
         <div className={cn("eventTimeContainer")}>
