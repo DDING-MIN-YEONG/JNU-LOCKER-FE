@@ -7,6 +7,10 @@ import Button from "@/components/design-system/Button";
 import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { CreateAnnouncementForm } from "@/types/committee/announcement";
+import {
+  MAX_ANNOUNCEMENT_CONTENT_LENGTH,
+  MAX_ANNOUNCEMENT_TITLE_LENGTH,
+} from "@/constants/committee/create-announcement";
 
 const cn = classNames.bind(styles);
 
@@ -50,15 +54,27 @@ export default function CreateAnnouncementInfoForm({
           type="text"
           value={formData.title}
           placeholder="공지사항 제목을 입력해주세요."
-        />
-        <LabeledTextarea
-          id="content"
-          onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-          label="내용"
-          value={formData.content}
-          placeholder="공지사항 내용을 입력해주세요."
-          labeledTextareaContainerClassName={cn("textarea")}
-        />
+          maxLength={MAX_ANNOUNCEMENT_TITLE_LENGTH}
+          containerClassName={cn("titleInputContainer")}
+        >
+          <Txt size="small" className={cn("textLength")}>
+            {formData.title.length} / {MAX_ANNOUNCEMENT_TITLE_LENGTH}
+          </Txt>
+        </TextInput>
+        <div className={cn("contentInputContainer")}>
+          <LabeledTextarea
+            id="content"
+            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+            label="내용"
+            value={formData.content}
+            placeholder="공지사항 내용을 입력해주세요."
+            maxLength={MAX_ANNOUNCEMENT_CONTENT_LENGTH}
+            labeledTextareaContainerClassName={cn("textarea")}
+          />
+          <Txt size="small" className={cn("textLength")}>
+            {formData.content.length} / {MAX_ANNOUNCEMENT_CONTENT_LENGTH}
+          </Txt>
+        </div>
         <Txt size="h5" weight="medium">
           공지사항 참여 학과
         </Txt>
