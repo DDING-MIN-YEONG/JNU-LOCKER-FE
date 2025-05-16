@@ -11,16 +11,8 @@ import { useMyEventList } from "@/hooks/student/event/useMyEventList";
 const cn = classNames.bind(styles);
 
 export default function MyEventList() {
-  const {
-    myAnnouncementList,
-    totalElements,
-    currentPage,
-    setPage,
-    itemsPerPage,
-    pagesPerGroup,
-    onEventClick,
-    isLoading,
-  } = useMyEventList();
+  const { myEventList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, onEventClick, isLoading } =
+    useMyEventList();
 
   return (
     <div className={cn("container")}>
@@ -57,23 +49,23 @@ export default function MyEventList() {
           </tbody>
         ) : (
           <tbody>
-            {myAnnouncementList.map((myAnnouncement) => (
-              <tr className={cn("tr")} key={myAnnouncement.id} onClick={() => onEventClick(myAnnouncement.id)}>
+            {myEventList.map((myEvent) => (
+              <tr className={cn("tr")} key={myEvent.id} onClick={() => onEventClick(myEvent.id)}>
                 <td className={cn("tableData")}>
                   <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myAnnouncement.title}
+                    {myEvent.title}
                   </Txt>
                 </td>
                 <td className={cn("tableData")}>
                   <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myAnnouncement.departmentNickname}
+                    {myEvent.departmentNickname}
                   </Txt>
                 </td>
                 <td className={cn("tableData")}>
                   <Txt
                     size="h6"
                     className={cn("tableBodyTitle")}
-                  >{`${formatToKoreanTime(myAnnouncement.startAt)} ~ ${formatToKoreanTime(myAnnouncement.endAt)}`}</Txt>
+                  >{`${formatToKoreanTime(myEvent.startAt)} ~ ${formatToKoreanTime(myEvent.endAt)}`}</Txt>
                 </td>
               </tr>
             ))}

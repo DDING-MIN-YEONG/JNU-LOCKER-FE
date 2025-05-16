@@ -11,7 +11,7 @@ export const useMyEventList = () => {
 
   const { data, isLoading } = useGetMyEventListQuery(queryParams);
 
-  const myAnnouncementList = data?.content || [];
+  const myEventList = data?.content || [];
   const totalElements = data?.totalElements || 0;
 
   const onEventClick = (id: string) => {
@@ -19,7 +19,7 @@ export const useMyEventList = () => {
   };
 
   return {
-    myAnnouncementList,
+    myEventList,
     totalElements,
     currentPage,
     setPage,
