@@ -13,3 +13,9 @@ export const getApproveWaitList = async (page: number, size: number, direction: 
 export const postApproveWait = async (formData: ApproveWaitRequest) => {
   await https.post("auth/managers/approve", formData);
 };
+
+export const postRejectApproveWait = async (formData: ApproveWaitRequest) => {
+  await https.delete("auth/managers/approve", {
+    data: formData,
+  });
+};
