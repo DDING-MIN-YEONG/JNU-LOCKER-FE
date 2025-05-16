@@ -8,6 +8,7 @@ export const ROUTE = {
     MY_ANNOUNCEMENT_LIST: "/student/my-announcement-list",
     APPLY_LOCKER: "/student/apply-locker",
     MY_EVENT_LIST: "/student/my-event-list",
+    MY_EVENT: "/student/my-event",
   },
   COMMITTEE: {
     MAIN: "/committee/",
