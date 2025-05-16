@@ -12,8 +12,17 @@ import { useApproveWaitList } from "@/hooks/committee/approve-wait/useApproveWai
 const cn = classNames.bind(styles);
 
 export default function ApproveWait() {
-  const { approveWaitList, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup, isLoading, onApprove } =
-    useApproveWaitList();
+  const {
+    approveWaitList,
+    totalElements,
+    currentPage,
+    setPage,
+    itemsPerPage,
+    pagesPerGroup,
+    isLoading,
+    onApprove,
+    onReject,
+  } = useApproveWaitList();
 
   return (
     <div className={cn("container")}>
@@ -82,7 +91,11 @@ export default function ApproveWait() {
                       승인
                     </Txt>
                   </Button>
-                  <Button color="red" className={cn("btn")}>
+                  <Button
+                    color="red"
+                    className={cn("btn")}
+                    onClick={() => onReject({ memberId: approveWait.memberId })}
+                  >
                     <Txt size="h6" color="white">
                       거절
                     </Txt>

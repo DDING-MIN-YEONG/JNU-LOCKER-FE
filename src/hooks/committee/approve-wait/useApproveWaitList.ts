@@ -4,6 +4,7 @@ import { useGetApproveWaitListQuery } from "@/hooks/tanstack-query/committee/app
 import { usePostApprove } from "@/hooks/tanstack-query/committee/approve-wait/usePostApprove";
 import { ApiResponseError } from "@/types/common/api";
 import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
+import { usePostRejectApproveWait } from "@/hooks/tanstack-query/committee/approve-wait/usePostRejectApproveWait";
 
 export const useApproveWaitList = () => {
   const { page: currentPage } = useGetPageParams();
@@ -13,6 +14,8 @@ export const useApproveWaitList = () => {
   useCommitteeCertification(isError, error as ApiResponseError);
 
   const { onApprove } = usePostApprove();
+
+  const { onReject } = usePostRejectApproveWait();
 
   const approveWaitList = data?.content || [];
   const totalElements = data?.totalElements || 0;
@@ -26,5 +29,6 @@ export const useApproveWaitList = () => {
     pagesPerGroup,
     isLoading,
     onApprove,
+    onReject,
   };
 };
