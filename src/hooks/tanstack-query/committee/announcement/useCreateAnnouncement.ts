@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { ApiResponseError } from "@/types/common/api";
-import { useQueryKeys } from "../../common/useQueryKeys";
+import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 import { CreateAnnouncementFormRequest } from "@/types/committee/announcement";
 import { postCreateAnnouncement } from "@/apis/committee/announcement";
 
@@ -11,7 +11,7 @@ export const useCreateAnnouncement = () => {
   const { mutate } = useCreateAnnouncementMutate();
   const queryClient = useQueryClient();
 
-  const eventQueryKeys = useQueryKeys(["announcementList"]);
+  const announcementQueryKeys = useQueryKeys(["announcementList"]);
 
   const onCreateAnnouncement = (formData: CreateAnnouncementFormRequest) => {
     mutate(formData, {
@@ -19,7 +19,7 @@ export const useCreateAnnouncement = () => {
         alert(error.response.data.message || "공지사항 생성에 실패하였습니다.");
       },
       onSuccess: () => {
-        eventQueryKeys.forEach((queryKey) => {
+        announcementQueryKeys.forEach((queryKey) => {
           queryClient.invalidateQueries({ queryKey });
         });
 

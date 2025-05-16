@@ -27,3 +27,7 @@ export const putAnnouncement = async ({
 }) => {
   await https.put(`announces/${announcementId}`, formData);
 };
+
+export const deleteAnnouncement = async (announcementId: string) => {
+  await https.delete(`announces/${announcementId}`);
+};

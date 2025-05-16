@@ -22,6 +22,7 @@ export default function AnnouncementDetail() {
     onClickEditButton,
     date,
     isUpdate,
+    onDeleteAnnouncement,
   } = useAnnouncementForm();
 
   return (
@@ -42,6 +43,7 @@ export default function AnnouncementDetail() {
         onClickEditButton={onClickEditButton}
         date={date}
         isUpdate={isUpdate}
+        onDeleteAnnouncement={onDeleteAnnouncement}
       />
     </div>
   );
