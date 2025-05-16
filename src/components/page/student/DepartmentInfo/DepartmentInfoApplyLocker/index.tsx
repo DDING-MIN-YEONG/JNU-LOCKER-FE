@@ -29,7 +29,7 @@ export default function DepartmentInfoApplyLocker() {
       <Txt color="secondary" weight="bold" size="h3">
         사물함 신청
       </Txt>
-      <MyLockerEventCarousel myEventList={data.content} options={OPTIONS} />{" "}
+      <MyLockerEventCarousel myEventList={data.content} options={OPTIONS} />
       <div className={cn("moreLinkContainer")}>
         <Link href={ROUTE.STUDENT.MY_EVENT_LIST}>
           <Txt size="tiny" className={cn("moreLink")}>
