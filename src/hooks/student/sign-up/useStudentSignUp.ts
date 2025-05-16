@@ -28,7 +28,7 @@ const useStudentSignUpForm = () => {
 
   const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
 
-  let organizations = useOrganizationsQuery("학생회");
+  let { data: organizations } = useOrganizationsQuery("학생회");
 
   if (!organizations) {
     organizations = [{ id: 0, value: "값을 선택해주세요." }];

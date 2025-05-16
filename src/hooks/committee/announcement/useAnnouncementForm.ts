@@ -6,11 +6,15 @@ import { CREATE_ANNOUNCEMENT_VALIDATION } from "@/constants/validation/createAnn
 import { useGetAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useGetAnnouncement";
 import { useGetAnnouncementId } from "@/hooks/common/useGetPageAnnouncementId";
 import { usePutAnnouncement } from "@/hooks/tanstack-query/committee/announcement/usePutAnnouncement";
+import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useAnnouncementForm = () => {
   const { announcementId } = useGetAnnouncementId();
 
-  const { data } = useGetAnnouncement(announcementId);
+  const { data, isError, error } = useGetAnnouncement(announcementId);
+
+  useCommitteeCertification(isError, error as ApiResponseError);
 
   const [isPutMode, setIsPutMode] = useState(false);
 
@@ -30,7 +34,7 @@ export const useAnnouncementForm = () => {
 
   const { onPutAnnouncement: putAnnouncement } = usePutAnnouncement(announcementId);
 
-  let organizations = useOrganizationsQuery("학생회");
+  let { data: organizations } = useOrganizationsQuery("학생회");
 
   if (!organizations) {
     organizations = [{ id: 0, value: "값을 선택해주세요." }];
