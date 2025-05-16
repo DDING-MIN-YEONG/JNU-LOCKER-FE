@@ -5,3 +5,12 @@
 .container {
   @include flexSort(column, null, null, 1.5rem);
 }
+
+.moreLinkContainer {
+  @include flexSort(row, flex-end, null, null);
+}
+
+.moreLink {
+  text-decoration-line: underline;
+  text-underline-position: from-font;
+}

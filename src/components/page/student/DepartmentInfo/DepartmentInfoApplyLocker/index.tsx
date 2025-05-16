@@ -7,6 +7,8 @@ import MyLockerEventCarousel from "../MyLockerEventCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 import { useGetMyEvent } from "@/hooks/tanstack-query/student/department-info/useGetMyEvent";
 import Skeleton from "@/components/common/Skeleton";
+import Link from "next/link";
+import { ROUTE } from "@/constants/routes";
 
 const cn = classNames.bind(styles);
 
@@ -28,6 +30,13 @@ export default function DepartmentInfoApplyLocker() {
         사물함 신청
       </Txt>
       <MyLockerEventCarousel myEventList={data.content} options={OPTIONS} />
+      <div className={cn("moreLinkContainer")}>
+        <Link href={ROUTE.STUDENT.MY_EVENT_LIST}>
+          <Txt size="tiny" className={cn("moreLink")}>
+            더보기
+          </Txt>
+        </Link>
+      </div>
     </div>
   );
 }

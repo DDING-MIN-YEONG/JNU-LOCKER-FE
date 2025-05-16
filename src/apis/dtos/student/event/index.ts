@@ -29,3 +29,15 @@ export class MyEvent {
     this.availableLockerCount = availableLockerCount;
   }
 }
+
+export class MyEventList {
+  content: MyEvent[];
+  totalElements: number;
+  isLast: boolean;
+
+  constructor({ content, totalElements, last }: { content: MyEvent[]; totalElements: number; last: boolean }) {
+    this.content = content;
+    this.totalElements = totalElements;
+    this.isLast = last;
+  }
+}
