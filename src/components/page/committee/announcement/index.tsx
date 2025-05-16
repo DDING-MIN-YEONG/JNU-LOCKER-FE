@@ -20,6 +20,8 @@ export default function AnnouncementDetail() {
     onPutAnnouncement,
     isPutMode,
     onClickEditButton,
+    date,
+    isUpdate,
   } = useAnnouncementForm();
 
   return (
@@ -38,6 +40,8 @@ export default function AnnouncementDetail() {
         onPutAnnouncement={onPutAnnouncement}
         isPutMode={isPutMode}
         onClickEditButton={onClickEditButton}
+        date={date}
+        isUpdate={isUpdate}
       />
     </div>
   );

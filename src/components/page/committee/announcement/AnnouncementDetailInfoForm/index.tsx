@@ -7,6 +7,7 @@ import Button from "@/components/design-system/Button";
 import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { AnnouncementDetailForm } from "@/types/committee/announcement";
+import { formatToKoreanTime } from "@/utils/date";
 
 const cn = classNames.bind(styles);
 
@@ -27,6 +28,8 @@ interface AnnouncementDetailFormProps {
   onPutAnnouncement: () => void;
   isPutMode: boolean;
   onClickEditButton: () => void;
+  date: Date;
+  isUpdate: boolean;
 }
 
 export default function AnnouncementDetailInfoForm({
@@ -40,11 +43,16 @@ export default function AnnouncementDetailInfoForm({
   onPutAnnouncement,
   isPutMode,
   onClickEditButton,
+  date,
+  isUpdate,
 }: AnnouncementDetailFormProps) {
   return (
     <div>
       <header className={cn("header")}>
         <Txt weight="medium">공지사항</Txt>
+        <Txt size="small" className={cn("date")}>
+          {`작성일 : ${formatToKoreanTime(date)} ${isUpdate ? "(수정됨)" : ""}`}
+        </Txt>
       </header>
       <div className={cn("contentContainer")}>
         <TextInput
