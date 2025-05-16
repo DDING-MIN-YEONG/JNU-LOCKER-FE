@@ -13,6 +13,15 @@
   border-radius: 0 0 1rem 1rem;
 }
 
+.titleInputContainer,
+.contentInputContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.textLength {
+  margin-left: auto;
+}
+
 .textarea {
   height: 20rem;
 }
