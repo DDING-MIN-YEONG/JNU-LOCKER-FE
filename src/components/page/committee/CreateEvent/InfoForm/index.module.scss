@@ -13,6 +13,14 @@
   border-radius: 0 0 1rem 1rem;
 }
 
+.titleInputContainer {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.textLength {
+  margin-left: auto;
+}
+
 .eventTimeContainer {
   @include flexSort(row, space-between, center, null);
 }
