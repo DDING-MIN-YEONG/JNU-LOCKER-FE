@@ -11,7 +11,7 @@ export const useCreateAnnouncement = () => {
   const { mutate } = useCreateAnnouncementMutate();
   const queryClient = useQueryClient();
 
-  const eventQueryKeys = useQueryKeys(["announcementList"]);
+  const announcementQueryKeys = useQueryKeys(["announcementList"]);
 
   const onCreateAnnouncement = (formData: CreateAnnouncementFormRequest) => {
     mutate(formData, {
@@ -19,7 +19,7 @@ export const useCreateAnnouncement = () => {
         alert(error.response.data.message || "공지사항 생성에 실패하였습니다.");
       },
       onSuccess: () => {
-        eventQueryKeys.forEach((queryKey) => {
+        announcementQueryKeys.forEach((queryKey) => {
           queryClient.invalidateQueries({ queryKey });
         });
 
