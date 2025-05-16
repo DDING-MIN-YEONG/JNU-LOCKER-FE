@@ -4,7 +4,7 @@ import { ROUTE } from "@/constants/routes";
 import { postCreateEvent } from "@/apis/committee/event";
 import { CreateEventRequest } from "@/types/committee/event";
 import { ApiResponseError } from "@/types/common/api";
-import { useQueryKeys } from "../../common/useQueryKeys";
+import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 
 export const useCreateEvent = () => {
   const router = useRouter();

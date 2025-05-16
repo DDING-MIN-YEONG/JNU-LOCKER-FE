@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { ApiResponseError } from "@/types/common/api";
-import { useQueryKeys } from "../../common/useQueryKeys";
+import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 import { CreateAnnouncementFormRequest } from "@/types/committee/announcement";
 import { postCreateAnnouncement } from "@/apis/committee/announcement";
 

@@ -3,7 +3,7 @@ import { ApiResponseError } from "@/types/common/api";
 import { deleteAnnouncement } from "@/apis/committee/announcement";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
-import { useQueryKeys } from "../../common/useQueryKeys";
+import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 
 export const useDeleteAnnouncement = () => {
   const { mutate } = useDeleteAnnouncementMutate();
