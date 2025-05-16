@@ -8,6 +8,7 @@ import { useGetAnnouncementId } from "@/hooks/common/useGetPageAnnouncementId";
 import { usePutAnnouncement } from "@/hooks/tanstack-query/committee/announcement/usePutAnnouncement";
 import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
+import { getEffectiveDate } from "@/functions/getEffectiveDate";
 
 export const useAnnouncementForm = () => {
   const { announcementId } = useGetAnnouncementId();
@@ -31,6 +32,8 @@ export const useAnnouncementForm = () => {
     },
     participationDepartmentIds: [],
   });
+
+  const { date, isUpdate } = getEffectiveDate(formData.createdAt as Date, formData.updatedAt as Date);
 
   const { onPutAnnouncement: putAnnouncement } = usePutAnnouncement(announcementId);
 
@@ -140,5 +143,7 @@ export const useAnnouncementForm = () => {
     onSelectOrganizations,
     isPutMode,
     onClickEditButton,
+    date,
+    isUpdate,
   };
 };

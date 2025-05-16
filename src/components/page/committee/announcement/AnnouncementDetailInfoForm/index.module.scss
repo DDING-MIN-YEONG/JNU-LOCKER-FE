@@ -3,6 +3,7 @@
   padding: 2rem;
   border-radius: 1rem 1rem 0 0;
   border: 0.1rem solid #c1c1c1;
+  @include flexSort(row, space-between, center, null);
 }
 
 .contentContainer {
