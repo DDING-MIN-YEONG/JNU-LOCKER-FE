@@ -3,12 +3,15 @@ import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useEventPagination } from "@/hooks/committee/event/useEventPagination";
 import { useDeleteEvent } from "@/hooks/tanstack-query/committee/event/useDeleteEvent";
 import { usePutEventPublish } from "@/hooks/tanstack-query/committee/event/usePutEventPublish";
+import { useCommitteeCertification } from "../sign-in/useCommitteeCertification";
+import { ApiResponseError } from "@/types/common/api";
 
 export const useEventList = () => {
   const { page: currentPage } = useGetPageParams();
   const { pagesPerGroup, queryParams, setPage } = useEventPagination(currentPage);
 
-  const { data, isLoading } = useGetEventListQuery(queryParams);
+  const { data, isLoading, isError, error } = useGetEventListQuery(queryParams);
+  useCommitteeCertification(isError, error as ApiResponseError);
 
   const { onDeleteEvent } = useDeleteEvent(queryParams);
 
