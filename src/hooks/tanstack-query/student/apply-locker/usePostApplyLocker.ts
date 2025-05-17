@@ -10,6 +10,12 @@ export const usePostApplyLocker = () => {
   const onApplyLocker = (eventId: string, lockerName: string, floor: number) => {
     const lockerListData: LockerList[] | undefined = queryClient.getQueryData(["lockerList", eventId]);
 
+    const lockerFloor = lockerListData?.find((locker) => locker.floorNumber === floor);
+    if (!lockerFloor) {
+      alert("유효하지 않은 층수입니다.");
+      return;
+    }
+
     const lockerId = lockerListData
       ?.find((locker) => locker.floorNumber === floor)
       ?.lockerList.find((locker) => locker.code === lockerName)?.lockerId;
