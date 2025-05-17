@@ -16,9 +16,7 @@ export const usePostApplyLocker = () => {
       return;
     }
 
-    const lockerId = lockerListData
-      ?.find((locker) => locker.floorNumber === floor)
-      ?.lockerList.find((locker) => locker.code === lockerName)?.lockerId;
+    const lockerId = lockerFloor.lockerList.find((locker) => locker.code === lockerName)?.lockerId;
 
     if (lockerId === undefined) {
       alert("유효하지 않은 사물함 이름입니다.");
