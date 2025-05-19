@@ -24,6 +24,7 @@ export default function EventList() {
     onDeleteEvent,
     onChangeEventPublish,
     isLoading,
+    onEventClick,
   } = useEventList();
 
   return (
@@ -82,7 +83,7 @@ export default function EventList() {
             </tr>
           ) : (
             eventList.map((event) => (
-              <tr key={event.id} className={cn("tr")}>
+              <tr key={event.id} className={cn("tr")} onClick={() => onEventClick(event.id)}>
                 <td className={cn("tableData")}>
                   <Txt size="h6">{event.title}</Txt>
                 </td>
