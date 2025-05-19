@@ -1,0 +1,26 @@
+.container {
+  border: 0.1rem solid #c1c1c1;
+  border-radius: 1rem;
+  padding: 2rem;
+  @include flexSort(column, null, null, 3rem);
+  background-color: #f9f9f9;
+}
+
+.deletePrefixBtn {
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  margin-left: auto;
+}
+
+.rangeContainer {
+  @include flexSort(column, null, null, 2rem);
+}
+
+.rangeTitle {
+  @include flexSort(row, space-between, center, null);
+}
+
+.addRangeBtn {
+  width: fit-content;
+  padding: 1rem 1.5rem;
+}
