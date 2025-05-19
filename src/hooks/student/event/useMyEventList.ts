@@ -15,7 +15,7 @@ export const useMyEventList = () => {
   const totalElements = data?.totalElements || 0;
 
   const onEventClick = (id: string) => {
-    router.push(`${ROUTE.STUDENT.MY_EVENT}/${id}`);
+    router.push(`${ROUTE.STUDENT.APPLY_LOCKER}/${id}`);
   };
 
   return {
