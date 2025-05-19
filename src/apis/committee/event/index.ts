@@ -1,6 +1,6 @@
-import { EventList } from "@/apis/dtos/committee/event";
+import { EventDetail, EventList } from "@/apis/dtos/committee/event";
 import { https } from "@/apis/instance/https";
-import { CreateEventRequest } from "@/types/committee/event";
+import { CreateEventRequest, PutEventRequest } from "@/types/committee/event";
 
 export const postCreateEvent = async (formData: CreateEventRequest) => {
   await https.post("events", formData);
@@ -25,4 +25,14 @@ export const putEventPublish = async ({ id, isPublish }: PutEventPublishParam) =
   await https.put(`events/${id}/publish`, {
     isPublish,
   });
+};
+
+export const getEvent = async (eventId: string) => {
+  const { data } = await https.get(`events/${eventId}`);
+
+  return new EventDetail(data);
+};
+
+export const putEvent = async ({ formData, eventId }: { formData: PutEventRequest; eventId: string }) => {
+  await https.put(`events/${eventId}`, formData);
 };
