@@ -241,7 +241,7 @@ export const useEventDetailForm = () => {
     }));
   };
 
-  const onAddRange = (floorId: number, prefixId: number) => {
+  const onAddRange = (floorId: number, prefixId: number | string) => {
     const newRange = {
       rangeId: Date.now(),
       lockerStartNumber: null,
@@ -270,7 +270,7 @@ export const useEventDetailForm = () => {
 
   const onChangeRange = (
     floorId: number,
-    prefixId: number,
+    prefixId: number | string,
     rangeId: number | string,
     type: "start" | "end",
     lockerNumber: number | null,

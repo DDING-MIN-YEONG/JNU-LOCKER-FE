@@ -13,18 +13,18 @@ interface EventDetailFloorInfoFormProps {
   floorData: EventDetailForm["floors"][number];
   onChangeFloorNumber: (floorId: number, floorNumber: number) => void;
   onAddPrefix: (floorId: number) => void;
-  onChangePrefix: (floorId: number, prefixId: number, lockerPrefix: string) => void;
-  onAddRange: (floorId: number, prefixId: number) => void;
+  onChangePrefix: (floorId: number, prefixId: number | string, lockerPrefix: string) => void;
+  onAddRange: (floorId: number, prefixId: number | string) => void;
   onChangeRange: (
     floorId: number,
-    prefixId: number,
+    prefixId: number | string,
     rangeId: number,
     type: "start" | "end",
     lockerNumber: number | null,
   ) => void;
   onDeleteFloor: (floorId: number) => void;
-  onDeletePrefix: (floorId: number, prefixId: number) => void;
-  onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
+  onDeletePrefix: (floorId: number, prefixId: number | string) => void;
+  onDeleteRange: (floorId: number, prefixId: number | string, rangeId: number) => void;
   isPutMode: boolean;
 }
 
