@@ -34,5 +34,5 @@ export const putEventValidator = (formData: EventDetailForm) => {
     return CREATE_EVENT_VALIDATION.lockerNumber.required;
   }
 
-  return false;
+  return null;
 };
