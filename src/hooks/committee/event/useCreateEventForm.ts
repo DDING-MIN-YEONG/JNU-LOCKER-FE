@@ -19,14 +19,14 @@ export const useCreateEventForm = () => {
     floors: [
       {
         floorNumber: null,
-        floorId: Date.now(),
+        floorId: 1,
         prefixes: [
           {
-            prefixId: Date.now(),
+            prefixId: 1,
             lockerPrefix: "",
             ranges: [
               {
-                rangeId: Date.now(),
+                rangeId: 1,
                 lockerStartNumber: null,
                 lockerEndNumber: null,
               },
@@ -302,7 +302,9 @@ export const useCreateEventForm = () => {
   };
 
   const onCreateEvent = () => {
-    if (!createEventValidator(formData)) {
+    const alertMessage = createEventValidator(formData);
+    if (alertMessage) {
+      alert(alertMessage);
       return;
     }
 

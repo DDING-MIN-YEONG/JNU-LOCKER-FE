@@ -48,7 +48,7 @@ export default function CreateEventPrefixInfoForm({
       <TextInput
         label="접두사"
         value={prefixData.lockerPrefix}
-        id="lockerPrefix"
+        id={`lockerPrefix-${prefixData.prefixId}`}
         type="text"
         placeholder="접두사 입력 (예: A), 빈 값 가능"
         onChange={(e) => {
