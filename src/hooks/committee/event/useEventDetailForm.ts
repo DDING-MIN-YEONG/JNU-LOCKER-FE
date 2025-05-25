@@ -9,6 +9,7 @@ import { useCommitteeCertification } from "../sign-in/useCommitteeCertification"
 import { usePutEvent } from "@/hooks/tanstack-query/committee/event/usePutEvent";
 import { putEventValidator } from "@/functions/validator/putEventValidator";
 import { convertPutEventForm } from "@/functions/convertPutEventForm";
+import { useDeleteEvent } from "@/hooks/tanstack-query/committee/event/useDeleteEvent";
 
 export const useEventDetailForm = () => {
   const { eventId } = useGetEventId();
@@ -20,6 +21,8 @@ export const useEventDetailForm = () => {
   const [isPutMode, setIsPutMode] = useState(false);
 
   const { onPutEvent: putEvent } = usePutEvent(eventId, setIsPutMode);
+
+  const { onDeleteEvent } = useDeleteEvent(eventId);
 
   const [formData, setFormData] = useState<EventDetailForm>({
     title: "",
@@ -367,5 +370,6 @@ export const useEventDetailForm = () => {
     onSelectOrganizations,
     isPutMode,
     onPutClick,
+    onDeleteEvent,
   };
 };

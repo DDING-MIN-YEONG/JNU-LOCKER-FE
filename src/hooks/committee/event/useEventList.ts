@@ -1,7 +1,6 @@
 import { useGetEventListQuery } from "@/hooks/tanstack-query/committee/event/useGetEventList";
 import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useEventPagination } from "@/hooks/committee/event/useEventPagination";
-import { useDeleteEvent } from "@/hooks/tanstack-query/committee/event/useDeleteEvent";
 import { usePutEventPublish } from "@/hooks/tanstack-query/committee/event/usePutEventPublish";
 import { useCommitteeCertification } from "../sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
@@ -15,8 +14,6 @@ export const useEventList = () => {
 
   const { data, isLoading, isError, error } = useGetEventListQuery(queryParams);
   useCommitteeCertification(isError, error as ApiResponseError);
-
-  const { onDeleteEvent } = useDeleteEvent(queryParams);
 
   const { onChangeEventPublish } = usePutEventPublish(queryParams);
 
@@ -34,7 +31,6 @@ export const useEventList = () => {
     setPage,
     itemsPerPage: queryParams.size,
     pagesPerGroup,
-    onDeleteEvent,
     onChangeEventPublish,
     isLoading,
     onEventClick,
