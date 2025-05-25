@@ -1,24 +1,28 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteEvent } from "@/apis/committee/event";
 import { ApiResponseError } from "@/types/common/api";
+import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constants/routes";
 
-interface useDeleteEventParams {
-  page: number;
-  size: number;
-  direction?: "asc" | "desc";
-}
-
-export const useDeleteEvent = ({ page, size, direction }: useDeleteEventParams) => {
+export const useDeleteEvent = (eventId: string) => {
   const { mutate } = useDeleteEventMutate();
   const queryClient = useQueryClient();
+  const router = useRouter();
 
-  const onDeleteEvent = (id: string) => {
-    mutate(id, {
+  const eventQueryKeys = useQueryKeys(["eventList"]);
+
+  const onDeleteEvent = () => {
+    mutate(eventId, {
       onError: (error) => {
         alert(error.response.data.message || "이벤트 삭제에 실패하였습니다.");
       },
       onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ["eventList", page, size, direction] });
+        eventQueryKeys.forEach((queryKey) => {
+          queryClient.invalidateQueries({ queryKey });
+        });
+
+        router.push(ROUTE.COMMITTEE.EVENT_LIST);
         alert("이벤트가 삭제되었습니다.");
       },
     });

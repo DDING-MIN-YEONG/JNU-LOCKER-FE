@@ -21,7 +21,6 @@ export default function EventList() {
     setPage,
     itemsPerPage,
     pagesPerGroup,
-    onDeleteEvent,
     onChangeEventPublish,
     isLoading,
     onEventClick,
@@ -67,11 +66,6 @@ export default function EventList() {
                 게시
               </Txt>
             </th>
-            <th className={cn("tableHeader")}>
-              <Txt color="white" weight="medium">
-                관리
-              </Txt>
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -104,21 +98,6 @@ export default function EventList() {
                   </Button>
                   <Button color="gray" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, false)}>
                     <Txt size="h6">비공개</Txt>
-                  </Button>
-                </td>
-                <td className={cn("tableData", "manage")}>
-                  <Button
-                    color="red"
-                    className={cn("btn")}
-                    onClick={() => {
-                      if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
-                        onDeleteEvent(event.id);
-                      }
-                    }}
-                  >
-                    <Txt color="white" size="h6">
-                      삭제
-                    </Txt>
                   </Button>
                 </td>
               </tr>

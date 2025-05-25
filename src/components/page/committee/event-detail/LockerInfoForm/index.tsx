@@ -28,6 +28,7 @@ interface EventDetailLockerInfoFormProps {
   onPutEvent: () => void;
   isPutMode: boolean;
   onPutClick: () => void;
+  onDeleteEvent: () => void;
 }
 
 export default function EventDetailLockerInfoForm({
@@ -44,6 +45,7 @@ export default function EventDetailLockerInfoForm({
   onPutEvent,
   isPutMode,
   onPutClick,
+  onDeleteEvent,
 }: EventDetailLockerInfoFormProps) {
   return (
     <>
@@ -76,11 +78,26 @@ export default function EventDetailLockerInfoForm({
           </Txt>
         </Button>
       )}
-      <Button className={cn("createEventBtn")} color="primary" onClick={isPutMode ? onPutEvent : onPutClick}>
-        <Txt size="h6" color="white">
-          {isPutMode ? "수정 완료" : "수정 하기"}
-        </Txt>
-      </Button>
+      <div className={cn("btnContainer")}>
+        <Button className={cn("createEventBtn")} color="primary" onClick={isPutMode ? onPutEvent : onPutClick}>
+          <Txt size="h6" color="white">
+            {isPutMode ? "수정 완료" : "수정 하기"}
+          </Txt>
+        </Button>
+        <Button
+          color="red"
+          className={cn("deleteBtn")}
+          onClick={() => {
+            if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
+              onDeleteEvent();
+            }
+          }}
+        >
+          <Txt color="white" size="h6">
+            삭제
+          </Txt>
+        </Button>
+      </div>
     </>
   );
 }

@@ -18,8 +18,13 @@
   padding: 1rem 1.5rem;
 }
 
-.createEventBtn {
+.createEventBtn,
+.deleteBtn {
   width: fit-content;
   padding: 1.5rem;
+}
+
+.btnContainer {
+  @include flexSort(row, null, center, 1rem);
   margin-left: auto;
 }
