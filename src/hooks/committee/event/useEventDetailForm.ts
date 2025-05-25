@@ -331,7 +331,10 @@ export const useEventDetailForm = () => {
   };
 
   const onPutEvent = () => {
-    if (!putEventValidator(formData)) {
+    const alertMessage = putEventValidator(formData);
+
+    if (alertMessage) {
+      alert(alertMessage);
       return;
     }
 

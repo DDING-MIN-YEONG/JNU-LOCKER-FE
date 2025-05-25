@@ -42,22 +42,7 @@ export interface CreateEventRequest {
   }[];
 }
 
-export interface PutEventRequest {
-  title: string;
-  startAt: string;
-  endAt: string;
-  participationDepartmentIds: number[];
-  floors: {
-    floorNumber: number;
-    prefixes: {
-      lockerPrefix: string;
-      ranges: {
-        lockerStartNumber: number;
-        lockerEndNumber: number;
-      }[];
-    }[];
-  }[];
-}
+export type PutEventRequest = CreateEventRequest;
 
 export interface EventDetailForm {
   title: string;
