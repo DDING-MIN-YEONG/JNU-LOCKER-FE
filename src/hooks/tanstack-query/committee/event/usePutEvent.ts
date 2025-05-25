@@ -14,7 +14,7 @@ export const usePutEvent = (eventId: string, setIsPutMode: Dispatch<SetStateActi
       {
         onError: (error) => {
           if (error.response.data.code === "E009") {
-            setIsPutMode((prev) => !prev);
+            setIsPutMode(false);
           }
           alert(error.response.data.message || "이벤트 수정에 실패하였습니다.");
         },
