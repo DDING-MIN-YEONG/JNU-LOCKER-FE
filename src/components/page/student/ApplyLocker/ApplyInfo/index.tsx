@@ -23,10 +23,10 @@ export default function ApplyInfo() {
   return (
     <div className={cn("container")}>
       <Txt weight="bold" size="h3" className={cn("title")}>
-        제목 : {lockerInfo?.title}
+        제목 : {lockerInfo.title}
       </Txt>
       <Txt weight="bold" size="h3" className={cn("title")}>
-        시간 : {formatToKoreanTime(lockerInfo.startAt)} ~ {formatToKoreanTime(lockerInfo?.endAt)}
+        시간 : {formatToKoreanTime(lockerInfo.startAt)} ~ {formatToKoreanTime(lockerInfo.endAt)}
       </Txt>
     </div>
   );
