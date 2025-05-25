@@ -1,0 +1,7 @@
+.container {
+  @include flexSort(column, null, null, 1rem);
+}
+
+.skeleton {
+  height: 5rem;
+}
