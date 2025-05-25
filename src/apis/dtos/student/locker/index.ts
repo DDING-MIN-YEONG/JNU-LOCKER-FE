@@ -33,3 +33,31 @@ export class MyRegistrationLocker {
     this.floorNumber = floorNumber;
   }
 }
+
+export class LockerInfo {
+  id: string;
+  title: string;
+  startAt: Date;
+  endAt: Date;
+  status: "READY" | "OPEN" | "CLOSED";
+
+  constructor({
+    id,
+    title,
+    startAt,
+    endAt,
+    status,
+  }: {
+    id: string;
+    title: string;
+    startAt: Date;
+    endAt: Date;
+    status: "READY" | "OPEN" | "CLOSED";
+  }) {
+    this.id = id;
+    this.title = title;
+    this.startAt = startAt;
+    this.endAt = endAt;
+    this.status = status;
+  }
+}
