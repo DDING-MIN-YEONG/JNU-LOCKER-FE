@@ -91,12 +91,26 @@ export default function EventList() {
                   <Txt size="h6">{event.publish === true ? "공개" : "비공개"}</Txt>
                 </td>
                 <td className={cn("tableData", "publish")}>
-                  <Button color="primary" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, true)}>
+                  <Button
+                    color="primary"
+                    className={cn("btn")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onChangeEventPublish(event.id, true);
+                    }}
+                  >
                     <Txt color="white" size="h6">
                       공개
                     </Txt>
                   </Button>
-                  <Button color="gray" className={cn("btn")} onClick={() => onChangeEventPublish(event.id, false)}>
+                  <Button
+                    color="gray"
+                    className={cn("btn")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onChangeEventPublish(event.id, false);
+                    }}
+                  >
                     <Txt size="h6">비공개</Txt>
                   </Button>
                 </td>
