@@ -34,7 +34,7 @@ export default function CreateEventRangeInfoForm({
       <TextInput
         label="시작 번호"
         value={rangeData.lockerStartNumber ?? 0}
-        id="startLockerNumber"
+        id={`startLockerNumber-${rangeData.rangeId}`}
         type="text"
         onChange={(e) => {
           const value = e.target.value;
@@ -47,7 +47,7 @@ export default function CreateEventRangeInfoForm({
       <TextInput
         label="종료 번호"
         value={rangeData.lockerEndNumber ?? 0}
-        id="endLockerNumber"
+        id={`endLockerNumber-${rangeData.rangeId}`}
         type="text"
         onChange={(e) => {
           const value = e.target.value;
