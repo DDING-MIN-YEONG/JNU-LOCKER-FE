@@ -57,7 +57,7 @@ export default function EventDetailFloorInfoForm({
       <TextInput
         label="층수"
         value={floorData.floorNumber ?? 0}
-        id="floorNumber"
+        id={`floorNumber-${floorData.floorId}`}
         type="text"
         readOnly={!isPutMode}
         placeholder="숫자로 입력해주세요. (예: 2)"
