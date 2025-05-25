@@ -19,7 +19,7 @@ export const useEventDetailForm = () => {
 
   const [isPutMode, setIsPutMode] = useState(false);
 
-  const { onPutEvent: putEvent } = usePutEvent(eventId);
+  const { onPutEvent: putEvent } = usePutEvent(eventId, setIsPutMode);
 
   const [formData, setFormData] = useState<EventDetailForm>({
     title: "",
