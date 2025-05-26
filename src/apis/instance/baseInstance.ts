@@ -5,5 +5,13 @@ export const baseInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
+});
+
+baseInstance.interceptors.request.use((config) => {
+  const accessToken = typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
+
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
+  }
+  return config;
 });
