@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import { ReactNode } from "react";
 import Txt from "@/components/design-system/Txt";
-import ChnamLogoWhite from "@/components/common/ChnamLogoWhite";
+import WhiteLogo from "@/components/common/WhiteLogo";
 
 const cn = classNames.bind(styles);
 
@@ -14,7 +14,7 @@ export default function AuthorizationLayout({ children }: AuthorizationLayoutPro
   return (
     <div className={cn("container")}>
       <div className={cn("logoContainer")}>
-        <ChnamLogoWhite width={184} height={175} />
+        <WhiteLogo width={500} height={300} />
         <div className={cn("logoTextContainer")}>
           <Txt color="white" fontType="chnam" className={cn("title")}>
             전남대학교

@@ -5,7 +5,7 @@
 
 .logoContainer {
   width: 55%;
-  @include flexSort(column, center, center, 10rem);
+  @include flexSort(column, center, center, null);
   background-color: $primary;
 }
 
