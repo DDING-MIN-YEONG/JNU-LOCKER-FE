@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import SignUpLayout from "@/components/Layout/SignUpLayout/index";
-import ChnamLogo from "@/components/common/ChnamLogo";
+import Logo from "@/components/common/Logo";
 import EnterEmailForm from "@/components/page/student/EnterEmail/Form/index";
 import Txt from "@/components/design-system/Txt";
 
@@ -17,7 +17,7 @@ export default function EnterEmail() {
       }
     >
       <div className={cn("imgContainer")}>
-        <ChnamLogo width={103} height={98} />
+        <Logo width={500} height={300} />
       </div>
       <Txt weight="bold" size="h4">
         재설정하고자 하는 이메일을 입력주세요.

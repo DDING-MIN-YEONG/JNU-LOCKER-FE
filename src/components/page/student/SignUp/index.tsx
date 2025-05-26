@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 
 import SignUpForm from "@/components/page/student/SignUp/Form/index";
 import SignUpLayout from "@/components/Layout/SignUpLayout/index";
-import ChnamLogo from "@/components/common/ChnamLogo";
+import Logo from "@/components/common/Logo";
 import Txt from "@/components/design-system/Txt";
 
 const cn = classNames.bind(styles);
@@ -18,7 +18,7 @@ export default function SignUp() {
       }
     >
       <div className={cn("imgContainer")}>
-        <ChnamLogo width={103} height={98} />
+        <Logo width={500} height={300} />
       </div>
       <SignUpForm />
     </SignUpLayout>

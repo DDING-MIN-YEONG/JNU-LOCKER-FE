@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import SignUpLayout from "@/components/Layout/SignUpLayout/index";
-import ChnamLogo from "@/components/common/ChnamLogo";
+import Logo from "@/components/common/Logo";
 import ResetPasswordForm from "@/components/page/student/ResetPassword/Form/index";
 import Txt from "@/components/design-system/Txt";
 
@@ -17,7 +17,7 @@ export default function ResetPassword() {
       }
     >
       <div className={cn("imgContainer")}>
-        <ChnamLogo width={103} height={98} />
+        <Logo width={500} height={300} />
       </div>
       <ResetPasswordForm />
     </SignUpLayout>

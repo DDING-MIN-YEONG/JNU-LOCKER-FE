@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@/components/design-system/Txt";
-import ChnamLogo from "@/components/common/ChnamLogo/index";
+import Logo from "@/components/common/Logo/index";
 import Skeleton from "../Skeleton";
 import { useCommitteeHeader } from "@/hooks/common/useCommitteeHeader";
 
@@ -21,7 +21,7 @@ export default function CommitteeHeader() {
   return (
     <header className={cn("header")}>
       <Link href={ROUTE.COMMITTEE.APPLY_LIST} className={cn("logo")}>
-        <ChnamLogo height={50} width={55} />
+        <Logo height={100} width={100} />
         <Txt fontType="chnam" className={cn("headerTitle")}>
           전남대학교 사물함 신청 서비스
         </Txt>
