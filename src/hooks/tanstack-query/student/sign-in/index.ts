@@ -4,6 +4,7 @@ import { ROUTE } from "@/constants/routes";
 import { SignInFormData } from "@/types/common/sign-in";
 import { postSignIn } from "@/apis/common/sign-in";
 import { ApiResponseError } from "@/types/common/api";
+import { LoginInfo } from "@/apis/dtos/common/my-info";
 
 export const useStudentSignIn = () => {
   const router = useRouter();
@@ -15,8 +16,11 @@ export const useStudentSignIn = () => {
       onError: (error) => {
         alert(error.response.data.message || "로그인에 실패했습니다.");
       },
-      onSuccess: () => {
+      onSuccess: (data) => {
         queryClient.invalidateQueries({ queryKey: ["myInfo"] });
+        localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+
         router.push(ROUTE.STUDENT.DEPARTMENT_INFO);
         alert("로그인에 성공했습니다.");
       },
@@ -28,7 +32,7 @@ export const useStudentSignIn = () => {
 };
 
 export const useStudentSignInMutate = () => {
-  return useMutation<void, ApiResponseError, SignInFormData>({
+  return useMutation<LoginInfo, ApiResponseError, SignInFormData>({
     mutationKey: ["studentSignIn"],
     mutationFn: postSignIn,
   });
