@@ -4,8 +4,3 @@
   background-color: $primary;
   @include flexSort(row, null, center, null);
 }
-
-.logo {
-  color: white;
-  margin-left: 7.4rem;
-}
