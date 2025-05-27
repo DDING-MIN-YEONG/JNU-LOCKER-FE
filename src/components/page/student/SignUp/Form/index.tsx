@@ -19,7 +19,7 @@ export default function SignUpForm() {
     onInputChange,
     onSelectChange,
     organizations,
-    isEmailCertification,
+    isEmailSend,
     onSubmitEmail,
     countdown,
     onVerifyCertificationCode,
@@ -64,7 +64,7 @@ export default function SignUpForm() {
             disabled={countdown ? countdown > 0 : false}
             type="button"
             className={cn("emailBtn")}
-            onClick={() => onSubmitEmail({ email: formData.email })}
+            onClick={onSubmitEmail}
           >
             <Txt size="tiny" weight="bold" color="white">
               메일전송
@@ -72,7 +72,7 @@ export default function SignUpForm() {
           </Button>
         </TextInput>
         {countdown && <Txt size="tiny">인증 코드 유효 시간 : {countdown}초</Txt>}
-        {isEmailCertification && (
+        {isEmailSend && (
           <TextInput
             containerClassName={cn("certificationContainer")}
             id="emailCertificationNumber"

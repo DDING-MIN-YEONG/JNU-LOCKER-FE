@@ -4,4 +4,5 @@ export interface CommitteeSignUpFormData {
   password: string;
   departmentId: number;
   phoneNumber: string;
+  studentNumber: string;
 }

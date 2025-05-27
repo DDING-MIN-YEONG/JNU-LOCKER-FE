@@ -1,17 +1,32 @@
 import { FormEvent } from "react";
 import { COMMITTEE_SIGN_UP } from "@/constants/error";
 import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
-import { isJnuEmail, isPassword } from "@/utils/validator";
-import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
+import { isPassword } from "@/utils/validator";
+import {
+  useDepartmentsQuery,
+  useOrganizationsQuery,
+  useSubmitEmail,
+  useVerifyCertificationCode,
+} from "@/hooks/tanstack-query/common/sign-up";
 import { useCommitteeFormData } from "@/hooks/committee/sign-up/useCommitteeFormData";
 import { useFormError } from "@/hooks/common/useFormError";
+import { useTimer } from "@/hooks/common/useTimer";
+import { useEmailSend } from "@/hooks/common/useEmailSend";
 
 const useCommitteeSignUpForm = () => {
   const { onCommitteeSignUp } = useCommitteeSignUp();
 
   const { formData, onSelectChange, onInputChange } = useCommitteeFormData();
 
+  const { isEmailSend, setIsEmailSend } = useEmailSend();
+
+  const { countdown, setCountdown } = useTimer();
+
+  const { onSubmitEmail } = useSubmitEmail(setIsEmailSend, setCountdown);
+
   const { error, setFormError, clearError } = useFormError();
+
+  const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
 
   let { data: organizations } = useOrganizationsQuery(formData.category.value);
   let departments = useDepartmentsQuery(formData.affiliation.id);
@@ -36,17 +51,13 @@ const useCommitteeSignUpForm = () => {
       if (field === "affiliation" && formData.affiliation.value === "값을 선택해주세요.") {
         return COMMITTEE_SIGN_UP[field].required;
       }
-
-      if (field === "email" && formData.category.value === "학생회" && !isJnuEmail(formData.email)) {
-        return COMMITTEE_SIGN_UP[field].format;
+      if (field === "studentNumber" && !formData.studentNumber) {
+        return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "email" && !formData.email) {
         return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "phoneNumber" && !formData.phoneNumber) {
-        return COMMITTEE_SIGN_UP[field].required;
-      }
-      if (field === "phoneNumberCertificationNumber" && !formData.phoneNumberCertificationNumber) {
         return COMMITTEE_SIGN_UP[field].required;
       }
       if (field === "name" && !formData.name) {
@@ -86,6 +97,7 @@ const useCommitteeSignUpForm = () => {
       password: formData.password,
       departmentId: formData.department.id,
       phoneNumber: formData.phoneNumber,
+      studentNumber: formData.studentNumber,
     });
   };
 
@@ -97,6 +109,10 @@ const useCommitteeSignUpForm = () => {
     organizations,
     departments,
     onInputChange,
+    isEmailSend,
+    countdown,
+    onSubmitEmail,
+    onVerifyCertificationCode,
   };
 };
 
