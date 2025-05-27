@@ -14,11 +14,11 @@ export interface CommitteeFormData {
     id: number;
     value: string;
   };
-  name: string;
+  studentNumber: string;
   email: string;
   emailCertificationNumber: string;
   phoneNumber: string;
-  phoneNumberCertificationNumber: string;
+  name: string;
   password: string;
   passwordConfirm: string;
 }
@@ -37,11 +37,11 @@ export const useCommitteeFormData = () => {
       id: 0,
       value: "선택 안함",
     },
-    name: "",
+    studentNumber: "",
     email: "",
     emailCertificationNumber: "",
     phoneNumber: "",
-    phoneNumberCertificationNumber: "",
+    name: "",
     password: "",
     passwordConfirm: "",
   });
