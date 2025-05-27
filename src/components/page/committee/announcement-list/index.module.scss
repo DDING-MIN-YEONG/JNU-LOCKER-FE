@@ -18,13 +18,9 @@
   border-radius: 1rem;
 }
 
-.table {
-  border: 0.2rem solid $primary;
-  border-bottom: 0;
-}
-
 .tableHeaderContainer {
   background-color: $primary;
+  border: 0.2rem solid $primary;
 }
 
 .tableHeader {
@@ -43,4 +39,12 @@
 .tableData {
   text-align: center;
   padding: 2rem;
+
+  &:first-child {
+    border-left: 0.2rem solid $primary;
+  }
+
+  &:last-child {
+    border-right: 0.2rem solid $primary;
+  }
 }

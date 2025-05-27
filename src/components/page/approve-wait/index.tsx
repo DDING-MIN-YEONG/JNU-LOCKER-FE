@@ -29,7 +29,7 @@ export default function ApproveWait() {
       <Txt color="primary" size="h3" weight="medium">
         MANAGER 가입 승인 대기 목록
       </Txt>
-      <table className={cn("table")}>
+      <table>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
             <th className={cn("tableHeader")}>

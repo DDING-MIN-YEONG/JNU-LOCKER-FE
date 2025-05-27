@@ -36,7 +36,7 @@ export default function AnnouncementList() {
           </Txt>
         </Link>
       </div>
-      <table className={cn("table")}>
+      <table>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
             <th className={cn("tableHeader")}>
