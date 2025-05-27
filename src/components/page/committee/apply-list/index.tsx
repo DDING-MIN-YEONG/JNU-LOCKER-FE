@@ -49,19 +49,27 @@ export default function ApplyList() {
           </tbody>
         ) : (
           <tbody>
-            {applyList.map((event) => (
-              <tr className={cn("tr")} key={event.id} onClick={() => onApplyClick(event.id)}>
-                <td className={cn("tableData")}>
-                  <Txt size="h6">{event.title}</Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt size="h6">{event.status}</Txt>
+            {applyList.length > 0 ? (
+              applyList.map((event) => (
+                <tr className={cn("tr")} key={event.id} onClick={() => onApplyClick(event.id)}>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6">{event.title}</Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6">{`${formatToKoreanTime(event.startAt)} ~ ${formatToKoreanTime(event.endAt)}`}</Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6">{event.status}</Txt>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr className={cn("tr")}>
+                <td colSpan={3} className={cn("tableData")}>
+                  <Txt size="h6">신청 목록이 없습니다.</Txt>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         )}
       </table>

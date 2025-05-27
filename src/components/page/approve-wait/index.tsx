@@ -66,7 +66,7 @@ export default function ApproveWait() {
                 <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ) : (
+          ) : approveWaitList.length > 0 ? (
             approveWaitList.map((approveWait) => (
               <tr key={approveWait.memberId} className={cn("tr")}>
                 <td className={cn("tableData")}>
@@ -103,6 +103,12 @@ export default function ApproveWait() {
                 </td>
               </tr>
             ))
+          ) : (
+            <tr className={cn("tr")}>
+              <td colSpan={5} className={cn("tableData")}>
+                <Txt size="h6">승인 대기 목록이 없습니다.</Txt>
+              </td>
+            </tr>
           )}
         </tbody>
       </table>
