@@ -3,15 +3,15 @@
 <div align="center">
 <b>학생용 테스트 계정</b>
 
-email : 195317@jnu.ac.kr
+email : test@jnu.ac.kr
 
-password : test1234@
+password : testpassword123!
 
 <b>위원회용 테스트 계정</b>
 
-email : smb5174@naver.com
+email : test@example.com
 
-password : test1234@
+password : abcde12345!
 
 </div>
 
