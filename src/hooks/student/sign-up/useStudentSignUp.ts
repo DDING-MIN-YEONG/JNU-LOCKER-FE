@@ -10,19 +10,19 @@ import {
 import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
 import { useStudentFormData } from "@/hooks/student/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
-import { useEmailCertification } from "@/hooks/common/useEmailCertification";
 import { useTimer } from "@/hooks/common/useTimer";
+import { useEmailSend } from "@/hooks/common/useEmailSend";
 
 const useStudentSignUpForm = () => {
   const { onStudentSignUp } = useStudentSignUp();
 
   const { formData, onSelectChange, onInputChange } = useStudentFormData();
 
-  const { isEmailCertification, setIsEmailCertification } = useEmailCertification();
+  const { isEmailSend, setIsEmailSend } = useEmailSend();
 
   const { countdown, setCountdown } = useTimer();
 
-  const { onSubmitEmail: submitEmail } = useSubmitEmail(setIsEmailCertification, setCountdown);
+  const { onSubmitEmail: submitEmail } = useSubmitEmail(setIsEmailSend, setCountdown);
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -117,7 +117,7 @@ const useStudentSignUpForm = () => {
     error,
     organizations,
     departments,
-    isEmailCertification,
+    isEmailSend,
     onSubmitEmail,
     countdown,
     onVerifyCertificationCode,
