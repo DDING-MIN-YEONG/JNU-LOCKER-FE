@@ -27,11 +27,17 @@ export default function DepartmentInfoAnnouncement() {
         공지사항
       </Txt>
       <div className={cn("announcementContainer")}>
-        <Link href={`${ROUTE.STUDENT.MY_ANNOUNCEMENT}/${data.content[0].id}`}>
+        {data.content.length >= 1 ? (
+          <Link href={`${ROUTE.STUDENT.MY_ANNOUNCEMENT}/${data.content[0].id}`}>
+            <Txt className={cn("announcement")} size="h4">
+              {data.content[0].title}
+            </Txt>
+          </Link>
+        ) : (
           <Txt className={cn("announcement")} size="h4">
-            {data.content[0].title}
+            공지사항이 없습니다.
           </Txt>
-        </Link>
+        )}
       </div>
       <div className={cn("moreLinkContainer")}>
         <Link href={ROUTE.STUDENT.MY_ANNOUNCEMENT_LIST}>

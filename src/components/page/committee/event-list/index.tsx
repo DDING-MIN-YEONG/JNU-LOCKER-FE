@@ -75,7 +75,7 @@ export default function EventList() {
                 <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ) : (
+          ) : eventList.length > 0 ? (
             eventList.map((event) => (
               <tr key={event.id} className={cn("tr")} onClick={() => onEventClick(event.id)}>
                 <td className={cn("tableData")}>
@@ -116,6 +116,12 @@ export default function EventList() {
                 </td>
               </tr>
             ))
+          ) : (
+            <tr className={cn("tr")}>
+              <td colSpan={5} className={cn("tableData")}>
+                <Txt size="h6">이벤트가 없습니다.</Txt>
+              </td>
+            </tr>
           )}
         </tbody>
       </table>

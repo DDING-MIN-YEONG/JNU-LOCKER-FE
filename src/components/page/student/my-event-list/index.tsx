@@ -49,26 +49,36 @@ export default function MyEventList() {
           </tbody>
         ) : (
           <tbody>
-            {myEventList.map((myEvent) => (
-              <tr className={cn("tr")} key={myEvent.id} onClick={() => onEventClick(myEvent.id)}>
-                <td className={cn("tableData")}>
+            {myEventList.length > 0 ? (
+              myEventList.map((myEvent) => (
+                <tr className={cn("tr")} key={myEvent.id} onClick={() => onEventClick(myEvent.id)}>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6" className={cn("tableBodyTitle")}>
+                      {myEvent.title}
+                    </Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6" className={cn("tableBodyTitle")}>
+                      {myEvent.departmentNickname}
+                    </Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt
+                      size="h6"
+                      className={cn("tableBodyTitle")}
+                    >{`${formatToKoreanTime(myEvent.startAt)} ~ ${formatToKoreanTime(myEvent.endAt)}`}</Txt>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr className={cn("tr")}>
+                <td colSpan={3} className={cn("tableData")}>
                   <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myEvent.title}
+                    이벤트가 없습니다.
                   </Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myEvent.departmentNickname}
-                  </Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt
-                    size="h6"
-                    className={cn("tableBodyTitle")}
-                  >{`${formatToKoreanTime(myEvent.startAt)} ~ ${formatToKoreanTime(myEvent.endAt)}`}</Txt>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         )}
       </table>

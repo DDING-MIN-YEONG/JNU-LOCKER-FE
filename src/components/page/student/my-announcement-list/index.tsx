@@ -57,26 +57,36 @@ export default function MyAnnouncementList() {
           </tbody>
         ) : (
           <tbody>
-            {myAnnouncementList.map((myAnnouncement) => (
-              <tr className={cn("tr")} key={myAnnouncement.id} onClick={() => onAnnouncementClick(myAnnouncement.id)}>
-                <td className={cn("tableData")}>
+            {myAnnouncementList.length > 0 ? (
+              myAnnouncementList.map((myAnnouncement) => (
+                <tr className={cn("tr")} key={myAnnouncement.id} onClick={() => onAnnouncementClick(myAnnouncement.id)}>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6" className={cn("tableBodyTitle")}>
+                      {myAnnouncement.title}
+                    </Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6" className={cn("tableBodyTitle")}>
+                      {myAnnouncement.writer}
+                    </Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt
+                      size="h6"
+                      className={cn("tableBodyTitle")}
+                    >{`${formatToKoreanTime(myAnnouncement.createdAt)}`}</Txt>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr className={cn("tr")}>
+                <td colSpan={3} className={cn("tableData")}>
                   <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myAnnouncement.title}
+                    공지사항이 없습니다.
                   </Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt size="h6" className={cn("tableBodyTitle")}>
-                    {myAnnouncement.writer}
-                  </Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt
-                    size="h6"
-                    className={cn("tableBodyTitle")}
-                  >{`${formatToKoreanTime(myAnnouncement.createdAt)}`}</Txt>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         )}
       </table>

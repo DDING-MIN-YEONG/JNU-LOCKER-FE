@@ -61,16 +61,24 @@ export default function AnnouncementList() {
           </tbody>
         ) : (
           <tbody>
-            {announcementList.map((announcement) => (
-              <tr className={cn("tr")} key={announcement.id} onClick={() => onAnnouncementClick(announcement.id)}>
-                <td className={cn("tableData")}>
-                  <Txt size="h6">{announcement.title}</Txt>
-                </td>
-                <td className={cn("tableData")}>
-                  <Txt size="h6">{`${formatToKoreanTime(announcement.createdAt)}`}</Txt>
+            {announcementList.length > 0 ? (
+              announcementList.map((announcement) => (
+                <tr className={cn("tr")} key={announcement.id} onClick={() => onAnnouncementClick(announcement.id)}>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6">{announcement.title}</Txt>
+                  </td>
+                  <td className={cn("tableData")}>
+                    <Txt size="h6">{`${formatToKoreanTime(announcement.createdAt)}`}</Txt>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr className={cn("tr")}>
+                <td colSpan={3} className={cn("tableData")}>
+                  <Txt size="h6">공지사항이 없습니다.</Txt>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         )}
       </table>
