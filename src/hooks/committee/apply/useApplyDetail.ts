@@ -4,10 +4,13 @@ import { useGetApplyDetailQuery } from "@/hooks/tanstack-query/committee/event/u
 import { useGetApplyDetailPageEventId } from "../apply/useGetApplyDetailPageEventId";
 import { ApiResponseError } from "@/types/common/api";
 import { useCommitteeCertification } from "@/hooks/committee/sign-in/useCommitteeCertification";
+import { useGetEvent } from "@/hooks/tanstack-query/committee/event/useGetEvent";
 
 export const useApplyDetail = () => {
   const { page: currentPage } = useGetPageParams();
   const { eventId } = useGetApplyDetailPageEventId();
+
+  const { data: event, isPending: isEventPending } = useGetEvent(eventId);
 
   const { pagesPerGroup, queryParams, setPage } = useApplyDetailPagination(currentPage, eventId);
   const { data, isLoading, isError, error } = useGetApplyDetailQuery(queryParams);
@@ -25,5 +28,7 @@ export const useApplyDetail = () => {
     itemsPerPage: queryParams.size,
     pagesPerGroup,
     isLoading,
+    event,
+    isEventPending,
   };
 };

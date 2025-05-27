@@ -6,18 +6,41 @@ import Txt from "@/components/design-system/Txt";
 import Pagination from "@/components/common/Pagination";
 import { useApplyDetail } from "@/hooks/committee/apply/useApplyDetail";
 import Skeleton from "@/components/common/Skeleton";
+import { formatToKoreanTime } from "@/utils/date";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyDetail() {
-  const { ApplyDetailList, isLoading, totalElements, currentPage, setPage, itemsPerPage, pagesPerGroup } =
-    useApplyDetail();
+  const {
+    ApplyDetailList,
+    isLoading,
+    totalElements,
+    currentPage,
+    setPage,
+    itemsPerPage,
+    pagesPerGroup,
+    event,
+    isEventPending,
+  } = useApplyDetail();
 
   return (
     <div className={cn("container")}>
       <Txt color="primary" size="h3" weight="medium">
         사물함 신청 현황
       </Txt>
+      {isEventPending ? (
+        <Skeleton className={cn("eventSkeleton")} />
+      ) : (
+        <>
+          <Txt weight="bold" size="h5" className={cn("title")}>
+            제목 : {event?.title}
+          </Txt>
+          <Txt weight="bold" size="h5" className={cn("title")}>
+            시간 : {event?.startAt ? formatToKoreanTime(event.startAt) : ""} ~
+            {event?.endAt ? formatToKoreanTime(event.endAt) : ""}
+          </Txt>
+        </>
+      )}
       <table className={cn("table")}>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
