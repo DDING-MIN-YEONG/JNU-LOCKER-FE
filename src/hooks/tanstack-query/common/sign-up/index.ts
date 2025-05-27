@@ -1,7 +1,6 @@
 import { getDepartments, getOrganizations, postSubmitEmail, postVerifyCertificationCode } from "@/apis/common/sign-up";
 import { ApiResponseError } from "@/types/common/api";
 import { SubmitCertificationCodeData, SubmitEmailData } from "@/types/common/sign-up";
-import { isJnuEmail } from "@/utils/validator";
 import { useQuery } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 import { Dispatch, SetStateAction } from "react";
@@ -41,11 +40,6 @@ export const useSubmitEmail = (
   const { mutate } = useSubmitEmailMutate();
 
   const onSubmitEmail = (data: SubmitEmailData) => {
-    if (!isJnuEmail(data.email)) {
-      alert("전남대학교 학생 이메일을 입력해주세요.");
-      return;
-    }
-
     mutate(data, {
       onError: (error) => {
         alert(error.response.data.message || "이메일 전송에 실패했습니다.");

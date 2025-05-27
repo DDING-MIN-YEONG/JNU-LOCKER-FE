@@ -10,7 +10,7 @@ import {
 import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
 import { useStudentFormData } from "@/hooks/student/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
-import { useEmailCertification } from "@/hooks/student/sign-up/useEmailCertification";
+import { useEmailCertification } from "@/hooks/common/useEmailCertification";
 import { useTimer } from "@/hooks/common/useTimer";
 
 const useStudentSignUpForm = () => {
@@ -22,11 +22,20 @@ const useStudentSignUpForm = () => {
 
   const { countdown, setCountdown } = useTimer();
 
-  const { onSubmitEmail } = useSubmitEmail(setIsEmailCertification, setCountdown);
+  const { onSubmitEmail: submitEmail } = useSubmitEmail(setIsEmailCertification, setCountdown);
 
   const { error, setFormError, clearError } = useFormError();
 
   const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
+
+  const onSubmitEmail = () => {
+    if (!isJnuEmail(formData.email)) {
+      alert("전남대학교 학생 이메일을 입력해주세요.");
+      return;
+    }
+
+    submitEmail({ email: formData.email });
+  };
 
   let { data: organizations } = useOrganizationsQuery("학생회");
 

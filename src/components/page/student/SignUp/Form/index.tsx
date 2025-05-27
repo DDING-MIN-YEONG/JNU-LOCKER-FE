@@ -64,7 +64,7 @@ export default function SignUpForm() {
             disabled={countdown ? countdown > 0 : false}
             type="button"
             className={cn("emailBtn")}
-            onClick={() => onSubmitEmail({ email: formData.email })}
+            onClick={onSubmitEmail}
           >
             <Txt size="tiny" weight="bold" color="white">
               메일전송
