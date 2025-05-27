@@ -5,7 +5,7 @@ import LockerItem from "@/components/page/student/ApplyLocker/LockerItem/index";
 const cn = classNames.bind(styles);
 
 interface LockerGirdProps {
-  lockerList: { available: boolean; code: string; lockerId: number }[];
+  lockerList: { available: boolean; code: string; lockerId: string }[];
   className?: string;
 }
 
