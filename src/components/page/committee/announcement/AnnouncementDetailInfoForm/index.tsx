@@ -127,7 +127,7 @@ export default function AnnouncementDetailInfoForm({
           {isPutMode ? (
             <Button className={cn("announcementBtn")} color="primary" onClick={onPutAnnouncement}>
               <Txt size="h6" color="white">
-                수정 완료
+                수정완료
               </Txt>
             </Button>
           ) : (
@@ -139,7 +139,7 @@ export default function AnnouncementDetailInfoForm({
           )}
           <Button className={cn("announcementBtn")} color="red" onClick={onDeleteAnnouncement}>
             <Txt size="h6" color="white">
-              삭제 하기
+              삭제하기
             </Txt>
           </Button>
         </div>
