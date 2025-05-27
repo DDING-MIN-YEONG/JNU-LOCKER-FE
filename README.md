@@ -222,8 +222,7 @@ password : abcde12345!
 <div>
 📙 [Swagger 문서](https://api.dev.jnu-locker.site/swagger-ui/index.html)
 <br>
-📝 [팀 노션](https://westzeroright.notion.site/19f0a6bd00e680769aedc4ce443a6f53?pvs=4)
-<br>
+
 
 </div>
 
