@@ -1,9 +1,9 @@
 export class Locker {
   available: boolean;
   code: string;
-  lockerId: number;
+  lockerId: string;
 
-  constructor({ available, code, lockerId }: { available: boolean; code: string; lockerId: number }) {
+  constructor({ available, code, lockerId }: { available: boolean; code: string; lockerId: string }) {
     this.available = available;
     this.code = code;
     this.lockerId = lockerId;
@@ -11,11 +11,11 @@ export class Locker {
 }
 
 export class LockerList {
-  floorId: number;
+  floorId: string;
   floorNumber: number;
   lockerList: Locker[];
 
-  constructor({ floorId, floorNumber, lockers }: { floorId: number; floorNumber: number; lockers: Locker[] }) {
+  constructor({ floorId, floorNumber, lockers }: { floorId: string; floorNumber: number; lockers: Locker[] }) {
     this.floorId = floorId;
     this.floorNumber = floorNumber;
     this.lockerList = lockers;

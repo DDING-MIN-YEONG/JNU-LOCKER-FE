@@ -5,7 +5,7 @@ export const getLockerList = async (eventId: string) => {
   const { data } = await https.get(`events/${eventId}/lockers`);
 
   const lockerList: LockerList[] = data.map(
-    ({ floorId, floorNumber, lockers }: { floorId: number; floorNumber: number; lockers: Locker[] }) =>
+    ({ floorId, floorNumber, lockers }: { floorId: string; floorNumber: number; lockers: Locker[] }) =>
       new LockerList({ floorId, floorNumber, lockers }),
   );
 
@@ -20,7 +20,7 @@ export const getMyRegistrationLocker = async (eventId: string) => {
 
 export interface ApplyLockerRequest {
   eventId: string;
-  lockerId: number;
+  lockerId: string;
 }
 
 export const postApplyLocker = async ({ eventId, lockerId }: ApplyLockerRequest) => {
