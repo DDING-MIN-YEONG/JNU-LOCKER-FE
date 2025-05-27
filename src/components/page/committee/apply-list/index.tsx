@@ -19,7 +19,7 @@ export default function ApplyList() {
       <Txt color="primary" size="h3" weight="medium">
         신청 목록
       </Txt>
-      <table className={cn("table")}>
+      <table>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
             <th className={cn("tableHeader")}>
