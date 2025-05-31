@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { EventDetailForm } from "@/types/committee/event";
 import Button from "@/components/design-system/Button";
 import EventDetailFloorInfoForm from "../FloorInfoForm";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -29,6 +30,8 @@ interface EventDetailLockerInfoFormProps {
   isPutMode: boolean;
   onPutClick: () => void;
   onDeleteEvent: () => void;
+  isDeleteEventLoading: boolean;
+  isPutEventLoading: boolean;
 }
 
 export default function EventDetailLockerInfoForm({
@@ -46,6 +49,8 @@ export default function EventDetailLockerInfoForm({
   isPutMode,
   onPutClick,
   onDeleteEvent,
+  isDeleteEventLoading,
+  isPutEventLoading,
 }: EventDetailLockerInfoFormProps) {
   return (
     <>
@@ -86,6 +91,7 @@ export default function EventDetailLockerInfoForm({
         </Button>
         <Button
           color="red"
+          disabled={isDeleteEventLoading}
           className={cn("deleteBtn")}
           onClick={() => {
             if (confirm("이 이벤트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
@@ -98,6 +104,8 @@ export default function EventDetailLockerInfoForm({
           </Txt>
         </Button>
       </div>
+      {isDeleteEventLoading && <Spinner />}
+      {isPutEventLoading && <Spinner />}
     </>
   );
 }
