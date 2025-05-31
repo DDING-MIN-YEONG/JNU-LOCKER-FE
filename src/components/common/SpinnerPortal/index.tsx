@@ -15,9 +15,9 @@ export default function SpinnerPortal({ children }: SpinnerPortalProps) {
 
   if (typeof window === "undefined" || !mounted) return null;
 
-  const modalRoot = document.getElementById("spinner-root");
+  const spinnerRoot = document.getElementById("spinner-root");
 
-  if (!modalRoot) return null;
+  if (!spinnerRoot) return null;
 
-  return createPortal(children, modalRoot);
+  return createPortal(children, spinnerRoot);
 }
