@@ -84,7 +84,12 @@ export default function EventDetailLockerInfoForm({
         </Button>
       )}
       <div className={cn("btnContainer")}>
-        <Button className={cn("createEventBtn")} color="primary" onClick={isPutMode ? onPutEvent : onPutClick}>
+        <Button
+          className={cn("createEventBtn")}
+          color="primary"
+          onClick={isPutMode ? onPutEvent : onPutClick}
+          disabled={isPutMode && isPutEventLoading}
+        >
           <Txt size="h6" color="white">
             {isPutMode ? "수정완료" : "수정하기"}
           </Txt>
