@@ -11,7 +11,7 @@ import { useLockerList } from "@/hooks/student/apply-locker/useLockerList";
 const cn = classNames.bind(styles);
 
 export default function LockerApplicationStatus() {
-  const { selectedLockerList, floorList, selectedFloor, onSelectFloor } = useLockerList();
+  const { selectedLockerList, floorList, selectedFloor, onSelectFloor, isLockerLoading } = useLockerList();
 
   return (
     <div className={cn("container")}>
@@ -23,7 +23,7 @@ export default function LockerApplicationStatus() {
         <div className={cn("lockerStatusContainer")}>
           <LockerStatusLegend />
         </div>
-        <LockerGrid lockerList={selectedLockerList} className={cn("gridContainer")} />
+        <LockerGrid isLockerLoading={isLockerLoading} lockerList={selectedLockerList} className={cn("gridContainer")} />
       </div>
     </div>
   );
