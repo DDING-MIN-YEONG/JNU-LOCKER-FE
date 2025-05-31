@@ -7,7 +7,7 @@ import { ApiResponseError } from "@/types/common/api";
 
 export const useStudentSignUp = () => {
   const router = useRouter();
-  const { mutate } = useSignUpMutate();
+  const { mutate, isPending } = useSignUpMutate();
 
   const onStudentSignUp = (formData: StudentSignUpFormData) => {
     mutate(formData, {
@@ -22,6 +22,7 @@ export const useStudentSignUp = () => {
   };
   return {
     onStudentSignUp,
+    isSignUpLoading: isPending,
   };
 };
 

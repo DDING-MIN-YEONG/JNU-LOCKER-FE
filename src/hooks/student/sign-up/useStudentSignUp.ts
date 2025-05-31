@@ -14,7 +14,7 @@ import { useTimer } from "@/hooks/common/useTimer";
 import { useEmailSend } from "@/hooks/common/useEmailSend";
 
 const useStudentSignUpForm = () => {
-  const { onStudentSignUp } = useStudentSignUp();
+  const { onStudentSignUp, isSignUpLoading } = useStudentSignUp();
 
   const { formData, onSelectChange, onInputChange } = useStudentFormData();
 
@@ -22,7 +22,7 @@ const useStudentSignUpForm = () => {
 
   const { countdown, setCountdown } = useTimer();
 
-  const { onSubmitEmail: submitEmail } = useSubmitEmail(setIsEmailSend, setCountdown);
+  const { onSubmitEmail: submitEmail, isEmailLoading } = useSubmitEmail(setIsEmailSend, setCountdown);
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -121,6 +121,8 @@ const useStudentSignUpForm = () => {
     onSubmitEmail,
     countdown,
     onVerifyCertificationCode,
+    isEmailLoading,
+    isSignUpLoading,
   };
 };
 
