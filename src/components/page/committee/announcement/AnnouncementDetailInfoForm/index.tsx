@@ -8,6 +8,7 @@ import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { AnnouncementDetailForm } from "@/types/committee/announcement";
 import { formatToKoreanTime } from "@/utils/date";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -31,6 +32,8 @@ interface AnnouncementDetailFormProps {
   date: Date;
   isUpdate: boolean;
   onDeleteAnnouncement: () => void;
+  isDeleteAnnouncementLoading: boolean;
+  isPutAnnouncementLoading: boolean;
 }
 
 export default function AnnouncementDetailInfoForm({
@@ -47,103 +50,119 @@ export default function AnnouncementDetailInfoForm({
   date,
   isUpdate,
   onDeleteAnnouncement,
+  isDeleteAnnouncementLoading,
+  isPutAnnouncementLoading,
 }: AnnouncementDetailFormProps) {
   return (
-    <div>
-      <header className={cn("header")}>
-        <Txt weight="medium">공지사항</Txt>
-        <Txt size="small" className={cn("date")}>
-          {`작성일 : ${formatToKoreanTime(date)} ${isUpdate ? "(수정됨)" : ""}`}
-        </Txt>
-      </header>
-      <div className={cn("contentContainer")}>
-        <TextInput
-          id="title"
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          label="제목"
-          type="text"
-          value={formData.title}
-          placeholder="공지사항 제목을 입력해주세요."
-          readOnly={!isPutMode}
-        />
-        <LabeledTextarea
-          id="content"
-          onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-          label="내용"
-          value={formData.content}
-          placeholder="공지사항 내용을 입력해주세요."
-          labeledTextareaContainerClassName={cn("textarea")}
-          readOnly={!isPutMode}
-        />
-        <Txt size="h5" weight="medium">
-          공지사항 참여 학과
-        </Txt>
-        {isPutMode && (
-          <div className={cn("participationDepartmentSelectorContainer")}>
-            <Selector
-              label="소속"
-              onChange={onSelectOrganizations}
-              options={organizations}
-              value={formData.affiliation.value}
-              id="affiliation"
-            />
-            <Selector
-              label="학과"
-              onChange={onSelectDepartment}
-              options={departments}
-              value={departments[0].value}
-              id="department"
-            />
-          </div>
-        )}
-        <div className={cn("selectDepartmentContainer")}>
+    <>
+      <div>
+        <header className={cn("header")}>
+          <Txt weight="medium">공지사항</Txt>
+          <Txt size="small" className={cn("date")}>
+            {`작성일 : ${formatToKoreanTime(date)} ${isUpdate ? "(수정됨)" : ""}`}
+          </Txt>
+        </header>
+        <div className={cn("contentContainer")}>
+          <TextInput
+            id="title"
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            label="제목"
+            type="text"
+            value={formData.title}
+            placeholder="공지사항 제목을 입력해주세요."
+            readOnly={!isPutMode}
+          />
+          <LabeledTextarea
+            id="content"
+            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+            label="내용"
+            value={formData.content}
+            placeholder="공지사항 내용을 입력해주세요."
+            labeledTextareaContainerClassName={cn("textarea")}
+            readOnly={!isPutMode}
+          />
+          <Txt size="h5" weight="medium">
+            공지사항 참여 학과
+          </Txt>
           {isPutMode && (
-            <Txt size="h5" weight="medium">
-              선택한 참여 학과
-            </Txt>
+            <div className={cn("participationDepartmentSelectorContainer")}>
+              <Selector
+                label="소속"
+                onChange={onSelectOrganizations}
+                options={organizations}
+                value={formData.affiliation.value}
+                id="affiliation"
+              />
+              <Selector
+                label="학과"
+                onChange={onSelectDepartment}
+                options={departments}
+                value={departments[0].value}
+                id="department"
+              />
+            </div>
           )}
-          <div className={cn("selectedDepartmentContainer")}>
-            {formData.participationDepartmentIds.map((department) => (
-              <div key={department.id} className={cn("selectedDepartment")}>
-                <Txt size="small" weight="medium">
-                  {department.value}
-                </Txt>
-                {isPutMode && (
-                  <Button
-                    className={cn("deleteDepartmentBtn")}
-                    color="red"
-                    onClick={() => onDeleteDepartment(department.id)}
-                  >
-                    <Txt size="small" color="white">
-                      삭제
-                    </Txt>
-                  </Button>
-                )}
-              </div>
-            ))}
+          <div className={cn("selectDepartmentContainer")}>
+            {isPutMode && (
+              <Txt size="h5" weight="medium">
+                선택한 참여 학과
+              </Txt>
+            )}
+            <div className={cn("selectedDepartmentContainer")}>
+              {formData.participationDepartmentIds.map((department) => (
+                <div key={department.id} className={cn("selectedDepartment")}>
+                  <Txt size="small" weight="medium">
+                    {department.value}
+                  </Txt>
+                  {isPutMode && (
+                    <Button
+                      className={cn("deleteDepartmentBtn")}
+                      color="red"
+                      onClick={() => onDeleteDepartment(department.id)}
+                    >
+                      <Txt size="small" color="white">
+                        삭제
+                      </Txt>
+                    </Button>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={cn("buttonContainer")}>
-          {isPutMode ? (
-            <Button className={cn("announcementBtn")} color="primary" onClick={onPutAnnouncement}>
+          <div className={cn("buttonContainer")}>
+            {isPutMode ? (
+              <Button
+                className={cn("announcementBtn")}
+                color="primary"
+                onClick={onPutAnnouncement}
+                disabled={isPutAnnouncementLoading}
+              >
+                <Txt size="h6" color="white">
+                  수정완료
+                </Txt>
+              </Button>
+            ) : (
+              <Button className={cn("announcementBtn")} color="primary" onClick={onClickEditButton}>
+                <Txt size="h6" color="white">
+                  수정하기
+                </Txt>
+              </Button>
+            )}
+            <Button
+              className={cn("announcementBtn")}
+              color="red"
+              onClick={onDeleteAnnouncement}
+              disabled={isDeleteAnnouncementLoading}
+            >
               <Txt size="h6" color="white">
-                수정완료
+                삭제하기
               </Txt>
             </Button>
-          ) : (
-            <Button className={cn("announcementBtn")} color="primary" onClick={onClickEditButton}>
-              <Txt size="h6" color="white">
-                수정하기
-              </Txt>
-            </Button>
-          )}
-          <Button className={cn("announcementBtn")} color="red" onClick={onDeleteAnnouncement}>
-            <Txt size="h6" color="white">
-              삭제하기
-            </Txt>
-          </Button>
+          </div>
         </div>
       </div>
-    </div>
+      {isDeleteAnnouncementLoading && <Spinner />}
+      {isPutAnnouncementLoading && <Spinner />}
+    </>
   );
 }

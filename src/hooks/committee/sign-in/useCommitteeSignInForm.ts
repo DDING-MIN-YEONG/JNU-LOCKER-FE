@@ -7,7 +7,7 @@ import { useCommitteeSignIn } from "@/hooks/tanstack-query/committee/sign-in";
 
 const useCommitteeSignInForm = () => {
   const { formData, onInputChange } = useCommitteeSignInFormData();
-  const { onCommitteeSignIn: onSignIn } = useCommitteeSignIn();
+  const { onCommitteeSignIn: onSignIn, isLoginLoading } = useCommitteeSignIn();
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -45,6 +45,7 @@ const useCommitteeSignInForm = () => {
     formData,
     error,
     onInputChange,
+    isLoginLoading,
   };
 };
 

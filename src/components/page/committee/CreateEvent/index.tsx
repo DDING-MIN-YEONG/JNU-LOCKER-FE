@@ -28,6 +28,7 @@ export default function CreateEvent() {
     onSelectDepartment,
     onSelectOrganizations,
     onCreateEvent,
+    isCreateEventLoading,
   } = useCreateEventForm();
 
   return (
@@ -59,6 +60,7 @@ export default function CreateEvent() {
         onDeletePrefix={onDeletePrefix}
         onDeleteRange={onDeleteRange}
         onCreateEvent={onCreateEvent}
+        isCreateEventLoading={isCreateEventLoading}
       />
     </div>
   );

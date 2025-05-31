@@ -5,7 +5,7 @@ import { ApiResponseError } from "@/types/common/api";
 import { Dispatch, SetStateAction } from "react";
 
 export const usePutEvent = (eventId: string, setIsPutMode: Dispatch<SetStateAction<boolean>>) => {
-  const { mutate } = usePutEventMutate();
+  const { mutate, isPending } = usePutEventMutate();
   const queryClient = useQueryClient();
 
   const onPutEvent = (formData: PutEventRequest) => {
@@ -27,6 +27,7 @@ export const usePutEvent = (eventId: string, setIsPutMode: Dispatch<SetStateActi
   };
   return {
     onPutEvent,
+    isPutEventLoading: isPending,
   };
 };
 

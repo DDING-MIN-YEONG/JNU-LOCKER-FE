@@ -7,7 +7,7 @@ import { ApiResponseError } from "@/types/common/api";
 
 export const useCommitteeSignUp = () => {
   const router = useRouter();
-  const { mutate } = useSignUpMutate();
+  const { mutate, isPending } = useSignUpMutate();
 
   const onCommitteeSignUp = (formData: CommitteeSignUpFormData) => {
     mutate(formData, {
@@ -22,6 +22,7 @@ export const useCommitteeSignUp = () => {
   };
   return {
     onCommitteeSignUp,
+    isSignUpLoading: isPending,
   };
 };
 

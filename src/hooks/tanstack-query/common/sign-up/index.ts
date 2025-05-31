@@ -37,7 +37,7 @@ export const useSubmitEmail = (
   setIsEmailCertification: Dispatch<SetStateAction<boolean>>,
   setCountdown: Dispatch<SetStateAction<number | null>>,
 ) => {
-  const { mutate } = useSubmitEmailMutate();
+  const { mutate, isPending } = useSubmitEmailMutate();
 
   const onSubmitEmail = (data: SubmitEmailData) => {
     mutate(data, {
@@ -54,6 +54,7 @@ export const useSubmitEmail = (
 
   return {
     onSubmitEmail,
+    isEmailLoading: isPending,
   };
 };
 

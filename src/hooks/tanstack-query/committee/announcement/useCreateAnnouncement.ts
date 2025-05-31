@@ -8,7 +8,7 @@ import { postCreateAnnouncement } from "@/apis/committee/announcement";
 
 export const useCreateAnnouncement = () => {
   const router = useRouter();
-  const { mutate } = useCreateAnnouncementMutate();
+  const { mutate, isPending } = useCreateAnnouncementMutate();
   const queryClient = useQueryClient();
 
   const announcementQueryKeys = useQueryKeys(["announcementList"]);
@@ -30,6 +30,7 @@ export const useCreateAnnouncement = () => {
   };
   return {
     onCreateAnnouncement,
+    isCreateAnnouncementLoading: isPending,
   };
 };
 

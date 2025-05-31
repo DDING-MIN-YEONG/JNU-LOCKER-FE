@@ -23,6 +23,8 @@ export default function AnnouncementDetail() {
     date,
     isUpdate,
     onDeleteAnnouncement,
+    isDeleteAnnouncementLoading,
+    isPutAnnouncementLoading,
   } = useAnnouncementForm();
 
   return (
@@ -44,6 +46,8 @@ export default function AnnouncementDetail() {
         date={date}
         isUpdate={isUpdate}
         onDeleteAnnouncement={onDeleteAnnouncement}
+        isDeleteAnnouncementLoading={isDeleteAnnouncementLoading}
+        isPutAnnouncementLoading={isPutAnnouncementLoading}
       />
     </div>
   );

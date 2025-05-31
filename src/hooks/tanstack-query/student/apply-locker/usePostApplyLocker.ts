@@ -4,7 +4,7 @@ import { ApiResponseError } from "@/types/common/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const usePostApplyLocker = () => {
-  const { mutate } = usePostApplyLockerMutate();
+  const { mutate, isPending } = usePostApplyLockerMutate();
   const queryClient = useQueryClient();
 
   const onApplyLocker = (eventId: string, lockerName: string, floor: number) => {
@@ -40,6 +40,7 @@ export const usePostApplyLocker = () => {
 
   return {
     onApplyLocker,
+    isApplyLockerLoading: isPending,
   };
 };
 

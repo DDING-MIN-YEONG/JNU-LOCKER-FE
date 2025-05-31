@@ -8,7 +8,7 @@ import { LoginInfo } from "@/apis/dtos/common/my-info";
 
 export const useStudentSignIn = () => {
   const router = useRouter();
-  const { mutate } = useStudentSignInMutate();
+  const { mutate, isPending } = useStudentSignInMutate();
   const queryClient = useQueryClient();
 
   const onStudentSignIn = (formData: SignInFormData) => {
@@ -28,6 +28,7 @@ export const useStudentSignIn = () => {
   };
   return {
     onStudentSignIn,
+    isSignInLoading: isPending,
   };
 };
 

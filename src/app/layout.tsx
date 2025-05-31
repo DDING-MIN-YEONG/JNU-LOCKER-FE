@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <Providers>{children}</Providers>
+        <div id="spinner-root" />
       </body>
     </html>
   );

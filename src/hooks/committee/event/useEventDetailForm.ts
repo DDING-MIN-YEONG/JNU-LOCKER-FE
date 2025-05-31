@@ -20,9 +20,9 @@ export const useEventDetailForm = () => {
 
   const [isPutMode, setIsPutMode] = useState(false);
 
-  const { onPutEvent: putEvent } = usePutEvent(eventId, setIsPutMode);
+  const { onPutEvent: putEvent, isPutEventLoading } = usePutEvent(eventId, setIsPutMode);
 
-  const { onDeleteEvent } = useDeleteEvent(eventId);
+  const { onDeleteEvent, isDeleteEventLoading } = useDeleteEvent(eventId);
 
   const [formData, setFormData] = useState<EventDetailForm>({
     title: "",
@@ -371,5 +371,7 @@ export const useEventDetailForm = () => {
     isPutMode,
     onPutClick,
     onDeleteEvent,
+    isDeleteEventLoading,
+    isPutEventLoading,
   };
 };

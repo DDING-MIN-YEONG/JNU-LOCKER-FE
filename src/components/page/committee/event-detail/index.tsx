@@ -31,6 +31,8 @@ export default function EventDetail() {
     isPutMode,
     onPutClick,
     onDeleteEvent,
+    isDeleteEventLoading,
+    isPutEventLoading,
   } = useEventDetailForm();
 
   return (
@@ -66,6 +68,8 @@ export default function EventDetail() {
         isPutMode={isPutMode}
         onPutClick={onPutClick}
         onDeleteEvent={onDeleteEvent}
+        isDeleteEventLoading={isDeleteEventLoading}
+        isPutEventLoading={isPutEventLoading}
       />
     </div>
   );

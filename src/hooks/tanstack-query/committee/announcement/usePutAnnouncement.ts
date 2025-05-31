@@ -4,7 +4,7 @@ import { PutAnnouncementFormRequest } from "@/types/committee/announcement";
 import { putAnnouncement } from "@/apis/committee/announcement";
 
 export const usePutAnnouncement = (announcementId: string) => {
-  const { mutate } = usePutAnnouncementMutate();
+  const { mutate, isPending } = usePutAnnouncementMutate();
   const queryClient = useQueryClient();
 
   const onPutAnnouncement = (formData: PutAnnouncementFormRequest) => {
@@ -24,6 +24,7 @@ export const usePutAnnouncement = (announcementId: string) => {
   };
   return {
     onPutAnnouncement,
+    isPutAnnouncementLoading: isPending,
   };
 };
 

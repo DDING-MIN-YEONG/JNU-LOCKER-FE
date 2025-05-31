@@ -8,7 +8,7 @@ import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 
 export const useCreateEvent = () => {
   const router = useRouter();
-  const { mutate } = useCreateEventMutate();
+  const { mutate, isPending } = useCreateEventMutate();
   const queryClient = useQueryClient();
 
   const eventQueryKeys = useQueryKeys(["eventList"]);
@@ -36,6 +36,7 @@ export const useCreateEvent = () => {
   };
   return {
     onCreateEvent,
+    isCreateEventLoading: isPending,
   };
 };
 

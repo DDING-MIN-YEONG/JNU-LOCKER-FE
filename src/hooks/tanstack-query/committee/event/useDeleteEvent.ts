@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 
 export const useDeleteEvent = (eventId: string) => {
-  const { mutate } = useDeleteEventMutate();
+  const { mutate, isPending } = useDeleteEventMutate();
   const queryClient = useQueryClient();
   const router = useRouter();
 
@@ -29,6 +29,7 @@ export const useDeleteEvent = (eventId: string) => {
   };
   return {
     onDeleteEvent,
+    isDeleteEventLoading: isPending,
   };
 };
 

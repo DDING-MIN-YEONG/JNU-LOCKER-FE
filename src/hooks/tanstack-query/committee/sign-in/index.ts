@@ -8,7 +8,7 @@ import { LoginInfo } from "@/apis/dtos/common/my-info";
 
 export const useCommitteeSignIn = () => {
   const router = useRouter();
-  const { mutate } = useCommitteeSignInMutate();
+  const { mutate, isPending } = useCommitteeSignInMutate();
   const queryClient = useQueryClient();
 
   const onCommitteeSignIn = (formData: SignInFormData) => {
@@ -28,6 +28,7 @@ export const useCommitteeSignIn = () => {
   };
   return {
     onCommitteeSignIn,
+    isLoginLoading: isPending,
   };
 };
 

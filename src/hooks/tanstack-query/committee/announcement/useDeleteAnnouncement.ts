@@ -6,7 +6,7 @@ import { ROUTE } from "@/constants/routes";
 import { useQueryKeys } from "@/hooks/tanstack-query/common/useQueryKeys";
 
 export const useDeleteAnnouncement = () => {
-  const { mutate } = useDeleteAnnouncementMutate();
+  const { mutate, isPending } = useDeleteAnnouncementMutate();
   const queryClient = useQueryClient();
   const router = useRouter();
   const announcementQueryKeys = useQueryKeys(["announcementList"]);
@@ -27,6 +27,7 @@ export const useDeleteAnnouncement = () => {
   };
   return {
     onDeleteAnnouncement,
+    isDeleteAnnouncementLoading: isPending,
   };
 };
 

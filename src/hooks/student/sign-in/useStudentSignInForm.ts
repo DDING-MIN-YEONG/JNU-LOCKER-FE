@@ -10,7 +10,7 @@ const useStudentSignInForm = () => {
 
   const { error, setFormError, clearError } = useFormError();
 
-  const { onStudentSignIn } = useStudentSignIn();
+  const { onStudentSignIn, isSignInLoading } = useStudentSignIn();
 
   const validateForm = () => {
     const fields = Object.keys(SIGN_IN) as Array<keyof typeof SIGN_IN>;
@@ -49,6 +49,7 @@ const useStudentSignInForm = () => {
     formData,
     onInputChange,
     error,
+    isSignInLoading,
   };
 };
 
