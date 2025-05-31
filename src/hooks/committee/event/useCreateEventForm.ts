@@ -36,7 +36,7 @@ export const useCreateEventForm = () => {
       },
     ],
   });
-  const { onCreateEvent: createEvent } = useCreateEvent();
+  const { onCreateEvent: createEvent, isCreateEventLoading } = useCreateEvent();
 
   let { data: organizations } = useOrganizationsQuery("학생회");
 
@@ -331,5 +331,6 @@ export const useCreateEventForm = () => {
     onSelectDepartment,
     onDeleteDepartment,
     onSelectOrganizations,
+    isCreateEventLoading,
   };
 };

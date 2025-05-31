@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CreateEventForm } from "@/types/committee/event";
 import CreateEventFloorInfoForm from "../FloorInfoForm";
 import Button from "@/components/design-system/Button";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -26,6 +27,7 @@ interface CreateEventLockerInfoFormProps {
   onDeletePrefix: (floorId: number, prefixId: number) => void;
   onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
   onCreateEvent: () => void;
+  isCreateEventLoading: boolean;
 }
 
 export default function CreateEventLockerInfoForm({
@@ -40,6 +42,7 @@ export default function CreateEventLockerInfoForm({
   onDeletePrefix,
   onDeleteRange,
   onCreateEvent,
+  isCreateEventLoading,
 }: CreateEventLockerInfoFormProps) {
   return (
     <>
@@ -69,11 +72,12 @@ export default function CreateEventLockerInfoForm({
           + 층 추가
         </Txt>
       </Button>
-      <Button className={cn("createEventBtn")} color="primary" onClick={onCreateEvent}>
+      <Button disabled={isCreateEventLoading} className={cn("createEventBtn")} color="primary" onClick={onCreateEvent}>
         <Txt size="h6" color="white">
           이벤트 생성
         </Txt>
       </Button>
+      {isCreateEventLoading && <Spinner />}
     </>
   );
 }
