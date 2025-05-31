@@ -11,6 +11,7 @@ import {
   MAX_ANNOUNCEMENT_CONTENT_LENGTH,
   MAX_ANNOUNCEMENT_TITLE_LENGTH,
 } from "@/constants/committee/create-announcement";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -29,6 +30,7 @@ interface CreateAnnouncementInfoFormProps {
   onSelectDepartment: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onSelectOrganizations: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onCreateAnnouncement: () => void;
+  isCreateAnnouncementLoading: boolean;
 }
 
 export default function CreateAnnouncementInfoForm({
@@ -40,6 +42,7 @@ export default function CreateAnnouncementInfoForm({
   onSelectOrganizations,
   onSelectDepartment,
   onCreateAnnouncement,
+  isCreateAnnouncementLoading,
 }: CreateAnnouncementInfoFormProps) {
   return (
     <div>
@@ -117,12 +120,19 @@ export default function CreateAnnouncementInfoForm({
             ))}
           </div>
         </div>
-        <Button type="submit" className={cn("createAnnouncementBtn")} color="primary" onClick={onCreateAnnouncement}>
+        <Button
+          disabled={isCreateAnnouncementLoading}
+          type="submit"
+          className={cn("createAnnouncementBtn")}
+          color="primary"
+          onClick={onCreateAnnouncement}
+        >
           <Txt size="h6" color="white">
             공지사항 생성
           </Txt>
         </Button>
       </div>
+      {isCreateAnnouncementLoading && <Spinner />}
     </div>
   );
 }

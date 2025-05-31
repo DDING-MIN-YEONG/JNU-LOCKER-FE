@@ -16,7 +16,7 @@ export const useCreateAnnouncementForm = () => {
       value: "값을 선택해주세요.",
     },
   });
-  const { onCreateAnnouncement: createAnnouncement } = useCreateAnnouncement();
+  const { onCreateAnnouncement: createAnnouncement, isCreateAnnouncementLoading } = useCreateAnnouncement();
 
   let { data: organizations } = useOrganizationsQuery("학생회");
 
@@ -94,5 +94,6 @@ export const useCreateAnnouncementForm = () => {
     onSelectDepartment,
     onDeleteDepartment,
     onSelectOrganizations,
+    isCreateAnnouncementLoading,
   };
 };

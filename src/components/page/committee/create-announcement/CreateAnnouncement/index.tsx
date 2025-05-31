@@ -18,6 +18,7 @@ export default function CreateAnnouncement() {
     onSelectDepartment,
     onSelectOrganizations,
     onCreateAnnouncement,
+    isCreateAnnouncementLoading,
   } = useCreateAnnouncementForm();
 
   return (
@@ -34,6 +35,7 @@ export default function CreateAnnouncement() {
         onSelectDepartment={onSelectDepartment}
         onSelectOrganizations={onSelectOrganizations}
         onCreateAnnouncement={onCreateAnnouncement}
+        isCreateAnnouncementLoading={isCreateAnnouncementLoading}
       />
     </div>
   );
