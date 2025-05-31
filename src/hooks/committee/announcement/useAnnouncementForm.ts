@@ -36,9 +36,9 @@ export const useAnnouncementForm = () => {
 
   const { date, isUpdate } = getEffectiveDate(formData.createdAt as Date, formData.updatedAt as Date);
 
-  const { onPutAnnouncement: putAnnouncement } = usePutAnnouncement(announcementId);
+  const { onPutAnnouncement: putAnnouncement, isPutAnnouncementLoading } = usePutAnnouncement(announcementId);
 
-  const { onDeleteAnnouncement: deleteAnnouncement } = useDeleteAnnouncement();
+  const { onDeleteAnnouncement: deleteAnnouncement, isDeleteAnnouncementLoading } = useDeleteAnnouncement();
 
   let { data: organizations } = useOrganizationsQuery("학생회");
 
@@ -155,5 +155,7 @@ export const useAnnouncementForm = () => {
     date,
     isUpdate,
     onDeleteAnnouncement,
+    isDeleteAnnouncementLoading,
+    isPutAnnouncementLoading,
   };
 };
