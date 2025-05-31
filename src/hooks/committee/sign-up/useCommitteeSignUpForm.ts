@@ -14,7 +14,7 @@ import { useTimer } from "@/hooks/common/useTimer";
 import { useEmailSend } from "@/hooks/common/useEmailSend";
 
 const useCommitteeSignUpForm = () => {
-  const { onCommitteeSignUp } = useCommitteeSignUp();
+  const { onCommitteeSignUp, isSignUpLoading } = useCommitteeSignUp();
 
   const { formData, onSelectChange, onInputChange } = useCommitteeFormData();
 
@@ -22,7 +22,7 @@ const useCommitteeSignUpForm = () => {
 
   const { countdown, setCountdown } = useTimer();
 
-  const { onSubmitEmail } = useSubmitEmail(setIsEmailSend, setCountdown);
+  const { onSubmitEmail, isEmailLoading } = useSubmitEmail(setIsEmailSend, setCountdown);
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -113,6 +113,8 @@ const useCommitteeSignUpForm = () => {
     countdown,
     onSubmitEmail,
     onVerifyCertificationCode,
+    isEmailLoading,
+    isSignUpLoading,
   };
 };
 
