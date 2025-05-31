@@ -6,46 +6,50 @@ import TextInput from "@/components/common/TextInput";
 import useApplyLocker from "@/hooks/student/apply-locker/useApplyLocker";
 import Button from "@/components/design-system/Button";
 import Txt from "@/components/design-system/Txt";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerForm() {
-  const { formAction, formData, onChange, error } = useApplyLocker();
+  const { formAction, formData, onChange, error, isApplyLockerLoading } = useApplyLocker();
 
   return (
-    <form className={cn("container")} onSubmit={formAction}>
-      <TextInput
-        id="floor"
-        type="text"
-        label="층수"
-        placeholder="층수를 입력해주세요. (숫자만 입력 가능)"
-        value={formData.floor}
-        onChange={onChange}
-        labelClassName={cn("label")}
-        className={cn("input")}
-      />
-      <TextInput
-        id="lockerNumber"
-        type="text"
-        label="사물함 번호"
-        placeholder="사물함 번호를 입력해주세요."
-        value={formData.lockerNumber}
-        onChange={onChange}
-        labelClassName={cn("label")}
-        className={cn("input")}
-      />
-      {error.isError && (
-        <Txt size="tiny" color="error" className={cn("errorMessage")}>
-          {error.errorMessage}
-        </Txt>
-      )}
-      <div className={cn("btnContainer")}>
-        <Button type="submit" className={cn("applyBtn")}>
-          <Txt size="h6" weight="semiBold" color="white" className={cn("apply")}>
-            신청하기
+    <>
+      <form className={cn("container")} onSubmit={formAction}>
+        <TextInput
+          id="floor"
+          type="text"
+          label="층수"
+          placeholder="층수를 입력해주세요. (숫자만 입력 가능)"
+          value={formData.floor}
+          onChange={onChange}
+          labelClassName={cn("label")}
+          className={cn("input")}
+        />
+        <TextInput
+          id="lockerNumber"
+          type="text"
+          label="사물함 번호"
+          placeholder="사물함 번호를 입력해주세요."
+          value={formData.lockerNumber}
+          onChange={onChange}
+          labelClassName={cn("label")}
+          className={cn("input")}
+        />
+        {error.isError && (
+          <Txt size="tiny" color="error" className={cn("errorMessage")}>
+            {error.errorMessage}
           </Txt>
-        </Button>
-      </div>
-    </form>
+        )}
+        <div className={cn("btnContainer")}>
+          <Button type="submit" className={cn("applyBtn")} disabled={isApplyLockerLoading}>
+            <Txt size="h6" weight="semiBold" color="white" className={cn("apply")}>
+              신청하기
+            </Txt>
+          </Button>
+        </div>
+      </form>
+      {isApplyLockerLoading && <Spinner />}
+    </>
   );
 }

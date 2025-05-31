@@ -10,7 +10,7 @@ const useApplyLocker = () => {
 
   const { error, setFormError, clearError } = useFormError();
 
-  const { onApplyLocker } = usePostApplyLocker();
+  const { onApplyLocker, isApplyLockerLoading } = usePostApplyLocker();
 
   const { eventId } = useGetApplyLockerPageEventId();
 
@@ -44,6 +44,7 @@ const useApplyLocker = () => {
     onChange,
     error,
     formAction,
+    isApplyLockerLoading,
   };
 };
 
