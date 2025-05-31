@@ -2,10 +2,6 @@
   width: 100%;
   height: 20rem;
 
-  @include tablet {
-    height: 20rem;
-  }
-
   @include smallDesktop {
     height: 30rem;
   }
