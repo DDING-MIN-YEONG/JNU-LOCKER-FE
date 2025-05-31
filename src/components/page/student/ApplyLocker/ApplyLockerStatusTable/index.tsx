@@ -9,10 +9,37 @@ import Skeleton from "@/components/common/Skeleton";
 const cn = classNames.bind(styles);
 
 export default function ApplyLockerStatusTable() {
-  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isPending, isError } = useMyRegistrationLocker();
+  const { myRegistrationLocker, onDeleteMyRegistrationLocker, isPending, isError, error } = useMyRegistrationLocker();
 
   if (isPending) {
     return <Skeleton className={cn("skeleton")} />;
+  }
+
+  if (error?.response.status === 404) {
+    return (
+      <table className={cn("container")}>
+        <thead>
+          <tr className={cn("header")}>
+            <th className={cn("th")}>
+              <Txt weight="semiBold">층수</Txt>
+            </th>
+            <th className={cn("th")}>
+              <Txt weight="semiBold">사물함 번호</Txt>
+            </th>
+            <th className={cn("th")}>
+              <Txt weight="semiBold">삭제</Txt>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colSpan={3} className={cn("td")}>
+              <Txt size="h6">신청 내역이 없습니다.</Txt>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
   }
 
   if (isError) {

@@ -5,7 +5,7 @@ import { useGetMyRegistrationLocker } from "@/hooks/tanstack-query/student/apply
 export const useMyRegistrationLocker = () => {
   const { eventId } = useGetApplyLockerPageEventId();
 
-  const { data: myRegistrationLocker, isPending, isError } = useGetMyRegistrationLocker(eventId);
+  const { data: myRegistrationLocker, isPending, isError, error } = useGetMyRegistrationLocker(eventId);
 
   const { onDeleteMyRegistrationLocker } = useDeleteMyRegistrationLocker(eventId);
 
@@ -14,5 +14,6 @@ export const useMyRegistrationLocker = () => {
     onDeleteMyRegistrationLocker,
     isPending,
     isError,
+    error,
   };
 };
