@@ -5,7 +5,7 @@ import { useLockerFloor } from "./useLockerFloor";
 export const useLockerList = () => {
   const { eventId } = useGetApplyLockerPageEventId();
 
-  const { data: lockerInfo } = useGetLockerList(eventId);
+  const { data: lockerInfo, isPending } = useGetLockerList(eventId);
 
   const floorList = lockerInfo?.map((floor) => floor.floorNumber) || [];
 
@@ -19,5 +19,6 @@ export const useLockerList = () => {
     selectedFloor,
     onSelectFloor,
     selectedLockerList,
+    isLockerLoading: isPending,
   };
 };
