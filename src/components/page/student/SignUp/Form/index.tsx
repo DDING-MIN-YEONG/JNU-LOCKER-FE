@@ -142,7 +142,7 @@ export default function SignUpForm() {
           </Txt>
         )}
         <div className={cn("btnContainer")}>
-          <Button type="submit" className={cn("nextBtn")}>
+          <Button type="submit" className={cn("nextBtn")} disabled={isSignUpLoading}>
             <Txt size="small" color="white" weight="medium">
               완료
             </Txt>
