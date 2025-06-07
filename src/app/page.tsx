@@ -4,7 +4,7 @@ import Main from "@/components/page/student/Main";
 export default function Home() {
   return (
     <>
-      <ApplyHeader />
+      <ApplyHeader showLogoutButton={false} />
       <Main />
     </>
   );
