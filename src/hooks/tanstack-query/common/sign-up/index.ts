@@ -66,7 +66,7 @@ export const useSubmitEmailMutate = () => {
 };
 
 export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction<number | null>>) => {
-  const { mutate } = useVerifyCertificationCodeMutate();
+  const { mutate, isPending } = useVerifyCertificationCodeMutate();
 
   const onVerifyCertificationCode = (data: SubmitCertificationCodeData) => {
     mutate(data, {
@@ -82,6 +82,7 @@ export const useVerifyCertificationCode = (setCountdown: Dispatch<SetStateAction
 
   return {
     onVerifyCertificationCode,
+    isVerifyCertificationLoading: isPending,
   };
 };
 
