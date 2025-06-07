@@ -15,7 +15,7 @@ export const useEventList = () => {
   const { data, isLoading, isError, error } = useGetEventListQuery(queryParams);
   useCommitteeCertification(isError, error as ApiResponseError);
 
-  const { onChangeEventPublish } = usePutEventPublish(queryParams);
+  const { onChangeEventPublish, isChangeEventLoading } = usePutEventPublish(queryParams);
 
   const eventList = data?.content || [];
   const totalElements = data?.totalElements || 0;
@@ -34,5 +34,6 @@ export const useEventList = () => {
     onChangeEventPublish,
     isLoading,
     onEventClick,
+    isChangeEventLoading,
   };
 };

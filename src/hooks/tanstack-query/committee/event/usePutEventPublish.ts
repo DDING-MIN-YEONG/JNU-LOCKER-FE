@@ -9,7 +9,7 @@ interface usePutEventPublishParams {
 }
 
 export const usePutEventPublish = ({ page, size, direction }: usePutEventPublishParams) => {
-  const { mutate } = usePutEventPublishMutate();
+  const { mutate, isPending } = usePutEventPublishMutate();
   const queryClient = useQueryClient();
 
   const onChangeEventPublish = (id: string, isPublish: boolean) => {
@@ -29,6 +29,7 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
 
   return {
     onChangeEventPublish,
+    isChangeEventLoading: isPending,
   };
 };
 
