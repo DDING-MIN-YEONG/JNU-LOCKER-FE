@@ -41,7 +41,7 @@ export default function ApplyDetail() {
           </Txt>
         </>
       )}
-      <table className={cn("table")}>
+      <table>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
             <th className={cn("tableHeader")}>
