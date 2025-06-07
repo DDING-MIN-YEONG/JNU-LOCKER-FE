@@ -26,7 +26,7 @@ const useCommitteeSignUpForm = () => {
 
   const { error, setFormError, clearError } = useFormError();
 
-  const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
+  const { onVerifyCertificationCode, isVerifyCertificationLoading } = useVerifyCertificationCode(setCountdown);
 
   let { data: organizations } = useOrganizationsQuery(formData.category.value);
   let departments = useDepartmentsQuery(formData.affiliation.id);
@@ -115,6 +115,7 @@ const useCommitteeSignUpForm = () => {
     onVerifyCertificationCode,
     isEmailLoading,
     isSignUpLoading,
+    isVerifyCertificationLoading,
   };
 };
 

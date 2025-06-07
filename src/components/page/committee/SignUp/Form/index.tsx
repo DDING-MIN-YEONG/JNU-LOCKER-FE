@@ -27,6 +27,7 @@ export default function SignUpForm() {
     onVerifyCertificationCode,
     isEmailLoading,
     isSignUpLoading,
+    isVerifyCertificationLoading,
   } = useCommitteeSignUpForm();
 
   return (
@@ -100,6 +101,7 @@ export default function SignUpForm() {
               <Button
                 type="button"
                 className={cn("certificationBtn")}
+                disabled={isVerifyCertificationLoading}
                 onClick={() =>
                   onVerifyCertificationCode({
                     email: formData.email,
@@ -162,6 +164,7 @@ export default function SignUpForm() {
       </form>
       {isEmailLoading && <Spinner />}
       {isSignUpLoading && <Spinner />}
+      {isVerifyCertificationLoading && <Spinner />}
     </>
   );
 }

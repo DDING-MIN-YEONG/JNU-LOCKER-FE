@@ -26,6 +26,7 @@ export default function SignUpForm() {
     onVerifyCertificationCode,
     isEmailLoading,
     isSignUpLoading,
+    isVerifyCertificationLoading,
   } = useStudentSignUpForm();
 
   return (
@@ -88,6 +89,7 @@ export default function SignUpForm() {
             >
               <Button
                 type="button"
+                disabled={isVerifyCertificationLoading}
                 className={cn("certificationBtn")}
                 onClick={() =>
                   onVerifyCertificationCode({
@@ -151,6 +153,7 @@ export default function SignUpForm() {
       </form>
       {isEmailLoading && <Spinner />}
       {isSignUpLoading && <Spinner />}
+      {isVerifyCertificationLoading && <Spinner />}
     </>
   );
 }

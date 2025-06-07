@@ -26,7 +26,7 @@ const useStudentSignUpForm = () => {
 
   const { error, setFormError, clearError } = useFormError();
 
-  const { onVerifyCertificationCode } = useVerifyCertificationCode(setCountdown);
+  const { onVerifyCertificationCode, isVerifyCertificationLoading } = useVerifyCertificationCode(setCountdown);
 
   const onSubmitEmail = () => {
     if (!isJnuEmail(formData.email)) {
@@ -123,6 +123,7 @@ const useStudentSignUpForm = () => {
     onVerifyCertificationCode,
     isEmailLoading,
     isSignUpLoading,
+    isVerifyCertificationLoading,
   };
 };
 
