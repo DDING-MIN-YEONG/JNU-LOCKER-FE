@@ -33,10 +33,45 @@
 }
 
 .departmentContainer {
-  max-width: 30rem;
-  font-size: 2.5rem;
+  position: relative;
+  max-width: 16.2rem;
   border: 0.1rem solid black;
   padding: 1rem 3rem;
   border-radius: 1rem;
   @include flexSort(row, center, center, null);
+  transition: background-color 0.3s;
+
+  &:hover {
+    padding: 0;
+
+    .affiliationText {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .logoutButton {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.affiliationText {
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+}
+
+.logoutButton {
+  opacity: 0;
+  visibility: hidden;
+  width: 16.2rem;
+  font-size: 2rem !important;
+  padding: 1rem;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
 }

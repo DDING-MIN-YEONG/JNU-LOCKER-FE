@@ -2,5 +2,15 @@
   width: 100%;
   height: 6rem;
   background-color: $primary;
-  @include flexSort(row, null, center, null);
+  @include flexSort(row, space-between, center, null);
+  padding: 0 2rem;
+}
+
+.logout {
+  padding: 1rem;
+  font-size: 2rem;
+
+  @include mobile {
+    font-size: 1.6rem;
+  }
 }

@@ -8,11 +8,14 @@ import Txt from "@/components/design-system/Txt";
 import Logo from "@/components/common/Logo/index";
 import Skeleton from "../Skeleton";
 import { useCommitteeHeader } from "@/hooks/common/useCommitteeHeader";
+import { useCommitteeLogout } from "@/hooks/tanstack-query/committee/auth/useCommitteeLogout";
+import Button from "@/components/design-system/Button";
 
 const cn = classNames.bind(styles);
 
 export default function CommitteeHeader() {
   const { data, isError, isPending, path } = useCommitteeHeader();
+  const { isLogoutLoading, onCommitteeLogout } = useCommitteeLogout();
 
   if (isError) {
     return null;
@@ -66,7 +69,12 @@ export default function CommitteeHeader() {
         <Skeleton className={cn("skeleton")} />
       ) : (
         <div className={cn("departmentContainer")}>
-          <Txt className={cn("headerTitle")}>{data?.affiliation}</Txt>
+          <div className={cn("affiliationText")}>
+            <Txt className={cn("headerTitle")}>{data?.affiliation}</Txt>
+          </div>
+          <Button color="red" className={cn("logoutButton")} onClick={onCommitteeLogout} disabled={isLogoutLoading}>
+            로그아웃
+          </Button>
         </div>
       )}
     </header>

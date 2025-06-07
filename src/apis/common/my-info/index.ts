@@ -6,3 +6,7 @@ export const getMyInfo = async () => {
 
   return new MyInfo(data);
 };
+
+export const postLogout = async () => {
+  await https.post("auth/logout", {});
+};
