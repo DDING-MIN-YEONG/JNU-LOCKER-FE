@@ -15,11 +15,11 @@ export const useCommitteeLogout = () => {
         alert(error.response.data.message || "로그아웃에 실패했습니다.");
       },
       onSuccess: () => {
+        queryClient.clear();
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         router.push(ROUTE.COMMITTEE.MAIN);
         alert("로그아웃에 성공했습니다.");
-        queryClient.clear();
       },
     });
   };
