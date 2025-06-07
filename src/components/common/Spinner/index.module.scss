@@ -1,3 +1,9 @@
+$spinner-size: 12rem;
+$spinner-center: $spinner-size / 2;
+$dot-size: 1.8rem;
+$dot-radius: $dot-size / 2;
+$base-delay: -0.036s;
+
 .container {
   position: fixed;
   top: 0;
@@ -13,87 +19,58 @@
 .loader {
   display: inline-block;
   position: relative;
-  width: 12rem;
-  height: 12rem;
+  width: $spinner-size;
+  height: $spinner-size;
   color: $primary;
 
   div {
     animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    transform-origin: 6rem 6rem;
+    transform-origin: $spinner-center $spinner-center;
 
     &:after {
       content: " ";
       display: block;
       position: absolute;
-      width: 18px;
-      height: 18px;
-      margin: -9px 0 0 -9px;
+      width: $dot-size;
+      height: $dot-size;
+      margin: -$dot-radius 0 0 -$dot-radius;
       border-radius: 50%;
       background: currentColor;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
-    &:nth-child(1) {
-      animation-delay: -0.036s;
-      &:after {
-        top: 94px;
-        left: 94px;
-      }
-    }
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: $base-delay * $i;
 
-    &:nth-child(2) {
-      animation-delay: -0.072s;
-      &:after {
-        top: 101px;
-        left: 84px;
-      }
-    }
-
-    &:nth-child(3) {
-      animation-delay: -0.108s;
-      &:after {
-        top: 106px;
-        left: 72px;
-      }
-    }
-
-    &:nth-child(4) {
-      animation-delay: -0.144s;
-      &:after {
-        top: 108px;
-        left: 60px;
-      }
-    }
-
-    &:nth-child(5) {
-      animation-delay: -0.18s;
-      &:after {
-        top: 106px;
-        left: 48px;
-      }
-    }
-
-    &:nth-child(6) {
-      animation-delay: -0.216s;
-      &:after {
-        top: 101px;
-        left: 36px;
-      }
-    }
-
-    &:nth-child(7) {
-      animation-delay: -0.252s;
-      &:after {
-        top: 94px;
-        left: 26px;
-      }
-    }
-
-    &:nth-child(8) {
-      animation-delay: -0.288s;
-      &:after {
-        top: 84px;
-        left: 18px;
+        // 기존 위치 유지
+        &:after {
+          @if $i == 1 {
+            top: 94px;
+            left: 94px;
+          } @else if $i == 2 {
+            top: 101px;
+            left: 84px;
+          } @else if $i == 3 {
+            top: 106px;
+            left: 72px;
+          } @else if $i == 4 {
+            top: 108px;
+            left: 60px;
+          } @else if $i == 5 {
+            top: 106px;
+            left: 48px;
+          } @else if $i == 6 {
+            top: 101px;
+            left: 36px;
+          } @else if $i == 7 {
+            top: 94px;
+            left: 26px;
+          } @else if $i == 8 {
+            top: 84px;
+            left: 18px;
+          }
+        }
       }
     }
   }
