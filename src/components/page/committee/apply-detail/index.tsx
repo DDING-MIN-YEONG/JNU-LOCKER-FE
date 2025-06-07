@@ -12,7 +12,7 @@ const cn = classNames.bind(styles);
 
 export default function ApplyDetail() {
   const {
-    ApplyDetailList,
+    applyDetailList,
     isLoading,
     totalElements,
     currentPage,
@@ -41,7 +41,7 @@ export default function ApplyDetail() {
           </Txt>
         </>
       )}
-      <table className={cn("table")}>
+      <table>
         <thead className={cn("tableHeaderContainer")}>
           <tr>
             <th className={cn("tableHeader")}>
@@ -88,8 +88,8 @@ export default function ApplyDetail() {
                 <Skeleton className={cn("skeleton")} />
               </td>
             </tr>
-          ) : (
-            ApplyDetailList.map(({ floorNumber, id, lockerCode, member }) => (
+          ) : applyDetailList.length > 0 ? (
+            applyDetailList.map(({ floorNumber, id, lockerCode, member }) => (
               <tr className={cn("tr")} key={id}>
                 <td className={cn("tableData")}>
                   <Txt size="h6">{floorNumber}</Txt>
@@ -114,6 +114,12 @@ export default function ApplyDetail() {
                 </td>
               </tr>
             ))
+          ) : (
+            <tr className={cn("tr")}>
+              <td colSpan={7} className={cn("tableData")}>
+                <Txt size="h6">신청 현황이 없습니다.</Txt>
+              </td>
+            </tr>
           )}
         </tbody>
       </table>

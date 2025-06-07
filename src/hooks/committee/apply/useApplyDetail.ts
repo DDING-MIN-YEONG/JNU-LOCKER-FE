@@ -17,11 +17,11 @@ export const useApplyDetail = () => {
 
   useCommitteeCertification(isError, error as ApiResponseError);
 
-  const ApplyDetailList = data?.content || [];
+  const applyDetailList = data?.content || [];
   const totalElements = data?.totalElements || 0;
 
   return {
-    ApplyDetailList,
+    applyDetailList,
     totalElements,
     currentPage,
     setPage,
