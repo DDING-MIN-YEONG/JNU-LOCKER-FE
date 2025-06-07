@@ -9,7 +9,7 @@ const cn = classNames.bind(styles);
 export default function ApplyHeader() {
   return (
     <header className={cn("header")}>
-      <Link href={ROUTE.STUDENT.MAIN}>
+      <Link href={ROUTE.STUDENT.DEPARTMENT_INFO}>
         <StudentLogo width={100} height={50} />
       </Link>
     </header>
