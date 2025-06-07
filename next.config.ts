@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
     ],
   },
   sassOptions: {
-    includePaths: ["styles"],
     additionalData: `@import "src/styles/globals.scss";`,
   },
 };
