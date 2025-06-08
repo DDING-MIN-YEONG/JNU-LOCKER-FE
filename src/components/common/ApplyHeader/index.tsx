@@ -25,7 +25,7 @@ export default function ApplyHeader({ showLogoutButton = true }: ApplyHeaderProp
           <StudentLogo width={100} height={50} />
         </Link>
         {showLogoutButton && (
-          <Button color="red" className={cn("logout")} onClick={onStudentLogout} disabled={isLogoutLoading}>
+          <Button className={cn("logout")} onClick={onStudentLogout} disabled={isLogoutLoading}>
             로그아웃
           </Button>
         )}
