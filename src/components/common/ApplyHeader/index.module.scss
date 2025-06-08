@@ -9,6 +9,12 @@
 .logout {
   padding: 1rem;
   font-size: 2rem;
+  border-radius: 0rem !important;
+  background-color: #7ab892 !important;
+
+  &:hover {
+    background-color: #6a9f7e !important;
+  }
 
   @include mobile {
     font-size: 1.6rem;
