@@ -1,5 +1,11 @@
+import ApplyHeader from "@/components/common/ApplyHeader";
 import ResetPassword from "@/components/page/student/ResetPassword";
 
 export default function ResetPasswordPage() {
-  return <ResetPassword />;
+  return (
+    <>
+      <ApplyHeader showLogoutButton={false} />
+      <ResetPassword />
+    </>
+  );
 }
