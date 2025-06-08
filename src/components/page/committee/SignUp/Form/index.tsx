@@ -120,7 +120,7 @@ export default function SignUpForm() {
             id="phoneNumber"
             type="text"
             label="연락처"
-            placeholder="연락처를 입력해주세요."
+            placeholder="연락처를 입력해주세요.(숫자만 입력)"
             value={formData.phoneNumber}
             onChange={onInputChange}
           />
