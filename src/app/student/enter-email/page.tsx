@@ -1,5 +1,11 @@
+import ApplyHeader from "@/components/common/ApplyHeader";
 import EnterEmail from "@/components/page/student/EnterEmail";
 
 export default function EnterEmailPage() {
-  return <EnterEmail />;
+  return (
+    <>
+      <ApplyHeader showLogoutButton={false} />
+      <EnterEmail />
+    </>
+  );
 }
