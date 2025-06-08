@@ -13,6 +13,7 @@
   @include flexSort(row, space-between, center, null);
   border-bottom: 0.1rem solid black;
   padding: 4rem 5rem;
+  position: relative;
 }
 
 .logo {
@@ -28,50 +29,27 @@
   color: $primary;
 }
 
+.departmentContainer {
+  max-width: 20rem;
+  border: 0.1rem solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+  @include flexSort(row, center, center, null);
+}
+
 .headerTitle {
   font-size: 2.5rem !important;
 }
 
-.departmentContainer {
-  position: relative;
-  max-width: 16.2rem;
-  border: 0.1rem solid black;
-  padding: 1rem 3rem;
-  border-radius: 1rem;
-  @include flexSort(row, center, center, null);
-  transition: background-color 0.3s;
+.logoutButton {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1.6rem !important;
+  padding: 1rem;
+  background-color: #7ab892 !important;
 
   &:hover {
-    padding: 0;
-
-    .affiliationText {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .logoutButton {
-      opacity: 1;
-      visibility: visible;
-    }
+    background-color: #6a9f7e !important;
   }
-}
-
-.affiliationText {
-  position: absolute;
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity 0.3s,
-    visibility 0.3s;
-}
-
-.logoutButton {
-  opacity: 0;
-  visibility: hidden;
-  width: 16.2rem;
-  font-size: 2rem !important;
-  padding: 1rem;
-  transition:
-    opacity 0.3s,
-    visibility 0.3s;
 }

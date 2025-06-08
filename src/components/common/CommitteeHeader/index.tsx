@@ -10,6 +10,7 @@ import Skeleton from "../Skeleton";
 import { useCommitteeHeader } from "@/hooks/common/useCommitteeHeader";
 import { useCommitteeLogout } from "@/hooks/tanstack-query/committee/auth/useCommitteeLogout";
 import Button from "@/components/design-system/Button";
+import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -22,61 +23,70 @@ export default function CommitteeHeader() {
   }
 
   return (
-    <header className={cn("header")}>
-      <Link href={ROUTE.COMMITTEE.APPLY_LIST} className={cn("logo")}>
-        <Logo height={100} width={100} />
-        <Txt fontType="chnam" className={cn("headerTitle")}>
-          전남대학교 사물함 신청 서비스
-        </Txt>
-      </Link>
-      <div className={cn("linkContainer")}>
-        <Link href={ROUTE.COMMITTEE.APPLY_LIST}>
-          <Txt className={cn("headerTitle")} weight="medium" color={path.includes("apply-list") ? "primary" : "black"}>
-            신청 목록
+    <>
+      <header className={cn("header")}>
+        <Link href={ROUTE.COMMITTEE.APPLY_LIST} className={cn("logo")}>
+          <Logo height={100} width={100} />
+          <Txt fontType="chnam" className={cn("headerTitle")}>
+            전남대학교 사물함 신청 서비스
           </Txt>
         </Link>
-        <Link href={ROUTE.COMMITTEE.ANNOUNCEMENT_LIST}>
-          <Txt
-            className={cn("headerTitle")}
-            weight="medium"
-            color={path.includes("announcement-list") || path.includes("announcement") ? "primary" : "black"}
-          >
-            공지사항
-          </Txt>
-        </Link>
-        <Link href={ROUTE.COMMITTEE.EVENT_LIST}>
-          <Txt className={cn("headerTitle")} weight="medium" color={path.includes("event-list") ? "primary" : "black"}>
-            이벤트
-          </Txt>
-        </Link>
+        <div className={cn("linkContainer")}>
+          <Link href={ROUTE.COMMITTEE.APPLY_LIST}>
+            <Txt
+              className={cn("headerTitle")}
+              weight="medium"
+              color={path.includes("apply-list") ? "primary" : "black"}
+            >
+              신청 목록
+            </Txt>
+          </Link>
+          <Link href={ROUTE.COMMITTEE.ANNOUNCEMENT_LIST}>
+            <Txt
+              className={cn("headerTitle")}
+              weight="medium"
+              color={path.includes("announcement-list") || path.includes("announcement") ? "primary" : "black"}
+            >
+              공지사항
+            </Txt>
+          </Link>
+          <Link href={ROUTE.COMMITTEE.EVENT_LIST}>
+            <Txt
+              className={cn("headerTitle")}
+              weight="medium"
+              color={path.includes("event-list") ? "primary" : "black"}
+            >
+              이벤트
+            </Txt>
+          </Link>
+          {isPending ? (
+            <Skeleton className={cn("linkSkeleton")} />
+          ) : (
+            data?.role === "MANAGER" && (
+              <Link href={ROUTE.COMMITTEE.APPROVE_WAIT}>
+                <Txt
+                  className={cn("headerTitle")}
+                  weight="medium"
+                  color={path.includes("approve-wait") ? "primary" : "black"}
+                >
+                  승인 대기
+                </Txt>
+              </Link>
+            )
+          )}
+        </div>
         {isPending ? (
-          <Skeleton className={cn("linkSkeleton")} />
+          <Skeleton className={cn("skeleton")} />
         ) : (
-          data?.role === "MANAGER" && (
-            <Link href={ROUTE.COMMITTEE.APPROVE_WAIT}>
-              <Txt
-                className={cn("headerTitle")}
-                weight="medium"
-                color={path.includes("approve-wait") ? "primary" : "black"}
-              >
-                승인 대기
-              </Txt>
-            </Link>
-          )
-        )}
-      </div>
-      {isPending ? (
-        <Skeleton className={cn("skeleton")} />
-      ) : (
-        <div className={cn("departmentContainer")}>
-          <div className={cn("affiliationText")}>
+          <div className={cn("departmentContainer")}>
             <Txt className={cn("headerTitle")}>{data?.affiliation}</Txt>
           </div>
-          <Button color="red" className={cn("logoutButton")} onClick={onCommitteeLogout} disabled={isLogoutLoading}>
-            로그아웃
-          </Button>
-        </div>
-      )}
-    </header>
+        )}
+        <Button color="red" className={cn("logoutButton")} onClick={onCommitteeLogout} disabled={isLogoutLoading}>
+          로그아웃
+        </Button>
+      </header>
+      {isLogoutLoading && <Spinner />}
+    </>
   );
 }
