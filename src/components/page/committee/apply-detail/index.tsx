@@ -24,9 +24,15 @@ export default function ApplyDetail() {
     event,
     isEventPending,
     excelData,
+    isExcelDownLoading,
   } = useApplyDetail();
 
   const exportXLSX = () => {
+    if (excelData.length === 0) {
+      alert("내보낼 데이터가 없습니다.");
+      return;
+    }
+
     const wb = XLSX.utils.book_new();
 
     const ws = XLSX.utils.json_to_sheet(excelData);
@@ -42,7 +48,7 @@ export default function ApplyDetail() {
         <Txt color="primary" size="h3" weight="medium">
           사물함 신청 현황
         </Txt>
-        <Button className={cn("excelBtn")} onClick={exportXLSX}>
+        <Button className={cn("excelBtn")} onClick={exportXLSX} disabled={isExcelDownLoading}>
           엑셀 다운로드
         </Button>
       </div>

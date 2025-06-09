@@ -15,7 +15,12 @@ export const useApplyDetail = () => {
   const { pagesPerGroup, queryParams, setPage } = useApplyDetailPagination(currentPage, eventId);
   const { data, isLoading, isError, error } = useGetApplyDetailQuery(queryParams);
 
-  const { data: excel } = useGetApplyDetailQuery({ page: 0, size: 10000, direction: "asc", eventId });
+  const { data: excel, isPending: isExcelDownLoading } = useGetApplyDetailQuery({
+    page: 0,
+    size: 10000,
+    direction: "asc",
+    eventId,
+  });
 
   const excelData =
     excel?.content.map((applyDetail, idx) => ({
@@ -45,5 +50,6 @@ export const useApplyDetail = () => {
     event,
     isEventPending,
     excelData: excelData,
+    isExcelDownLoading,
   };
 };
