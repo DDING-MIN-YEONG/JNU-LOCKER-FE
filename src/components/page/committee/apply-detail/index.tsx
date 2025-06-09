@@ -7,6 +7,8 @@ import Pagination from "@/components/common/Pagination";
 import { useApplyDetail } from "@/hooks/committee/apply/useApplyDetail";
 import Skeleton from "@/components/common/Skeleton";
 import { formatToKoreanTime } from "@/utils/date";
+import * as XLSX from "xlsx";
+import Button from "@/components/design-system/Button";
 
 const cn = classNames.bind(styles);
 
@@ -21,13 +23,29 @@ export default function ApplyDetail() {
     pagesPerGroup,
     event,
     isEventPending,
+    excelData,
   } = useApplyDetail();
+
+  const exportXLSX = () => {
+    const wb = XLSX.utils.book_new();
+
+    const ws = XLSX.utils.json_to_sheet(excelData);
+
+    XLSX.utils.book_append_sheet(wb, ws, "사물함 신청 현황");
+
+    XLSX.writeFile(wb, "사물함 신청 현황.xlsx");
+  };
 
   return (
     <div className={cn("container")}>
-      <Txt color="primary" size="h3" weight="medium">
-        사물함 신청 현황
-      </Txt>
+      <div className={cn("header")}>
+        <Txt color="primary" size="h3" weight="medium">
+          사물함 신청 현황
+        </Txt>
+        <Button className={cn("excelBtn")} onClick={exportXLSX}>
+          엑셀 다운로드
+        </Button>
+      </div>
       {isEventPending ? (
         <Skeleton className={cn("eventSkeleton")} />
       ) : (
