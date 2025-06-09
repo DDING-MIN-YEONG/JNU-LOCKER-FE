@@ -15,6 +15,25 @@ export const useApplyDetail = () => {
   const { pagesPerGroup, queryParams, setPage } = useApplyDetailPagination(currentPage, eventId);
   const { data, isLoading, isError, error } = useGetApplyDetailQuery(queryParams);
 
+  const { data: excel, isPending: isExcelDownLoading } = useGetApplyDetailQuery({
+    page: 0,
+    size: 10000,
+    direction: "asc",
+    eventId,
+  });
+
+  const excelData =
+    excel?.content.map((applyDetail, idx) => ({
+      순번: idx + 1,
+      층수: applyDetail.floorNumber,
+      "사물함 이름": applyDetail.lockerCode,
+      학번: applyDetail.member.studentNumber,
+      소속: applyDetail.member.organization,
+      학과: applyDetail.member.department,
+      이름: applyDetail.member.name,
+      이메일: applyDetail.member.email,
+    })) || [];
+
   useCommitteeCertification(isError, error as ApiResponseError);
 
   const applyDetailList = data?.content || [];
@@ -30,5 +49,7 @@ export const useApplyDetail = () => {
     isLoading,
     event,
     isEventPending,
+    excelData: excelData,
+    isExcelDownLoading,
   };
 };

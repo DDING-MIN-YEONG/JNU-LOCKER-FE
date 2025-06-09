@@ -13,6 +13,19 @@
   @include flexSort(column, null, null, 3rem);
 }
 
+.header {
+  @include flexSort(row, space-between, center, null);
+}
+
+.excelBtn {
+  font-size: 1.6rem !important;
+  padding: 1rem;
+
+  &:hover {
+    background-color: #7ab892 !important;
+  }
+}
+
 .tableHeaderContainer {
   background-color: $primary;
   border: 0.2rem solid $primary;
