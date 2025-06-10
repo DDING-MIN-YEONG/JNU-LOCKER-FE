@@ -4,6 +4,10 @@ export interface ApiResponseError {
     data: {
       message: string;
       code: string;
+      invalidParams?: {
+        field: string;
+        message: string;
+      }[];
     };
   };
 }

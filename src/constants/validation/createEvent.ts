@@ -26,5 +26,7 @@ export const CREATE_EVENT_VALIDATION = {
   },
   lockerNumber: {
     [VALIDATION_TYPES.REQUIRED]: "사물함 번호를 입력해주세요.",
+    [VALIDATION_TYPES.RANGE]: "사물함 시작 번호는 끝 번호보다 작거나 같아야 합니다.",
+    [VALIDATION_TYPES.MAX]: "사물함 범위가 너무 큽니다. 최대 2000개까지 가능합니다.",
   },
 };
