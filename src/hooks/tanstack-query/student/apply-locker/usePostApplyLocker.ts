@@ -12,14 +12,14 @@ export const usePostApplyLocker = () => {
 
     const lockerFloor = lockerListData?.find((locker) => locker.floorNumber === floor);
     if (!lockerFloor) {
-      alert("유효하지 않은 층수입니다.");
+      alert("존재하지 않는 층수입니다.");
       return;
     }
 
     const lockerId = lockerFloor.lockerList.find((locker) => locker.code === lockerName)?.lockerId;
 
     if (lockerId === undefined) {
-      alert("유효하지 않은 사물함 이름입니다.");
+      alert("존재하지 않는 사물함 이름입니다. 사물함 이름을 정확히 입력해주세요.");
       return;
     }
 
