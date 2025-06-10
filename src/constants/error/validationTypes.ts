@@ -4,4 +4,6 @@ export const VALIDATION_TYPES = {
   MATCH: "match",
   DUPLICATE: "duplicate",
   MIN: "min",
+  MAX: "max",
+  RANGE: "range",
 } as const;

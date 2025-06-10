@@ -18,6 +18,14 @@ export const useCreateEvent = () => {
   const onCreateEvent = (formData: CreateEventRequest) => {
     mutate(formData, {
       onError: (error) => {
+        const invalidParams = error.response.data.invalidParams;
+        if (invalidParams && invalidParams.length > 0) {
+          invalidParams.forEach(({ message }) => {
+            alert(message);
+          });
+          return;
+        }
+
         alert(error.response.data.message || "이벤트 생성에 실패하였습니다.");
       },
       onSuccess: () => {
