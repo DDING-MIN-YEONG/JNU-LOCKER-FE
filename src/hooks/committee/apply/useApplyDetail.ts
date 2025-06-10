@@ -23,16 +23,24 @@ export const useApplyDetail = () => {
   });
 
   const excelData =
-    excel?.content.map((applyDetail, idx) => ({
-      순번: idx + 1,
-      층수: applyDetail.floorNumber,
-      "사물함 이름": applyDetail.lockerCode,
-      학번: applyDetail.member.studentNumber,
-      소속: applyDetail.member.organization,
-      학과: applyDetail.member.department,
-      이름: applyDetail.member.name,
-      이메일: applyDetail.member.email,
-    })) || [];
+    excel?.content
+      .slice()
+      .sort((a, b) => {
+        if (a.floorNumber !== b.floorNumber) {
+          return a.floorNumber - b.floorNumber;
+        }
+
+        return a.lockerCode.localeCompare(b.lockerCode, undefined, { numeric: true });
+      })
+      .map((applyDetail) => ({
+        층수: `${applyDetail.floorNumber}층`,
+        "사물함 이름": applyDetail.lockerCode,
+        학번: applyDetail.member.studentNumber,
+        소속: applyDetail.member.organization,
+        학과: applyDetail.member.department,
+        이름: applyDetail.member.name,
+        이메일: applyDetail.member.email,
+      })) || [];
 
   useCommitteeCertification(isError, error as ApiResponseError);
 
