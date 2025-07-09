@@ -9,6 +9,11 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript", "plugin:prettier/recommended")];
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"),
+  {
+    ignores: ["public/workbox-*.js", "public/sw.js", "**/node_modules/**"],
+  },
+];
 
 export default eslintConfig;
