@@ -1,6 +1,10 @@
-import type { NextConfig } from "next";
+import withPWAInit from "@ducanh2912/next-pwa";
 
-const nextConfig: NextConfig = {
+const withPWA = withPWAInit({
+  dest: "public",
+});
+
+export default withPWA({
   reactStrictMode: false,
   images: {
     remotePatterns: [
@@ -15,6 +19,4 @@ const nextConfig: NextConfig = {
   sassOptions: {
     additionalData: `@import "src/styles/globals.scss";`,
   },
-};
-
-export default nextConfig;
+});
