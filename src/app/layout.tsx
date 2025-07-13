@@ -14,16 +14,44 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: [
-      { url: APP_IMAGE, sizes: "32x32", type: "image/png" },
       { url: APP_IMAGE, sizes: "16x16", type: "image/png" },
+      { url: APP_IMAGE, sizes: "32x32", type: "image/png" },
+      { url: APP_IMAGE, sizes: "72x72", type: "image/png" },
+      { url: APP_IMAGE, sizes: "96x96", type: "image/png" },
+      { url: APP_IMAGE, sizes: "144x144", type: "image/png" },
+      { url: APP_IMAGE, sizes: "192x192", type: "image/png" },
     ],
     shortcut: APP_IMAGE,
-    apple: [{ url: APP_IMAGE, sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: APP_IMAGE, sizes: "57x57", type: "image/png" },
+      { url: APP_IMAGE, sizes: "60x60", type: "image/png" },
+      { url: APP_IMAGE, sizes: "72x72", type: "image/png" },
+      { url: APP_IMAGE, sizes: "76x76", type: "image/png" },
+      { url: APP_IMAGE, sizes: "114x114", type: "image/png" },
+      { url: APP_IMAGE, sizes: "120x120", type: "image/png" },
+      { url: APP_IMAGE, sizes: "144x144", type: "image/png" },
+      { url: APP_IMAGE, sizes: "152x152", type: "image/png" },
+      { url: APP_IMAGE, sizes: "180x180", type: "image/png" },
+    ],
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: PWA_NAME,
+    startupImage: [
+      {
+        url: APP_IMAGE,
+        media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
+      },
+      {
+        url: APP_IMAGE,
+        media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)",
+      },
+      {
+        url: APP_IMAGE,
+        media: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)",
+      },
+    ],
   },
   formatDetection: {
     telephone: false,
