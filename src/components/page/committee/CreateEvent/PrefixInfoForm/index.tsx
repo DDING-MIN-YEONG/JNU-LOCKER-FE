@@ -6,34 +6,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CreateEventForm } from "@/types/committee/event";
 import Button from "@/components/design-system/Button";
 import CreateEventRangeInfoForm from "../RangeInfoForm";
+import { useContext } from "react";
+import { ApplyFormContext } from "@/stores/apply-locker";
 
 const cn = classNames.bind(styles);
 
 interface CreateEventPrefixInfoFormProps {
   floorId: number;
   prefixData: CreateEventForm["floors"][number]["prefixes"][number];
-  onChangePrefix: (floorId: number, prefixId: number, lockerPrefix: string) => void;
-  onAddRange: (floorId: number, prefixId: number) => void;
-  onChangeRange: (
-    floorId: number,
-    prefixId: number,
-    rangeId: number,
-    type: "start" | "end",
-    lockerNumber: number | null,
-  ) => void;
-  onDeletePrefix: (floorId: number, prefixId: number) => void;
-  onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
 }
 
-export default function CreateEventPrefixInfoForm({
-  floorId,
-  onChangePrefix,
-  prefixData,
-  onAddRange,
-  onChangeRange,
-  onDeletePrefix,
-  onDeleteRange,
-}: CreateEventPrefixInfoFormProps) {
+export default function CreateEventPrefixInfoForm({ floorId, prefixData }: CreateEventPrefixInfoFormProps) {
+  const { onChangePrefix, onAddRange, onDeletePrefix } = useContext(ApplyFormContext);
   return (
     <div className={cn("container")}>
       <Button
@@ -73,8 +57,6 @@ export default function CreateEventPrefixInfoForm({
             prefixId={prefixData.prefixId}
             rangeData={range}
             key={range.rangeId}
-            onChangeRange={onChangeRange}
-            onDeleteRange={onDeleteRange}
           />
         ))}
       </div>

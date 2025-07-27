@@ -3,39 +3,26 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
-import { CreateEventForm } from "@/types/committee/event";
 import DateTimePicker from "@/components/common/DateTimePicker";
 import Button from "@/components/design-system/Button";
 import { Selector } from "@/components/common/Selector";
 import { MAX_EVENT_TITLE_LENGTH } from "@/constants/committee/create-event";
+import { useContext } from "react";
+import { ApplyFormContext } from "@/stores/apply-locker";
 
 const cn = classNames.bind(styles);
 
-interface CreateEventInfoFormProps {
-  formData: CreateEventForm;
-  setFormData: (formData: CreateEventForm) => void;
-  organizations: {
-    id: number;
-    value: string;
-  }[];
-  departments: {
-    id: number;
-    value: string;
-  }[];
-  onDeleteDepartment: (id: number) => void;
-  onSelectDepartment: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  onSelectOrganizations: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}
+export default function CreateEventInfoForm() {
+  const {
+    formData,
+    setFormData,
+    onSelectOrganizations,
+    onSelectDepartment,
+    onDeleteDepartment,
+    organizations,
+    departments,
+  } = useContext(ApplyFormContext);
 
-export default function CreateEventInfoForm({
-  formData,
-  setFormData,
-  organizations,
-  departments,
-  onDeleteDepartment,
-  onSelectOrganizations,
-  onSelectDepartment,
-}: CreateEventInfoFormProps) {
   return (
     <div>
       <header className={cn("header")}>

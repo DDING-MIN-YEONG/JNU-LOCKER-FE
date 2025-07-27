@@ -18,7 +18,7 @@ export default function SignUp() {
       }
     >
       <div className={cn("imgContainer")}>
-        <Logo width={500} height={300} />
+        <Logo width={250} height={116} />
       </div>
       <SignUpForm />
     </SignUpLayout>

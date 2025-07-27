@@ -26,7 +26,7 @@ export default function CommitteeHeader() {
     <>
       <header className={cn("header")}>
         <Link href={ROUTE.COMMITTEE.APPLY_LIST} className={cn("logo")}>
-          <Logo height={100} width={100} />
+          <Logo width={100} height={40} />
           <Txt fontType="chnam" className={cn("headerTitle")}>
             전남대학교 사물함 신청 서비스
           </Txt>
