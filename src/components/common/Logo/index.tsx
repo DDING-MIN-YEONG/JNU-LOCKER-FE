@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Logo_Img from "@/images/logo.svg";
+import Logo_Img from "@/images/og_logo.svg";
 
 interface LogoProps {
   width: number;

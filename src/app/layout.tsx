@@ -5,21 +5,20 @@ import Providers from "@/components/common/Providers/Providers";
 const APP_NAME = "전남대학교 사물함 신청 서비스";
 const PWA_NAME = "전남대 사물함";
 const APP_DESCRIPTION = "쉽고 간편하게 이용가능한 전남대학교 사물함 신청 서비스입니다.";
-const APP_IMAGE = "/images/home_img.png";
+const APP_IMAGE = "/images/logo.png";
+const APP_OG_IMAGE = "/images/og_logo.png";
 const APP_URL = "https://jnu-locker.site";
 const APP_IMAGE_FULL_URL = `${APP_URL}${APP_IMAGE}`;
+const APP_OG_IMAGE_FULL_URL = `${APP_URL}${APP_OG_IMAGE}`;
 
 export const metadata: Metadata = {
   applicationName: PWA_NAME,
-  title: {
-    default: APP_NAME,
-    template: `%s | ${PWA_NAME}`,
-  },
+  title: APP_NAME,
   description: APP_DESCRIPTION,
   keywords: ["전남대학교", "사물함", "신청", "서비스", "전남대", "locker", "대학교"],
-  authors: [{ name: "전남대학교 사물함 관리팀" }],
-  creator: "전남대학교",
-  publisher: "전남대학교",
+  authors: [{ name: "심민보" }],
+  creator: "심민보",
+  publisher: "심민보",
   manifest: "/manifest.json",
   robots: {
     index: true,
@@ -34,24 +33,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: APP_IMAGE, sizes: "16x16", type: "image/png" },
-      { url: APP_IMAGE, sizes: "32x32", type: "image/png" },
-      { url: APP_IMAGE, sizes: "72x72", type: "image/png" },
-      { url: APP_IMAGE, sizes: "96x96", type: "image/png" },
-      { url: APP_IMAGE, sizes: "144x144", type: "image/png" },
-      { url: APP_IMAGE, sizes: "192x192", type: "image/png" },
+      { url: APP_IMAGE_FULL_URL, sizes: "16x16 32x32 72x72 96x96 144x144 192x192", type: "image/png" },
     ],
-    shortcut: APP_IMAGE,
+    shortcut: APP_OG_IMAGE_FULL_URL,
     apple: [
-      { url: APP_IMAGE, sizes: "57x57", type: "image/png" },
-      { url: APP_IMAGE, sizes: "60x60", type: "image/png" },
-      { url: APP_IMAGE, sizes: "72x72", type: "image/png" },
-      { url: APP_IMAGE, sizes: "76x76", type: "image/png" },
-      { url: APP_IMAGE, sizes: "114x114", type: "image/png" },
-      { url: APP_IMAGE, sizes: "120x120", type: "image/png" },
-      { url: APP_IMAGE, sizes: "144x144", type: "image/png" },
-      { url: APP_IMAGE, sizes: "152x152", type: "image/png" },
-      { url: APP_IMAGE, sizes: "180x180", type: "image/png" },
+      { url: APP_IMAGE_FULL_URL, sizes: "57x57 60x60 72x72 76x76 114x114 120x120 144x144 152x152 180x180", type: "image/png" },
     ],
   },
   appleWebApp: {
@@ -59,18 +45,7 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: PWA_NAME,
     startupImage: [
-      {
-        url: APP_IMAGE,
-        media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
-      },
-      {
-        url: APP_IMAGE,
-        media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)",
-      },
-      {
-        url: APP_IMAGE,
-        media: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)",
-      },
+      { url: APP_OG_IMAGE }
     ],
   },
   formatDetection: {
@@ -85,16 +60,9 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     images: [
       {
-        url: APP_IMAGE_FULL_URL,
-        width: 1200,
+        url: APP_OG_IMAGE_FULL_URL,
+        width: 1200, 
         height: 630,
-        alt: APP_NAME,
-        type: "image/png",
-      },
-      {
-        url: APP_IMAGE_FULL_URL,
-        width: 800,
-        height: 600,
         alt: APP_NAME,
         type: "image/png",
       },
@@ -104,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: APP_NAME,
     description: APP_DESCRIPTION,
-    images: [APP_IMAGE_FULL_URL],
+    images: [APP_OG_IMAGE_FULL_URL],
     creator: "@jnu_locker",
     site: "@jnu_locker",
   },
@@ -126,7 +94,7 @@ export default function RootLayout({
     alternateName: PWA_NAME,
     description: APP_DESCRIPTION,
     url: APP_URL,
-    image: APP_IMAGE_FULL_URL,
+    image: APP_OG_IMAGE_FULL_URL,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Any",
     offers: {
