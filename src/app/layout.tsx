@@ -32,21 +32,21 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: APP_IMAGE_FULL_URL, sizes: "16x16 32x32 72x72 96x96 144x144 192x192", type: "image/png" },
-    ],
+    icon: [{ url: APP_IMAGE_FULL_URL, sizes: "16x16 32x32 72x72 96x96 144x144 192x192", type: "image/png" }],
     shortcut: APP_OG_IMAGE_FULL_URL,
     apple: [
-      { url: APP_IMAGE_FULL_URL, sizes: "57x57 60x60 72x72 76x76 114x114 120x120 144x144 152x152 180x180", type: "image/png" },
+      {
+        url: APP_IMAGE_FULL_URL,
+        sizes: "57x57 60x60 72x72 76x76 114x114 120x120 144x144 152x152 180x180",
+        type: "image/png",
+      },
     ],
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: PWA_NAME,
-    startupImage: [
-      { url: APP_OG_IMAGE }
-    ],
+    startupImage: [{ url: APP_OG_IMAGE }],
   },
   formatDetection: {
     telephone: false,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: APP_OG_IMAGE_FULL_URL,
-        width: 1200, 
+        width: 1200,
         height: 630,
         alt: APP_NAME,
         type: "image/png",
