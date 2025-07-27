@@ -5,6 +5,8 @@ import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
 import { CreateEventForm } from "@/types/committee/event";
 import Button from "@/components/design-system/Button";
+import { useContext } from "react";
+import { ApplyFormContext } from "@/stores/apply-locker";
 
 const cn = classNames.bind(styles);
 
@@ -12,23 +14,11 @@ interface CreateEventRangeInfoFormProps {
   floorId: number;
   prefixId: number;
   rangeData: CreateEventForm["floors"][number]["prefixes"][number]["ranges"][number];
-  onChangeRange: (
-    floorId: number,
-    prefixId: number,
-    rangeId: number,
-    type: "start" | "end",
-    lockerNumber: number | null,
-  ) => void;
-  onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
 }
 
-export default function CreateEventRangeInfoForm({
-  floorId,
-  prefixId,
-  rangeData,
-  onChangeRange,
-  onDeleteRange,
-}: CreateEventRangeInfoFormProps) {
+export default function CreateEventRangeInfoForm({ floorId, prefixId, rangeData }: CreateEventRangeInfoFormProps) {
+  const { onChangeRange, onDeleteRange } = useContext(ApplyFormContext);
+
   return (
     <div className={cn("container")}>
       <TextInput

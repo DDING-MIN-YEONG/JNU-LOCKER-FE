@@ -6,38 +6,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CreateEventForm } from "@/types/committee/event";
 import Button from "@/components/design-system/Button";
 import CreateEventPrefixInfoForm from "../PrefixInfoForm";
+import { useContext } from "react";
+import { ApplyFormContext } from "@/stores/apply-locker";
 
 const cn = classNames.bind(styles);
 
 interface CreateEventFloorInfoFormProps {
   floorData: CreateEventForm["floors"][number];
-  onChangeFloorNumber: (floorId: number, floorNumber: number) => void;
-  onAddPrefix: (floorId: number) => void;
-  onChangePrefix: (floorId: number, prefixId: number, lockerPrefix: string) => void;
-  onAddRange: (floorId: number, prefixId: number) => void;
-  onChangeRange: (
-    floorId: number,
-    prefixId: number,
-    rangeId: number,
-    type: "start" | "end",
-    lockerNumber: number | null,
-  ) => void;
-  onDeleteFloor: (floorId: number) => void;
-  onDeletePrefix: (floorId: number, prefixId: number) => void;
-  onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
 }
 
-export default function CreateEventFloorInfoForm({
-  floorData,
-  onChangeFloorNumber,
-  onAddPrefix,
-  onChangePrefix,
-  onAddRange,
-  onChangeRange,
-  onDeleteFloor,
-  onDeletePrefix,
-  onDeleteRange,
-}: CreateEventFloorInfoFormProps) {
+export default function CreateEventFloorInfoForm({ floorData }: CreateEventFloorInfoFormProps) {
+  const { onChangeFloorNumber, onAddPrefix, onDeleteFloor } = useContext(ApplyFormContext);
+
   return (
     <div className={cn("container")}>
       <div className={cn("floorTitle")}>
@@ -76,16 +56,7 @@ export default function CreateEventFloorInfoForm({
           </Button>
         </div>
         {floorData.prefixes.map((prefix) => (
-          <CreateEventPrefixInfoForm
-            floorId={floorData.floorId}
-            key={prefix.prefixId}
-            prefixData={prefix}
-            onChangePrefix={onChangePrefix}
-            onAddRange={onAddRange}
-            onChangeRange={onChangeRange}
-            onDeletePrefix={onDeletePrefix}
-            onDeleteRange={onDeleteRange}
-          />
+          <CreateEventPrefixInfoForm floorId={floorData.floorId} key={prefix.prefixId} prefixData={prefix} />
         ))}
       </div>
     </div>

@@ -2,48 +2,17 @@ import Txt from "@/components/design-system/Txt";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
-import { CreateEventForm } from "@/types/committee/event";
 import CreateEventFloorInfoForm from "../FloorInfoForm";
 import Button from "@/components/design-system/Button";
 import Spinner from "@/components/common/Spinner";
+import { useContext } from "react";
+import { ApplyFormContext } from "@/stores/apply-locker";
 
 const cn = classNames.bind(styles);
 
-interface CreateEventLockerInfoFormProps {
-  formData: CreateEventForm;
-  onAddFloor: () => void;
-  onChangeFloorNumber: (floorId: number, floorNumber: number) => void;
-  onAddPrefix: (floorId: number) => void;
-  onChangePrefix: (floorId: number, prefixId: number, lockerPrefix: string) => void;
-  onAddRange: (floorId: number, prefixId: number) => void;
-  onChangeRange: (
-    floorId: number,
-    prefixId: number,
-    rangeId: number,
-    type: "start" | "end",
-    lockerNumber: number | null,
-  ) => void;
-  onDeleteFloor: (floorId: number) => void;
-  onDeletePrefix: (floorId: number, prefixId: number) => void;
-  onDeleteRange: (floorId: number, prefixId: number, rangeId: number) => void;
-  onCreateEvent: () => void;
-  isCreateEventLoading: boolean;
-}
+export default function CreateEventLockerInfoForm() {
+  const { formData, onAddFloor, onCreateEvent, isCreateEventLoading } = useContext(ApplyFormContext);
 
-export default function CreateEventLockerInfoForm({
-  formData,
-  onAddFloor,
-  onChangeFloorNumber,
-  onAddPrefix,
-  onChangePrefix,
-  onAddRange,
-  onChangeRange,
-  onDeleteFloor,
-  onDeletePrefix,
-  onDeleteRange,
-  onCreateEvent,
-  isCreateEventLoading,
-}: CreateEventLockerInfoFormProps) {
   return (
     <>
       <div>
@@ -52,18 +21,7 @@ export default function CreateEventLockerInfoForm({
         </header>
         <div className={cn("floorContainer")}>
           {formData.floors.map((floor) => (
-            <CreateEventFloorInfoForm
-              floorData={floor}
-              key={floor.floorId}
-              onChangeFloorNumber={onChangeFloorNumber}
-              onAddPrefix={onAddPrefix}
-              onChangePrefix={onChangePrefix}
-              onAddRange={onAddRange}
-              onChangeRange={onChangeRange}
-              onDeleteFloor={onDeleteFloor}
-              onDeletePrefix={onDeletePrefix}
-              onDeleteRange={onDeleteRange}
-            />
+            <CreateEventFloorInfoForm floorData={floor} key={floor.floorId} />
           ))}
         </div>
       </div>
