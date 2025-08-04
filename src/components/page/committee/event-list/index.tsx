@@ -3,7 +3,6 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import Txt from "@/components/design-system/Txt";
-import Button from "@/components/design-system/Button";
 import { useEventList } from "@/hooks/committee/event/useEventList";
 import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
@@ -64,17 +63,12 @@ export default function EventList() {
                   게시 상태
                 </Txt>
               </th>
-              <th className={cn("tableHeader")}>
-                <Txt color="white" weight="medium">
-                  게시
-                </Txt>
-              </th>
             </tr>
           </thead>
           <tbody>
             {isLoading ? (
               <tr>
-                <td colSpan={6}>
+                <td colSpan={5}>
                   <Skeleton className={cn("skeleton")} />
                 </td>
               </tr>
@@ -90,34 +84,25 @@ export default function EventList() {
                   <td className={cn("tableData")}>
                     <Txt size="h6">{event.status}</Txt>
                   </td>
-                  <td className={cn("tableData")}>
-                    <Txt size="h6">{event.publish === true ? "공개" : "비공개"}</Txt>
-                  </td>
-                  <td className={cn("tableData", "publish")}>
-                    <Button
-                      color="primary"
-                      className={cn("btn")}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChangeEventPublish(event.id, true);
-                      }}
-                      disabled={isChangeEventLoading}
-                    >
-                      <Txt color="white" size="h6">
-                        공개
-                      </Txt>
-                    </Button>
-                    <Button
-                      color="gray"
-                      className={cn("btn")}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onChangeEventPublish(event.id, false);
-                      }}
-                      disabled={isChangeEventLoading}
-                    >
-                      <Txt size="h6">비공개</Txt>
-                    </Button>
+                  <td className={cn("tableData", "toggleCell")} onClick={(e) => e.stopPropagation()}>
+                    <div className={cn("toggleContainer")}>
+                      <span className={cn("toggleLabel")}>
+                        <Txt size="h6">{event.publish ? "공개" : "비공개"}</Txt>
+                      </span>
+                      <label className={cn("toggle")}>
+                        <input
+                          type="checkbox"
+                          checked={event.publish}
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            onChangeEventPublish(event.id, e.target.checked);
+                          }}
+                          disabled={isChangeEventLoading}
+                          className={cn("toggleInput")}
+                        />
+                        <span className={cn("toggleSlider")}></span>
+                      </label>
+                    </div>
                   </td>
                 </tr>
               ))
