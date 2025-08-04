@@ -1,7 +1,7 @@
 .embla {
   width: 100%;
   --slide-spacing: 2rem;
-  --slide-size: 70%;
+  --slide-size: 100%;
 }
 
 .embla__viewport {
@@ -11,5 +11,4 @@
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
-  margin-left: calc(var(--slide-spacing) * -1);
 }

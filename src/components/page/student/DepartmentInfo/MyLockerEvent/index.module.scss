@@ -6,6 +6,19 @@
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   margin-left: var(--slide-spacing);
+  max-width: 70rem;
+
+  @include mobile {
+    max-width: 35rem;
+  }
+
+  @include tablet {
+    max-width: 50rem;
+  }
+
+  @include smallDesktop {
+    max-width: 50rem;
+  }
 }
 
 .applyTitle {
