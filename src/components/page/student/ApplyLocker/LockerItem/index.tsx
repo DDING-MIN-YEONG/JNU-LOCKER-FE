@@ -18,13 +18,13 @@ export default function LockerItem({ available, lockerName, onClick }: LockerIte
   };
 
   return (
-    <div
+    <button
       className={cn("container", available ? "applyAble" : "complete", available && "clickable")}
       onClick={handleClick}
     >
       <Txt size="h4" weight="medium" color={available ? "white" : "black"} className={cn("locker")}>
         {lockerName}
       </Txt>
-    </div>
+    </button>
   );
 }
