@@ -3,7 +3,7 @@
   box-shadow: 0 0.4rem 0.8rem 0 #00000040;
   border-radius: 1rem;
   font-size: 1.6rem;
-  height: 21rem;
+  height: auto;
 }
 
 .react-datepicker__navigation {
