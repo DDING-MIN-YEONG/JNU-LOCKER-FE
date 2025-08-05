@@ -3,16 +3,28 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
-import useApplyLocker from "@/hooks/student/apply-locker/useApplyLocker";
 import Button from "@/components/design-system/Button";
 import Txt from "@/components/design-system/Txt";
 import Spinner from "@/components/common/Spinner";
+import { FormEvent, ChangeEvent } from "react";
 
 const cn = classNames.bind(styles);
 
-export default function ApplyLockerForm() {
-  const { formAction, formData, onChange, error, isApplyLockerLoading } = useApplyLocker();
+interface ApplyLockerFormProps {
+  formAction: (e: FormEvent<HTMLFormElement>) => void;
+  formData: { lockerNumber: string; floor: string };
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  error: { isError: boolean; errorMessage: string };
+  isApplyLockerLoading: boolean;
+}
 
+export default function ApplyLockerForm({
+  formAction,
+  formData,
+  onChange,
+  error,
+  isApplyLockerLoading,
+}: ApplyLockerFormProps) {
   return (
     <>
       <form className={cn("container")} onSubmit={formAction}>

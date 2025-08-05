@@ -13,6 +13,14 @@
   background-color: #00c571;
 }
 
+.clickable {
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .locker {
   @include tablet {
     font-size: 2.5rem;
