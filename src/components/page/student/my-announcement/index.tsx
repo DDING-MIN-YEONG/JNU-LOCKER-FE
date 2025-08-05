@@ -6,6 +6,7 @@ import Txt from "@/components/design-system/Txt";
 import MyAnnouncementDetailInfoForm from "@/components/page/student/my-announcement/MyAnnouncementDetailInfoForm";
 import { useMyAnnouncementDetailForm } from "@/hooks/student/announcement/useMyAnnouncementDetailForm";
 import Skeleton from "@/components/common/Skeleton";
+import LeftArrowBtn from "@/components/common/LeftArrowBtn";
 
 const cn = classNames.bind(styles);
 
@@ -22,6 +23,7 @@ export default function MyAnnouncementDetail() {
 
   return (
     <div className={cn("container")}>
+      <LeftArrowBtn />
       <Txt color="primary" size="h3" weight="medium">
         공지사항
       </Txt>
