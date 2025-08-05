@@ -7,6 +7,7 @@ import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
 import Skeleton from "@/components/common/Skeleton";
 import { useMyEventList } from "@/hooks/student/event/useMyEventList";
+import LeftArrowBtn from "@/components/common/LeftArrowBtn";
 
 const cn = classNames.bind(styles);
 
@@ -16,6 +17,7 @@ export default function MyEventList() {
 
   return (
     <div className={cn("container")}>
+      <LeftArrowBtn />
       <Txt color="primary" size="h3" weight="medium">
         이벤트 목록
       </Txt>

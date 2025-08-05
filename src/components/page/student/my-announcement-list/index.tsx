@@ -7,6 +7,7 @@ import Pagination from "@/components/common/Pagination";
 import { formatToKoreanTime } from "@/utils/date";
 import Skeleton from "@/components/common/Skeleton";
 import { useMyAnnouncementList } from "@/hooks/student/announcement/useMyAnnouncementList";
+import LeftArrowBtn from "@/components/common/LeftArrowBtn";
 
 const cn = classNames.bind(styles);
 
@@ -24,6 +25,7 @@ export default function MyAnnouncementList() {
 
   return (
     <div className={cn("container")}>
+      <LeftArrowBtn />
       <Txt color="primary" size="h3" weight="medium">
         공지사항 목록
       </Txt>

@@ -8,12 +8,14 @@ import LockerApplicationStatus from "@/components/page/student/ApplyLocker/Locke
 import ApplyLockerForm from "@/components/page/student/ApplyLocker/Form/index";
 import MyLockerApplicationStatus from "@/components/page/student/ApplyLocker/MyLockerApplicationStatus/index";
 import ApplyInfo from "@/components/page/student/ApplyLocker/ApplyInfo";
+import LeftArrowBtn from "@/components/common/LeftArrowBtn";
 
 const cn = classNames.bind(styles);
 
 export default function ApplyLocker() {
   return (
     <div className={cn("container")}>
+      <LeftArrowBtn />
       <AffiliationContainer />
       <ApplyInfo />
       <div className={cn("contentContainer")}>
