@@ -20,9 +20,17 @@ export const useApplyLockerFormData = () => {
     );
   };
 
+  const setLockerFormData = (lockerName: string, floor: number) => {
+    setFormData({
+      lockerNumber: lockerName,
+      floor: floor.toString(),
+    });
+  };
+
   return {
     formData,
     setFormData,
     onChange,
+    setLockerFormData,
   };
 };

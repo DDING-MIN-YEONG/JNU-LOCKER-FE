@@ -10,7 +10,11 @@ import { useLockerList } from "@/hooks/student/apply-locker/useLockerList";
 
 const cn = classNames.bind(styles);
 
-export default function LockerApplicationStatus() {
+interface LockerApplicationStatusProps {
+  setLockerFormData: (lockerName: string, floor: number) => void;
+}
+
+export default function LockerApplicationStatus({ setLockerFormData }: LockerApplicationStatusProps) {
   const { selectedLockerList, floorList, selectedFloor, onSelectFloor, isLockerLoading } = useLockerList();
 
   return (
@@ -23,7 +27,13 @@ export default function LockerApplicationStatus() {
         <div className={cn("lockerStatusContainer")}>
           <LockerStatusLegend />
         </div>
-        <LockerGrid isLockerLoading={isLockerLoading} lockerList={selectedLockerList} className={cn("gridContainer")} />
+        <LockerGrid
+          isLockerLoading={isLockerLoading}
+          lockerList={selectedLockerList}
+          className={cn("gridContainer")}
+          setLockerFormData={setLockerFormData}
+          selectedFloor={selectedFloor}
+        />
       </div>
     </div>
   );

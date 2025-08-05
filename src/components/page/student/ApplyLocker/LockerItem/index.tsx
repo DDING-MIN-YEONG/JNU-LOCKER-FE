@@ -7,11 +7,21 @@ const cn = classNames.bind(styles);
 interface LockerItemProps {
   available: boolean;
   lockerName: string;
+  onClick: () => void;
 }
 
-export default function LockerItem({ available, lockerName }: LockerItemProps) {
+export default function LockerItem({ available, lockerName, onClick }: LockerItemProps) {
+  const handleClick = () => {
+    if (available) {
+      onClick();
+    }
+  };
+
   return (
-    <div className={cn("container", available ? "applyAble" : "complete")}>
+    <div
+      className={cn("container", available ? "applyAble" : "complete", available && "clickable")}
+      onClick={handleClick}
+    >
       <Txt size="h4" weight="medium" color={available ? "white" : "black"} className={cn("locker")}>
         {lockerName}
       </Txt>

@@ -6,7 +6,7 @@ import { usePostApplyLocker } from "@/hooks/tanstack-query/student/apply-locker/
 import { useGetApplyLockerPageEventId } from "./useGetApplyLockerPageEventId";
 
 const useApplyLocker = () => {
-  const { formData, onChange } = useApplyLockerFormData();
+  const { formData, onChange, setLockerFormData } = useApplyLockerFormData();
 
   const { error, setFormError, clearError } = useFormError();
 
@@ -45,6 +45,7 @@ const useApplyLocker = () => {
     error,
     formAction,
     isApplyLockerLoading,
+    setLockerFormData,
   };
 };
 
