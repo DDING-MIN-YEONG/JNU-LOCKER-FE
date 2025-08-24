@@ -1,6 +1,6 @@
-import axios from "axios";
-import { postReissue } from "@/apis/common/token";
-import { baseInstance } from "./baseInstance";
+import axios, { AxiosResponse, AxiosError } from "axios";
+import { canRetryRequest, getIsRefreshing, isTokenError, processQueue, refreshAccessToken, setIsRefreshing } from "@/functions/axios";
+import { REQUEST_QUEUE, RETRY_HEADER_KEY } from "@/constants/axios";
 
 export const https = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}v1/`,
@@ -11,7 +11,6 @@ export const https = axios.create({
 
 https.interceptors.request.use((config) => {
   const accessToken = typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
-
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
@@ -19,20 +18,33 @@ https.interceptors.request.use((config) => {
 });
 
 https.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
+  (response: AxiosResponse) => response,
+  async (error: AxiosError) => {
     const originalRequest = error.config;
-
-    if (error.response?.status === 401) {
-      const result = await postReissue();
-
-      if (result) {
-        return baseInstance(originalRequest);
-      }
+    if (!isTokenError(error) || !canRetryRequest(originalRequest)) {
+      return Promise.reject(error);
     }
 
-    return Promise.reject(error);
+    if (originalRequest?.headers) {
+      originalRequest.headers[RETRY_HEADER_KEY] = true;
+    }
+
+    return new Promise<AxiosResponse>((resolve, reject) => {
+      REQUEST_QUEUE.push({ resolve, reject, config: originalRequest! });
+
+      if (getIsRefreshing()) {
+        return;
+      }
+
+      setIsRefreshing(true);
+
+      refreshAccessToken()
+        .then((newAccessToken) => {
+          processQueue(null, newAccessToken);
+        })
+        .catch((refreshError) => {
+          processQueue(refreshError, null);
+        });
+    });
   },
 );
