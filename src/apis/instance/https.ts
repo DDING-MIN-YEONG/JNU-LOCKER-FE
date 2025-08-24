@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 import { postReissue } from "@/apis/common/token";
 import { baseInstance } from "./baseInstance";
-// 재시도 헤더 키 상수
+
 const RETRY_HEADER_KEY = "retry";
 
 export const https = axios.create({
@@ -90,7 +90,6 @@ https.interceptors.response.use(
 
       isRefreshing = true;
 
-      // 토큰 갱신 시도
       refreshAccessToken()
         .then((newAccessToken) => {
           processQueue(null, newAccessToken);
