@@ -1,5 +1,12 @@
 import axios, { AxiosResponse, AxiosError } from "axios";
-import { canRetryRequest, getIsRefreshing, isTokenError, processQueue, refreshAccessToken, setIsRefreshing } from "@/functions/axios";
+import {
+  canRetryRequest,
+  getIsRefreshing,
+  isTokenError,
+  processQueue,
+  refreshAccessToken,
+  setIsRefreshing,
+} from "@/functions/axios";
 import { REQUEST_QUEUE, RETRY_HEADER_KEY } from "@/constants/axios";
 
 export const https = axios.create({

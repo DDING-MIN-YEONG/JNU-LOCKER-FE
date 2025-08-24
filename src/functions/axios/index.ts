@@ -1,6 +1,6 @@
 import { postReissue } from "@/apis/common/token";
 import { baseInstance } from "@/apis/instance/baseInstance";
-import {  REQUEST_QUEUE, RETRY_HEADER_KEY } from "@/constants/axios";
+import { REQUEST_QUEUE, RETRY_HEADER_KEY } from "@/constants/axios";
 import { AxiosError, AxiosRequestConfig } from "axios";
 
 export const isTokenError = (error: AxiosError): boolean => {
@@ -20,7 +20,6 @@ export const refreshAccessToken = async (): Promise<string> => {
 };
 
 let IS_REFRESHING = false;
-
 
 export const getIsRefreshing = () => IS_REFRESHING;
 
