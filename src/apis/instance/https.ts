@@ -49,8 +49,8 @@ https.interceptors.response.use(
         .then((newAccessToken) => {
           processQueue(null, newAccessToken);
         })
-        .catch((refreshError) => {
-          processQueue(refreshError, null);
+        .catch(() => {
+          processQueue(error, null);
         });
     });
   },

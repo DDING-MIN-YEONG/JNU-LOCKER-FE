@@ -1,6 +1,6 @@
 import { postReissue } from "@/apis/common/token";
 import { baseInstance } from "@/apis/instance/baseInstance";
-import { REQUEST_QUEUE, RETRY_HEADER_KEY } from "@/constants/axios";
+import { REQUEST_QUEUE, RETRY_HEADER_KEY, REFRESH_TOKEN_ERROR_MESSAGE } from "@/constants/axios";
 import { AxiosError, AxiosRequestConfig } from "axios";
 
 export const isTokenError = (error: AxiosError): boolean => {
@@ -14,7 +14,7 @@ export const canRetryRequest = (config: AxiosRequestConfig | undefined): boolean
 export const refreshAccessToken = async (): Promise<string> => {
   const result = await postReissue();
   if (!result) {
-    throw new Error("토큰 갱신에 실패했습니다.");
+    throw new Error(REFRESH_TOKEN_ERROR_MESSAGE);
   }
   return result.accessToken;
 };

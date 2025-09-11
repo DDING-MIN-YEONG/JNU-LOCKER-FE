@@ -11,3 +11,7 @@ export interface ApiResponseError {
     };
   };
 }
+
+export interface ApiResponseErrorWithMessage {
+  message: string;
+}

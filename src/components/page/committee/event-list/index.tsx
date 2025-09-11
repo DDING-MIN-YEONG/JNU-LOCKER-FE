@@ -9,7 +9,6 @@ import { formatToKoreanTime } from "@/utils/date";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Skeleton from "@/components/common/Skeleton";
-import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 
@@ -123,7 +122,6 @@ export default function EventList() {
           setPage={setPage}
         />
       </div>
-      {isChangeEventLoading && <Spinner />}
     </>
   );
 }

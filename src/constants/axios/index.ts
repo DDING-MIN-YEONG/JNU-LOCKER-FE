@@ -9,3 +9,5 @@ interface QueuedRequest {
 }
 
 export const REQUEST_QUEUE: QueuedRequest[] = [];
+
+export const REFRESH_TOKEN_ERROR_MESSAGE = "토큰 갱신에 실패했습니다.";
