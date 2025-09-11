@@ -13,15 +13,34 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
   const queryClient = useQueryClient();
 
   const onChangeEventPublish = (id: string, isPublish: boolean) => {
+    const queryKey = ["eventList", page, size, direction];
+
+    // 현재 캐시된 데이터를 백업
+    const previousData = queryClient.getQueryData(queryKey);
+
+    // Optimistic update: UI를 즉시 업데이트
+    queryClient.setQueryData(queryKey, (oldData: any) => {
+      if (!oldData) return oldData;
+
+      return {
+        ...oldData,
+        content: oldData.content.map((event: any) => (event.id === id ? { ...event, publish: isPublish } : event)),
+      };
+    });
+
     mutate(
       { id, isPublish },
       {
         onError: (error) => {
+          // 에러 발생 시 이전 데이터로 롤백
+          queryClient.setQueryData(queryKey, previousData);
           alert(error.response.data.message || "이벤트 게시 상태 변경에 실패하였습니다.");
         },
         onSuccess: () => {
-          queryClient.invalidateQueries({ queryKey: ["eventList", page, size, direction] });
           alert("이벤트 게시 상태가 변경되었습니다.");
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries({ queryKey: ["eventList", page, size, direction] });
         },
       },
     );
