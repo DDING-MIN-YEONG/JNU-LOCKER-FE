@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { putEventPublish } from "@/apis/committee/event";
 import { ApiResponseError } from "@/types/common/api";
+import { EventList } from "@/apis/dtos/committee/event";
 
 interface usePutEventPublishParams {
   page: number;
@@ -15,16 +16,15 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
   const onChangeEventPublish = (id: string, isPublish: boolean) => {
     const queryKey = ["eventList", page, size, direction];
 
-    // 현재 캐시된 데이터를 백업
     const previousData = queryClient.getQueryData(queryKey);
 
     // Optimistic update: UI를 즉시 업데이트
-    queryClient.setQueryData(queryKey, (oldData: any) => {
+    queryClient.setQueryData(queryKey, (oldData: EventList) => {
       if (!oldData) return oldData;
 
       return {
         ...oldData,
-        content: oldData.content.map((event: any) => (event.id === id ? { ...event, publish: isPublish } : event)),
+        content: oldData.content.map((event) => (event.id === id ? { ...event, publish: isPublish } : event)),
       };
     });
 
@@ -32,9 +32,8 @@ export const usePutEventPublish = ({ page, size, direction }: usePutEventPublish
       { id, isPublish },
       {
         onError: (error) => {
-          // 에러 발생 시 이전 데이터로 롤백
           queryClient.setQueryData(queryKey, previousData);
-          alert(error.response.data.message || "이벤트 게시 상태 변경에 실패하였습니다.");
+          alert(error?.response?.data?.message || "이벤트 게시 상태 변경에 실패하였습니다.");
         },
         onSuccess: () => {
           alert("이벤트 게시 상태가 변경되었습니다.");
