@@ -1,11 +1,12 @@
-name: PR 빌드 체크
+name: PR Build Check # 영어로 변경
 
 on:
   pull_request:
     branches: ["main", "dev"]
 
 jobs:
-  build:
+  build: # 간단한 job 이름
+    name: Build Check
     runs-on: ubuntu-latest
 
     steps:
@@ -15,12 +16,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.16.0
+          node-version: "22" # 버전 문자열로 변경
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8.15.0
+        run: npm install -g pnpm@8.15.0
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
