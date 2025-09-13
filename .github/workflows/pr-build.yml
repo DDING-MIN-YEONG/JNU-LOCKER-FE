@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-    name: PR 빌드 체크
     runs-on: ubuntu-latest
 
     steps:
