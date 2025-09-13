@@ -1,12 +1,12 @@
-name: PR Build Check # 영어로 변경
+name: PR Build Check
 
 on:
   pull_request:
     branches: ["main", "dev"]
 
 jobs:
-  build: # 간단한 job 이름
-    name: Build Check
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22" # 버전 문자열로 변경
+          node-version: "22"
 
       - name: Install pnpm
         run: npm install -g pnpm@8.15.0
