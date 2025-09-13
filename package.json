@@ -36,5 +36,10 @@
     "prettier": "^3.5.3",
     "typescript": "^5",
     "webpack": "^5.99.9"
-  }
+  },
+  "engines": {
+    "node": ">=22.16.0",
+    "pnpm": ">=8.15.0"
+  },
+  "packageManager": "pnpm@8.15.0"
 }
