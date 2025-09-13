@@ -5,6 +5,7 @@ on:
     branches: ["main", "dev"]
 
 jobs:
+  name: build (pull_request)
   build:
     runs-on: ubuntu-latest
 
