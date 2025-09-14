@@ -1,0 +1,59 @@
+.container {
+  @include flexSort(column, null, null, 2rem);
+
+  @include smallDesktop {
+    width: 60%;
+  }
+
+  @include desktop {
+    width: 80rem;
+  }
+}
+
+.title {
+  @include tablet {
+    font-size: 2.7rem !important;
+  }
+
+  @include smallDesktop {
+    font-size: 3rem !important;
+  }
+
+  @include desktop {
+    font-size: 3rem !important;
+  }
+}
+
+.contentContainer {
+  @include flexSort(column, null, null, 1rem);
+
+  @include tablet {
+    gap: 2rem;
+  }
+
+  @include smallDesktop {
+    gap: 3rem;
+  }
+
+  @include desktop {
+    gap: 3rem;
+  }
+}
+
+.lockerStatusContainer {
+  @include flexSort(row, flex-end, null, null);
+}
+
+.gridContainer {
+  width: 100%;
+  max-height: 33rem;
+  overflow-y: scroll;
+
+  @include smallDesktop {
+    max-height: 60rem;
+  }
+
+  @include desktop {
+    max-height: 60rem;
+  }
+}

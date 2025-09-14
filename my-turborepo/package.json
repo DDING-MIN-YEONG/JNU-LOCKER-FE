@@ -2,6 +2,8 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
     "dev:student": "turbo run dev --filter=student",
     "https:student": "turbo run https --filter=student",
     "build:student": "turbo run build --filter=student",

@@ -1,0 +1,21 @@
+.container {
+  padding: 4rem 3rem;
+}
+
+.titleContainer {
+  @include flexSort(column, null, center, 2rem);
+  margin-bottom: 11rem;
+}
+
+.subTitle {
+  font-size: 3.5rem;
+}
+
+.linkContainer {
+  margin-top: 1.3rem;
+  @include flexSort(row, space-between, null, null);
+}
+
+.link {
+  opacity: 0.6;
+}

@@ -1,0 +1,8 @@
+.container {
+  padding: 2rem 3rem;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.contentContainer {
+  @include flexSort(column, null, null, 9rem);
+}

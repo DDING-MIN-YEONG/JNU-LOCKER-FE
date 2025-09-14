@@ -1,0 +1,43 @@
+.container {
+  padding: 2rem 3rem;
+  @include flexSort(column, null, null, 3rem);
+
+  @include tablet {
+    padding: 4rem 6rem;
+  }
+
+  @include smallDesktop {
+    padding: 4rem 6rem;
+  }
+
+  @include desktop {
+    @include flexSort(column, null, center, 3rem);
+  }
+}
+
+.contentContainer {
+  @include flexSort(column, null, null, 3rem);
+
+  @include smallDesktop {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  @include desktop {
+    max-width: 150rem;
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.formApplicationStatusContainer {
+  @include flexSort(column, null, null, 3rem);
+
+  @include smallDesktop {
+    flex: 1;
+  }
+
+  @include desktop {
+    width: 60rem;
+  }
+}
