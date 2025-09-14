@@ -1,0 +1,7 @@
+---
+description: 모노레포 (turborepo)
+globs:
+alwaysApply: true
+
+모노레포를 새로 구성하고 있는데 https://turborepo.com/ 사이트를 참조해서 답변해줘
+---
