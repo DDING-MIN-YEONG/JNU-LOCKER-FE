@@ -73,6 +73,9 @@ importers:
 
   apps/student:
     dependencies:
+      '@repo/settings':
+        specifier: workspace:*
+        version: link:../../packages/settings
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -143,6 +146,37 @@ importers:
       typescript-eslint:
         specifier: ^8.40.0
         version: 8.43.0(eslint@9.35.0)(typescript@5.9.2)
+
+  packages/settings:
+    dependencies:
+      react:
+        specifier: ^19.1.0
+        version: 19.1.1
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.1(react@19.1.1)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.18.3
+      '@types/react':
+        specifier: 19.1.0
+        version: 19.1.0
+      '@types/react-dom':
+        specifier: 19.1.1
+        version: 19.1.1(@types/react@19.1.0)
+      eslint:
+        specifier: ^9.34.0
+        version: 9.35.0
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
 
   packages/typescript-config: {}
 
