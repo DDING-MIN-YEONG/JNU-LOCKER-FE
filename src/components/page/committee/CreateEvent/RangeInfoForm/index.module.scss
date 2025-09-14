@@ -1,0 +1,11 @@
+.container {
+  background-color: white;
+  border-radius: 1rem;
+  @include flexSort(row, null, flex-end, 1rem);
+  padding: 2rem;
+}
+
+.deleteRangeBtn {
+  width: 12rem;
+  height: 5rem;
+}

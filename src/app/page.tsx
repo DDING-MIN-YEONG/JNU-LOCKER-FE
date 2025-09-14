@@ -1,3 +1,11 @@
+import ApplyHeader from "@/components/common/ApplyHeader";
+import Main from "@/components/page/student/Main";
+
 export default function Home() {
-  return <div>메인</div>;
+  return (
+    <>
+      <ApplyHeader showLogoutButton={false} />
+      <Main />
+    </>
+  );
 }

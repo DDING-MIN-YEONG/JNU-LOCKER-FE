@@ -1,0 +1,26 @@
+.container {
+  border: 0.1rem solid #c1c1c1;
+  padding: 2rem;
+  border-radius: 1rem;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.floorTitle,
+.prefixTitle {
+  @include flexSort(row, space-between, center, null);
+}
+
+.deleteFloorBtn {
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  margin-left: auto;
+}
+
+.prefixContainer {
+  @include flexSort(column, null, null, 2rem);
+}
+
+.addPrefixBtn {
+  width: fit-content;
+  padding: 1rem 1.5rem;
+}

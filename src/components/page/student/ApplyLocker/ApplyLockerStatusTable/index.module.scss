@@ -1,0 +1,79 @@
+.container {
+  border: 0.1rem solid #e3e3e3;
+}
+
+.skeleton {
+  width: 100%;
+  height: 20rem;
+}
+
+.header {
+  @include font(1.4rem, 400, normal);
+
+  @include tablet {
+    font-size: 1.7rem;
+  }
+
+  @include smallDesktop {
+    font-size: 2rem;
+  }
+
+  @include desktop {
+    font-size: 2.2rem;
+  }
+}
+
+.th {
+  padding: 0.5rem;
+  border-right: 0.1rem solid #e3e3e3;
+  border-bottom: 0.1rem solid #e3e3e3;
+  background-color: #f9f9f9;
+}
+
+.td {
+  text-align: center;
+  @include font(1.3rem, 400, normal);
+  border-right: 0.1rem solid #e3e3e3;
+  border-bottom: 0.1rem solid #e3e3e3;
+  padding: 0.5rem;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
+
+  @include smallDesktop {
+    font-size: 1.8rem;
+  }
+
+  @include desktop {
+    font-size: 2rem;
+  }
+}
+
+.deleteBtnContainer {
+  @include flexSort(row, center, center, null);
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid #e3e3e3;
+}
+
+.deleteBtn {
+  background-color: #ff3543;
+  @include flexSort(row, center, center, null);
+  @include font(1.2rem, 600, normal);
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+
+  @include tablet {
+    padding: 0.4rem 0.7rem;
+    font-size: 1.5rem;
+  }
+
+  @include smallDesktop {
+    font-size: 1.6rem;
+  }
+
+  @include desktop {
+    font-size: 1.8rem;
+  }
+}

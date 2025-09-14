@@ -1,0 +1,30 @@
+.header {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 1rem 1rem 0 0;
+  border: 0.1rem solid #c1c1c1;
+}
+
+.floorContainer {
+  padding: 3rem;
+  border: 0.1rem solid #c1c1c1;
+  border-radius: 0 0 1rem 1rem;
+  border-top: 0;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.addFloorBtn {
+  width: fit-content;
+  padding: 1rem 1.5rem;
+}
+
+.createEventBtn,
+.deleteBtn {
+  width: fit-content;
+  padding: 1.5rem;
+}
+
+.btnContainer {
+  @include flexSort(row, null, center, 1rem);
+  margin-left: auto;
+}

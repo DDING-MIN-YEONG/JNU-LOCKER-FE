@@ -1,0 +1,112 @@
+.skeleton {
+  width: 100%;
+  height: 30rem;
+}
+
+.container {
+  padding: 4rem;
+  @include flexSort(column, null, null, 3rem);
+}
+
+.header {
+  @include flexSort(row, space-between, center, null);
+}
+
+.createEvent {
+  background-color: $primary;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.tableHeaderContainer {
+  background-color: $primary;
+  border: 0.2rem solid $primary;
+}
+
+.tableHeader {
+  padding: 2rem;
+}
+
+.tr {
+  border-bottom: 0.2rem solid $primary;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.tableData {
+  text-align: center;
+  padding: 1.5rem;
+
+  &:first-child {
+    border-left: 0.2rem solid $primary;
+  }
+
+  &:last-child {
+    border-right: 0.2rem solid $primary;
+  }
+}
+
+.toggleCell {
+  @include flexSort(row, center, center, null);
+}
+
+.toggleContainer {
+  @include flexSort(row, center, center, 1rem);
+}
+
+.toggleLabel {
+  min-width: 5rem;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 5rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+.toggleInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .toggleSlider {
+    background-color: $primary; // 활성화 시 primary 컬러
+  }
+
+  &:checked + .toggleSlider:before {
+    transform: translateX(2.6rem); // 슬라이더 이동
+  }
+
+  &:disabled + .toggleSlider {
+    opacity: 0.5; // 비활성화 시 투명도 적용
+    cursor: not-allowed;
+  }
+}
+
+.toggleSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; // 기본 회색 배경
+  border-radius: 3.4rem;
+  transition: all 0.3s ease; // 부드러운 애니메이션
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 1.8rem;
+    width: 1.8rem;
+    left: 0.3rem;
+    bottom: 0.3rem;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease; // 슬라이더 이동 애니메이션
+  }
+}

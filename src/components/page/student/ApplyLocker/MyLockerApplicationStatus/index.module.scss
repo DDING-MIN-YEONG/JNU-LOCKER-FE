@@ -1,0 +1,17 @@
+.container {
+  @include flexSort(column, null, null, 2rem);
+}
+
+.title {
+  @include tablet {
+    font-size: 2.7rem;
+  }
+
+  @include smallDesktop {
+    font-size: 3rem;
+  }
+
+  @include desktop {
+    font-size: 3rem;
+  }
+}

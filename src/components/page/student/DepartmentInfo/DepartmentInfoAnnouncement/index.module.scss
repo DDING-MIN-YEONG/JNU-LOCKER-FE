@@ -1,0 +1,26 @@
+.skeleton {
+  height: 15rem;
+}
+
+.container {
+  @include flexSort(column, null, null, 1.5rem);
+}
+
+.announcementContainer {
+  border-radius: 1rem;
+  border: 0.1rem solid #ddd;
+  padding: 2rem;
+}
+
+.announcement {
+  @include line-clamp(2);
+}
+
+.moreLinkContainer {
+  @include flexSort(row, flex-end, null, null);
+}
+
+.moreLink {
+  text-decoration-line: underline;
+  text-underline-position: from-font;
+}
