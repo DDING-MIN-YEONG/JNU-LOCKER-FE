@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "dev:student": "turbo run dev --filter=student",
+    "https:student": "turbo run https --filter=student",
     "build:student": "turbo run build --filter=student",
     "dev:manager": "turbo run dev --filter=manager",
+    "https:manager": "turbo run https --filter=manager",
     "build:manager": "turbo run build --filter=manager",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
