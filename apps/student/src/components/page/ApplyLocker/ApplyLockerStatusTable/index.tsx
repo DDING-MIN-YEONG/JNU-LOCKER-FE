@@ -1,10 +1,10 @@
 "use client";
 
+import { useMyRegistrationLocker } from "@/hooks/apply-locker/useMyRegistrationLocker";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import { useMyRegistrationLocker } from "@/hooks/apply-locker/useMyRegistrationLocker";
-import Txt from "@repo/ui/design-system/Txt/index";
-import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 

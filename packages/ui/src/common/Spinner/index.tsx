@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 
+import SpinnerPortal from "../SpinnerPortal";
 import styles from "./index.module.scss";
-import SpinnerPortal from "@/components/common/SpinnerPortal";
 
 const cn = classNames.bind(styles);
 

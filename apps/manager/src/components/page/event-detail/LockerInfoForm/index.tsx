@@ -1,12 +1,12 @@
-import Txt from "@repo/ui/design-system/Txt/index";
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import "react-datepicker/dist/react-datepicker.css";
 import { EventDetailForm } from "@/types/event";
 import Button from "@repo/ui/design-system/Button/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./index.module.scss";
 
+import Spinner from "@repo/ui/common/Spinner/index";
 import EventDetailFloorInfoForm from "../FloorInfoForm";
-import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 

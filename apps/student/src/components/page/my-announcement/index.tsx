@@ -1,12 +1,12 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
+import LeftArrowBtn from "@/components/common/LeftArrowBtn";
 import MyAnnouncementDetailInfoForm from "@/components/page/my-announcement/MyAnnouncementDetailInfoForm";
 import { useMyAnnouncementDetailForm } from "@/hooks/announcement/useMyAnnouncementDetailForm";
-import Skeleton from "@/components/common/Skeleton";
-import LeftArrowBtn from "@/components/common/LeftArrowBtn";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

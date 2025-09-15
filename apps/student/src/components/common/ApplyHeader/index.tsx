@@ -1,13 +1,13 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Link from "next/link";
-import { ROUTE } from "@/constants/routes";
 import StudentLogo from "@/components/common/StudentLogo";
-import Button from "@repo/ui/design-system/Button/index";
+import { ROUTE } from "@/constants/routes";
 import { useStudentLogout } from "@/hooks/tanstack-query/auth/useStudentLogout";
-import Spinner from "@/components/common/Spinner";
+import Spinner from "@repo/ui/common/Spinner/index";
+import Button from "@repo/ui/design-system/Button/index";
+import classNames from "classnames/bind";
+import Link from "next/link";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

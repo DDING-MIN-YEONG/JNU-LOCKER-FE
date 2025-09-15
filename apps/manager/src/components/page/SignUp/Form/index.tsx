@@ -2,14 +2,14 @@
 
 import Button from "@repo/ui/design-system/Button/index";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
-import useCommitteeSignUpForm from "@/hooks/sign-up/useCommitteeSignUpForm";
 import { Selector } from "@/components/common/Selector";
 import { COMMITTEE_SIGN_UP_CATEGORY } from "@/constants/sign-up";
-import TextInput from "@/components/common/TextInput";
-import Spinner from "@/components/common/Spinner";
+import useCommitteeSignUpForm from "@/hooks/sign-up/useCommitteeSignUpForm";
+import Spinner from "@repo/ui/common/Spinner/index";
+import TextInput from "@repo/ui/common/TextInput/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

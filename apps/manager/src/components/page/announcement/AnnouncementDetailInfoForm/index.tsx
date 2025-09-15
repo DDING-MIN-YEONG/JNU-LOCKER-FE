@@ -1,15 +1,14 @@
-import Txt from "@repo/ui/design-system/Txt/index";
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import TextInput from "@/components/common/TextInput";
-import "react-datepicker/dist/react-datepicker.css";
-import Button from "@repo/ui/design-system/Button/index";
-
-import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
+import { Selector } from "@/components/common/Selector";
 import { AnnouncementDetailForm } from "@/types/announcement";
 import { formatToKoreanTime } from "@/utils/date";
-import Spinner from "@/components/common/Spinner";
+import Spinner from "@repo/ui/common/Spinner/index";
+import TextInput from "@repo/ui/common/TextInput/index";
+import Button from "@repo/ui/design-system/Button/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

@@ -1,14 +1,14 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
-import Pagination from "@/components/common/Pagination";
 import { useApplyDetail } from "@/hooks/apply/useApplyDetail";
-import Skeleton from "@/components/common/Skeleton";
 import { formatToKoreanTime } from "@/utils/date";
-import * as XLSX from "xlsx";
+import Pagination from "@repo/ui/common/Pagination/index";
+import Skeleton from "@repo/ui/common/Skeleton/index";
 import Button from "@repo/ui/design-system/Button/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import * as XLSX from "xlsx";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

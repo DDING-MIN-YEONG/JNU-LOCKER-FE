@@ -1,12 +1,12 @@
 "use client";
 
+import { useApplyList } from "@/hooks/apply/useApplyList";
+import { formatToKoreanTime } from "@/utils/date";
+import Pagination from "@repo/ui/common/Pagination/index";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
-import Pagination from "@/components/common/Pagination";
-import { formatToKoreanTime } from "@/utils/date";
-import { useApplyList } from "@/hooks/apply/useApplyList";
-import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 

@@ -1,10 +1,10 @@
 "use client";
 
+import AffiliationLabel from "@/components/common/AffiliationLabel";
+import { useStudentMyInfo } from "@/hooks/common/useStudentMyInfo";
+import Skeleton from "@repo/ui/common/Skeleton/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import AffiliationLabel from "@/components/common/AffiliationLabel";
-import Skeleton from "@/components/common/Skeleton";
-import { useStudentMyInfo } from "@/hooks/common/useStudentMyInfo";
 
 const cn = classNames.bind(styles);
 

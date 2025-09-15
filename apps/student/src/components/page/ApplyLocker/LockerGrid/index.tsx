@@ -1,7 +1,7 @@
+import LockerItem from "@/components/page/ApplyLocker/LockerItem/index";
+import Skeleton from "@repo/ui/common/Skeleton/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import LockerItem from "@/components/page/ApplyLocker/LockerItem/index";
-import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);
 

@@ -1,14 +1,14 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
-import MyLockerEventCarousel from "../MyLockerEventCarousel";
-import { EmblaOptionsType } from "embla-carousel";
-import { useGetMyEvent } from "@/hooks/tanstack-query/department-info/useGetMyEvent";
-import Skeleton from "@/components/common/Skeleton";
-import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
+import { useGetMyEvent } from "@/hooks/tanstack-query/department-info/useGetMyEvent";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import { EmblaOptionsType } from "embla-carousel";
+import Link from "next/link";
+import MyLockerEventCarousel from "../MyLockerEventCarousel";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

@@ -1,11 +1,11 @@
 "use client";
 
-import TextInput from "@/components/common/TextInput";
+import useResetPassword from "@/hooks/reset-password/useResetPassword";
+import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
+import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import useResetPassword from "@/hooks/reset-password/useResetPassword";
-import Txt from "@repo/ui/design-system/Txt/index";
 
 const cn = classNames.bind(styles);
 

@@ -1,5 +1,5 @@
-import CommitteeMain from "@/components/page/Main";
+import Main from "@/components/page/Main";
 
-export default function CommitteeMainPage() {
-  return <CommitteeMain />;
+export default function MainPage() {
+  return <Main />;
 }

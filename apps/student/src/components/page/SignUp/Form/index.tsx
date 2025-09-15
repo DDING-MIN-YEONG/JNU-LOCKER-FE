@@ -1,13 +1,13 @@
 "use client";
 
-import TextInput from "@/components/common/TextInput";
+import { Selector } from "@/components/common/Selector";
+import useStudentSignUpForm from "@/hooks/sign-up/useStudentSignUp";
+import Spinner from "@repo/ui/common/Spinner/index";
+import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
+import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
-import useStudentSignUpForm from "@/hooks/sign-up/useStudentSignUp";
-import Txt from "@repo/ui/design-system/Txt/index";
-import { Selector } from "@/components/common/Selector";
-import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);
 

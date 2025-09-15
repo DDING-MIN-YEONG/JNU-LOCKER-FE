@@ -1,14 +1,14 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
-import { useEventList } from "@/hooks/event/useEventList";
-import Pagination from "@/components/common/Pagination";
-import { formatToKoreanTime } from "@/utils/date";
-import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
-import Skeleton from "@/components/common/Skeleton";
+import { useEventList } from "@/hooks/event/useEventList";
+import { formatToKoreanTime } from "@/utils/date";
+import Pagination from "@repo/ui/common/Pagination/index";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import Link from "next/link";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

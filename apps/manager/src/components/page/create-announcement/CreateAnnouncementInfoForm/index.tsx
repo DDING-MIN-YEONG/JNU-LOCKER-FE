@@ -1,15 +1,15 @@
+import TextInput from "@repo/ui/common/TextInput/index";
+import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
-import Button from "@repo/ui/design-system/Button/index";
+import styles from "./index.module.scss";
 
-import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
-import { CreateAnnouncementForm } from "@/types/announcement";
+import { Selector } from "@/components/common/Selector";
 import { MAX_ANNOUNCEMENT_CONTENT_LENGTH, MAX_ANNOUNCEMENT_TITLE_LENGTH } from "@/constants/create-announcement";
-import Spinner from "@/components/common/Spinner";
+import { CreateAnnouncementForm } from "@/types/announcement";
+import Spinner from "@repo/ui/common/Spinner/index";
 
 const cn = classNames.bind(styles);
 

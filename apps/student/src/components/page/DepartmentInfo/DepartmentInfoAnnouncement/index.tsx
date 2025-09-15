@@ -1,12 +1,12 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
-import Txt from "@repo/ui/design-system/Txt/index";
 import { useGetMyAnnouncement } from "@/hooks/tanstack-query/department-info/useGetMyAnnouncement";
-import Skeleton from "@/components/common/Skeleton";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import Link from "next/link";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

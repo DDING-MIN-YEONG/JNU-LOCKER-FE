@@ -1,14 +1,14 @@
+import { CreateEventForm } from "@/types/event";
+import TextInput from "@repo/ui/common/TextInput/index";
+import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
-import { CreateEventForm } from "@/types/event";
-import Button from "@repo/ui/design-system/Button/index";
+import styles from "./index.module.scss";
 
-import CreateEventRangeInfoForm from "../RangeInfoForm";
-import { useContext } from "react";
 import { ApplyFormContext } from "@/stores/apply-locker";
+import { useContext } from "react";
+import CreateEventRangeInfoForm from "../RangeInfoForm";
 
 const cn = classNames.bind(styles);
 

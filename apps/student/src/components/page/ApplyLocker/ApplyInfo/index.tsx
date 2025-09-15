@@ -1,11 +1,11 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import Txt from "@repo/ui/design-system/Txt/index";
 import { useLockerInfo } from "@/hooks/apply-locker/useLockerInfo";
 import { formatToKoreanTime } from "@/utils/date";
-import Skeleton from "@/components/common/Skeleton";
+import Skeleton from "@repo/ui/common/Skeleton/index";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 

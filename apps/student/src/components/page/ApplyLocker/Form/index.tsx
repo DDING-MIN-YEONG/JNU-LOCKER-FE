@@ -1,12 +1,12 @@
 "use client";
 
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import TextInput from "@/components/common/TextInput";
+import Spinner from "@repo/ui/common/Spinner/index";
+import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
-import Spinner from "@/components/common/Spinner";
-import { FormEvent, ChangeEvent } from "react";
+import classNames from "classnames/bind";
+import { ChangeEvent, FormEvent } from "react";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 
