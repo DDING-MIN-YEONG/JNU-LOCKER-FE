@@ -1,6 +1,7 @@
 {
   "name": "@repo/settings",
   "version": "0.0.0",
+  "type": "module",
   "private": true,
   "exports": {
     "./components/*": "./src/components/*.tsx"
