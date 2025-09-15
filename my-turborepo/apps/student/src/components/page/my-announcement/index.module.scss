@@ -1,9 +1,0 @@
-.container {
-  padding: 4rem;
-  @include flexSort(column, null, null, 3rem);
-}
-
-.skeleton {
-  margin: 4rem;
-  height: 45rem;
-}
