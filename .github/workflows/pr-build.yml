@@ -68,22 +68,3 @@ jobs:
             echo "❌ Manager 빌드 실패"
             exit 1
           fi
-
-  build-success-check:
-    name: Build Success Check
-    runs-on: ubuntu-latest
-    needs: [student-build, manager-build]
-    if: always()
-
-    steps:
-      - name: Check All Builds
-        run: |
-          if [ "${{ needs.student-build.result }}" = "success" ] && [ "${{ needs.manager-build.result }}" = "success" ]; then
-            echo "🎉 모든 빌드 성공!"
-            exit 0
-          else
-            echo "❌ 일부 빌드 실패"
-            echo "Student: ${{ needs.student-build.result }}"
-            echo "Manager: ${{ needs.manager-build.result }}"
-            exit 1
-          fi
