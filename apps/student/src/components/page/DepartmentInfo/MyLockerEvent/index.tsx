@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@repo/ui/design-system/Txt/index";
-import { MyEventType } from "@/types/student/department-info";
+import { MyEventType } from "@/types/department-info";
 import { formatToKoreanTime } from "@/utils/date";
 
 const cn = classNames.bind(styles);

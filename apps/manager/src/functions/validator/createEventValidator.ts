@@ -1,5 +1,5 @@
 import { CREATE_EVENT_VALIDATION } from "@/constants/validation/createEvent";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 
 export const createEventValidator = (formData: CreateEventForm) => {
   if (!formData.title) {

@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 import Button from "@repo/ui/design-system/Button/index";
 
 import CreateEventPrefixInfoForm from "../PrefixInfoForm";

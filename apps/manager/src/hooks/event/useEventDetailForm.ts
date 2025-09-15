@@ -1,15 +1,15 @@
 import { CREATE_EVENT_VALIDATION } from "@/constants/validation/createEvent";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
-import { CreateEventForm, EventDetailForm } from "@/types/committee/event";
+import { CreateEventForm, EventDetailForm } from "@/types/event";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useGetEventId } from "@/hooks/common/useGetEventId";
-import { useGetEvent } from "@/hooks/tanstack-query/committee/event/useGetEvent";
+import { useGetEvent } from "@/hooks/tanstack-query/event/useGetEvent";
 import { ApiResponseError } from "@/types/common/api";
 import { useCommitteeCertification } from "../sign-in/useCommitteeCertification";
-import { usePutEvent } from "@/hooks/tanstack-query/committee/event/usePutEvent";
+import { usePutEvent } from "@/hooks/tanstack-query/event/usePutEvent";
 import { putEventValidator } from "@/functions/validator/putEventValidator";
 import { convertPutEventForm } from "@/functions/convertPutEventForm";
-import { useDeleteEvent } from "@/hooks/tanstack-query/committee/event/useDeleteEvent";
+import { useDeleteEvent } from "@/hooks/tanstack-query/event/useDeleteEvent";
 
 export const useEventDetailForm = () => {
   const { eventId } = useGetEventId();

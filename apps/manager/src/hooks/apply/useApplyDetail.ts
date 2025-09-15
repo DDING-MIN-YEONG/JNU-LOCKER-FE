@@ -1,10 +1,10 @@
 import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useApplyDetailPagination } from "@/hooks/apply/useApplyDetailPagination";
-import { useGetApplyDetailQuery } from "@/hooks/tanstack-query/committee/event/useGetApplyDetail";
+import { useGetApplyDetailQuery } from "@/hooks/tanstack-query/event/useGetApplyDetail";
 import { useGetApplyDetailPageEventId } from "../apply/useGetApplyDetailPageEventId";
 import { ApiResponseError } from "@/types/common/api";
 import { useCommitteeCertification } from "@/hooks/sign-in/useCommitteeCertification";
-import { useGetEvent } from "@/hooks/tanstack-query/committee/event/useGetEvent";
+import { useGetEvent } from "@/hooks/tanstack-query/event/useGetEvent";
 
 export const useApplyDetail = () => {
   const { page: currentPage } = useGetPageParams();

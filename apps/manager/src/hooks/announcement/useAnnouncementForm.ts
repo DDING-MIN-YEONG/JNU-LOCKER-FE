@@ -1,15 +1,15 @@
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { ChangeEvent, useEffect, useState } from "react";
-import { AnnouncementDetailForm } from "@/types/committee/announcement";
+import { AnnouncementDetailForm } from "@/types/announcement";
 import { createAnnouncementValidator } from "@/functions/validator/createAnnouncementValidator";
 import { CREATE_ANNOUNCEMENT_VALIDATION } from "@/constants/validation/createAnnouncement";
-import { useGetAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useGetAnnouncement";
+import { useGetAnnouncement } from "@/hooks/tanstack-query/announcement/useGetAnnouncement";
 import { useGetAnnouncementId } from "@/hooks/common/useGetPageAnnouncementId";
-import { usePutAnnouncement } from "@/hooks/tanstack-query/committee/announcement/usePutAnnouncement";
+import { usePutAnnouncement } from "@/hooks/tanstack-query/announcement/usePutAnnouncement";
 import { useCommitteeCertification } from "@/hooks/sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
 import { getEffectiveDate } from "@/functions/getEffectiveDate";
-import { useDeleteAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useDeleteAnnouncement";
+import { useDeleteAnnouncement } from "@/hooks/tanstack-query/announcement/useDeleteAnnouncement";
 
 export const useAnnouncementForm = () => {
   const { announcementId } = useGetAnnouncementId();

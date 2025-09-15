@@ -7,7 +7,7 @@ import DateTimePicker from "@/components/common/DateTimePicker";
 import Button from "@repo/ui/design-system/Button/index";
 
 import { Selector } from "@/components/common/Selector";
-import { MAX_EVENT_TITLE_LENGTH } from "@/constants/committee/create-event";
+import { MAX_EVENT_TITLE_LENGTH } from "@/constants/create-event";
 import { useContext } from "react";
 import { ApplyFormContext } from "@/stores/apply-locker";
 

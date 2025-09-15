@@ -2,7 +2,7 @@ import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { useMyEventPagination } from "../event/useMyEventPagination";
-import { useGetMyEventListQuery } from "@/hooks/tanstack-query/student/event/useGetMyEventListQuery";
+import { useGetMyEventListQuery } from "@/hooks/tanstack-query/event/useGetMyEventListQuery";
 
 export const useMyEventList = () => {
   const router = useRouter();

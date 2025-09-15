@@ -1,6 +1,6 @@
 import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useEventPagination } from "@/hooks/event/useEventPagination";
-import { useGetApplyListQuery } from "@/hooks/tanstack-query/committee/event/useGetApplyList";
+import { useGetApplyListQuery } from "@/hooks/tanstack-query/event/useGetApplyList";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { useCommitteeCertification } from "@/hooks/sign-in/useCommitteeCertification";

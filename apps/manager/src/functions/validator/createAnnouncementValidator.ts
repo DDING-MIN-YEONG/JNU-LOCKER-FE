@@ -1,5 +1,5 @@
 import { CREATE_ANNOUNCEMENT_VALIDATION } from "@/constants/validation/createAnnouncement";
-import { CreateAnnouncementForm } from "@/types/committee/announcement";
+import { CreateAnnouncementForm } from "@/types/announcement";
 
 export const createAnnouncementValidator = (formData: CreateAnnouncementForm) => {
   if (!formData.title) {

@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { APPLY_LOCKER } from "@/constants/error";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useApplyLockerFormData } from "./useApplyLockerFormData";
-import { usePostApplyLocker } from "@/hooks/tanstack-query/student/apply-locker/usePostApplyLocker";
+import { usePostApplyLocker } from "@/hooks/tanstack-query/apply-locker/usePostApplyLocker";
 import { useGetApplyLockerPageEventId } from "./useGetApplyLockerPageEventId";
 
 const useApplyLocker = () => {

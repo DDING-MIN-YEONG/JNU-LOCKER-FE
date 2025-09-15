@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 import Txt from "@repo/ui/design-system/Txt/index";
 import useCommitteeSignUpForm from "@/hooks/sign-up/useCommitteeSignUpForm";
 import { Selector } from "@/components/common/Selector";
-import { COMMITTEE_SIGN_UP_CATEGORY } from "@/constants/committee/sign-up";
+import { COMMITTEE_SIGN_UP_CATEGORY } from "@/constants/sign-up";
 import TextInput from "@/components/common/TextInput";
 import Spinner from "@/components/common/Spinner";
 

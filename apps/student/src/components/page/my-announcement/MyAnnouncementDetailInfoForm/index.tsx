@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
-import { MyAnnouncementDetailForm } from "@/types/student/announcement";
+import { MyAnnouncementDetailForm } from "@/types/announcement";
 import { formatToKoreanTime } from "@/utils/date";
 import { getEffectiveDate } from "@/functions/getEffectiveDate";
 

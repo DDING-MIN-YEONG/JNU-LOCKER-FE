@@ -1,5 +1,5 @@
 import Txt from "@repo/ui/design-system/Txt/index";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 import DatePicker from "react-datepicker";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";

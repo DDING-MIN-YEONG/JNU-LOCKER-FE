@@ -1,5 +1,5 @@
 import { useGetApplyLockerPageEventId } from "@/hooks/apply-locker/useGetApplyLockerPageEventId";
-import { useGetLockerInfo } from "@/hooks/tanstack-query/student/apply-locker/useGetLockerInfo";
+import { useGetLockerInfo } from "@/hooks/tanstack-query/apply-locker/useGetLockerInfo";
 
 export const useLockerInfo = () => {
   const { eventId } = useGetApplyLockerPageEventId();

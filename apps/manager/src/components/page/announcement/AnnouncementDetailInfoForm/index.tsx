@@ -7,7 +7,7 @@ import Button from "@repo/ui/design-system/Button/index";
 
 import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
-import { AnnouncementDetailForm } from "@/types/committee/announcement";
+import { AnnouncementDetailForm } from "@/types/announcement";
 import { formatToKoreanTime } from "@/utils/date";
 import Spinner from "@/components/common/Spinner";
 

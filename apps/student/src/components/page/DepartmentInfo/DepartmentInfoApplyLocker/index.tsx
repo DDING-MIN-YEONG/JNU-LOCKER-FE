@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 import Txt from "@repo/ui/design-system/Txt/index";
 import MyLockerEventCarousel from "../MyLockerEventCarousel";
 import { EmblaOptionsType } from "embla-carousel";
-import { useGetMyEvent } from "@/hooks/tanstack-query/student/department-info/useGetMyEvent";
+import { useGetMyEvent } from "@/hooks/tanstack-query/department-info/useGetMyEvent";
 import Skeleton from "@/components/common/Skeleton";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";

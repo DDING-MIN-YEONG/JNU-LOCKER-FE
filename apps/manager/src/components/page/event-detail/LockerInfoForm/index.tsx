@@ -2,7 +2,7 @@ import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
-import { EventDetailForm } from "@/types/committee/event";
+import { EventDetailForm } from "@/types/event";
 import Button from "@repo/ui/design-system/Button/index";
 
 import EventDetailFloorInfoForm from "../FloorInfoForm";

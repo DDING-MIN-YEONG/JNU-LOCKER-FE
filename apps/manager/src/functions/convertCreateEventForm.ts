@@ -1,5 +1,5 @@
 import { convertToKST } from "@/functions/date";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 
 export const convertCreateEventForm = (formData: CreateEventForm) => {
   const startAtKST = convertToKST(formData.startAt as Date);

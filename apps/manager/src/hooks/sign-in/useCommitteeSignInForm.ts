@@ -3,7 +3,7 @@ import { COMMITTEE_SIGN_IN } from "@/constants/error";
 import { isPassword } from "@/utils/validator";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useCommitteeSignInFormData } from "@/hooks/sign-in/useCommitteeSignInFormData";
-import { useCommitteeSignIn } from "@/hooks/tanstack-query/committee/sign-in";
+import { useCommitteeSignIn } from "@/hooks/tanstack-query/sign-in";
 
 const useCommitteeSignInForm = () => {
   const { formData, onInputChange } = useCommitteeSignInFormData();

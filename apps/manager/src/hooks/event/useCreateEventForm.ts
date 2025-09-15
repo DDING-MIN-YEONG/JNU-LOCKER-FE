@@ -1,8 +1,8 @@
 import { CREATE_EVENT_VALIDATION } from "@/constants/validation/createEvent";
 import { createEventValidator } from "@/functions/validator/createEventValidator";
-import { useCreateEvent } from "@/hooks/tanstack-query/committee/event/useCreateEvent";
+import { useCreateEvent } from "@/hooks/tanstack-query/event/useCreateEvent";
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 import { ChangeEvent, useState } from "react";
 import { convertCreateEventForm } from "@/functions/convertCreateEventForm";
 

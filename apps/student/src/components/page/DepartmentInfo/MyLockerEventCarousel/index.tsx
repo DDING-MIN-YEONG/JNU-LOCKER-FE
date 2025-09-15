@@ -1,7 +1,7 @@
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { MyEventType } from "@/types/student/department-info";
+import { MyEventType } from "@/types/department-info";
 import MyLockerEvent from "../MyLockerEvent";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";

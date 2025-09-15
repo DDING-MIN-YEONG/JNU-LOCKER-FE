@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import StudentLogo from "@/components/common/StudentLogo";
 import Button from "@repo/ui/design-system/Button/index";
-import { useStudentLogout } from "@/hooks/tanstack-query/student/auth/useStudentLogout";
+import { useStudentLogout } from "@/hooks/tanstack-query/auth/useStudentLogout";
 import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);

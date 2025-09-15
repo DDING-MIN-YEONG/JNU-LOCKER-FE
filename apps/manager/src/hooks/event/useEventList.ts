@@ -1,7 +1,7 @@
-import { useGetEventListQuery } from "@/hooks/tanstack-query/committee/event/useGetEventList";
+import { useGetEventListQuery } from "@/hooks/tanstack-query/event/useGetEventList";
 import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useEventPagination } from "@/hooks/event/useEventPagination";
-import { usePutEventPublish } from "@/hooks/tanstack-query/committee/event/usePutEventPublish";
+import { usePutEventPublish } from "@/hooks/tanstack-query/event/usePutEventPublish";
 import { useCommitteeCertification } from "../sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
 import { useRouter } from "next/navigation";

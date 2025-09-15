@@ -7,11 +7,8 @@ import Button from "@repo/ui/design-system/Button/index";
 
 import { Selector } from "@/components/common/Selector";
 import { LabeledTextarea } from "@/components/common/LabeledTextarea";
-import { CreateAnnouncementForm } from "@/types/committee/announcement";
-import {
-  MAX_ANNOUNCEMENT_CONTENT_LENGTH,
-  MAX_ANNOUNCEMENT_TITLE_LENGTH,
-} from "@/constants/committee/create-announcement";
+import { CreateAnnouncementForm } from "@/types/announcement";
+import { MAX_ANNOUNCEMENT_CONTENT_LENGTH, MAX_ANNOUNCEMENT_TITLE_LENGTH } from "@/constants/create-announcement";
 import Spinner from "@/components/common/Spinner";
 
 const cn = classNames.bind(styles);

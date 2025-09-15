@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 import Link from "next/link";
 import { ROUTE } from "@/constants/routes";
 import Txt from "@repo/ui/design-system/Txt/index";
-import { useGetMyAnnouncement } from "@/hooks/tanstack-query/student/department-info/useGetMyAnnouncement";
+import { useGetMyAnnouncement } from "@/hooks/tanstack-query/department-info/useGetMyAnnouncement";
 import Skeleton from "@/components/common/Skeleton";
 
 const cn = classNames.bind(styles);

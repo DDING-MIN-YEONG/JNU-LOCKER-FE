@@ -2,7 +2,7 @@ import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { useAnnouncementPagination } from "@/hooks/announcement/useAnnouncementPagination";
-import { useGetAnnouncementListQuery } from "@/hooks/tanstack-query/committee/announcement/useGetAnnouncementListQuery";
+import { useGetAnnouncementListQuery } from "@/hooks/tanstack-query/announcement/useGetAnnouncementListQuery";
 import { useCommitteeCertification } from "@/hooks/sign-in/useCommitteeCertification";
 import { ApiResponseError } from "@/types/common/api";
 

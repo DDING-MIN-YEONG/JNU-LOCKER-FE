@@ -1,4 +1,4 @@
-import AuthorizationLayout from "@/components/Layout/committee/AuthorizationLayout";
+import AuthorizationLayout from "@/components/Layout/AuthorizationLayout";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import CommitteeSignInForm from "@/components/page/Main/Form";

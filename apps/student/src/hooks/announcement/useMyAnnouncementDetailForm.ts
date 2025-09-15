@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetAnnouncementId } from "@/hooks/common/useGetPageAnnouncementId";
-import { MyAnnouncementDetailForm } from "@/types/student/announcement";
-import { useGetMyAnnouncementDetail } from "@/hooks/tanstack-query/student/announcement/useGetMyAnnouncementDetail";
+import { MyAnnouncementDetailForm } from "@/types/announcement";
+import { useGetMyAnnouncementDetail } from "@/hooks/tanstack-query/announcement/useGetMyAnnouncementDetail";
 
 export const useMyAnnouncementDetailForm = () => {
   const { announcementId } = useGetAnnouncementId();

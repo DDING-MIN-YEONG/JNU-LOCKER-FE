@@ -8,7 +8,7 @@ import Txt from "@repo/ui/design-system/Txt/index";
 import Logo from "@/components/common/Logo/index";
 import Skeleton from "../Skeleton";
 import { useCommitteeHeader } from "@/hooks/common/useCommitteeHeader";
-import { useCommitteeLogout } from "@/hooks/tanstack-query/committee/auth/useCommitteeLogout";
+import { useCommitteeLogout } from "@/hooks/tanstack-query/auth/useCommitteeLogout";
 import Button from "@repo/ui/design-system/Button/index";
 import Spinner from "@/components/common/Spinner";
 

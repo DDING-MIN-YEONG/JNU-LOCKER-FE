@@ -1,7 +1,7 @@
 import { useDepartmentsQuery, useOrganizationsQuery } from "@/hooks/tanstack-query/common/sign-up";
 import { ChangeEvent, useState } from "react";
-import { CreateAnnouncementForm } from "@/types/committee/announcement";
-import { useCreateAnnouncement } from "@/hooks/tanstack-query/committee/announcement/useCreateAnnouncement";
+import { CreateAnnouncementForm } from "@/types/announcement";
+import { useCreateAnnouncement } from "@/hooks/tanstack-query/announcement/useCreateAnnouncement";
 import { createAnnouncementValidator } from "@/functions/validator/createAnnouncementValidator";
 import { convertCreateAnnouncementForm } from "@/functions/convertCreateAnnouncementForm";
 import { CREATE_ANNOUNCEMENT_VALIDATION } from "@/constants/validation/createAnnouncement";

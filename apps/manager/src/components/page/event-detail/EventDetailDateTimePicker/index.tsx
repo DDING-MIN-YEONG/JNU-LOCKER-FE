@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import "./DateTimePicker.css";
 import { useCallback } from "react";
-import { EventDetailForm } from "@/types/committee/event";
+import { EventDetailForm } from "@/types/event";
 import { getDate, getHours, getMinutes, getMonth, getYear } from "@/functions/date";
 
 const cn = classNames.bind(styles);

@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { COMMITTEE_SIGN_UP } from "@/constants/error";
-import { useCommitteeSignUp } from "@/hooks/tanstack-query/committee/sign-up";
+import { useCommitteeSignUp } from "@/hooks/tanstack-query/sign-up";
 import { isPassword } from "@/utils/validator";
 import {
   useDepartmentsQuery,

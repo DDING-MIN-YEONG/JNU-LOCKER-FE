@@ -3,11 +3,11 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import TextInput from "@/components/common/TextInput";
 import "react-datepicker/dist/react-datepicker.css";
-import { EventDetailForm } from "@/types/committee/event";
+import { EventDetailForm } from "@/types/event";
 import Button from "@repo/ui/design-system/Button/index";
 
 import { Selector } from "@/components/common/Selector";
-import { MAX_EVENT_TITLE_LENGTH } from "@/constants/committee/create-event";
+import { MAX_EVENT_TITLE_LENGTH } from "@/constants/create-event";
 import EventDetailDateTimePicker from "@/components/page/event-detail/EventDetailDateTimePicker";
 
 const cn = classNames.bind(styles);

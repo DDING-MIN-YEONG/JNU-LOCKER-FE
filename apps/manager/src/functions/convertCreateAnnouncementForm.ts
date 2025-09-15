@@ -1,4 +1,4 @@
-import { CreateAnnouncementForm } from "@/types/committee/announcement";
+import { CreateAnnouncementForm } from "@/types/announcement";
 
 export const convertCreateAnnouncementForm = (formData: CreateAnnouncementForm) => {
   const announcement = {

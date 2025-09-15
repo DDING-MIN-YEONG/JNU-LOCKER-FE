@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import { isJnuEmail, isPassword } from "@/utils/validator";
 import { SIGN_IN } from "@/constants/error";
-import { useStudentSignIn } from "@/hooks/tanstack-query/student/sign-in";
+import { useStudentSignIn } from "@/hooks/tanstack-query/sign-in";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useStudentSignInFormData } from "./useStudentSignInFormData";
 

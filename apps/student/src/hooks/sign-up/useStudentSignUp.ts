@@ -7,7 +7,7 @@ import {
   useSubmitEmail,
   useVerifyCertificationCode,
 } from "@/hooks/tanstack-query/common/sign-up";
-import { useStudentSignUp } from "@/hooks/tanstack-query/student/sign-up";
+import { useStudentSignUp } from "@/hooks/tanstack-query/sign-up";
 import { useStudentFormData } from "@/hooks/sign-up/useStudentFormData";
 import { useFormError } from "@/hooks/common/useFormError";
 import { useTimer } from "@/hooks/common/useTimer";

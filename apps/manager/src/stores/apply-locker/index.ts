@@ -1,7 +1,7 @@
 // context api 사용해서 전역 상태 관리
 
 import { Department, Organization } from "@/apis/dtos/sign-up";
-import { CreateEventForm } from "@/types/committee/event";
+import { CreateEventForm } from "@/types/event";
 import { ChangeEvent, createContext } from "react";
 
 export interface ApplyFormContextType {

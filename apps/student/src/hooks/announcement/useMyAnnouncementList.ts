@@ -2,7 +2,7 @@ import { useGetPageParams } from "@/hooks/common/useGetPageParams";
 import { useRouter } from "next/navigation";
 import { ROUTE } from "@/constants/routes";
 import { useMyAnnouncementPagination } from "@/hooks/announcement/useMyAnnouncementPagination";
-import { useGetMyAnnouncementListQuery } from "@/hooks/tanstack-query/student/announcement/useGetMyAnnouncementListQuery";
+import { useGetMyAnnouncementListQuery } from "@/hooks/tanstack-query/announcement/useGetMyAnnouncementListQuery";
 
 export const useMyAnnouncementList = () => {
   const router = useRouter();

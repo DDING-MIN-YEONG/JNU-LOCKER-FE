@@ -1,6 +1,6 @@
 import { useGetApplyLockerPageEventId } from "@/hooks/apply-locker/useGetApplyLockerPageEventId";
-import { useDeleteMyRegistrationLocker } from "@/hooks/tanstack-query/student/apply-locker/useDeleteMyRegistrationLocker";
-import { useGetMyRegistrationLocker } from "@/hooks/tanstack-query/student/apply-locker/useGetMyRegistrationLocker";
+import { useDeleteMyRegistrationLocker } from "@/hooks/tanstack-query/apply-locker/useDeleteMyRegistrationLocker";
+import { useGetMyRegistrationLocker } from "@/hooks/tanstack-query/apply-locker/useGetMyRegistrationLocker";
 
 export const useMyRegistrationLocker = () => {
   const { eventId } = useGetApplyLockerPageEventId();
