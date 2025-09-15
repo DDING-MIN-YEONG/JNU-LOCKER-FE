@@ -1,14 +1,12 @@
-import type { Metadata, Viewport } from "next";
 import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
+import type { Metadata } from "next";
 
 const APP_NAME = "전남대학교 사물함 신청 서비스";
 const PWA_NAME = "전남대 사물함";
 const APP_DESCRIPTION = "쉽고 간편하게 이용가능한 전남대학교 사물함 신청 서비스입니다.";
-const APP_IMAGE = "/images/logo.png";
 const APP_OG_IMAGE = "/images/og_logo.png";
 const APP_URL = "https://jnu-locker.site";
-const APP_IMAGE_FULL_URL = `${APP_URL}${APP_IMAGE}`;
 const APP_OG_IMAGE_FULL_URL = `${APP_URL}${APP_OG_IMAGE}`;
 
 export const metadata: Metadata = {
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
   authors: [{ name: "심민보" }],
   creator: "심민보",
   publisher: "심민보",
-  manifest: "/manifest.json",
   robots: {
     index: true,
     follow: true,
@@ -30,23 +27,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  icons: {
-    icon: [{ url: APP_IMAGE_FULL_URL, sizes: "16x16 32x32 72x72 96x96 144x144 192x192", type: "image/png" }],
-    shortcut: APP_OG_IMAGE_FULL_URL,
-    apple: [
-      {
-        url: APP_IMAGE_FULL_URL,
-        sizes: "57x57 60x60 72x72 76x76 114x114 120x120 144x144 152x152 180x180",
-        type: "image/png",
-      },
-    ],
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: PWA_NAME,
-    startupImage: [{ url: APP_OG_IMAGE }],
   },
   formatDetection: {
     telephone: false,
@@ -76,10 +56,6 @@ export const metadata: Metadata = {
     creator: "@jnu_locker",
     site: "@jnu_locker",
   },
-};
-
-export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
