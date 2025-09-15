@@ -5,8 +5,8 @@ on:
     branches: ["main", "dev"]
 
 jobs:
-  build:
-    name: Build
+  student-build:
+    name: Student Build
     runs-on: ubuntu-latest
 
     steps:
@@ -24,15 +24,47 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build project
-        run: pnpm build
+      - name: Build Student
+        run: pnpm build:student
 
-      - name: Check build artifacts
+      - name: Check Student Build Artifacts
         run: |
-          if [ -d ".next" ]; then
-            echo "✅ 빌드 성공"
-            ls -la .next/
+          if [ -d "apps/student/.next" ]; then
+            echo "✅ Student 빌드 성공"
+            ls -la apps/student/.next/
           else
-            echo "❌ 빌드 실패"
+            echo "❌ Student 빌드 실패"
+            exit 1
+          fi
+
+  manager-build:
+    name: Manager Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install pnpm
+        run: npm install -g pnpm@8.15.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Manager
+        run: pnpm build:manager
+
+      - name: Check Manager Build Artifacts
+        run: |
+          if [ -d "apps/manager/.next" ]; then
+            echo "✅ Manager 빌드 성공"
+            ls -la apps/manager/.next/
+          else
+            echo "❌ Manager 빌드 실패"
             exit 1
           fi

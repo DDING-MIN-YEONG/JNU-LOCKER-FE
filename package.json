@@ -1,45 +1,35 @@
 {
-  "name": "jnu-locker-fe",
-  "version": "0.1.0",
+  "name": "my-turborepo",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "https": "next dev --experimental-https"
-  },
-  "dependencies": {
-    "@ducanh2912/next-pwa": "^10.2.9",
-    "@tanstack/react-query": "^5.69.0",
-    "@tanstack/react-query-devtools": "^5.69.0",
-    "axios": "^1.8.4",
-    "classnames": "^2.5.1",
-    "embla-carousel": "^8.6.0",
-    "embla-carousel-react": "^8.6.0",
-    "next": "15.2.3",
-    "react": "^19.0.0",
-    "react-datepicker": "^8.3.0",
-    "react-dom": "^19.0.0",
-    "sass": "^1.86.0",
-    "xlsx": "^0.18.5"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "https": "turbo run https",
+    "dev:student": "turbo run dev --filter=student",
+    "https:student": "turbo run https --filter=student",
+    "build:student": "turbo run build --filter=student",
+    "dev:manager": "turbo run dev --filter=manager",
+    "https:manager": "turbo run https --filter=manager",
+    "build:manager": "turbo run build --filter=manager",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.3",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-prettier": "^5.2.4",
-    "prettier": "^3.5.3",
-    "typescript": "^5",
-    "webpack": "^5.99.9"
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6",
+    "typescript": "5.9.2"
   },
+  "packageManager": "pnpm@8.15.0",
   "engines": {
-    "node": ">=22.16.0",
-    "pnpm": ">=8.15.0"
+    "node": ">=18"
   },
-  "packageManager": "pnpm@8.15.0"
+  "dependencies": {
+    "@tanstack/react-query": "^5.87.4",
+    "@tanstack/react-query-devtools": "^5.87.4",
+    "axios": "^1.12.1",
+    "classnames": "^2.5.1",
+    "react-datepicker": "^8.7.0",
+    "sass": "^1.92.1"
+  }
 }
