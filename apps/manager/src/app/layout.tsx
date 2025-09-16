@@ -2,18 +2,18 @@ import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
 import type { Metadata } from "next";
 
-const APP_NAME = "전남대학교 사물함 신청 서비스";
-const PWA_NAME = "전남대 사물함";
-const APP_DESCRIPTION = "쉽고 간편하게 이용가능한 전남대학교 사물함 신청 서비스입니다.";
+const APP_NAME = "전남대학교 사물함 관리 서비스";
+const APP_DESCRIPTION = "쉽고 간편하게 이용가능한 전남대학교 사물함 관리 서비스입니다.";
+const APP_IMAGE = "/images/logo.png";
 const APP_OG_IMAGE = "/images/og_logo.png";
 const APP_URL = "https://jnu-locker.site";
 const APP_OG_IMAGE_FULL_URL = `${APP_URL}${APP_OG_IMAGE}`;
+const APP_IMAGE_FULL_URL = `${APP_URL}${APP_IMAGE}`;
 
 export const metadata: Metadata = {
-  applicationName: PWA_NAME,
   title: APP_NAME,
   description: APP_DESCRIPTION,
-  keywords: ["전남대학교", "사물함", "신청", "서비스", "전남대", "locker", "대학교"],
+  keywords: ["전남대학교", "사물함", "관리", "서비스", "전남대", "locker", "대학교"],
   authors: [{ name: "심민보" }],
   creator: "심민보",
   publisher: "심민보",
@@ -27,6 +27,17 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: [{ url: APP_IMAGE_FULL_URL, sizes: "16x16 32x32 72x72 96x96 144x144 192x192", type: "image/png" }],
+    shortcut: APP_OG_IMAGE_FULL_URL,
+    apple: [
+      {
+        url: APP_IMAGE_FULL_URL,
+        sizes: "57x57 60x60 72x72 76x76 114x114 120x120 144x144 152x152 180x180",
+        type: "image/png",
+      },
+    ],
   },
   formatDetection: {
     telephone: false,
@@ -67,7 +78,6 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: APP_NAME,
-    alternateName: PWA_NAME,
     description: APP_DESCRIPTION,
     url: APP_URL,
     image: APP_OG_IMAGE_FULL_URL,
