@@ -14,9 +14,6 @@
   "dependencies": {
     "@repo/settings": "workspace:*",
     "@repo/ui": "workspace:*",
-    "next": "^15.5.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

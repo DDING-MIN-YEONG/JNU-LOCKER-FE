@@ -29,6 +29,9 @@
     "@tanstack/react-query-devtools": "^5.87.4",
     "axios": "^1.12.1",
     "classnames": "^2.5.1",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-datepicker": "^8.7.0",
     "sass": "^1.92.1"
   }

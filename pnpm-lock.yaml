@@ -20,9 +20,18 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      next:
+        specifier: ^15.5.0
+        version: 15.5.3(@babel/core@7.28.4)(react-dom@19.1.1)(react@19.1.1)(sass@1.92.1)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.1
       react-datepicker:
         specifier: ^8.7.0
         version: 8.7.0(react-dom@19.1.1)(react@19.1.1)
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.1(react@19.1.1)
       sass:
         specifier: ^1.92.1
         version: 1.92.1
@@ -45,15 +54,6 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      next:
-        specifier: ^15.5.0
-        version: 15.5.3(@babel/core@7.28.4)(react-dom@19.1.1)(react@19.1.1)(sass@1.92.1)
-      react:
-        specifier: ^19.1.0
-        version: 19.1.1
-      react-dom:
-        specifier: ^19.1.0
-        version: 19.1.1(react@19.1.1)
       xlsx:
         specifier: ^0.18.5
         version: 0.18.5
@@ -97,15 +97,6 @@ importers:
       embla-carousel-react:
         specifier: ^8.6.0
         version: 8.6.0(react@19.1.1)
-      next:
-        specifier: ^15.5.0
-        version: 15.5.3(@babel/core@7.28.4)(react-dom@19.1.1)(react@19.1.1)(sass@1.92.1)
-      react:
-        specifier: ^19.1.0
-        version: 19.1.1
-      react-dom:
-        specifier: ^19.1.0
-        version: 19.1.1(react@19.1.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -3000,6 +2991,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
