@@ -1,8 +1,8 @@
-import classNames from "classnames/bind";
-import styles from "./index.module.scss";
-import { ReactNode } from "react";
-import Txt from "@repo/ui/design-system/Txt/index";
 import WhiteLogo from "@/components/common/WhiteLogo";
+import Txt from "@repo/ui/design-system/Txt/index";
+import classNames from "classnames/bind";
+import { ReactNode } from "react";
+import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 
@@ -20,7 +20,7 @@ export default function AuthorizationLayout({ children }: AuthorizationLayoutPro
             전남대학교
           </Txt>
           <Txt color="white" className={cn("subTitle")}>
-            사물함 신청 서비스
+            사물함 관리 서비스
           </Txt>
         </div>
       </div>
