@@ -11,11 +11,15 @@
     "dev:manager": "turbo run dev --filter=manager",
     "https:manager": "turbo run https --filter=manager",
     "build:manager": "turbo run build --filter=manager",
+    "analyze:student": "turbo run analyze --filter=student",
+    "analyze:manager": "turbo run analyze --filter=manager",
+    "analyze:all": "turbo run analyze",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.5.3",
     "prettier": "^3.6.2",
     "turbo": "^2.5.6",
     "typescript": "5.9.2"
@@ -31,8 +35,8 @@
     "classnames": "^2.5.1",
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "react-datepicker": "^8.7.0",
+    "react-dom": "^19.1.0",
     "sass": "^1.92.1"
   }
 }
