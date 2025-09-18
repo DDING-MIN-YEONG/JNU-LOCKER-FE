@@ -43,10 +43,9 @@ export default function AuthGuard({ children }: AuthGuardProps) {
     }
 
     // 인증이 필요없는 페이지에서 200 응답이 발생하면 apply-list 페이지로 리다이렉트
-    //   if (statusCode === 200 && isUnauthorizedPage) {
-    //     console.log("이미 로그인됨 - 메인 페이지로 이동");
-    //     router.push(ROUTE.APPLY_LIST);
-    //   }
+    if (data && data.status === 200 && isUnauthorizedPage) {
+      router.push(ROUTE.APPLY_LIST);
+    }
   }, [isLoading, router]);
 
   if (isLoading) {
@@ -67,10 +66,9 @@ export default function AuthGuard({ children }: AuthGuardProps) {
     }
   }
 
-  // 200 응답이고 인증이 필요없는 페이지인 경우
-  // if (statusCode === 200 && isUnauthorizedPage) {
-  //   return null; // 메인 페이지로 리다이렉트됨
-  // }
+  if (data && data.status === 200 && isUnauthorizedPage) {
+    return null;
+  }
 
   return <>{children}</>;
 }

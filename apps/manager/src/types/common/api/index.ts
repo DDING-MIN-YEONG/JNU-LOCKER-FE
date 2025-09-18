@@ -1,3 +1,5 @@
+import { MyInfo } from "@/apis/dtos/common/my-info";
+
 // 일반적인 API 에러 (서버에서 응답을 받은 경우)
 export interface ApiResponseError {
   message: string;
@@ -31,3 +33,8 @@ export const isApiResponseError = (error: any): error is ApiResponseError => {
 export const isCorsError = (error: any): error is CorsError => {
   return error?.message === "Network Error" || error?.code === "ERR_NETWORK";
 };
+
+export interface MyInfoResponse {
+  data: MyInfo;
+  status: number;
+}
