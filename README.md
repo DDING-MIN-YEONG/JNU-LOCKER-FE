@@ -124,36 +124,6 @@ password : abcde12345!
 
 </div>
 
-## 🖥️ 시스템 구조 <a id="시스템-구조"></a>
-
-### FE 시스템 구조
-
-```
- ┣ public
- ┃ ┣ fonts        # 폰트
- ┃ ┣ icons        # 아이콘
- ┃ ┗ images        # 이미지
- ┣ src
- ┃ ┣ api          # API 관련 로직
- ┃ ┃ ┣ committee  # 학생회 관련 API
- ┃ ┃ ┣ student    # 학생 관련 API
- ┃ ┃ ┣ common     # 공통 API
- ┃ ┃ ┣ instance   # axios 인스턴스
- ┃ ┃ ┗ dtos       # DTO
- ┃ ┣ app   # 페이지
- ┃ ┣ components   # 컴포넌트
- ┃ ┃ ┣ common     # 공통 컴포넌트
- ┃ ┃ ┣ design-system     # 디자인 시스템
- ┃ ┃ ┗ Layout   # 레이아웃 관련 컴포넌트
- ┃ ┣ constants    # 상수
- ┃ ┣ functions        # 기능적 함수
- ┃ ┣ hooks        # 커스텀 훅
- ┃ ┣ styles       # 전역 스타일
- ┃ ┣ types        # TypeScript 타입 정의
- ┃ ┗ utils        # 유틸리티 함수
-
-```
-
 ## 🛠️ 기술 스택 <a id="기술-스택"></a>
 
 <div>
