@@ -1,8 +1,8 @@
 "use client";
 
 import { ROUTE } from "@/constants/routes";
+import { isApiResponseError, isCorsError } from "@/functions/api";
 import { useGetMyInfo } from "@/hooks/tanstack-query/common/my-info/useGetMyInfo";
-import { isApiResponseError, isCorsError } from "@/types/common/api";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
