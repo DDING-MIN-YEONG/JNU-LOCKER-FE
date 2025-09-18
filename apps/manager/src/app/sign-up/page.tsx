@@ -1,5 +1,5 @@
-import CommitteeSignUp from "@/components/page/SignUp";
+import SignUp from "@/components/page/SignUp";
 
 export default function SignUpPage() {
-  return <CommitteeSignUp />;
+  return <SignUp />;
 }
