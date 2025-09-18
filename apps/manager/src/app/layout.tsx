@@ -1,3 +1,4 @@
+import AuthGuard from "@/components/common/AuthGuard";
 import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
 import type { Metadata } from "next";
@@ -101,7 +102,9 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <AuthGuard>{children}</AuthGuard>
+        </Providers>
         <div id="spinner-root" />
       </body>
     </html>
