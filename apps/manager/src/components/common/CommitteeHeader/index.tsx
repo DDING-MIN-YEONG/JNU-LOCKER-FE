@@ -62,7 +62,7 @@ export default function CommitteeHeader() {
           {isPending ? (
             <Skeleton className={cn("linkSkeleton")} />
           ) : (
-            data?.role === "MANAGER" && (
+            data?.data.role === "MANAGER" && (
               <Link href={ROUTE.APPROVE_WAIT}>
                 <Txt
                   className={cn("headerTitle")}
@@ -79,7 +79,7 @@ export default function CommitteeHeader() {
           <Skeleton className={cn("skeleton")} />
         ) : (
           <div className={cn("departmentContainer")}>
-            <Txt className={cn("headerTitle")}>{data?.affiliation}</Txt>
+            <Txt className={cn("headerTitle")}>{data?.data.affiliation}</Txt>
           </div>
         )}
         <Button color="red" className={cn("logoutButton")} onClick={onCommitteeLogout} disabled={isLogoutLoading}>
