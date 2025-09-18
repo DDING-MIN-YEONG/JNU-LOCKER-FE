@@ -28,6 +28,7 @@ export default function AuthGuard({ children }: AuthGuardProps) {
 
     // CORS 에러 처리
     if (isCorsError(error) && !isServerInspectionPage) {
+      alert("서버 점검중입니다.");
       router.push(ROUTE.SERVER_INSPECTION);
       return;
     }
@@ -38,6 +39,7 @@ export default function AuthGuard({ children }: AuthGuardProps) {
 
       // 인증이 필요한 페이지에서 401 에러가 발생한 경우 로그인 페이지로 리다이렉트
       if (statusCode === 401 && (!isUnauthorizedPage || isServerInspectionPage)) {
+        alert("로그인 후 이용해주세요.");
         router.push(ROUTE.MAIN);
       }
     }
