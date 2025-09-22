@@ -1,3 +1,5 @@
+import ServerInspection from "@/components/page/server-inspection";
+
 export default function ServerInspectionPage() {
-  return <div>서버 점검중입니다.</div>;
+  return <ServerInspection />;
 }
