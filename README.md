@@ -100,7 +100,7 @@ password : abcde12345!
 
 <br>
 
-학생회용 메인 페이지 : https://jnu-locker-manager.vercel.app/
+학생회용 메인 페이지 : https://www.manager.jnu-locker.site/
 
 ## 👥 팀원 소개 <a id="팀원-소개"></a>
 
