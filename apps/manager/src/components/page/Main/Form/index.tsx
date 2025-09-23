@@ -2,8 +2,8 @@
 
 import { ROUTE } from "@/constants/routes";
 import useCommitteeSignInForm from "@/hooks/sign-in/useCommitteeSignInForm";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Spinner from "@repo/ui/common/Spinner/index";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -22,7 +22,7 @@ export default function CommitteeSignInForm() {
           로그인
         </Txt>
         <div className={cn("inputContainer")}>
-          <TextInput
+          <LabeledInput
             id="email"
             type="email"
             label="이메일"
@@ -30,7 +30,7 @@ export default function CommitteeSignInForm() {
             value={formData.email}
             onChange={onInputChange}
           />
-          <TextInput
+          <LabeledInput
             id="password"
             type="password"
             label="비밀번호"

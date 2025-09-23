@@ -1,6 +1,6 @@
-.label {
+.container {
   width: 100%;
-  @include font(1.5rem, 500, normal);
+  @include flexSort(column, null, null, 1rem);
 }
 
 .input {
