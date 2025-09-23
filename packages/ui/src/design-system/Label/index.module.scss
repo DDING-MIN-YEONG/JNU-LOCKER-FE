@@ -1,0 +1,69 @@
+// 기본 라벨 스타일
+.label {
+  display: inline-block;
+}
+
+// 색상 스타일
+.primary {
+  color: $primary;
+}
+
+.secondary {
+  color: $secondary;
+}
+
+.error {
+  color: $error;
+}
+
+.white {
+  color: $white;
+}
+
+.black {
+  color: $black;
+}
+
+// 폰트 타입
+.basic {
+  font-family: "PretendardVariable";
+}
+
+.chnam {
+  font-family: "chnam";
+}
+
+// 크기 스타일
+.small {
+  font-size: 1.4rem;
+}
+
+.medium {
+  font-size: 1.6rem;
+}
+
+.large {
+  font-size: 1.8rem;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+// 필수 표시 스타일
+.required {
+  margin-left: 0.4rem;
+  font-weight: 600;
+}
