@@ -1,7 +1,7 @@
 "use client";
 
 import useEnterEmail from "@/hooks/enter-email/useEnterEmail";
-import TextInput from "@repo/ui/common/TextInput/index";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -15,8 +15,8 @@ export default function EnterEmailForm() {
   return (
     <form onSubmit={formAction} className={cn("form")}>
       <div className={cn("inputContainer")}>
-        <TextInput
-          containerClassName={cn("emailInputContainer")}
+        <LabeledInput
+          labeledInputContainerClassName={cn("emailInputContainer")}
           id="email"
           type="email"
           label="전남대학교 이메일"

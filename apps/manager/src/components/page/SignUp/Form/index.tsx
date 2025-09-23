@@ -5,8 +5,8 @@ import Button from "@repo/ui/design-system/Button/index";
 import { Selector } from "@/components/common/Selector";
 import { COMMITTEE_SIGN_UP_CATEGORY } from "@/constants/sign-up";
 import useCommitteeSignUpForm from "@/hooks/sign-up/useCommitteeSignUpForm";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Spinner from "@repo/ui/common/Spinner/index";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
@@ -59,7 +59,7 @@ export default function SignUpForm() {
             value={formData.department.value}
             id="department"
           />
-          <TextInput
+          <LabeledInput
             id="studentNumber"
             type="text"
             label="학번"
@@ -67,8 +67,8 @@ export default function SignUpForm() {
             value={formData.studentNumber}
             onChange={onInputChange}
           />
-          <TextInput
-            containerClassName={cn("emailInputContainer")}
+          <LabeledInput
+            labeledInputContainerClassName={cn("emailInputContainer")}
             id="email"
             type="email"
             label="이메일"
@@ -87,11 +87,11 @@ export default function SignUpForm() {
                 메일전송
               </Txt>
             </Button>
-          </TextInput>
+          </LabeledInput>
           {countdown && <Txt size="tiny">인증 코드 유효 시간 : {countdown}초</Txt>}
           {isEmailSend && (
-            <TextInput
-              containerClassName={cn("certificationContainer")}
+            <LabeledInput
+              labeledInputContainerClassName={cn("certificationContainer")}
               id="emailCertificationNumber"
               type="text"
               label="이메일 인증코드"
@@ -114,10 +114,10 @@ export default function SignUpForm() {
                   인증하기
                 </Txt>
               </Button>
-            </TextInput>
+            </LabeledInput>
           )}
-          <TextInput
-            containerClassName={cn("phoneNumberInputContainer")}
+          <LabeledInput
+            labeledInputContainerClassName={cn("phoneNumberInputContainer")}
             id="phoneNumber"
             type="text"
             label="연락처"
@@ -125,7 +125,7 @@ export default function SignUpForm() {
             value={formData.phoneNumber}
             onChange={onInputChange}
           />
-          <TextInput
+          <LabeledInput
             id="name"
             type="text"
             label="이름"
@@ -133,7 +133,7 @@ export default function SignUpForm() {
             value={formData.name}
             onChange={onInputChange}
           />
-          <TextInput
+          <LabeledInput
             id="password"
             type="password"
             label="비밀번호"
@@ -141,7 +141,7 @@ export default function SignUpForm() {
             value={formData.password}
             onChange={onInputChange}
           />
-          <TextInput
+          <LabeledInput
             id="passwordConfirm"
             type="password"
             label="비밀번호 확인"

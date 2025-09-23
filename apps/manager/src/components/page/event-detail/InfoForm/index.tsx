@@ -1,5 +1,4 @@
 import { EventDetailForm } from "@/types/event";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -9,6 +8,7 @@ import styles from "./index.module.scss";
 import { Selector } from "@/components/common/Selector";
 import EventDetailDateTimePicker from "@/components/page/event-detail/EventDetailDateTimePicker";
 import { MAX_EVENT_TITLE_LENGTH } from "@/constants/create-event";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 
 const cn = classNames.bind(styles);
 
@@ -45,7 +45,7 @@ export default function EventDetailInfoForm({
         <Txt weight="medium">기본 정보</Txt>
       </header>
       <div className={cn("contentContainer")}>
-        <TextInput
+        <LabeledInput
           id="title"
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
           label="제목"
@@ -53,13 +53,13 @@ export default function EventDetailInfoForm({
           placeholder="이벤트 제목을 입력해주세요."
           maxLength={MAX_EVENT_TITLE_LENGTH}
           value={formData.title}
-          containerClassName={cn("titleInputContainer")}
+          labeledInputContainerClassName={cn("titleInputContainer")}
           readOnly={!isPutMode}
         >
           <Txt size="small" className={cn("textLength")}>
             {formData.title.length} / {MAX_EVENT_TITLE_LENGTH}
           </Txt>
-        </TextInput>
+        </LabeledInput>
         <div className={cn("eventTimeContainer")}>
           <div className={cn("eventTimeBox")}>
             <Txt size="small" weight="medium">
