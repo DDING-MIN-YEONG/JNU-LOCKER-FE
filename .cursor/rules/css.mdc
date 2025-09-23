@@ -1,0 +1,244 @@
+---
+description: CSS/SCSS coding guidelines and rules for JNU-LOCKER-FE project. Includes SCSS mixins, color variables, responsive design patterns, and classnames/bind usage. Enforces rem units (1rem = 10px) and prohibits px usage. Defines global style structure with _color.scss, _flex.scss, _fonts.scss, _mixin.scss, and _reset.scss files that should not be modified.
+alwaysApply: false
+---
+
+해당 규칙이 적용되면 "css 룰 시작" 이라고 알려줘.
+
+# CSS 규칙 및 가이드라인
+
+이 문서는 JNU-LOCKER-FE 프로젝트의 CSS 작성 규칙과 가이드라인을 정의합니다.
+
+## 기술 스택
+
+- **CSS 전처리기**: SCSS
+- **CSS 모듈**: classnames/bind 라이브러리 사용
+- **단위**: rem 단위 사용 (1rem = 10px)
+
+## 기본 설정
+
+### 단위 규칙
+
+- **절대 금지**: px 단위 사용 금지
+- **필수 사용**: rem 단위만 사용
+- **기준**: 1rem = 10px (html font-size: 62.5% 설정)
+
+### 클래스명 바인딩
+
+```typescript
+import classNames from "classnames/bind";
+import styles from "./index.module.scss";
+
+const cn = classNames.bind(styles);
+
+// 사용 예시
+<div className={cn("container")}>
+<div className={cn("button", { active: isActive })}>
+```
+
+## 전역 스타일 구조
+
+프로젝트의 전역 스타일은 `styles` 폴더에 체계적으로 구성되어 있습니다:
+
+### 1. `_color.scss` - 색상 정의
+
+```scss
+$primary: #0bb964; // 메인 색상
+$secondary: #398148; // 보조 색상
+$error: red; // 에러 색상
+$black: black; // 검정색
+$white: white; // 흰색
+```
+
+### 2. `_flex.scss` - Flexbox 믹신
+
+```scss
+@mixin flexSort($direction, $justify, $alignItems, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+  gap: $gap;
+}
+```
+
+### 3. `_fonts.scss` - 폰트 및 텍스트 믹신
+
+```scss
+// 폰트 믹신
+@mixin font($size, $weight, $height) {
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+// 전남대 폰트 믹신
+@mixin chnamFont($size, $weight, $height) {
+  font-family: "chnam";
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+// 텍스트 줄임표 믹신
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+}
+```
+
+### 4. `_mixin.scss` - 반응형 믹신
+
+```scss
+// 브레이크포인트
+$breakpoint-desktop: 1550px;
+$breakpoint-smallDesktop: 1200px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 320px;
+
+// 반응형 믹신들
+@mixin desktop {
+  /* 데스크톱 */
+}
+@mixin smallDesktop {
+  /* 소형 데스크톱 */
+}
+@mixin tablet {
+  /* 태블릿 */
+}
+@mixin mobile {
+  /* 모바일 */
+}
+```
+
+### 5. `_reset.scss` - CSS 리셋
+
+- 기본 HTML 요소들의 스타일 초기화
+- 박스 모델 설정 (box-sizing: border-box)
+- 폰트 기본 설정 (PretendardVariable)
+- 버튼, 링크 등 기본 스타일 정리
+
+## 작성 규칙
+
+### 1. 전역 스타일 파일 수정 금지
+
+- `styles` 폴더 내의 `_*.scss` 파일들은 수정하지 말 것
+- 필요한 스타일은 컴포넌트별 `.module.scss` 파일에서 작성
+
+### 2. 믹신 활용
+
+- Flexbox 레이아웃: `@include flexSort()` 사용
+- 폰트 스타일: `@include font()` 또는 `@include chnamFont()` 사용
+- 반응형 디자인: `@include mobile`, `@include tablet` 등 사용
+- 텍스트 줄임표: `@include line-clamp()` 사용
+
+### 3. 색상 사용
+
+- 전역 색상 변수 사용: `$primary`, `$secondary`, `$error` 등
+- 전역 색상이 아닌 다른 색상을 사용하고 싶으면 나한테 accept를 받고 진행
+
+### 4. 클래스명 규칙
+
+- BEM 방법론 권장: `.block__element--modifier`
+- 의미있는 이름 사용
+
+### 5. 반응형 디자인
+
+- **manager 폴더**: 반응형 디자인 사용 금지 (고정 레이아웃)
+- **student 폴더**: 모바일 퍼스트 접근, 각 브레이크포인트에 맞는 믹신 사용
+- 단위는 항상 rem 사용
+
+## 코드 리뷰 체크리스트
+
+CSS 코드를 리뷰할 때 다음 사항들을 확인하세요:
+
+### ✅ 필수 확인사항
+
+- [ ] px 단위 사용하지 않음 (rem 단위만 사용)
+- [ ] 전역 스타일 파일 수정하지 않음
+- [ ] classnames/bind 올바르게 사용
+- [ ] 믹신 적절히 활용
+- [ ] 색상 변수 사용
+- [ ] manager 폴더에서는 반응형 디자인 사용하지 않음
+- [ ] CSS 수정 전 Txt, Button 컴포넌트 확인
+- [ ] tsx 파일에서 사용하고 있는 않은 css는 제거
+
+### ✅ 권장사항
+
+- [ ] 클래스명이 의미있고 명확함
+- [ ] 불필요한 중복 스타일 없음
+- [ ] student 폴더에서만 반응형 디자인 고려
+- [ ] 접근성 고려 (색상 대비, 폰트 크기 등)
+
+## 예시
+
+### 좋은 예시
+
+**Manager 폴더 (반응형 없음):**
+
+```scss
+.container {
+  @include flexSort(column, center, center, 2rem);
+  padding: 2rem;
+  background-color: $primary;
+}
+
+.title {
+  @include font(2.4rem, 700, 1.2);
+  color: $white;
+  margin-bottom: 1rem;
+}
+```
+
+**Student 폴더 (반응형 포함):**
+
+```scss
+.container {
+  @include flexSort(column, center, center, 2rem);
+  padding: 2rem;
+  background-color: $primary;
+
+  @include mobile {
+    padding: 1rem;
+  }
+}
+```
+
+### 나쁜 예시
+
+```scss
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; // px 사용 금지
+  padding: 20px; // px 사용 금지
+  background-color: #0bb964; // 하드코딩된 색상
+}
+```
+
+## 문제 해결
+
+### 불필요한 구조나 CSS 식별 방법
+
+1. **사용되지 않는 클래스**: 컴포넌트에서 참조하지 않는 클래스
+2. **중복 스타일**: 같은 속성이 여러 곳에서 반복 정의
+3. **복잡한 선택자**: 불필요하게 복잡한 CSS 선택자
+4. **하드코딩된 값**: 믹신이나 변수로 대체 가능한 값들
+5. **UI 컴포넌트 중복**: Txt, Button 컴포넌트와 중복되는 스타일 (파일 위치: `/packages/ui/src/design-system`)
+6. **manager 폴더의 반응형 코드**: manager 폴더에서는 `@include mobile`, `@include tablet` 등 사용 금지
+
+### 개선 방향
+
+1. **믹신 활용**: 반복되는 스타일 패턴을 믹신으로 추출 (flex, font 관련 코드는 무조건 mixin 사용해줘)
+2. **변수 사용**: 하드코딩된 색상, 크기 등을 변수로 변경
+3. **구조 단순화**: 불필요한 래퍼 요소나 클래스 제거
+4. **일관성 유지**: 프로젝트 전체의 스타일 일관성 확보
+5. **UI 컴포넌트 확인**: CSS 수정 전 `/packages/ui/src/design-system`의 Txt, Button 컴포넌트 확인하여 중복 방지
+6. **폴더별 규칙 준수**: manager 폴더는 반응형 금지, student 폴더는 반응형 권장
