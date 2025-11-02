@@ -16,7 +16,7 @@ export default function EnterEmailForm() {
     <form onSubmit={formAction} className={cn("form")}>
       <div className={cn("inputContainer")}>
         <LabeledInput
-          labeledInputContainerClassName={cn("emailInputContainer")}
+          containerClassName={cn("emailInputContainer")}
           id="email"
           type="email"
           label="전남대학교 이메일"
