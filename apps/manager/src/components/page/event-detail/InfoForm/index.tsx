@@ -53,7 +53,7 @@ export default function EventDetailInfoForm({
           placeholder="이벤트 제목을 입력해주세요."
           maxLength={MAX_EVENT_TITLE_LENGTH}
           value={formData.title}
-          labeledInputContainerClassName={cn("titleInputContainer")}
+          containerClassName={cn("titleInputContainer")}
           readOnly={!isPutMode}
         >
           <Txt size="small" className={cn("textLength")}>

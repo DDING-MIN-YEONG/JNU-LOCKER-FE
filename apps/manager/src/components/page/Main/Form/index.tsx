@@ -29,6 +29,7 @@ export default function CommitteeSignInForm() {
             placeholder="이메일을 입력해주세요."
             value={formData.email}
             onChange={onInputChange}
+            size="small"
           />
           <LabeledInput
             id="password"

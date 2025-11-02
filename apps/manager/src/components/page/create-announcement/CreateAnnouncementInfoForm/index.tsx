@@ -56,7 +56,7 @@ export default function CreateAnnouncementInfoForm({
           value={formData.title}
           placeholder="공지사항 제목을 입력해주세요."
           maxLength={MAX_ANNOUNCEMENT_TITLE_LENGTH}
-          labeledInputContainerClassName={cn("titleInputContainer")}
+          containerClassName={cn("titleInputContainer")}
         >
           <Txt size="small" className={cn("textLength")}>
             {formData.title.length} / {MAX_ANNOUNCEMENT_TITLE_LENGTH}

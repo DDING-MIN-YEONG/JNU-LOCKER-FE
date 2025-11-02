@@ -68,7 +68,7 @@ export default function SignUpForm() {
             onChange={onInputChange}
           />
           <LabeledInput
-            labeledInputContainerClassName={cn("emailInputContainer")}
+            containerClassName={cn("emailInputContainer")}
             id="email"
             type="email"
             label="이메일"
@@ -91,7 +91,7 @@ export default function SignUpForm() {
           {countdown && <Txt size="tiny">인증 코드 유효 시간 : {countdown}초</Txt>}
           {isEmailSend && (
             <LabeledInput
-              labeledInputContainerClassName={cn("certificationContainer")}
+              containerClassName={cn("certificationContainer")}
               id="emailCertificationNumber"
               type="text"
               label="이메일 인증코드"
@@ -117,7 +117,7 @@ export default function SignUpForm() {
             </LabeledInput>
           )}
           <LabeledInput
-            labeledInputContainerClassName={cn("phoneNumberInputContainer")}
+            containerClassName={cn("phoneNumberInputContainer")}
             id="phoneNumber"
             type="text"
             label="연락처"
