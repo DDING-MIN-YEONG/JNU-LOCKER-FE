@@ -1,4 +1,3 @@
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -9,6 +8,7 @@ import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { Selector } from "@/components/common/Selector";
 import { MAX_ANNOUNCEMENT_CONTENT_LENGTH, MAX_ANNOUNCEMENT_TITLE_LENGTH } from "@/constants/create-announcement";
 import { CreateAnnouncementForm } from "@/types/announcement";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Spinner from "@repo/ui/common/Spinner/index";
 
 const cn = classNames.bind(styles);
@@ -48,7 +48,7 @@ export default function CreateAnnouncementInfoForm({
         <Txt weight="medium">공지사항 입력</Txt>
       </header>
       <div className={cn("contentContainer")}>
-        <TextInput
+        <LabeledInput
           id="title"
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
           label="제목"
@@ -61,7 +61,7 @@ export default function CreateAnnouncementInfoForm({
           <Txt size="small" className={cn("textLength")}>
             {formData.title.length} / {MAX_ANNOUNCEMENT_TITLE_LENGTH}
           </Txt>
-        </TextInput>
+        </LabeledInput>
         <div className={cn("contentInputContainer")}>
           <LabeledTextarea
             id="content"

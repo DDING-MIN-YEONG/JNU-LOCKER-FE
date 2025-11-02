@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 
 const cn = classNames.bind(styles);
 
-export default function CommitteeSignUp() {
+export default function SignUpPage() {
   return (
     <AuthorizationLayout>
       <div className={cn("container")}>

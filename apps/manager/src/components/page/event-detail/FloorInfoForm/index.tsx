@@ -1,5 +1,4 @@
 import { EventDetailForm } from "@/types/event";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -7,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import styles from "./index.module.scss";
 
 import EventDetailPrefixInfoForm from "@/components/page/event-detail/PrefixInfoForm/index";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 
 const cn = classNames.bind(styles);
 
@@ -55,7 +55,7 @@ export default function EventDetailFloorInfoForm({
           </Button>
         )}
       </div>
-      <TextInput
+      <LabeledInput
         label="층수"
         value={floorData.floorNumber ?? 0}
         id={`floorNumber-${floorData.floorId}`}

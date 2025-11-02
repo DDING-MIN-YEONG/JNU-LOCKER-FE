@@ -2,7 +2,7 @@ import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { getEffectiveDate } from "@/functions/getEffectiveDate";
 import { MyAnnouncementDetailForm } from "@/types/announcement";
 import { formatToKoreanTime } from "@/utils/date";
-import TextInput from "@repo/ui/common/TextInput/index";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
@@ -22,8 +22,8 @@ export default function MyAnnouncementDetailInfoForm({ formData }: AnnouncementD
         <Txt weight="medium">공지사항</Txt>
       </header>
       <div className={cn("contentContainer")}>
-        <TextInput id="writer" label="작성자" type="text" value={formData.writer} readOnly />
-        <TextInput id="title" label="제목" type="text" value={formData.title} readOnly />
+        <LabeledInput id="writer" label="작성자" type="text" value={formData.writer} readOnly />
+        <LabeledInput id="title" label="제목" type="text" value={formData.title} readOnly />
         <LabeledTextarea
           id="content"
           label="내용"

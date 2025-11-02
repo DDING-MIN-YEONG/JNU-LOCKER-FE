@@ -1,7 +1,7 @@
 "use client";
 
 import useResetPassword from "@/hooks/reset-password/useResetPassword";
-import TextInput from "@repo/ui/common/TextInput/index";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -15,7 +15,7 @@ export default function ResetPasswordForm() {
   return (
     <form onSubmit={formAction} className={cn("form")}>
       <div className={cn("inputContainer")}>
-        <TextInput
+        <LabeledInput
           id="password"
           type="password"
           label="비밀번호"
@@ -23,7 +23,7 @@ export default function ResetPasswordForm() {
           value={formData.password}
           onChange={onChange}
         />
-        <TextInput
+        <LabeledInput
           id="passwordConfirm"
           type="password"
           label="비밀번호 확인"

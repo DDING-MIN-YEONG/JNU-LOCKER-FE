@@ -2,8 +2,8 @@ import { LabeledTextarea } from "@/components/common/LabeledTextarea";
 import { Selector } from "@/components/common/Selector";
 import { AnnouncementDetailForm } from "@/types/announcement";
 import { formatToKoreanTime } from "@/utils/date";
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Spinner from "@repo/ui/common/Spinner/index";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -63,7 +63,7 @@ export default function AnnouncementDetailInfoForm({
           </Txt>
         </header>
         <div className={cn("contentContainer")}>
-          <TextInput
+          <LabeledInput
             id="title"
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             label="제목"

@@ -9,4 +9,5 @@ export const ROUTE = {
   CREATE_ANNOUNCEMENT: "/create-announcement",
   APPROVE_WAIT: "/approve-wait",
   EVENT: "/event",
+  SERVER_INSPECTION: "/server-inspection",
 };

@@ -1,7 +1,7 @@
 "use client";
 
+import { LabeledInput } from "@repo/ui/common/LabeledInput/index";
 import Spinner from "@repo/ui/common/Spinner/index";
-import TextInput from "@repo/ui/common/TextInput/index";
 import Button from "@repo/ui/design-system/Button/index";
 import Txt from "@repo/ui/design-system/Txt/index";
 import classNames from "classnames/bind";
@@ -28,7 +28,7 @@ export default function ApplyLockerForm({
   return (
     <>
       <form className={cn("container")} onSubmit={formAction}>
-        <TextInput
+        <LabeledInput
           id="floor"
           type="text"
           label="층수"
@@ -38,7 +38,7 @@ export default function ApplyLockerForm({
           labelClassName={cn("label")}
           className={cn("input")}
         />
-        <TextInput
+        <LabeledInput
           id="lockerNumber"
           type="text"
           label="사물함 번호"

@@ -1,8 +1,0 @@
-.container {
-  width: 100%;
-}
-
-.labeledInputContainer {
-  width: 100%;
-  @include flexSort(column, null, null, 1rem);
-}

@@ -9,7 +9,6 @@
 .emailInputContainer,
 .certificationContainer,
 .phoneNumberInputContainer {
-  @include flexSort(row, null, flex-end, 1rem);
   width: 100%;
 }
 
