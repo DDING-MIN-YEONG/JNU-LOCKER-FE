@@ -1,6 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import ChatBot from "@/components/common/ChatBot";
 import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
+import type { Metadata, Viewport } from "next";
 
 const APP_NAME = "전남대학교 사물함 신청 서비스";
 const PWA_NAME = "전남대 사물함";
@@ -115,7 +116,10 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <ChatBot />
+        </Providers>
         <div id="spinner-root" />
       </body>
     </html>
