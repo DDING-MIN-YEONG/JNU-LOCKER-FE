@@ -1,0 +1,206 @@
+.chatbotContainer {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+
+  @include mobile {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+// 원형 버튼
+.chatButton {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: white;
+  border: 0.1rem solid black;
+  color: white;
+  font-size: 2.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  @include flexSort(row, center, center, null);
+
+  &:hover {
+    background-color: black;
+  }
+
+  &.isOpen {
+    background-color: black;
+  }
+
+  @include mobile {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+// 대화창
+.chatWindow {
+  width: 38rem;
+  height: 60rem;
+  max-height: calc(100vh - 10rem);
+  background-color: $white;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+  overflow: hidden;
+
+  @include mobile {
+    width: calc(100vw - 4rem);
+    max-width: 34rem;
+    height: calc(100vh - 10rem);
+    max-height: 55rem;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 헤더
+.chatHeader {
+  padding: 1rem 2rem;
+  background-color: $primary;
+  color: $white;
+  @include flexSort(null, space-between, center, null);
+  flex-shrink: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: $white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 3.2rem;
+  height: 3.2rem;
+  @include flexSort(null, center, center, null);
+  border-radius: 50%;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// 대화 본문
+.chatBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.6rem;
+  background-color: #f5f5f5;
+}
+
+.messageContainer {
+  @include flexSort(column, null, null, 1.2rem);
+}
+
+.message {
+  padding: 1.2rem 1.6rem;
+  border-radius: 1.2rem;
+  max-width: 75%;
+  word-wrap: break-word;
+
+  &.botMessage {
+    align-self: flex-start;
+    background-color: $white;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  &.userMessage {
+    align-self: flex-end;
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+// 입력 영역
+.chatInput {
+  padding: 1.6rem;
+  background-color: $white;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.sendButton {
+  padding: 1rem 2rem;
+  flex-shrink: 0;
+}
+
+.wait {
+  display: flex;
+  gap: 4px;
+}
+
+.wait span {
+  display: inline-block;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* 각 점마다 다른 delay (반복 주기 맞춰줌) */
+.wait span:nth-child(1) {
+  animation-delay: 0s;
+}
+.wait span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.wait span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.wait span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.wait span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+.wait span:nth-child(6) {
+  animation-delay: 0.75s;
+}
+
+/* 애니메이션 정의 */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

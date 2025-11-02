@@ -1,4 +1,5 @@
 import ApplyHeader from "@/components/common/ApplyHeader";
+import ChatBot from "@/components/common/ChatBot";
 import DepartmentInfo from "@/components/page/DepartmentInfo";
 
 export default function DepartmentInfoPage() {
@@ -6,6 +7,7 @@ export default function DepartmentInfoPage() {
     <>
       <ApplyHeader />
       <DepartmentInfo />
+      <ChatBot />
     </>
   );
 }

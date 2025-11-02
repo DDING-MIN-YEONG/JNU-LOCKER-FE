@@ -1,6 +1,6 @@
-import type { Metadata, Viewport } from "next";
 import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
+import type { Metadata, Viewport } from "next";
 
 const APP_NAME = "전남대학교 사물함 신청 서비스";
 const PWA_NAME = "전남대 사물함";
