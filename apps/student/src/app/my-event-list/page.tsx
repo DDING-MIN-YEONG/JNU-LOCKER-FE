@@ -1,6 +1,7 @@
 "use client";
 
 import ApplyHeader from "@/components/common/ApplyHeader";
+import ChatBot from "@/components/common/ChatBot";
 import MyEventList from "@/components/page/my-event-list";
 import { Suspense } from "react";
 
@@ -11,6 +12,7 @@ export default function MyEventListPage() {
       <Suspense>
         <MyEventList />
       </Suspense>
+      <ChatBot />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import ChatBot from "@/components/common/ChatBot";
 import "@/styles/_reset.scss";
 import Providers from "@repo/settings/components/Providers";
 import type { Metadata, Viewport } from "next";
@@ -116,10 +115,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <Providers>
-          {children}
-          <ChatBot />
-        </Providers>
+        <Providers>{children}</Providers>
         <div id="spinner-root" />
       </body>
     </html>

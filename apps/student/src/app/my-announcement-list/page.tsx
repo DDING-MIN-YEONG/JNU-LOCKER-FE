@@ -1,6 +1,7 @@
 "use client";
 
 import ApplyHeader from "@/components/common/ApplyHeader";
+import ChatBot from "@/components/common/ChatBot";
 import MyAnnouncementList from "@/components/page/my-announcement-list";
 import { Suspense } from "react";
 
@@ -11,6 +12,7 @@ export default function MyAnnouncementListPage() {
       <Suspense>
         <MyAnnouncementList />
       </Suspense>
+      <ChatBot />
     </>
   );
 }
